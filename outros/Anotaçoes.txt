@@ -1,0 +1,15 @@
+pyrcc5 IconPesquisar.qrc -o IconPesquisar.py
+pyuic5 -x projeto.ui -o projeto.py
+
+
+pyrcc6 arquivo.qrc -o arquivo.py <----------- imagens
+pyuic6 -x arquivo.ui -o arquivo.py <--------- codigo
+
+
+pyside-rcc arquivo.qrc -o arquivo_rc.py <----------- imagens
+pyside-uic arquivo.ui -o arquivo.py -x  <--------- codigo
+
+
+
+python -m venv venv # criar ambient virtual ou pasta venv
+

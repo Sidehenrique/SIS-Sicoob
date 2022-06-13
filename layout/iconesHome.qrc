@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="barr">
+    <file>IconCompra1.png</file>
+    <file>IconCompras.png</file>
+    <file>IconPesquisar.png</file>
+    <file>IconPesquisar1.png</file>
+    <file>IconRH.png</file>
+    <file>IconRH1.png</file>
+    <file>IconTI.png</file>
+    <file>IconTI1.png</file>
+    <file>IconLogo.png</file>
+    <file>IconPesquisar.png</file>
+  </qresource>
+</RCC>
