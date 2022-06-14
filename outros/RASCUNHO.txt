@@ -1,0 +1,289 @@
+
+
+# função para formatar o titulo e menu _________________________
+def titulo(msg):
+    print('=' * 40, )
+    print(msg.center(40), )
+    print('=' * 40, )
+
+
+def subtitulo(msg):
+    print('_' * 40)
+    print(msg.center(40))
+    print('_' * 40)
+
+
+def formatar(menu):
+    for menu in menu:
+        print(menu)
+
+
+# bloco de opções do titulo _____________________________________
+print()
+titulo('CONTROLE DE ESTOQUE v1.0')
+print()
+subtitulo('** OQUE DESEJA FAZER? **')
+
+# bloco de opções do menu _______________________________________
+menu1 = ['[V] Visualizar', '[I] Imprimir', '[H] Historico', '[E] Entrada', '[S] Saida', '[F] Fechar']
+menu_entrada = ['[1] Notebook', '[2] Celular', '[3] Memoria', '[4] Disco', '[5] Perifericos', '[6] Chaves',
+                '[7] Voltar']
+menu_saida = ['[1] Notebook', '[2] Celular', '[3] Memoria', '[4] Disco', '[5] Perifericos',
+              '[7] Chaves']
+menu_peri = ['[1]Mouse', '[2]Teclado', '[3]Mouse Pad', '[4]Suporte', '[5]Adaptadores de Rede', '[6]Outros']
+
+# listas e items ________________________________________________
+bd_note = []
+bd_celu = []
+bd_memo = []
+bd_disc = []
+bd_mouse = []
+bd_tec = []
+bd_mpad = []
+bd_supt = []
+bd_adpr = []
+bd_outros = []
+# formatação menu _______________________________________________
+formatar(menu1)
+print()
+menu_escolha = input('* ENTRE COM UM COMANDO: ').upper()
+
+
+# menu Principal ________________________________________________
+
+while True:
+    if menu_escolha == 'E':
+        print(formatar(menu_entrada))
+        menu_valor = int(input('* ESCOLHA UMA OPÇÃO: '))
+        if menu_valor == 1:
+            print()
+            marca = input('Digite a marca: ')
+            modelo = input('Digite o modelo: ')
+            condicao = input('Digite a condição: ')
+            valor = input('Digite o valor: ')
+            imb = input('Digite o imobilizado: ')
+            notebook = [marca, modelo, condicao, valor, imb]
+            bd_note.append(notebook)
+            print(type(notebook))
+            print(notebook)
+            print(bd_note)
+            print('-' * 40)
+
+        if menu_valor == 2:
+            print()
+            marca = input('Digite a marca: ')
+            modelo = input('Digite o modelo: ')
+            condicao = input('Digite a condição: ')
+            valor = input('Digite o valor: ')
+            imei = input('Digite o Imei: ')
+            celular = [marca, modelo, condicao, valor, imei]
+            bd_celu.append(celular)
+            print(type(celular))
+            print(celular)
+            print(bd_celu)
+            print('-' * 40)
+
+        if menu_valor == 3:
+            print()
+            marca = input('Digite a marca: ')
+            modelo = input('DDR3 OU DDR4 ').upper()
+            plataforma = input('Plataforma: ')
+            condicao = input('Digite a condição: ')
+            tamanho = input('Digite o tamanho: ')
+            valor = input('Digite o valor: ')
+            memoria = [marca, modelo, plataforma, condicao, tamanho, valor]
+            bd_memo.append(memoria)
+            print(type(memoria))
+            print(memoria)
+            print(bd_memo)
+            print('-' * 40)
+
+        if menu_valor == 4:
+            print()
+            marca = input('Digite a marca: ')
+            modelo = input('HHD, SSD, M2 ').upper()
+            plataforma = input('Plataforma: ').upper()
+            condicao = input('Digite a condição: ')
+            tamanho = input('Digite o tamanho: ')
+            valor = input('Digite o valor: ')
+            disco = [marca, modelo, plataforma, condicao, tamanho, valor]
+            bd_disc.append(disco)
+            print(type(disco))
+            print(disco)
+            print(bd_disc)
+            print('-' * 40)
+
+        if menu_valor == 5:
+            formatar(menu_peri)
+            sub_menu = int(input('* ENTRE COM UM VALOR: '))
+            if sub_menu == 1:
+                print()
+                marca = input('Digite a marca: ')
+                modelo = input('Digite o modelo ').upper()
+                condicao = input('Digite a condição: ')
+                valor = input('Digite o valor: ')
+                mouse = [marca, modelo, condicao, valor]
+                bd_mouse.append(mouse)
+                print(type(mouse))
+                print(mouse)
+                print(bd_mouse)
+                print('-' * 40)
+                continue
+
+            elif sub_menu == 2:
+                print()
+                marca = input('Digite a marca: ')
+                modelo = input('Digite o modelo ').upper()
+                condicao = input('Digite a condição: ')
+                valor = input('Digite o valor: ')
+                teclado = [marca, modelo, condicao, valor]
+                bd_tec.append(teclado)
+                print(type(teclado))
+                print(teclado)
+                print(bd_tec)
+                print('-' * 40)
+                continue
+
+            elif sub_menu == 3:
+                print()
+                marca = input('Digite a marca: ')
+                modelo = input('Digite o modelo ').upper()
+                condicao = input('Digite a condição: ')
+                valor = input('Digite o valor: ')
+                mouse_pad = [marca, modelo, condicao, valor]
+                bd_mpad.append(mouse_pad)
+                print(type(mouse_pad))
+                print(mouse_pad)
+                print(bd_mpad)
+                print('-' * 40)
+                continue
+
+            elif sub_menu == 4:
+                print()
+                marca = input('Digite a marca: ')
+                condicao = input('Digite a condição: ')
+                valor = input('Digite o valor: ')
+                suporte = [marca, condicao, valor]
+                bd_supt.append(suporte)
+                print(type(suporte))
+                print(suporte)
+                print(bd_supt)
+                print('-' * 40)
+                continue
+
+            elif sub_menu == 5:
+                print()
+                marca = input('Digite a marca: ')
+                modelo = input('Digite o modelo ').upper()
+                condicao = input('Digite a condição: ')
+                valor = input('Digite o valor: ')
+                adapter = [marca, modelo, condicao, valor]
+                bd_adpr.append(adapter)
+                print(type(adapter))
+                print(adapter)
+                print(bd_adpr)
+                print('-' * 40)
+                continue
+
+            elif sub_menu == 6:
+                print()
+                marca = input('Digite a marca: ')
+                modelo = input('Digite o modelo ').upper()
+                condicao = input('Digite a condição: ')
+                valor = input('Digite o valor: ')
+                outros = [marca, modelo, condicao, valor]
+                bd_outros.append(outros)
+                print(type(outros))
+                print(outros)
+                print(bd_outros)
+                print('-' * 40)
+                continue
+
+            else:
+                print(subtitulo(' OPÇÃO INVALIDA '))
+
+        if menu_valor == 6:
+            print()
+            marca = input('Digite a marca: ')
+            modelo = input('HHD, SSD, M2 ').upper()
+            plataforma = input('Plataforma: ').upper()
+            condicao = input('Digite a condição: ')
+            tamanho = input('Digite o tamanho: ')
+            valor = input('Digite o valor: ')
+            disco = [marca, modelo, plataforma, condicao, tamanho, valor]
+            bd_disc.append(disco)
+            print(type(disco))
+            print(disco)
+            print(bd_disc)
+            print('-' * 40)
+
+        elif menu_valor == 7:
+            pass
+
+        else:
+            print(subtitulo('* OPA DEU BOM *'))
+
+    else:
+        print(subtitulo('*** OPÇÃO INVALIDA ***'))
+
+
+
+# ler = pd.read_csv(r'C:\Users\HENRIQUE SILVA\Desktop\DESENVOLVIMENTO\modulos\teste.csv')
+# print(ler)
+
+# dicio = {'marca': ['acer'],
+#          'modelo': ['a515'],
+#          'estado': ['novo'],
+#          'valor': [3000],
+#          'imb': ['16123']
+#          }
+# df = pd.DataFrame(dicio, index=[1])
+# print(df)
+# df.to_csv('base.csv')
+
+# ler = pd.read_csv(r'C:\Users\HENRIQUE SILVA\Desktop\DESENVOLVIMENTO\modulos\base.csv')
+# df = pd.DataFrame(ler)
+# df.drop(6)
+#
+# print(ler)
+#
+
+# modelo = input('WINDOWS OU OFFICE: ')
+# codigo = input('Digite o código: ')
+# valor = input('Digite o valor: ')
+# dados = [(modelo, codigo, valor)]
+#
+# print(dados)
+#
+# df = pd.DataFrame(dados, columns=['modelo', 'Codigo', 'Valor'])
+# df.to_csv('base2.csv')
+# print(df)
+
+# df = pd.read_csv('base2.csv')
+
+
+# note_lista = [('acer', 'a151', '3000')]
+#
+# df = pd.DataFrame(data=note_lista, columns=['marca', 'modelo', 'valor'])
+# # print(df)
+# df = df.append({'marca': 'Apple', 'modelo': 'ios', 'valor': 1000}, ignore_index=True)
+# df.to_csv('base2.csv')
+# print(df)
+
+# base = pd.read_csv(r'C:\Users\HENRIQUE SILVA\Desktop\DESENVOLVIMENTO\db\bd_notebook.csv')
+# print(base)
+# arquivo = (tuple(base))
+
+# df.to_csv(r'C:\Users\HENRIQUE SILVA\Desktop\DESENVOLVIMENTO\db\bd_notebook.csv', index=False)
+# print()
+# print(df)
+#
+# DataFrame.to_csv(
+#   self,
+#   path_or_buf,
+#   sep: str = ',',
+#   na_rep: str = '',
+
+
+# arquivo = [('acer', 'a515', 'novo', 3000, 16456)]
+# df = pd.DataFrame(arquivo, columns=['marca', 'modelo', 'condição', 'valor', 'imb'])

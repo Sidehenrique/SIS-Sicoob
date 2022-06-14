@@ -1,0 +1,19 @@
+import pymysql.cursors
+
+# abrir uma conexão a um banco de dados
+con = pymysql.connect(host='localhost', user='root', database='bd_estoque', password='', cursorclass=pymysql.cursors.DictCursor)
+
+# preparando um cursor com o método .cursor() 
+with con.cursor as c:
+	#criar uma consulta
+	sql = "SELECT bd_estoque, FROM bd_notebook"
+	c.execute(sql)
+	res = c.fetcall()
+	print('\n', res)
+	print()
+	for linha in rep:
+		print(linha['bd_notebook'])
+
+
+con.close()
+

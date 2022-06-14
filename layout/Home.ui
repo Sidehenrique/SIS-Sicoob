@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1174</width>
+    <width>1173</width>
     <height>744</height>
    </rect>
   </property>
@@ -312,8 +312,7 @@ border: 0px</string>
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton {
-	
-	background-image: url(:/barr/IconPesquisar.png);
+	background-image: url(:/barr/IconPesquisar1.png);
 	background-position:center;
 	background-repeat: no-repeat;
 	background-color: rgb(238, 238, 238);
@@ -322,8 +321,7 @@ border: 0px</string>
 	border-color:  rgb(238, 238, 238);
 }
 QPushButton:hover {
-	
-	background-image: url(:/icons/1x/pesquisarhover.png);
+	background-image: url(:/barr/IconPesquisar.png);
 	background-color: rgb(243, 243, 243);
 }
 QPushButton:pressed {
@@ -438,7 +436,7 @@ border-radius: 25px</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <property name="spacing">
-           <number>7</number>
+           <number>20</number>
           </property>
           <property name="leftMargin">
            <number>0</number>
@@ -496,7 +494,7 @@ border-radius: 25px</string>
               <number>0</number>
              </property>
              <property name="spacing">
-              <number>9</number>
+              <number>20</number>
              </property>
              <item row="0" column="0">
               <widget class="QFrame" name="frame_8">
@@ -533,6 +531,7 @@ border-radius: 25px</string>
                   <property name="styleSheet">
                    <string notr="true">QPushButton {
 	
+	background-image: url(:/barr/IconTI.png);
 	background-position:center;
 	background-repeat: no-repeat;
 	background-color: rgb(217, 225, 224);
@@ -540,7 +539,8 @@ border-radius: 25px</string>
 	box-shadow: 10px 5px 5px black;
 }
 QPushButton:hover {
-	background-image: url(:/pesquisar/1x/B_compras.png);
+	
+	background-image: url(:/barr/IconTI1.png);
 	background-color: rgb(0, 53, 62);
 	border:1px solid rgb(0, 53, 62);
 }

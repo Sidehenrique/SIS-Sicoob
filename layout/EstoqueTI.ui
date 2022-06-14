@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1446</width>
-    <height>839</height>
+    <width>1174</width>
+    <height>680</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -101,7 +101,7 @@ background-repeat: no-repeat;
         <widget class="QFrame" name="frameBottons">
          <property name="minimumSize">
           <size>
-           <width>220</width>
+           <width>500</width>
            <height>0</height>
           </size>
          </property>
@@ -134,11 +134,17 @@ background-repeat: no-repeat;
            <number>0</number>
           </property>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="pushButtonChamados">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
-              <width>0</width>
-              <height>79</height>
+              <width>108</width>
+              <height>0</height>
              </size>
             </property>
             <property name="font">
@@ -169,16 +175,22 @@ QPushButton:pressed {
 }</string>
             </property>
             <property name="text">
-             <string>PERFIL</string>
+             <string>CHAMADOS</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="pushButtonControle">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>79</height>
+              <height>0</height>
              </size>
             </property>
             <property name="font">
@@ -209,7 +221,87 @@ QPushButton:pressed {
 }</string>
             </property>
             <property name="text">
-             <string>SAIR</string>
+             <string>CONTROLE</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonEstoque">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	
+	
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
+}
+
+QPushButton:hover {
+	
+	background-color: rgb(5, 75, 88);
+}
+QPushButton:pressed {
+	
+	background-color: rgb(2, 38, 45);
+}</string>
+            </property>
+            <property name="text">
+             <string>ESTOQUE</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonVoltar">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	
+	
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
+}
+
+QPushButton:hover {
+	
+	background-color: rgb(5, 75, 88);
+}
+QPushButton:pressed {
+	
+	background-color: rgb(2, 38, 45);
+}</string>
+            </property>
+            <property name="text">
+             <string>VALTAR</string>
             </property>
            </widget>
           </item>
@@ -459,7 +551,7 @@ border-radius: 25px</string>
           <item>
            <widget class="QFrame" name="frameSubmenu">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
               <horstretch>20</horstretch>
               <verstretch>20</verstretch>
              </sizepolicy>
@@ -477,7 +569,7 @@ border-radius: 25px</string>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(227, 227, 227);</string>
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
@@ -485,6 +577,252 @@ border-radius: 25px</string>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <property name="spacing">
+              <number>11</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_Nomepg">
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>11</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 53, 62);</string>
+               </property>
+               <property name="text">
+                <string>GESTÃO DE ESTOQUE</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_Inicio">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>93</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(89, 89, 89);
+	border: 1px solid;
+	border-color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+	color: rgb(0, 53, 62);
+	
+	background-color: rgb(240, 240, 240);
+	border: 1px solid;
+	
+	
+	border-color: rgb(223, 223, 223);
+}
+QPushButton:pressed {
+	
+	
+	background-color: rgb(188, 188, 188);
+}</string>
+               </property>
+               <property name="text">
+                <string>INICIO</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonEntrada">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>93</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(89, 89, 89);
+	border: 1px solid;
+	border-color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+	color: rgb(0, 53, 62);
+	
+	background-color: rgb(240, 240, 240);
+	border: 1px solid;
+	
+	
+	border-color: rgb(223, 223, 223);
+}
+QPushButton:pressed {
+	
+	
+	background-color: rgb(188, 188, 188);
+}</string>
+               </property>
+               <property name="text">
+                <string>ENTRADA</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonSaida">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>93</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(89, 89, 89);
+	border: 1px solid;
+	border-color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+	color: rgb(0, 53, 62);
+	
+	background-color: rgb(240, 240, 240);
+	border: 1px solid;
+	
+	
+	border-color: rgb(223, 223, 223);
+}
+QPushButton:pressed {
+	
+	
+	background-color: rgb(188, 188, 188);
+}</string>
+               </property>
+               <property name="text">
+                <string>SAIDA</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonHistorico">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>93</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(89, 89, 89);
+	border: 1px solid;
+	border-color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+	color: rgb(0, 53, 62);
+	
+	background-color: rgb(240, 240, 240);
+	border: 1px solid;
+	
+	
+	border-color: rgb(223, 223, 223);
+}
+QPushButton:pressed {
+	
+	
+	background-color: rgb(188, 188, 188);
+}</string>
+               </property>
+               <property name="text">
+                <string>HISTORICO</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
@@ -496,10 +834,13 @@ border-radius: 25px</string>
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(231, 231, 231);</string>
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="lineWidth">
+             <number>1</number>
             </property>
             <property name="currentIndex">
              <number>0</number>

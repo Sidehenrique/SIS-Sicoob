@@ -1,0 +1,58 @@
+use BD_SICOOB
+
+select * from teste
+
+insert into teste values ('maria')
+
+alter table celular ADD modstamp DATETIME2 NULL DEFAULT GETDATE()
+
+alter table celular drop dataa
+
+alter table teste
+    add constraint dataa default (getdate()) for dataa;
+
+
+
+CREATE TABLE teste(
+
+id int Identity(1,1) Primary Key,
+marca varchar (15),
+modelo varchar (15),
+condicao varchar (15),
+valor int,
+imei int,
+dta DateTime Default getdate(),
+
+)
+
+insert into teste values ('samsumg', 'a02', 'novo', '600', '123456', '')
+
+SELECT * from teste
+
+SELECT GETDATE ()
+
+SELECT dta, DATEADD(month, 1, SYSDATETIME()),
+
+sp_help teste,
+
+select convert (char, getdate(), 103)
+
+use BD_SICOOB
+
+SELECT * from teste
+
+DELETE celular
+
+DELETE FROM notebook WHERE id=7
+
+SELECT CONVERT (date, GETDATE())
+
+
+
+Create Table Clientes
+
+(Codigo Int Identity(1,1) Primary Key,
+
+ Nome Varchar(100) Not Null,
+
+ DataCadastro DateTime Default GetDate())

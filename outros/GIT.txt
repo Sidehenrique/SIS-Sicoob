@@ -1,0 +1,63 @@
+PowerShell
+
+---------------------------- criar chave publica
+ssh-keygen
+precionar ENTER Duas Vezes
+
+---------------------------- listar e pegar chave publica
+cd ~/..ssh/
+ls
+cat nomechave
+
+---------------------------- vizualizações
+ls -la
+ls
+log
+show
+status
+git log --graph
+
+---------------------------- Repositorio
+mkdir nomepasta             / criar nova pasta
+cd nomepasta                / entar na pasta
+git init                    / iniciar repositorio
+vim nomearquivo             / criar um arquivo
+vi nomearquivo              /'i' iserir 
+                             'ESQ' sair 
+                             ':' camar comando 
+                             'W' grava 
+                             'Q' sair 
+                             'WQ' grava e sai
+
+
+---------------------------- staged e commit
+git add .                   / todos os arquivos
+git add nomearquivo         / manda para o staged
+git commit  -am ""          / commita 'a' todos os arquivos 'm' comentario 
+
+git remote add <nome> <url>
+git push <nomerepositorio> <branch>
+git push <nome>
+
+---------------------------- reset
+git diff                    / descartar modificação antes de ir pro staged
+git reset HEAD nomearquivo  / tirar do staged
+git checkout nomearquivo    / descarta todas as mudanças
+
+git reset --soft            / Desfaz o commit mais mantem tudo preparado no staged
+git reset --mixed           / Desfaz o commit e tira do staged mais fica no modified
+git reset --hard            / Desfaz o commit e tudo o que foi feito
+
+git revert codigocommit     / Reverte o commit para o anterior mais deixa esse no
+                              historico
+
+---------------------------- branch
+git checkout -b nomebranch  / Criar novo branch
+git checkout nomebrench     / Celecionar branch
+git branch -D nomebrench    / Deletar branch
+git merge nomebranch        / Unir os branch em um novo commit fazendo um ciclo
+git rebase nomebransh       / Unir os branch de maneira linear no poto da lista
+
+---------------------------- git ignore
+vi .gitignore               / Colocar dentro desse arquivo os nomes dos items a serem
+                              ignorados extenssão ou nome. 
