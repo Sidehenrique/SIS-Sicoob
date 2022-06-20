@@ -1,5 +1,16 @@
 <RCC>
   <qresource prefix="barr">
+    <file>Grupo 131.png</file>
+    <file>Grupo 192.png</file>
+    <file>Grupo 193.png</file>
+    <file>Grupo 194.png</file>
+    <file>Grupo 195.png</file>
+    <file>Grupo 197.png</file>
+    <file>Grupo 198.png</file>
+    <file>Grupo 200.png</file>
+    <file>Grupo 201.png</file>
+    <file>Grupo 202.png</file>
+    <file>Grupo 203.png</file>
     <file>IconCompra1.png</file>
     <file>IconCompras.png</file>
     <file>IconPesquisar.png</file>

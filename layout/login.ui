@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1037</width>
-    <height>609</height>
+    <width>1392</width>
+    <height>714</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -274,6 +274,15 @@ border: inset;
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_5">
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
               <item>
                <widget class="QLineEdit" name="lineEdit">
                 <property name="font">
@@ -326,6 +335,15 @@ QFrame:hover {
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_4">
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_3">
                 <property name="font">
@@ -371,6 +389,9 @@ border: not;</string>
                <bold>true</bold>
               </font>
              </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
 	color: white;
@@ -415,9 +436,9 @@ QPushButton:pressed {
             <widget class="QLabel" name="label">
              <property name="geometry">
               <rect>
-               <x>42</x>
+               <x>20</x>
                <y>420</y>
-               <width>211</width>
+               <width>261</width>
                <height>20</height>
               </rect>
              </property>
