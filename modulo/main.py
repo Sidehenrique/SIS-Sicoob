@@ -1,6 +1,8 @@
 from login import *
 from estoqueTI import *
-import mod
+import db
+import pandas as pd
+from PyQt5.QtWidgets import QTableWidgetItem
 
 
 # TRATAMENTO LOGIN ========================================================================
@@ -20,7 +22,7 @@ def login(ui):
         print(usuario, password)
 
         try:
-            cursor = mod.conectar_mssql()
+            cursor = db.conectar_mssql()
             cursor.execute(f"""SELECT senha FROM cadastro WHERE usuario = '{usuario}';""")
             senha_bd = cursor.fetchall()
             print(senha_bd[0][0])
@@ -121,18 +123,57 @@ def estoqueTi(mw):
         mw.stackedWidget.setCurrentWidget(mw.pageHome)
     mw.pushButton_Inicio.clicked.connect(ButtonInicio)
 
-    mw.ButtonnNotebook.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.page))
+    def ButtonEntrada():
+        pass
 
-    nome = 'henrique'
-    sobrenome = 'silva'
-    telefone = 'tres'
-    endereco = 'q10'
+    def ButtonSaida():
+        pass
 
-    coluna = nome, sobrenome, telefone, endereco
-    linhas = ['um', 'dois', 'tres', 'quatro', 'cinco']
+    def ButtonHistorico():
+        pass
 
-    mw.tableWidgetCelular.setColumnCount(15)
-    mw.tableWidgetCelular.setRowCount(30)
+    #  Acionamento Botões de icones de TABELA ---------------------------------------------
+
+    mw.ButtonNotebook.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageNotebook))
+    mw.ButtonCelular.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageCelular))
+    mw.ButtonMemoria.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageMemoria))
+    mw.ButtonSSD.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget())
+    mw.ButtonMouse.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget())
+
+    #  Tratamento info home ---------------------------------------------------------------
+
+    # def chekQuantidade(entrada):
+    #     cursor = db.conectar_mssql()
+    #     cursor.execute(f"""SELECT * FROM {entrada};""")
+    #     quantidade = cursor.fetchall()
+    #     q = (len(quantidade))
+    #     print(q)
+    #     cursor.close()
+    #     return q
+    # chekQuantidade('cadastro')
+
+    # mw.labelNotebook.setText(chekQuantidade)
+
+
+    def tabelaNote():
+        mw.tableWidgetCelular.setStyleSheet("")
+
+        cursor = db.conectar_mssql()
+        cursor.execute(f"""SELECT * FROM cadastro;""")
+        quantidade = cursor.fetchall()
+
+
+
+        mw.tableWidgetCelular.setSortingEnabled(True)
+
+
+        # mw.tableWidgetCelular.setColumnCount(15)
+        # mw.tableWidgetCelular.setRowCount(30)
+
+
+
+
+
 
 
 

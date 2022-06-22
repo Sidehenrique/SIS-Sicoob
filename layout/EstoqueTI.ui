@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1461</width>
-    <height>802</height>
+    <width>1174</width>
+    <height>747</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -971,7 +971,7 @@ QPushButton:pressed {
              <number>1</number>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="pageHome">
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1073,7 +1073,7 @@ border-radius: 10px;</string>
                      <item>
                       <layout class="QHBoxLayout" name="horizontalLayout_9">
                        <item>
-                        <widget class="QPushButton" name="ButtonnNotebook">
+                        <widget class="QPushButton" name="ButtonNotebook">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                            <horstretch>2</horstretch>
@@ -1809,7 +1809,7 @@ border-radius: 10px;</string>
                      <item>
                       <layout class="QHBoxLayout" name="horizontalLayout_17">
                        <item>
-                        <widget class="QPushButton" name="pushButton_9">
+                        <widget class="QPushButton" name="ButtonMousePad">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                            <horstretch>2</horstretch>
@@ -1828,7 +1828,7 @@ background-repeat: no-repeat;
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_27">
+                        <widget class="QLabel" name="labelMousepad">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                            <horstretch>3</horstretch>
@@ -2810,9 +2810,6 @@ background-repeat: no-repeat;
             </widget>
             <widget class="QWidget" name="pageNotebook">
              <layout class="QVBoxLayout" name="verticalLayout_5">
-              <property name="spacing">
-               <number>0</number>
-              </property>
               <item>
                <widget class="QFrame" name="frame_7">
                 <property name="sizePolicy">
@@ -2918,13 +2915,63 @@ background-repeat: no-repeat;
               <item>
                <widget class="QTableWidget" name="tableWidgetNotebook"/>
               </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_22">
+                <item>
+                 <spacer name="horizontalSpacer_6">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="ButtonNoteView">
+                  <property name="minimumSize">
+                   <size>
+                    <width>100</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Asap</family>
+                    <pointsize>9</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
+}
+
+QPushButton:hover {
+	
+	background-color: rgb(5, 75, 88);
+}
+QPushButton:pressed {
+	
+	background-color: rgb(2, 38, 45);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>VISUALIZAR</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
              </layout>
             </widget>
             <widget class="QWidget" name="pageCelular">
              <layout class="QVBoxLayout" name="verticalLayout_20">
-              <property name="spacing">
-               <number>0</number>
-              </property>
               <item>
                <widget class="QFrame" name="frame_10">
                 <property name="sizePolicy">
@@ -3030,13 +3077,63 @@ background-repeat: no-repeat;
               <item>
                <widget class="QTableWidget" name="tableWidgetCelular"/>
               </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_26">
+                <item>
+                 <spacer name="horizontalSpacer_7">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="ButtonCelView">
+                  <property name="minimumSize">
+                   <size>
+                    <width>100</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Asap</family>
+                    <pointsize>9</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
+}
+
+QPushButton:hover {
+	
+	background-color: rgb(5, 75, 88);
+}
+QPushButton:pressed {
+	
+	background-color: rgb(2, 38, 45);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>VISUALIZAR</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
              </layout>
             </widget>
             <widget class="QWidget" name="pageMemoria">
              <layout class="QVBoxLayout" name="verticalLayout_22">
-              <property name="spacing">
-               <number>0</number>
-              </property>
               <item>
                <widget class="QFrame" name="frame_11">
                 <property name="sizePolicy">
@@ -3141,6 +3238,59 @@ background-repeat: no-repeat;
               </item>
               <item>
                <widget class="QTableWidget" name="tableWidgetMemoria"/>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_27">
+                <item>
+                 <spacer name="horizontalSpacer_8">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="ButtonMemView">
+                  <property name="minimumSize">
+                   <size>
+                    <width>100</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Asap</family>
+                    <pointsize>9</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
+}
+
+QPushButton:hover {
+	
+	background-color: rgb(5, 75, 88);
+}
+QPushButton:pressed {
+	
+	background-color: rgb(2, 38, 45);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>VISUALIZAR</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </widget>

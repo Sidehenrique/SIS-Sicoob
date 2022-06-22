@@ -22,7 +22,6 @@ def conectar_mssql():
     cur = con.cursor()
     return cur
 
-# MANIPULANDO PUPUP ----------------------------------------------------------------
 
 
 
