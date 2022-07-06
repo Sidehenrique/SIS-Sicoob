@@ -9,12 +9,53 @@ import db
 import pandas as pd
 import pyodbc
 from PyQt5.QtSql import QSqlDatabase, QSqlTableModel
+from main import *
+from datetime import date
+
+
+imb = 16333
+marca = 'ACER'
+modelo = 'NITRO'
+condicao = 'NOVO'
+anoFab = 2020
+cfg = 'SIM'
+tela = 16
+ssd = 'SIM'
+HDexp = 'SIM'
+preco = 3000
+carregador = 'SIM'
+processador = 'Core I3'
+marcaPro = 'intel'
+frequenciaPro = '3.3'
+geracaoPro = '1G'
+ram = 8
+ddr = 'DDR4'
+frequenciaMemo = 1600
+memoExp = 'SIM'
+chaveW = 789456132
+chaveO = 123456798
+windows = 'ATIVO'
+office = 'ATIVO'
+descricao = 'descrição'
+data = date.today()
+serviceTag = 12315464
+teamViewer = '13213wqewedff'
+anteVirus = 'SIM'
 
 
 
+print(data)
 
-
-
+cursor = db.conectar_mssql()
+cursor.execute(
+    f"""INSERT INTO teste7 VALUES ({imb},'{marca}','{modelo}','{condicao}',{anoFab},'{cfg}',{tela},
+    {preco},'{serviceTag}','{teamViewer}','{ssd}','{HDexp}','{carregador}',
+    '{processador}','{marcaPro}','{frequenciaPro}','{geracaoPro}',{ram},'{ddr}',{frequenciaMemo},
+    '{anteVirus}','{memoExp}','{chaveW}','{chaveO}','{windows}','{office}','{descricao}',{data});""")
+print(data)
+cursor.commit()
+cursor.close()
+# liparCampsNote()
 
 
 

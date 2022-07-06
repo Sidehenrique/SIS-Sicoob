@@ -12,7 +12,7 @@ def conectar_mssql():
         # Porta
         'PORT=1433;'
         # Banco que será utilizado.
-        'DATABASE=base_stc;'
+        'DATABASE=SISBD;'
         # Nome de usuário.
         f'UID=sa;'
         # Senha.

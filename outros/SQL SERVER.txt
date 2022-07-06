@@ -56,3 +56,46 @@ Create Table Clientes
  Nome Varchar(100) Not Null,
 
  DataCadastro DateTime Default GetDate())
+
+
+
+
+CREATE DATABASE SISBD
+
+use SISBD;
+
+CREATE TABLE teste8(
+
+id int Identity(1000,1) Primary Key,
+imb varchar (25),
+marca varchar (25),
+modelo varchar (25),
+condicao varchar (25),
+anoFab varchar (25),
+cfg varchar (25),
+tela varchar (25),
+
+preco varchar (25),
+serviceTag varchar (25),
+teamViewer varchar (25),
+ssd varchar (25),
+HDexp varchar (25),
+carregador varchar (25),
+
+processador varchar (25),
+marcaPro varchar (25),
+frequenciaPro varchar (25),
+geracaoPro varchar (25),
+ram varchar (25),
+ddr varchar (25),
+frequenciaMemo varchar (25),
+
+anteVirus varchar (25),
+memoExp varchar (25),
+chaveW varchar (25),
+chaveO varchar (25),
+windows varchar (25),
+office varchar (25),
+descricao varchar (50),
+data varchar (25)
+)

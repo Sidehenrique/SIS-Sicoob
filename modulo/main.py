@@ -1,6 +1,10 @@
+import pyodbc
+
 from login import *
 from estoqueTI import *
+from entradaEstoque import *
 import db
+from datetime import date
 import pandas as pd
 from PyQt5.QtWidgets import QTableWidgetItem
 
@@ -86,7 +90,7 @@ def login(ui):
 #     # tratamento de informações com o BANCO DE DADOS ------------------------------------
 
 
-#  TRATAMENTO ESTOQUE TI ==================================================================
+'''  TRATAMENTO ESTOQUE TI ================================================================== '''
 
 def estoqueTi(mw):
     MainEstoque.setWindowTitle('ESTOQUE')
@@ -124,7 +128,8 @@ def estoqueTi(mw):
     mw.pushButton_Inicio.clicked.connect(ButtonInicio)
 
     def ButtonEntrada():
-        pass
+        MainEEstoque.show()
+    mw.pushButtonEntrada.clicked.connect(ButtonEntrada)
 
     def ButtonSaida():
         pass
@@ -155,20 +160,114 @@ def estoqueTi(mw):
     # mw.labelNotebook.setText(chekQuantidade)
 
 
-    def tabelaNote():
-        mw.tableWidgetCelular.setStyleSheet("")
-
-        cursor = db.conectar_mssql()
-        cursor.execute(f"""SELECT * FROM cadastro;""")
-        quantidade = cursor.fetchall()
-
-
-
-        mw.tableWidgetCelular.setSortingEnabled(True)
+    # def tabelaNote():
+    #     mw.tableWidgetCelular.setStyleSheet("")
+    #
+    #     cursor = db.conectar_mssql()
+    #     cursor.execute(f"""SELECT * FROM cadastro;""")
+    #     quantidade = cursor.fetchall()
+    #
+    #
+    #
+    # mw.tableWidgetCelular.setSortingEnabled(True)
 
 
         # mw.tableWidgetCelular.setColumnCount(15)
         # mw.tableWidgetCelular.setRowCount(30)
+
+    ''' Cadastro de Items do estoque no banco ---------------------------------------------'''
+
+    ee.stackedWidgetCadastro.setCurrentIndex(0)
+    ee.comboBoxSeletorGeral.activated['int'].connect(ee.stackedWidgetCadastro.setCurrentIndex)
+    QtCore.QMetaObject.connectSlotsByName(MainEEstoque)
+
+    def cadastrarNotebook():
+        imb = ee.lineEditIMBNote.text()
+        marca = ee.lineEditMarcaNote.text()
+        modelo = ee.lineEditModeloNote.text()
+        condicao = ee.lineEditEstadoNote.text()
+        anoFab = ee.lineEditAnoFabriNote.text()
+        cfg = ee.comboBoxCFGNote.currentText()
+        tela = ee.comboBoxTelaNote.currentText()
+        ssd = ee.comboBoxSSDNote.currentText()
+        HDexp = ee.comboBoxExpancivelNote.currentText()
+        preco = ee.lineEditPrecoNote.text()
+        carregador = ee.comboBoxCarregadorNote.currentText()
+        processador = ee.lineEditProcessadorNote.text()
+        marcaPro = ee.lineEditMarcaProcessadorNote.text()
+        frequenciaPro = ee.lineEditFrequenciaProNote.text()
+        geracaoPro = ee.comboBoxGeracaoNote.currentText()
+        ram = ee.lineEditRAMNote.text()
+        ddr = ee.lineEditDDRNote.text()
+        frequenciaMemo = ee.lineEditFrequenciaMemoNote.text()
+        memoExp = ee.comboBoxExpancivelRamNote.currentText()
+        chaveW = ee.lineEditWindowsNote.text()
+        chaveO = ee.lineEditOfficeNote.text()
+        windows = ee.comboBoxwindowsNote.currentText()
+        office = ee.comboBoxOfficeNote.currentText()
+        descricao = ee.lineEditDecricaoNote.text()
+        data = date.today()
+        serviceTag = ee.lineEditPrecoNote_3.text()
+        teamViewer = ee.lineEditPrecoNote_2.text()
+        anteVirus = ee.comboBoxCarregadorNote_2.currentText()
+
+
+        def liparCampsNote():
+            ee.lineEditIMBNote.clear()
+            ee.lineEditMarcaNote.clear()
+            ee.lineEditModeloNote.clear()
+            ee.lineEditEstadoNote.clear()
+            ee.lineEditAnoFabriNote.clear()
+            ee.lineEditPrecoNote.clear()
+            ee.lineEditProcessadorNote.clear()
+            ee.lineEditMarcaProcessadorNote.clear()
+            ee.lineEditFrequenciaProNote.clear()
+            ee.lineEditRAMNote.clear()
+            ee.lineEditDDRNote.clear()
+            ee.lineEditFrequenciaMemoNote.clear()
+            ee.lineEditWindowsNote.clear()
+            ee.lineEditOfficeNote.clear()
+            ee.lineEditDecricaoNote.clear()
+
+        lista = [imb, marca, modelo, condicao, anoFab, cfg, tela, preco, serviceTag, teamViewer, ssd, HDexp, carregador,
+        processador, marcaPro, frequenciaPro, geracaoPro, ram, ddr, frequenciaMemo, memoExp, chaveW, chaveO, windows,
+        office, anteVirus, descricao, data]
+
+        try:
+            print(lista)
+            cursor = db.conectar_mssql()
+            cursor.execute(
+                f"""INSERT INTO teste8 VALUES ('{imb}','{marca}','{modelo}','{condicao}',{anoFab},'{cfg}','{tela}',
+                '{preco}','{serviceTag}','{teamViewer}','{ssd}','{HDexp}','{carregador}',
+                '{processador}','{marcaPro}','{frequenciaPro}','{geracaoPro}','{ram}','{ddr}','{frequenciaMemo}',
+                '{anteVirus}','{memoExp}','{chaveW}','{chaveO}','{windows}','{office}','{descricao}','{data}');""")
+            print(data)
+            cursor.commit()
+            cursor.close()
+            liparCampsNote()
+
+        except pyodbc.Error:
+            print()
+            printe = ('Item não cadastrado, favor revisar os dados. / Não ultilizar caracteres especial  ( : . , - + = * )')
+            ee.labelNotebook.setText(printe)
+
+
+
+
+    def cancelarCadastro():
+        MainEEstoque.clearFocus()
+        MainEEstoque.close()
+    ee.pushButtonSalvarNote.clicked.connect(cadastrarNotebook)
+    ee.pushButtonCancelarNote.clicked.connect(cancelarCadastro)
+
+
+
+
+
+
+
+
+
 
 
 
@@ -186,12 +285,16 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainLogin = QtWidgets.QMainWindow()
     MainEstoque = QtWidgets.QMainWindow()
+    MainEEstoque = QtWidgets.QMainWindow()
 
     ui = Ui_MainLogin()
     mw = Ui_MainEstoque()
+    ee = Ui_MainEEstoque()
 
     ui.setupUi(MainLogin)
     mw.setupUi(MainEstoque)
+    ee.setupUi(MainEEstoque)
+
 
     MainLogin.showMaximized()
 
