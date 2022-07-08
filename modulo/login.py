@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainLogin(object):
     def setupUi(self, MainLogin):
         MainLogin.setObjectName("MainLogin")
-        MainLogin.resize(1458, 609)
+        MainLogin.resize(1392, 714)
         self.centralwidget = QtWidgets.QWidget(MainLogin)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -129,6 +129,7 @@ class Ui_MainLogin(object):
         self.frameUser.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameUser.setObjectName("frameUser")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.frameUser)
+        self.verticalLayout_5.setContentsMargins(-1, 5, 5, 5)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.lineEdit = QtWidgets.QLineEdit(self.frameUser)
         font = QtGui.QFont()
@@ -156,6 +157,7 @@ class Ui_MainLogin(object):
         self.frameUser_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frameUser_2.setObjectName("frameUser_2")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.frameUser_2)
+        self.verticalLayout_4.setContentsMargins(-1, 5, 5, 5)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.frameUser_2)
         font = QtGui.QFont()
@@ -177,6 +179,7 @@ class Ui_MainLogin(object):
         font.setBold(True)
         font.setWeight(75)
         self.ENTER.setFont(font)
+        self.ENTER.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.ENTER.setStyleSheet("QPushButton {\n"
 "    color: white;\n"
 "    \n"
