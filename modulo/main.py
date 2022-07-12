@@ -180,80 +180,86 @@ def estoqueTi(mw,ee):
 
     # Cadastro de Notebook no banco ====================================================================================
     def cadastrarNotebook():
-        imb = ee.lineEditIMBNote.text()
-        marca = ee.lineEditMarcaNote.text().upper()
-        modelo = ee.lineEditModeloNote.text().upper()
-        condicao = ee.lineEditEstadoNote.text().upper()
-        anoFab = ee.lineEditAnoFabriNote.text()
-        cfg = ee.comboBoxCFGNote.currentText()
-        tela = ee.comboBoxTelaNote.currentText()
-        ssd = ee.comboBoxSSDNote.currentText()
-        HDexp = ee.comboBoxExpancivelNote.currentText()
-        preco = ee.lineEditPrecoNote.text()
-        carregador = ee.comboBoxCarregadorNote.currentText()
-        processador = ee.lineEditProcessadorNote.text().upper()
-        marcaPro = ee.lineEditMarcaProcessadorNote.text().upper()
-        frequenciaPro = ee.lineEditFrequenciaProNote.text().upper()
-        geracaoPro = ee.comboBoxGeracaoNote.currentText()
-        ram = ee.lineEditRAMNote.text().upper()
-        ddr = ee.lineEditDDRNote.text().upper()
-        frequenciaMemo = ee.lineEditFrequenciaMemoNote.text().upper()
-        memoExp = ee.comboBoxExpancivelRamNote.currentText()
-        chaveW = ee.lineEditWindowsNote.text().upper()
-        chaveO = ee.lineEditOfficeNote.text().upper()
-        windows = ee.comboBoxwindowsNote.currentText()
-        office = ee.comboBoxOfficeNote.currentText()
-        descricao = ee.lineEditDecricaoNote.text().upper()
+        imb = ee.notIMB.text()
+        marca = ee.notMarca.text().upper()
+        modelo = ee.notModelo.text().upper()
+        condicao = ee.notCondicao.text().upper()
+        anoFab = ee.notAno.text()
+        cfg = ee.notBoxCFG.currentText()
+        tela = ee.notBoxTela.currentText()
+        ssd = ee.notBoxSSD.currentText()
+        HDexp = ee.notBoxExp.currentText()
+        preco = ee.notPreco.text()
+        carregador = ee.notBoxCarregador.currentText()
+        processador = ee.notPro.text().upper()
+        marcaPro = ee.notMarcaPro.text().upper()
+        frequenciaPro = ee.notFrePro.text().upper()
+        geracaoPro = ee.notBoxGeracao.currentText()
+        ram = ee.notRam.text().upper()
+        ddr = ee.notVerRam.text().upper()
+        frequenciaMemo = ee.notFreRam.text()
+        memoExp = ee.notBoxExpRam.currentText()
+        chaveW = ee.notWindows.text().upper()
+        chaveO = ee.notOffice.text().upper()
+        windows = ee.notBoxWindows.currentText()
+        office = ee.notBoxOffice.currentText()
+        descricao = ee.notDecricao.text().upper()
         data = date.today()
-        serviceTag = ee.lineEditServiceTag.text().upper()
-        teamViewer = ee.lineEditTeamViewer.text().upper()
-        anteVirus = ee.comboBoxAntevirus.currentText().upper()
-        nomeRede = ee.lineEditNomeRede.text().upper()
+        serviceTag = ee.notService.text().upper()
+        teamViewer = ee.notTeam.text().upper()
+        anteVirus = ee.notBoxAntevirus.currentText()
+        nomeRede = ee.notRede.text().upper()
 
         lista = [imb, marca, modelo, condicao, anoFab, cfg, tela, preco, serviceTag, teamViewer, ssd, HDexp, carregador,
         processador, nomeRede, marcaPro, frequenciaPro, geracaoPro, ram, ddr, frequenciaMemo, memoExp, chaveW, chaveO, windows,
         office, anteVirus, descricao, data]
 
-        try:
-            print(lista)
-            cursor = db.conectar_mssql()
-            cursor.execute(
-                f"""INSERT INTO notebook VALUES ('{imb}','{marca}','{modelo}','{condicao}',{anoFab},'{cfg}','{tela}',
-                '{preco}','{serviceTag}','{teamViewer}','{nomeRede}','{ssd}','{HDexp}','{carregador}',
-                '{processador}','{marcaPro}','{frequenciaPro}','{geracaoPro}','{ram}','{ddr}','{frequenciaMemo}',
-                '{anteVirus}','{memoExp}','{chaveW}','{chaveO}','{windows}','{office}','{descricao}','{data}');""")
-            print(data)
-            cursor.commit()
-            cursor.close()
-            limparCampsNote()
-            return
+        if marca =='' or modelo =='' or serviceTag =='' or nomeRede =='' or carregador =='':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.labelNotebook.setText(mensagem)
 
-        except pyodbc.Error as erro:
-            print(erro)
-            printe = ('O ITEM NÃO FOI CADASTRADO! certifique-se que os campos estão preenchidos corretamente.'
-                      '\nNão ultilize caracteres especial  ( : . , - + = * )')
+        else:
+            try:
+                cursor = db.conectar_mssql()
+                cursor.execute(
+                    f"""INSERT INTO notebook VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{cfg}','{tela}',
+                    '{preco}','{serviceTag}','{teamViewer}','{nomeRede}','{ssd}','{HDexp}','{carregador}',
+                    '{processador}','{marcaPro}','{frequenciaPro}','{geracaoPro}','{ram}','{ddr}','{frequenciaMemo}',
+                    '{anteVirus}','{memoExp}','{chaveW}','{chaveO}','{windows}','{office}','{descricao}','{data}');""")
+                cursor.commit()
+                cursor.close()
 
-            ee.labelNotebook.setText(printe)
+                mensagem = 'CADASTRADO COM SUCESSO!!!'
+                ee.labelNotebook.setText(mensagem)
+                limparCampsNote()
+
+
+            except pyodbc.Error as erro:
+                print(erro)
+                printe = ('O ITEM NÃO FOI CADASTRADO! certifique-se que os campos estão preenchidos corretamente.'
+                          '\nNão ultilize caracteres especial  ( : . , - + = * )')
+
+                ee.labelNotebook.setText(printe)
 
     def limparCampsNote():
-        ee.lineEditIMBNote.clear()
-        ee.lineEditMarcaNote.clear()
-        ee.lineEditModeloNote.clear()
-        ee.lineEditEstadoNote.clear()
-        ee.lineEditAnoFabriNote.clear()
-        ee.lineEditPrecoNote.clear()
-        ee.lineEditProcessadorNote.clear()
-        ee.lineEditMarcaProcessadorNote.clear()
-        ee.lineEditFrequenciaProNote.clear()
-        ee.lineEditRAMNote.clear()
-        ee.lineEditDDRNote.clear()
-        ee.lineEditFrequenciaMemoNote.clear()
-        ee.lineEditWindowsNote.clear()
-        ee.lineEditOfficeNote.clear()
-        ee.lineEditDecricaoNote.clear()
-        ee.lineEditServiceTag.clear()
-        ee.lineEditTeamViewer.clear()
-        ee.lineEditNomeRede.clear()
+        ee.notIMB.clear()
+        ee.notMarca.clear()
+        ee.notModelo.clear()
+        ee.notCondicao.clear()
+        ee.notAno.clear()
+        ee.notPreco.clear()
+        ee.notService.clear()
+        ee.notTeam.clear()
+        ee.notRede.clear()
+        ee.notPro.clear()
+        ee.notMarcaPro.clear()
+        ee.notFrePro.clear()
+        ee.notRam.clear()
+        ee.notVerRam.clear()
+        ee.notFreRam.clear()
+        ee.notWindows.clear()
+        ee.notOffice.clear()
+        ee.notDecricao.clear()
         ee.labelNotebook.clear()
 
     def cancelarCadNote():
@@ -265,7 +271,7 @@ def estoqueTi(mw,ee):
     # Cadastro de celular no banco =====================================================================================
     def cadastrarCelu():
         imei = ee.ImeiCelular.text()
-        imei2 = ee.Imei2Celular.texto()
+        #imei2 = ee.Imei2Celular.texto()
         # marca = ee.MarcaCelular.texto()
         # modelo = ee.modeloCelular.text()
         # condicao = ee.estadoCelular.text()
@@ -409,7 +415,7 @@ def estoqueTi(mw,ee):
     ee.pushButtonCadastraMouse.clicked.connect(cadastrarMouse)
     ee.pushButtonCancelarMouse.clicked.connect(cancelarCadMouse)
 
-    # Cadastro de Mouse Pad no banco =======================================================================================
+    # Cadastro de Mouse Pad no banco ===================================================================================
     def cadastrarPad():
         marca = ee.lineEditMarcaPad.text()
         modelo = ee.lineEditModeloPad.text()
@@ -437,15 +443,16 @@ def estoqueTi(mw,ee):
     ee.pushButtonCadastraPad.clicked.connect(cadastrarPad)
     ee.pushButtonCancelarPad.clicked.connect(cancelarCadPad)
 
-    # Cadastro de Teclado no banco =======================================================================================
+    # Cadastro de Teclado no banco =====================================================================================
     def cadastrarTeclado():
         marca = ee.lineEditMarcaTeclado.text()
         modelo = ee.lineEditModeloTeclado.text()
         condicao = ee.lineEditCondicaoTeclado.text()
+        tipo = ee.comboBoxTipoTeclado.currentText()
         valor = ee.lineEditValorTeclado.text()
         descricao = ee.lineEditDescricaoTeclado.text()
 
-        listaItems = [marca, modelo, condicao, valor, descricao]
+        listaItems = [marca, modelo, condicao, tipo,  valor, descricao]
 
         print(listaItems)
         texto = 'deu certo'
@@ -465,10 +472,143 @@ def estoqueTi(mw,ee):
     ee.pushButtonCadastraTeclado.clicked.connect(cadastrarTeclado)
     ee.pushButtonCancelarTeclado.clicked.connect(cancelarCadTeclado)
 
+    # Cadastro de Suporte no banco =====================================================================================
+    def cadastrarSuporte():
+        marca = ee.lineEditMarcaSuporte.text()
+        modelo = ee.lineEditModeloSuporte.text()
+        condicao = ee.lineEditCondicaoSuporte.text()
+        valor = ee.lineEditValorSuporte.text()
+        descricao = ee.lineEditDescricaoSuporte.text()
 
+        listaItems = [marca, modelo, condicao, valor, descricao]
 
+        print(listaItems)
+        texto = 'deu certo'
+        ee.label_Suporte.setText(texto)
 
+    def limparCampsSuporte():
+        ee.lineEditMarcaSuporte.clear()
+        ee.lineEditModeloSuporte.clear()
+        ee.lineEditCondicaoSuporte.clear()
+        ee.lineEditValorSuporte.clear()
+        ee.lineEditDescricaoSuporte.clear()
+        ee.label_Suporte.clear()
 
+    def cancelarCadSuporte():
+        limparCampsSuporte()
+        MainEEstoque.close()
+    ee.pushButtonCadastraSuporte.clicked.connect(cadastrarSuporte)
+    ee.pushButtonCancelarSuporte.clicked.connect(cancelarCadSuporte)
+
+    # Cadastro de Email no banco =======================================================================================
+    def cadastrarEmail():
+        empresa = ee.lineEditEmpresaEmail.text()
+        quantidade = ee.comboBoxQuantidadeEmail.currentText()
+        valor = ee.lineEditValorEmail.text()
+        descricao = ee.lineEditDescricaoEmail.text()
+
+        listaItems = [empresa,  quantidade, valor, descricao]
+
+        print(listaItems)
+        texto = 'deu certo'
+        ee.label_Email.setText(texto)
+
+    def limparCampsEmail():
+        ee.lineEditEmpresaEmail.clear()
+        ee.lineEditValorEmail.clear()
+        ee.lineEditDescricaoEmail.clear()
+        ee.label_Email.clear()
+
+    def cancelarCadEmail():
+        limparCampsEmail()
+        MainEEstoque.close()
+    ee.pushButtonCadastraEmail.clicked.connect(cadastrarEmail)
+    ee.pushButtonCancelarEmail.clicked.connect(cancelarCadEmail)
+
+    # Cadastro de Office no banco ======================================================================================
+    def cadastrarOffice():
+        chave = ee.lineEditChaveOffice.text()
+        versaoPro = ee.lineEditVersaoProOffice.text()
+        versao = ee.comboBoxVersaoOffice.currentText()
+        valor = ee.lineEditValorOffice.text()
+        descricao = ee.lineEditDescricaoOffice.text()
+
+        listaItems = [chave, versaoPro, versao, valor, descricao]
+
+        print(listaItems)
+        texto = 'deu certo'
+        ee.label_Office.setText(texto)
+
+    def limparCampsOffice():
+        ee.lineEditChaveOffice.clear()
+        ee.lineEditVersaoProOffice.clear()
+        ee.lineEditDescricaoOffice.clear()
+        ee.label_Office.clear()
+
+    def cancelarCadOffice():
+        limparCampsOffice()
+        MainEEstoque.close()
+
+    ee.pushButtonCadastraOffice.clicked.connect(cadastrarOffice)
+    ee.pushButtonCancelarOffice.clicked.connect(cancelarCadOffice)
+
+    # Cadastro de Windows no banco =====================================================================================
+    def cadastrarWindows():
+        chave = ee.lineEditChaveWindows.text()
+        versaoPro = ee.lineEditVersaoProWindows.text()
+        versao = ee.comboBoxVersaoWindows.currentText()
+        valor = ee.lineEditValorWindows.text()
+        descricao = ee.lineEditDescricaoWindows.text()
+
+        listaItems = [chave, versaoPro, versao, valor, descricao]
+
+        print(listaItems)
+        texto = 'deu certo'
+        ee.label_Windows.setText(texto)
+
+    def limparCampsWindows():
+        ee.lineEdit.clear()
+        ee.lineEdit.clear()
+        ee.lineEditDescricaoEmail.clear()
+        ee.label_Windows.clear()
+
+    def cancelarCadWindows():
+        limparCampsWindows()
+        MainEEstoque.close()
+
+    ee.pushButtonCadastraWindows.clicked.connect(cadastrarWindows)
+    ee.pushButtonCancelarWindows.clicked.connect(cancelarCadWindows)
+
+    # Cadastro de Outros no banco ======================================================================================
+    def cadastrarOutros():
+        nome = ee.lineEditNomeOutro.text()
+        marca = ee.lineEditMarcaOutro.Text()
+        modelo = ee.lineEditModeloOutro.text()
+        condicao = ee.lineEditCondicaoOutro.text()
+        valor = ee.lineEditValorOutro.text()
+        descricao = ee.lineEditDescricaoOutro.text()
+
+        listaItems = [nome, marca, modelo, condicao, valor, descricao]
+
+        print(listaItems)
+        texto = 'deu certo'
+        ee.label_Outro.setText(texto)
+
+    def limparCampsOutros():
+        ee.lineEditNomeOutro.clear()
+        ee.lineEditMarcaOutro.clear()
+        ee.lineEditModeloOutro.clear()
+        ee.lineEditCondicaoOutro.clear()
+        ee.lineEditValorOutro.clear()
+        ee.lineEditDescricaoOutro.clear()
+        ee.label_Outro.clear()
+
+    def cancelarCadOutros():
+        limparCampsOutros()
+        MainEEstoque.close()
+
+    ee.pushButtonCadastraOutro.clicked.connect(cadastrarOutros)
+    ee.pushButtonCancelarOutro.clicked.connect(cancelarCadOutros)
 
 
 
@@ -500,7 +640,7 @@ if __name__ == "__main__":
 
 
     MainLogin.showMaximized()
-    # MainEEstoque.show()
+    #MainEEstoque.show()
     login(ui)
     estoqueTi(mw, ee)
 

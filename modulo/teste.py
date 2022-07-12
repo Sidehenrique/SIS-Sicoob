@@ -8,6 +8,16 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from entradaEstoque import *
 
+teste = ''
+teste2 = ''
+teste3 = ''
+
+if teste == '' or teste2 == '' or teste3 == '':
+    print('argumento faltando')
+
+else:
+    print('tudo certo')
+
 
 
 #

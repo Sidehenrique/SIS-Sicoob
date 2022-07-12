@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>620</height>
+    <width>887</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -152,7 +152,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageNotebook">
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -195,7 +195,7 @@
              <string>IMB:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditIMBNote">
+           <widget class="QLineEdit" name="notIMB">
             <property name="maximumSize">
              <size>
               <width>80</width>
@@ -231,7 +231,7 @@
              <string>Marca:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaNote">
+           <widget class="QLineEdit" name="notMarca">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -273,7 +273,7 @@
              <string>Modelo:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditModeloNote">
+           <widget class="QLineEdit" name="notModelo">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -300,10 +300,10 @@
              </font>
             </property>
             <property name="text">
-             <string>Estado:</string>
+             <string>Condição:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditEstadoNote">
+           <widget class="QLineEdit" name="notCondicao">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -348,10 +348,10 @@
              </font>
             </property>
             <property name="text">
-             <string>ANO FABRICAÇÃO:</string>
+             <string>Ano Fabricação</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditAnoFabriNote">
+           <widget class="QLineEdit" name="notAno">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -371,7 +371,7 @@
              </font>
             </property>
             <property name="maxLength">
-             <number>4</number>
+             <number>5</number>
             </property>
             <property name="placeholderText">
              <string>2020</string>
@@ -393,7 +393,7 @@
              <string>CFG:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxCFGNote">
+           <widget class="QComboBox" name="notBoxCFG">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -436,7 +436,7 @@
              <string>TELA:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxTelaNote">
+           <widget class="QComboBox" name="notBoxTela">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -501,7 +501,7 @@
              <string>Preço:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditPrecoNote">
+           <widget class="QLineEdit" name="notPreco">
             <property name="maximumSize">
              <size>
               <width>80</width>
@@ -537,7 +537,7 @@
              <string>Service TAG:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditServiceTag">
+           <widget class="QLineEdit" name="notService">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -573,7 +573,7 @@
              <string>TeamViewer:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditTeamViewer">
+           <widget class="QLineEdit" name="notTeam">
             <property name="maximumSize">
              <size>
               <width>250</width>
@@ -609,7 +609,7 @@
              <string>Nome de Rede:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditNomeRede">
+           <widget class="QLineEdit" name="notRede">
             <property name="maximumSize">
              <size>
               <width>250</width>
@@ -645,7 +645,7 @@
              <string>SSD:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxSSDNote">
+           <widget class="QComboBox" name="notBoxSSD">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -688,7 +688,7 @@
              <string>Expancivel:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxExpancivelNote">
+           <widget class="QComboBox" name="notBoxExp">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -731,7 +731,7 @@
              <string>Carregador:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxCarregadorNote">
+           <widget class="QComboBox" name="notBoxCarregador">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -781,7 +781,7 @@
              <string>Processador:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditProcessadorNote">
+           <widget class="QLineEdit" name="notPro">
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -820,7 +820,7 @@
              <string>Marca:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaProcessadorNote">
+           <widget class="QLineEdit" name="notMarcaPro">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -862,7 +862,7 @@
              <string>Frequencia:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditFrequenciaProNote">
+           <widget class="QLineEdit" name="notFrePro">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -892,7 +892,7 @@
              <string>Geração:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxGeracaoNote">
+           <widget class="QComboBox" name="notBoxGeracao">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -994,7 +994,7 @@
              <string>RAM:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditRAMNote">
+           <widget class="QLineEdit" name="notRam">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1024,7 +1024,7 @@
              <string>GDDR:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditDDRNote">
+           <widget class="QLineEdit" name="notVerRam">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1054,7 +1054,7 @@
              <string>Frequencia:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditFrequenciaMemoNote">
+           <widget class="QLineEdit" name="notFreRam">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1090,7 +1090,7 @@
              <string>Expancivel:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxExpancivelRamNote">
+           <widget class="QComboBox" name="notBoxExpRam">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -1137,7 +1137,7 @@
              <string>LICENÇA WINDOWS:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditWindowsNote">
+           <widget class="QLineEdit" name="notWindows">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1164,7 +1164,7 @@
              <string>LICENÇA OFFICE:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditOfficeNote">
+           <widget class="QLineEdit" name="notOffice">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1191,7 +1191,7 @@
              <string>WINDOWS:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxwindowsNote">
+           <widget class="QComboBox" name="notBoxWindows">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -1231,7 +1231,7 @@
              <string>OFFICE:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxOfficeNote">
+           <widget class="QComboBox" name="notBoxOffice">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -1271,7 +1271,7 @@
              <string>Antevirus:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxAntevirus">
+           <widget class="QComboBox" name="notBoxAntevirus">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -1321,7 +1321,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDecricaoNote">
+         <widget class="QLineEdit" name="notDecricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -1466,7 +1466,7 @@
              <string>IMEI</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="ImeiCelular">
+           <widget class="QLineEdit" name="celMeiOne">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -1502,7 +1502,7 @@
              <string>IMEI 2</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="Imei2Celular">
+           <widget class="QLineEdit" name="celMeiTwo">
             <property name="minimumSize">
              <size>
               <width>100</width>
@@ -1541,7 +1541,7 @@
              <string>Marca:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="MarcaCelular">
+           <widget class="QLineEdit" name="celMarca">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -1583,7 +1583,7 @@
              <string>Modelo:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="modeloCelular">
+           <widget class="QLineEdit" name="celModelo">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1616,7 +1616,7 @@
              <string>Estado:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="estadoCelular">
+           <widget class="QLineEdit" name="celEstado">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -1658,7 +1658,7 @@
              <string>Ano Fabricação</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="anofabricaoCelular">
+           <widget class="QLineEdit" name="celAnoFab">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1688,7 +1688,7 @@
              <string>Cor:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="corCelular">
+           <widget class="QLineEdit" name="celCor">
             <property name="maximumSize">
              <size>
               <width>80</width>
@@ -1724,7 +1724,7 @@
              <string>Preço:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="precoCelular">
+           <widget class="QLineEdit" name="celPreco">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -1767,7 +1767,7 @@
              <string>Processador:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="proCelular">
+           <widget class="QLineEdit" name="celPro">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1797,7 +1797,7 @@
              <string>Modelo</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="modeloProCelular">
+           <widget class="QLineEdit" name="celModPro">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -1839,7 +1839,7 @@
              <string>Frequencia</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="frequenciaProCelular">
+           <widget class="QLineEdit" name="celFrePro">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1869,7 +1869,7 @@
              <string>RAM:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="ramCelular">
+           <widget class="QLineEdit" name="celRam">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1899,7 +1899,7 @@
              <string>Bateria:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="bateriaCelular">
+           <widget class="QLineEdit" name="celbat">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -1929,7 +1929,7 @@
              <string>Sistema Op:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="sistemaCelular">
+           <widget class="QComboBox" name="notBoxSitema">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -1976,7 +1976,7 @@
              <string>Micro SD:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="MicroCelular">
+           <widget class="QComboBox" name="celBoxMicro">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -2016,7 +2016,7 @@
              <string>Memoria interna:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="memoCelular">
+           <widget class="QLineEdit" name="celMemo">
             <property name="maximumSize">
              <size>
               <width>125</width>
@@ -2052,7 +2052,7 @@
              <string>Dual chip</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="dualCelular">
+           <widget class="QComboBox" name="celBoxDual">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -2092,7 +2092,7 @@
              <string>1° Chip</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="chipCelular">
+           <widget class="QComboBox" name="celBoxChipOne">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -2142,7 +2142,7 @@
              <string>1° Numero:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="nimeroCelular">
+           <widget class="QLineEdit" name="celNumeroOne">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -2175,7 +2175,7 @@
              <string>2° Chip</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="chip2celular">
+           <widget class="QComboBox" name="celBoxChipTwo">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -2225,7 +2225,7 @@
              <string>2° Numero:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="numero2celular">
+           <widget class="QLineEdit" name="celNumeroTwo">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -2256,7 +2256,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="descricaoCeluar">
+         <widget class="QLineEdit" name="celDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -2407,7 +2407,7 @@
              <string>Marca:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaMemo">
+           <widget class="QLineEdit" name="meMarca">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -2443,7 +2443,7 @@
              <string>Modelo:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditModeloMemo">
+           <widget class="QLineEdit" name="meModelo">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -2476,7 +2476,7 @@
              <string>Condição:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditCondicaoMemo">
+           <widget class="QLineEdit" name="meCondicao">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -2518,7 +2518,7 @@
              <string>Tamanho:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxTamanhoMemo">
+           <widget class="QComboBox" name="meBoxTamanho">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -2590,7 +2590,7 @@
              <string>Plataforma:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditPlataformaMemo">
+           <widget class="QLineEdit" name="mePlataforma">
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -2631,7 +2631,7 @@
              <string>Valor:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditValorMemo">
+           <widget class="QLineEdit" name="meValor">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -2668,7 +2668,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDescricaoMemo">
+         <widget class="QLineEdit" name="meDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -2819,7 +2819,7 @@
              <string>Marca:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaDisco">
+           <widget class="QLineEdit" name="disMarca">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -2858,7 +2858,7 @@
              <string>Modelo:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditModeloDisco">
+           <widget class="QLineEdit" name="disModelo">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -2891,7 +2891,7 @@
              <string>Condição:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditCondicaoDisco">
+           <widget class="QLineEdit" name="disCondicao">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -2933,7 +2933,7 @@
              <string>Tamanho:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxTamanhoDisco">
+           <widget class="QComboBox" name="disBoxTamanho">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -3015,7 +3015,7 @@
              <string>Plataforma:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditPlataformaDisco">
+           <widget class="QLineEdit" name="disPlataforma">
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -3056,7 +3056,7 @@
              <string>Valor:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditValorDisco">
+           <widget class="QLineEdit" name="disValor">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -3093,7 +3093,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDescricaoDisco">
+         <widget class="QLineEdit" name="disDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -3244,7 +3244,7 @@
              <string>Marca:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaMouse">
+           <widget class="QLineEdit" name="moMarca">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -3283,7 +3283,7 @@
              <string>Modelo:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditModeloMouse">
+           <widget class="QLineEdit" name="moModelo">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -3316,7 +3316,7 @@
              <string>Condição:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditCondicaoMouse">
+           <widget class="QLineEdit" name="moCondicao">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -3358,7 +3358,7 @@
              <string>Tipo</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxTipoMouse">
+           <widget class="QComboBox" name="moBoxTipo">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -3415,7 +3415,7 @@
              <string>Valor:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditValorMouse">
+           <widget class="QLineEdit" name="moValor">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -3452,7 +3452,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDescricaoMouse">
+         <widget class="QLineEdit" name="moDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -3603,7 +3603,7 @@
              <string>Marca:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaPad">
+           <widget class="QLineEdit" name="padMarca">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -3642,7 +3642,7 @@
              <string>Modelo:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditModeloPad">
+           <widget class="QLineEdit" name="padModelo">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -3675,7 +3675,7 @@
              <string>Condição:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditCondicaoPad">
+           <widget class="QLineEdit" name="padCondicao">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -3729,7 +3729,7 @@
              <string>Valor:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditValorPad">
+           <widget class="QLineEdit" name="padValor">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -3766,7 +3766,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDescricaoPad">
+         <widget class="QLineEdit" name="padDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -3917,7 +3917,7 @@
              <string>Marca:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaTeclado">
+           <widget class="QLineEdit" name="TecMarca">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -3956,7 +3956,7 @@
              <string>Modelo:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditModeloTeclado">
+           <widget class="QLineEdit" name="tecModelo">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -3989,7 +3989,7 @@
              <string>Condição:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditCondicaoTeclado">
+           <widget class="QLineEdit" name="tecCondicao">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -4031,7 +4031,7 @@
              <string>Tipo</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxTipoTeclado">
+           <widget class="QComboBox" name="tecBoxTipo">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -4083,7 +4083,7 @@
              <string>Valor:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditValorTeclado">
+           <widget class="QLineEdit" name="tecValor">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -4120,7 +4120,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDescricaoTeclado">
+         <widget class="QLineEdit" name="tecDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -4271,7 +4271,7 @@
              <string>Marca:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaSuporte">
+           <widget class="QLineEdit" name="supMarca">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -4310,7 +4310,7 @@
              <string>Modelo:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditModeloSuporte">
+           <widget class="QLineEdit" name="supModelo">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -4343,7 +4343,7 @@
              <string>Condição:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditCondicaoSuporte">
+           <widget class="QLineEdit" name="supCondicao">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -4397,7 +4397,7 @@
              <string>Valor:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditValorSuporte">
+           <widget class="QLineEdit" name="supValor">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -4434,7 +4434,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDescricaoSuporte">
+         <widget class="QLineEdit" name="supDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -4585,7 +4585,7 @@
              <string>Empresa:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaEmail">
+           <widget class="QLineEdit" name="emailEmpresa">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -4624,7 +4624,7 @@
              <string>Quantidade:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxTamanhoEmail">
+           <widget class="QComboBox" name="emailBoxQuantidade">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -4716,7 +4716,7 @@
              <string>Valor:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditValorEmail">
+           <widget class="QLineEdit" name="emailValor">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -4753,7 +4753,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDescricaoEmail">
+         <widget class="QLineEdit" name="emailDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -4904,7 +4904,7 @@
              <string>Chave do produto:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaOffice">
+           <widget class="QLineEdit" name="offChave">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -4943,7 +4943,7 @@
              <string>Versão do Produto:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditModeloOffice">
+           <widget class="QLineEdit" name="offVersaoPro">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -4976,7 +4976,7 @@
              <string>Versão</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxTamanhoOffice">
+           <widget class="QComboBox" name="offBoxVersao">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -5038,7 +5038,7 @@
              <string>Valor:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditValorOffice">
+           <widget class="QLineEdit" name="offValor">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -5075,7 +5075,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDescricaoOffice">
+         <widget class="QLineEdit" name="offDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -5226,7 +5226,7 @@
              <string>Chave do produto:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaWindows">
+           <widget class="QLineEdit" name="wiChave">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -5265,7 +5265,7 @@
              <string>Versão do Produto:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditModeloWindows">
+           <widget class="QLineEdit" name="wiVersaoPro">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -5295,10 +5295,10 @@
              </font>
             </property>
             <property name="text">
-             <string>Tamanho:</string>
+             <string>Versão:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxTamanhoWindows">
+           <widget class="QComboBox" name="wiBoxVersao">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -5355,7 +5355,7 @@
              <string>Valor:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditValorWindows">
+           <widget class="QLineEdit" name="wiValor">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -5392,7 +5392,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDescricaoWindows">
+         <widget class="QLineEdit" name="wiDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -5543,7 +5543,7 @@
              <string>Nome</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditNomeOutro">
+           <widget class="QLineEdit" name="ouNome">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -5573,7 +5573,7 @@
              <string>Marca:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditMarcaOutro">
+           <widget class="QLineEdit" name="ouMarca">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>5</horstretch>
@@ -5615,7 +5615,7 @@
              <string>Modelo</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditModeloOutro">
+           <widget class="QLineEdit" name="ouModelo">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -5645,7 +5645,7 @@
              <string>Condição:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditCondicaoOutro">
+           <widget class="QLineEdit" name="ouCondicao">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -5675,7 +5675,7 @@
              <string>Valor</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="lineEditValorOutro">
+           <widget class="QLineEdit" name="ouValor">
             <property name="font">
              <font>
               <family>Asap</family>
@@ -5706,7 +5706,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditDescricaoOutro">
+         <widget class="QLineEdit" name="ouDescricao">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
