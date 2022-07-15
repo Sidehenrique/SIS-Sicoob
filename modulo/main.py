@@ -1,3 +1,5 @@
+import datetime
+
 import pyodbc
 
 from login import *
@@ -5,7 +7,6 @@ from estoqueTI import *
 from entradaEstoque import *
 import db
 from datetime import date
-
 
 
 # TRATAMENTO LOGIN =====================================================================================================
@@ -210,12 +211,13 @@ def estoqueTi(mw,ee):
         anteVirus = ee.notBoxAntevirus.currentText()
         nomeRede = ee.notRede.text().upper()
 
-        lista = [imb, marca, modelo, condicao, anoFab, cfg, tela, preco, serviceTag, teamViewer, ssd, HDexp, carregador,
-        processador, nomeRede, marcaPro, frequenciaPro, geracaoPro, ram, ddr, frequenciaMemo, memoExp, chaveW, chaveO, windows,
-        office, anteVirus, descricao, data]
-
         if marca =='' or modelo =='' or serviceTag =='' or nomeRede =='' or carregador =='':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.notMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.notModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.notService.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.notRede.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.labelNotebook.setStyleSheet("rgb(255, 0, 0);")
             ee.labelNotebook.setText(mensagem)
 
         else:
@@ -229,17 +231,16 @@ def estoqueTi(mw,ee):
                 cursor.commit()
                 cursor.close()
 
-                mensagem = 'CADASTRADO COM SUCESSO!!!'
-                ee.labelNotebook.setText(mensagem)
+                mensage = 'CADASTRADO COM SUCESSO!'
                 limparCampsNote()
-
+                ee.labelNotebook.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.labelNotebook.setText(mensage)
 
             except pyodbc.Error as erro:
                 print(erro)
-                printe = ('O ITEM NÃO FOI CADASTRADO! certifique-se que os campos estão preenchidos corretamente.'
-                          '\nNão ultilize caracteres especial  ( : . , - + = * )')
-
-                ee.labelNotebook.setText(printe)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.labelNotebook.setStyleSheet("rgb(255, 0, 0);")
+                ee.labelNotebook.setText(mensageErro)
 
     def limparCampsNote():
         ee.notIMB.clear()
@@ -270,52 +271,77 @@ def estoqueTi(mw,ee):
 
     # Cadastro de celular no banco =====================================================================================
     def cadastrarCelu():
-        imei = ee.ImeiCelular.text()
-        #imei2 = ee.Imei2Celular.texto()
-        # marca = ee.MarcaCelular.texto()
-        # modelo = ee.modeloCelular.text()
-        # condicao = ee.estadoCelular.text()
-        # anofab = ee.anofabricaoCelular.text()
-        # cor = ee.corCelular.text()
-        # preco = ee.precoCelular.texto()
-        # memoria = ee.memoCelular.text()
-        # processador = ee.proCelular.text()
-        # modeloPro = ee.modeloProCelular.texto()
-        # frequencia = ee.frequenciaProCelular.text()
-        # ram = ee.ramCelular.text()
-        # bateria = ee.bateriaCelular.text()
-        # sistema = ee.sistemaCelular.currentText()
-        # microSD = ee.MicroCelular.currentText()
-        # dual = ee.dualCelular.currentText()
-        # chip1 = ee.chipCelular.currentText()
-        # chip2 = ee.chip2celular.currentText()
-        # numero1 = ee.nimeroCelularelular.text()
-        # numero2 = ee.numero2celular.text()
-        # data = date.today()
+        imei = ee.celMeiOne.text()
+        imei2 = ee.celMeiTwo.text()
+        marca = ee.celMarca.text()
+        modelo = ee.celModelo.text()
+        condicao = ee.celEstado.text()
+        anofab = ee.celAnoFab.text()
+        cor = ee.celCor.text()
+        preco = ee.celPreco.text()
+        processador = ee.celPro.text()
+        modeloPro = ee.celModPro.text()
+        frequencia = ee.celFrePro.text()
+        ram = ee.celRam.text()
+        bateria = ee.celbat.text()
+        sistema = ee.notBoxSitema.currentText()
+        microSD = ee.celBoxMicro.currentText()
+        memoria = ee.celMemo.text()
+        dual = ee.celBoxDual.currentText()
+        chip1 = ee.celBoxChipOne.currentText()
+        chip2 = ee.celBoxChipTwo.currentText()
+        numero1 = ee.celNumeroOne.text()
+        numero2 = ee.celNumeroTwo.text()
+        descricao = ee.celDescricao.text()
+        data = date.today()
 
-        # print(imei, imei2, marca, modelo, condicao, anofab, cor, preco, memoria, processador, modeloPro, frequencia,
-        #       ram, bateria, sistema, microSD, dual, chip1, chip2, numero1, numero2, data)
-        print('deu certo')
-        texto = 'deu certo'
-        ee.label_Celular.setText(texto)
+        if imei =='' or marca =='' or modelo =='' or condicao =='' or cor =='':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.celMeiOne.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.celMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.celModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.celEstado.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.celCor.setStyleSheet("rgb(255, 0, 0);")
+            ee.label_Celular.setText(mensagem)
+
+        else:
+            try:
+                cursor = db.conectar_mssql()
+                cursor.execute(
+                    f"""INSERT INTO celular VALUES ('{imei}','{imei2}','{marca}','{modelo}','{condicao}','{anofab}','{cor}',
+                    '{preco}','{processador}','{modeloPro}','{frequencia}','{ram}','{bateria}','{sistema}',
+                    '{microSD}','{memoria}','{dual}','{chip1}','{chip2}','{numero1}','{numero2}','{descricao}','{data}');""")
+                cursor.commit()
+                cursor.close()
+                limparCampsCelu()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Celular.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Celular.setText(mensage)
+
+            except pyodbc.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Celular.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Celular.setText(mensageErro)
 
     def limparCampsCelu():
-        ee.lineEditImeiIMEICelular.clear()
-        ee.lineEditImeiIMEICelular2.clear()
-        ee.lineEditMarcaCelular.clear()
-        ee.lineEditModeloModeloCelular.clear()
-        ee.lineEditEstadoCelular.clear()
-        ee.lineEditAnofabricaoCelular.clear()
-        ee.lineEditCorCelular.clear()
-        ee.lineEditprecoCelular.clear()
-        ee.lineEditMemoCelular_2.clear()
-        ee.lineEditProcessardorCelular.clear()
-        ee.lineEditModeloModeloCelular.clear()
-        ee.lineEditFrequenciaProCelular.clear()
-        ee.lineEditRamCelular.clear()
-        ee.lineEditBateriaCelular.clear()
-        ee.lineEditNumerolCelular.clear()
-        ee.lineEditNumero2Celular.clear()
+        ee.celMeiOne.clear()
+        ee.celMeiTwo.clear()
+        ee.celMarca.clear()
+        ee.celModelo.clear()
+        ee.celEstado.clear()
+        ee.celAnoFab.clear()
+        ee.celCor.clear()
+        ee.celPreco.clear()
+        ee.celMemo.clear()
+        ee.celPro.clear()
+        ee.celDescricao.clear()
+        ee.celFrePro.clear()
+        ee.celRam.clear()
+        ee.celbat.clear()
+        ee.celNumeroOne.clear()
+        ee.celNumeroTwo.clear()
         ee.label_Celular.clear()
 
     def cancelarCadCelu():
@@ -326,28 +352,51 @@ def estoqueTi(mw,ee):
 
     # Cadastro de Memorias no banco ====================================================================================
     def cadastrarMemo():
-        marca = ee.lineEditMarcaMemo.text()
-        modelo = ee.lineEditModeloMemo.text()
-        condicao = ee.lineEditCondicaoMemo.text()
-        tamanho = ee.comboBoxTamanhoMemo.currentText()
-        plataforma = ee.lineEditPlataformaMemo.text()
-        valor = ee.lineEditValorMemo.text()
-        descricao = ee.lineEditDescricaoMemo.text()
+        marca = ee.meMarca.text()
+        modelo = ee.meModelo.text()
+        condicao = ee.meCondicao.text()
+        tamanho = ee.meBoxTamanho.currentText()
+        plataforma = ee.mePlataforma.text()
+        valor = ee.meValor.text()
+        descricao = ee.meDescricao.text()
+        data = date.today()
 
-        listaItems = [marca, modelo, condicao, tamanho, plataforma, valor, descricao]
+        if marca == '' or modelo == '' or condicao == '' or plataforma == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.meMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.meModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.meCondicao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.mePlataforma.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Celular.setText(mensagem)
 
-        print(listaItems)
-        texto = 'deu certo'
-        ee.label_Memoria.setText(texto)
+        else:
+            try:
+                cursor = db.conectar_mssql()
+                cursor.execute(
+                    f"""INSERT INTO memoria VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}'
+                    ,'{descricao}','{data}');""")
+                cursor.commit()
+                cursor.close()
+                limparCampsMemo()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Memoria.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Memoria.setText(mensage)
+
+            except pyodbc.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Memoria.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Memoria.setText(mensageErro)
 
     def limparCampsMemo():
-        ee.lineEditMarcaMemo.clear()
-        ee.lineEditModeloMemo.clear()
-        ee.lineEditCondicaoMemo.clear()
-        ee.comboBoxTamanhoMemo.clear()
-        ee.lineEditPlataformaMemo.clear()
-        ee.lineEditValorMemo.clear()
-        ee.lineEditDescricaoMemo.clear()
+        ee.meMarca.clear()
+        ee.meModelo.clear()
+        ee.meCondicao.clear()
+        ee.mePlataforma.clear()
+        ee.meValor.clear()
+        ee.meDescricao.clear()
+        ee.label_Memoria.clear()
 
     def cancelarCadMemo():
         limparCampsMemo()
@@ -357,27 +406,50 @@ def estoqueTi(mw,ee):
 
     # Cadastro de Disco no banco =======================================================================================
     def cadastrarDisco():
-        marca = ee.lineEditMarcaDisco.text()
-        modelo = ee.lineEditModeloDisco.text()
-        condicao = ee.lineEditCondicaoDisco.text()
-        tamanho = ee.comboBoxTamanhoDisco.currentText()
-        plataforma = ee.lineEditPlataformaDisco.text()
-        valor = ee.lineEditValorDisco.text()
-        descricao = ee.lineEditDescricaoDisco.text()
+        marca = ee.disMarca.text()
+        modelo = ee.disModelo.text()
+        condicao = ee.disCondicao.text()
+        tamanho = ee.disBoxTamanho.currentText()
+        plataforma = ee.disPlataforma.text()
+        valor = ee.disValor.text()
+        descricao = ee.disDescricao.text()
+        data = date.today()
 
-        listaItems = [marca, modelo, condicao, tamanho, plataforma, valor, descricao]
+        if marca == '' or modelo == '' or condicao == '' or plataforma == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.meMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.meModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.meCondicao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.mePlataforma.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Celular.setText(mensagem)
 
-        print(listaItems)
-        texto = 'deu certo'
-        ee.label_Disco.setText(texto)
+        else:
+            try:
+                cursor = db.conectar_mssql()
+                cursor.execute(
+                    f"""INSERT INTO disco VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}'
+                    ,'{descricao}','{data}');""")
+                cursor.commit()
+                cursor.close()
+                limparCampsMemo()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Disco.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Disco.setText(mensage)
+
+            except pyodbc.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Disco.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Disco.setText(mensageErro)
 
     def limparCampsDisco():
-        ee.lineEditMarcaDisco.clear()
-        ee.lineEditModeloDisco.clear()
-        ee.lineEditCondicaoDisco.clear()
-        ee.lineEditPlataformaDisco.clear()
-        ee.lineEditValorDisco.clear()
-        ee.lineEditDescricaoDisco.clear()
+        ee.disMarca.clear()
+        ee.disModelo.clear()
+        ee.disCondicao.clear()
+        ee.disPlataforma.clear()
+        ee.disValor.clear()
+        ee.disDescricao.clear()
         ee.label_Disco.clear()
 
     def cancelarCadDisco():
@@ -386,27 +458,49 @@ def estoqueTi(mw,ee):
     ee.pushButtonCadastraDisco.clicked.connect(cadastrarDisco)
     ee.pushButtonCancelarDisco.clicked.connect(cancelarCadDisco)
 
-    # Cadastro de Mouse no banco =======================================================================================
+#@@@# Cadastro de Mouse no banco =======================================================================================
     def cadastrarMouse():
-        marca = ee.lineEditMarcaMouse.text()
-        modelo = ee.lineEditModeloMouse.text()
-        condicao = ee.lineEditCondicaoMouse.text()
-        tipo = ee.comboBoxTipoMouse.currentText()
-        valor = ee.lineEditValorMouse.text()
-        descricao = ee.lineEditDescricaoMouse.text()
+        marca = ee.moMarca.text()
+        modelo = ee.moModelo.text()
+        condicao = ee.moCondicao.text()
+        tipo = ee.moBoxTipo.currentText()
+        valor = ee.moValor.text()
+        descricao = ee.moDescricao.text()
+        data = date.today()
 
-        listaItems = [marca, modelo, condicao, tipo, valor, descricao]
+        if marca == '' or modelo == '' or condicao == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.moMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.moModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.moCondicao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Mouse.setText(mensagem)
 
-        print(listaItems)
-        texto = 'deu certo'
-        ee.label_Mouse.setText(texto)
+        else:
+            try:
+                cursor = db.conectar_mssql()
+                cursor.execute(
+                    f"""INSERT INTO mouse VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}',
+                    ,'{descricao}','{data}');""")
+                cursor.commit()
+                cursor.close()
+                limparCampsMemo()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Mouse.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Mouse.setText(mensage)
+
+            except pyodbc.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Mouse.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Mouse.setText(mensageErro)
 
     def limparCampsMouse():
-        ee.lineEditMarcaMemo.clear()
-        ee.lineEditModeloMouse.clear()
-        ee.lineEditCondicaoMouse.clear()
-        ee.lineEditValorMouse.clear()
-        ee.lineEditDescricaoMouse.clear()
+        ee.moMarca.clear()
+        ee.moModelo.clear()
+        ee.moCondicao.clear()
+        ee.moValor.clear()
+        ee.moDescricao.clear()
         ee.label_Mouse.clear()
 
     def cancelarCadMouse():
@@ -639,8 +733,8 @@ if __name__ == "__main__":
     ee.setupUi(MainEEstoque)
 
 
-    MainLogin.showMaximized()
-    #MainEEstoque.show()
+    #MainLogin.showMaximized()
+    MainEEstoque.show()
     login(ui)
     estoqueTi(mw, ee)
 

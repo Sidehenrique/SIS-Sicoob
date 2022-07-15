@@ -250,6 +250,9 @@
               <pointsize>10</pointsize>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
             <property name="maxLength">
              <number>25</number>
             </property>
