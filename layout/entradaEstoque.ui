@@ -152,7 +152,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>8</number>
       </property>
       <widget class="QWidget" name="pageNotebook">
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1616,7 +1616,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Estado:</string>
+             <string>Condição:</string>
             </property>
            </widget>
            <widget class="QLineEdit" name="celEstado">

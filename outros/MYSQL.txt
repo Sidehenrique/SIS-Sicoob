@@ -1,0 +1,293 @@
+SELECT * FROM sisdb.notebook;
+INSERT INTO sisdb.notebook (IMB, MARCA, MODELO, CONDICAO, ANOFAB, CFG, TELA, PRECO, SERVICETAG, TEAMVIEWER,
+REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO, FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM,
+LICENCAWINDOWS, LICENCAOFFICE, WINDOWS, OFFICE, ANTEVIRUS, DESCRICAO, DATA)
+VALUES (16000,'ACER','NITRO','NOVO', 2022, 'SIM', 15, 5000, 'SADA12', 'ASD1231', 'SIDE4155', 'SIM', 'SIM', 'SIM', 'I3',
+'INTEL', 3.3, '8 GERACAO', 8,'DDR4', 1600,'SIM','ASD1312DA54365','201AS3D54A3SD1AS','SIM','SIM','SIM','CERTO','22-07-2022');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema SISDB
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema SISDB
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `SISDB` DEFAULT CHARACTER SET utf8 ;
+USE `SISDB` ;
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Notebook`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Notebook` (
+  `idNotebook` INT NOT NULL AUTO_INCREMENT,
+  `IMB` INT NULL,
+  `MARCA` VARCHAR(25) NOT NULL,
+  `MODELO` VARCHAR(25) NOT NULL,
+  `CONDICAO` VARCHAR(25) NULL,
+  `ANOFAB` VARCHAR(25) NULL,
+  `CFG` VARCHAR(25) NULL,
+  `TELA` INT NULL,
+  `PRECO` INT NULL,
+  `SERVICETAG` VARCHAR(25) NOT NULL,
+  `TEAMVIEWER` VARCHAR(25) NULL,
+  `REDE` VARCHAR(25) NOT NULL,
+  `SSD` VARCHAR(25) NULL,
+  `EXPLANCIVEL` VARCHAR(25) NULL,
+  `CARREGADOR` VARCHAR(25) NOT NULL,
+  `PROCESSADOR` VARCHAR(25) NOT NULL,
+  `MARCA-PRO` VARCHAR(25) NULL,
+  `FRE-PRO` VARCHAR(25) NULL,
+  `GERACAO` VARCHAR(25) NOT NULL,
+  `RAM` INT NOT NULL,
+  `MODELO-RAM` VARCHAR(25) NOT NULL,
+  `FRE-RAM` INT NULL,
+  `EXP-RAM` VARCHAR(25) NULL,
+  `LICENCA-WINDOWS` VARCHAR(25) NULL,
+  `LICENCA-OFFICE` VARCHAR(25) NULL,
+  `WINDOWS` VARCHAR(25) NULL,
+  `OFFICE` VARCHAR(25) NULL,
+  `ANTEVIRUS` VARCHAR(25) NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idNotebook`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`table1`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`table1` (
+)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Celular`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Celular` (
+  `idCelular` INT NOT NULL AUTO_INCREMENT,
+  `IMEI` INT NOT NULL,
+  `IMEI2` INT NULL,
+  `MARCA` VARCHAR(25) NOT NULL,
+  `MODELO` VARCHAR(25) NOT NULL,
+  `CONDICAO` VARCHAR(25) NOT NULL,
+  `ANOFAB` INT NULL,
+  `COR` VARCHAR(25) NOT NULL,
+  `PRECO` INT NULL,
+  `PROCESSADOR` VARCHAR(25) NULL,
+  `MODPRO` VARCHAR(25) NULL,
+  `FREPRO` VARCHAR(25) NULL,
+  `RAM` INT NOT NULL,
+  `BATERIA` INT NULL,
+  `SISTEMA` VARCHAR(25) NULL,
+  `MICRO` VARCHAR(25) NULL,
+  `MEMOINT` INT NOT NULL,
+  `DUAL` VARCHAR(25) NOT NULL,
+  `CHIP` VARCHAR(25) NULL,
+  `CHIP2` VARCHAR(25) NULL,
+  `NUMERO` INT NULL,
+  `NUMERO2` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idCelular`))
+ENGINE = InnoDB
+COMMENT = '																		';
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Memoria`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Memoria` (
+  `idMemoria` INT NOT NULL AUTO_INCREMENT,
+  `MARCA` VARCHAR(25) NOT NULL,
+  `MODELO` VARCHAR(25) NOT NULL,
+  `CONDICAO` VARCHAR(25) NULL,
+  `TAMANHO` VARCHAR(25) NOT NULL,
+  `PLATAFORMA` VARCHAR(25) NOT NULL,
+  `VALOR` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idMemoria`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Disco`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Disco` (
+  `idDisco` INT NOT NULL AUTO_INCREMENT,
+  `MARCA` VARCHAR(25) NOT NULL,
+  `MODELO` VARCHAR(25) NULL,
+  `CONDICAO` VARCHAR(25) NULL,
+  `TAMANHO` INT NOT NULL,
+  `PLATAFORMA` VARCHAR(25) NOT NULL,
+  `VALOR` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idDisco`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Mouse`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Mouse` (
+  `idMouse` INT NOT NULL,
+  `MARCA` VARCHAR(25) NOT NULL,
+  `MODELO` VARCHAR(25) NOT NULL,
+  `CONDICAO` VARCHAR(25) NULL,
+  `TIPO` VARCHAR(25) NOT NULL,
+  `VALOR` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idMouse`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`MousePad`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`MousePad` (
+  `idMousePada` INT NOT NULL AUTO_INCREMENT,
+  `MARCA` VARCHAR(25) NOT NULL,
+  `MODELO` VARCHAR(25) NOT NULL,
+  `CONDICAO` VARCHAR(25) NULL,
+  `VALOR` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idMousePada`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Teclado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Teclado` (
+  `idTeclado` INT NOT NULL AUTO_INCREMENT,
+  `MARCA` VARCHAR(25) NOT NULL,
+  `MODELO` VARCHAR(25) NOT NULL,
+  `CONDICAO` VARCHAR(25) NULL,
+  `TIPO` VARCHAR(25) NOT NULL,
+  `VALOR` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idTeclado`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Suporte`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Suporte` (
+  `idSuporte` INT NOT NULL AUTO_INCREMENT,
+  `MARCA` VARCHAR(25) NOT NULL,
+  `MODELO` VARCHAR(25) NOT NULL,
+  `CONDICAO` VARCHAR(25) NULL,
+  `VALOR` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idSuporte`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Email`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Email` (
+  `idEmail` INT NOT NULL AUTO_INCREMENT,
+  `EMPRESA` VARCHAR(25) NOT NULL,
+  `QUANTIDADE` INT NOT NULL,
+  `VALOR` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idEmail`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Office`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Office` (
+  `idOffice` INT NOT NULL AUTO_INCREMENT,
+  `CHAVE` VARCHAR(25) NOT NULL,
+  `VERSAOPRO` VARCHAR(25) NOT NULL,
+  `VERSAO` VARCHAR(25) NOT NULL,
+  `VALOR` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idOffice`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Windows`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Windows` (
+  `idWindows` INT NOT NULL AUTO_INCREMENT,
+  `CHAVE` VARCHAR(25) NOT NULL,
+  `VERSAOPRO` VARCHAR(25) NOT NULL,
+  `VERSAO` VARCHAR(25) NOT NULL,
+  `VALOR` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idWindows`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Outros`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Outros` (
+  `idOutros` INT NOT NULL AUTO_INCREMENT,
+  `NOME` VARCHAR(25) NULL,
+  `MARCA` VARCHAR(25) NULL,
+  `MODELO` VARCHAR(25) NULL,
+  `CONDICAO` VARCHAR(25) NULL,
+  `VALOR` INT NULL,
+  `DESCRICAO` VARCHAR(200) NULL,
+  `DATA` VARCHAR(25) NULL,
+  PRIMARY KEY (`idOutros`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SISDB`.`Usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SISDB`.`Usuarios` (
+  `idUsuarios` INT NOT NULL AUTO_INCREMENT,
+  `user` VARCHAR(25) NOT NULL,
+  `password` VARCHAR(25) NOT NULL,
+  `data` VARCHAR(25) NULL,
+  PRIMARY KEY (`idUsuarios`))
+ENGINE = InnoDB;
+
+CREATE USER 'admin' IDENTIFIED BY 'sicoob';
+
+GRANT ALL ON `SISDB`.* TO 'admin';
+GRANT SELECT ON TABLE `SISDB`.* TO 'admin';
+GRANT SELECT, INSERT, TRIGGER ON TABLE `SISDB`.* TO 'admin';
+GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `SISDB`.* TO 'admin';
+GRANT EXECUTE ON ROUTINE `SISDB`.* TO 'admin';
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

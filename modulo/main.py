@@ -1,12 +1,9 @@
-import datetime
-
-import pyodbc
-
 from login import *
 from estoqueTI import *
 from entradaEstoque import *
 import db
 from datetime import date
+import pymysql
 
 
 # TRATAMENTO LOGIN =====================================================================================================
@@ -23,32 +20,67 @@ def login(ui):
     def checkPassword():
         usuario = ui.lineEdit.text()
         password = ui.lineEdit_3.text()
-        print(usuario, password)
+        print(usuario, password + '<--- entrada do Usuário')
 
-        try:
-            cursor = db.conectar_mssql()
-            cursor.execute(f"""SELECT senha FROM cadastro WHERE usuario = '{usuario}';""")
-            senha_bd = cursor.fetchall()
-            print(senha_bd[0][0])
-            cursor.close()
-
-        except:
-            texto1 = 'Usuário ou senha incorreto'
-            mensage(texto1)
-            return
-
-        if password == senha_bd[0][0]:
-            texto2 = 'Login efetuado com sucesso'
-            mensage(texto2)
-            print('Sucesso!!!')
-            MainLogin.close()
-            MainEstoque.showMaximized()
+        if usuario == '' or password == '':
+            text = 'CAMPOS NÃO PREENCHIDOS'
+            mensage(text)
 
         else:
-            texto3 = 'A senha esta incorreta'
-            mensage(texto3)
-    ui.ENTER.clicked.connect(checkPassword)
+            try:
+                cursor = db.conMySQL()
+                cursor.execute(f"""SELECT password FROM usuarios WHERE user = '{usuario}';""")
+                senha_bd = cursor.fetchall()
+                print(senha_bd[0][0] + '<--- banco de dados')
+                cursor.close()
 
+                if password == senha_bd[0][0]:
+                    texto = 'BEM VINDO ' + usuario.upper()
+                    mensage(texto)
+                    MainLogin.close()
+                    MainEstoque.showMaximized()
+
+                else:
+                    texto = 'SENHA INCORRETA'
+                    mensage(texto)
+
+            except:
+                texto = 'NOME DE USUÁRIO INCORRETO'
+                mensage(texto)
+                return
+
+
+
+
+        # try:
+        #     cursor = db.conMySQL()
+        #     cursor.execute(f"""SELECT password FROM usuarios WHERE user = '{usuario}';""")
+        #     senha_bd = cursor.fetchall()
+        #     print(senha_bd[0][0] + '<--- banco de dados')
+        #     cursor.close()
+        #
+        #     if usuario == '' or password == '':
+        #         text = 'Campos Não Preenchidos'
+        #         mensage(text)
+        #
+        #     elif password == senha_bd[0][0]:
+        #         texto2 = 'Login efetuado com sucesso'
+        #         mensage(texto2)
+        #         print('Sucesso!!!')
+        #         MainLogin.close()
+        #         MainEstoque.showMaximized()
+        #
+        #     else:
+        #         texto3 = 'A senha esta incorreta'
+        #         mensage(texto3)
+        #
+        # except pymysql.Error as erro:
+        #     texto1 = 'Erro de Servidor' + str(erro)
+        #     print(str(erro))
+        #     mensage(texto1)
+        #     return
+
+    ui.ENTER.clicked.connect(checkPassword)
 
 
 ''' TRATAMENTO HOME ================================================================================================='''
@@ -211,24 +243,32 @@ def estoqueTi(mw,ee):
         anteVirus = ee.notBoxAntevirus.currentText()
         nomeRede = ee.notRede.text().upper()
 
-        if marca =='' or modelo =='' or serviceTag =='' or nomeRede =='' or carregador =='':
+        if marca =='' or modelo =='' or serviceTag =='' or nomeRede =='' or carregador =='' or processador =='' or geracaoPro =='' or ram =='' or ddr =='':
+
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.notMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.notModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.notService.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.notRede.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.labelNotebook.setStyleSheet("rgb(255, 0, 0);")
+            ee.notBoxCarregador.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.notPro.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.notBoxGeracao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.notRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.notVerRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.labelNotebook.setText(mensagem)
 
         else:
             try:
-                cursor = db.conectar_mssql()
+                cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO notebook VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{cfg}','{tela}',
-                    '{preco}','{serviceTag}','{teamViewer}','{nomeRede}','{ssd}','{HDexp}','{carregador}',
-                    '{processador}','{marcaPro}','{frequenciaPro}','{geracaoPro}','{ram}','{ddr}','{frequenciaMemo}',
+                    f"""INSERT INTO sisdb.notebook (IMB, MARCA, MODELO, CONDICAO, ANOFAB, CFG, TELA, PRECO, SERVICETAG, TEAMVIEWER,
+                    REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO, FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM,
+                    LICENCAWINDOWS, LICENCAOFFICE, WINDOWS, OFFICE, ANTEVIRUS, DESCRICAO, DATA) 
+                    
+                    VALUES ({imb},'{marca}','{modelo}','{condicao}',{anoFab},'{cfg}',{tela},
+                    {preco},'{serviceTag}','{teamViewer}','{nomeRede}','{ssd}','{HDexp}','{carregador}',
+                    '{processador}','{marcaPro}','{frequenciaPro}','{geracaoPro}',{ram},'{ddr}',{frequenciaMemo},
                     '{anteVirus}','{memoExp}','{chaveW}','{chaveO}','{windows}','{office}','{descricao}','{data}');""")
-                cursor.commit()
                 cursor.close()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
@@ -236,7 +276,7 @@ def estoqueTi(mw,ee):
                 ee.labelNotebook.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.labelNotebook.setText(mensage)
 
-            except pyodbc.Error as erro:
+            except pymysql.Error as erro:
                 print(erro)
                 mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
                 ee.labelNotebook.setStyleSheet("rgb(255, 0, 0);")
@@ -295,23 +335,24 @@ def estoqueTi(mw,ee):
         descricao = ee.celDescricao.text()
         data = date.today()
 
-        if imei =='' or marca =='' or modelo =='' or condicao =='' or cor =='':
+        if imei =='' or marca =='' or modelo =='' or condicao =='' or cor =='' or ram =='' or memoria =='':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.celMeiOne.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.celMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.celModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.celEstado.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.celCor.setStyleSheet("rgb(255, 0, 0);")
+            ee.celCor.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.celRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.celMemo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Celular.setText(mensagem)
 
         else:
             try:
-                cursor = db.conectar_mssql()
+                cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO celular VALUES ('{imei}','{imei2}','{marca}','{modelo}','{condicao}','{anofab}','{cor}',
-                    '{preco}','{processador}','{modeloPro}','{frequencia}','{ram}','{bateria}','{sistema}',
-                    '{microSD}','{memoria}','{dual}','{chip1}','{chip2}','{numero1}','{numero2}','{descricao}','{data}');""")
-                cursor.commit()
+                    f"""INSERT INTO Celular VALUES ({imei},{imei2},'{marca}','{modelo}','{condicao}',{anofab},'{cor}',
+                    {preco},'{processador}','{modeloPro}','{frequencia}',{ram},{bateria},'{sistema}',
+                    '{microSD}',{memoria},'{dual}','{chip1}','{chip2}',{numero1},{numero2},'{descricao}','{data}');""")
                 cursor.close()
                 limparCampsCelu()
 
@@ -319,7 +360,7 @@ def estoqueTi(mw,ee):
                 ee.label_Celular.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Celular.setText(mensage)
 
-            except pyodbc.Error as erro:
+            except pymysql.Error as erro:
                 print(erro)
                 mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
                 ee.label_Celular.setStyleSheet("rgb(255, 0, 0);")
@@ -361,21 +402,20 @@ def estoqueTi(mw,ee):
         descricao = ee.meDescricao.text()
         data = date.today()
 
-        if marca == '' or modelo == '' or condicao == '' or plataforma == '':
+        if marca == '' or modelo == '' or tamanho == '' or plataforma == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.meMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.meModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.meCondicao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.meBoxTamanho.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.mePlataforma.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.label_Celular.setText(mensagem)
+            ee.label_Memoria.setText(mensagem)
 
         else:
             try:
-                cursor = db.conectar_mssql()
+                cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO memoria VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}'
+                    f"""INSERT INTO Memoria VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}',{valor}
                     ,'{descricao}','{data}');""")
-                cursor.commit()
                 cursor.close()
                 limparCampsMemo()
 
@@ -383,7 +423,7 @@ def estoqueTi(mw,ee):
                 ee.label_Memoria.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Memoria.setText(mensage)
 
-            except pyodbc.Error as erro:
+            except pymysql.Error as erro:
                 print(erro)
                 mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
                 ee.label_Memoria.setStyleSheet("rgb(255, 0, 0);")
@@ -415,21 +455,20 @@ def estoqueTi(mw,ee):
         descricao = ee.disDescricao.text()
         data = date.today()
 
-        if marca == '' or modelo == '' or condicao == '' or plataforma == '':
+        if marca == '' or tamanho == '' or plataforma == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
-            ee.meMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.meModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.meCondicao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.mePlataforma.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.label_Celular.setText(mensagem)
+            ee.disMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.disModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.disBoxTamanho.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.disPlataforma.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Disco.setText(mensagem)
 
         else:
             try:
-                cursor = db.conectar_mssql()
+                cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO disco VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}'
+                    f"""INSERT INTO Disco VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}'
                     ,'{descricao}','{data}');""")
-                cursor.commit()
                 cursor.close()
                 limparCampsMemo()
 
@@ -437,7 +476,7 @@ def estoqueTi(mw,ee):
                 ee.label_Disco.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Disco.setText(mensage)
 
-            except pyodbc.Error as erro:
+            except pymysql.Error as erro:
                 print(erro)
                 mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
                 ee.label_Disco.setStyleSheet("rgb(255, 0, 0);")
@@ -458,7 +497,7 @@ def estoqueTi(mw,ee):
     ee.pushButtonCadastraDisco.clicked.connect(cadastrarDisco)
     ee.pushButtonCancelarDisco.clicked.connect(cancelarCadDisco)
 
-#@@@# Cadastro de Mouse no banco =======================================================================================
+    # Cadastro de Mouse no banco =======================================================================================
     def cadastrarMouse():
         marca = ee.moMarca.text()
         modelo = ee.moModelo.text()
@@ -468,20 +507,20 @@ def estoqueTi(mw,ee):
         descricao = ee.moDescricao.text()
         data = date.today()
 
-        if marca == '' or modelo == '' or condicao == '':
+        if marca == '' or modelo == '' or tipo == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.moMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.moModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.moCondicao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.moBoxTipo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Mouse.setText(mensagem)
 
         else:
             try:
-                cursor = db.conectar_mssql()
+                cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO mouse VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}',
+                    f"""INSERT INTO Mouse VALUES ('{marca}','{modelo}','{condicao}','{tipo}',{valor},
                     ,'{descricao}','{data}');""")
-                cursor.commit()
                 cursor.close()
                 limparCampsMemo()
 
@@ -489,7 +528,7 @@ def estoqueTi(mw,ee):
                 ee.label_Mouse.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Mouse.setText(mensage)
 
-            except pyodbc.Error as erro:
+            except pymysql.Error as erro:
                 print(erro)
                 mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
                 ee.label_Mouse.setStyleSheet("rgb(255, 0, 0);")
@@ -511,24 +550,44 @@ def estoqueTi(mw,ee):
 
     # Cadastro de Mouse Pad no banco ===================================================================================
     def cadastrarPad():
-        marca = ee.lineEditMarcaPad.text()
-        modelo = ee.lineEditModeloPad.text()
-        condicao = ee.lineEditCondicaoPad.text()
-        valor = ee.lineEditValorPad.text()
-        descricao = ee.lineEditDescricaoPad.text()
+        marca = ee.padMarca.text()
+        modelo = ee.padModelo.text()
+        condicao = ee.padCondicao.text()
+        valor = ee.padValor.text()
+        descricao = ee.padDescricao.text()
+        data = date.today()
 
-        listaItems = [marca, modelo, condicao, valor, descricao]
+        if marca == '' or modelo == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.padMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.padModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Pad.setText(mensagem)
 
-        print(listaItems)
-        texto = 'deu certo'
-        ee.label_Pad.setText(texto)
+        else:
+            try:
+                cursor = db.conMySQL()
+                cursor.execute(
+                    f"""INSERT INTO MousePad VALUES ('{marca}','{modelo}','{condicao}',{valor},
+                    ,'{descricao}','{data}');""")
+                cursor.close()
+                limparCampsMemo()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Pad.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Pad.setText(mensage)
+
+            except pymysql.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Pad.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Pad.setText(mensageErro)
 
     def limparCampsPad():
-        ee.lineEditMarcaPad.clear()
-        ee.lineEditModeloPad.clear()
-        ee.lineEditCondicaoPad.clear()
-        ee.lineEditValorPad.clear()
-        ee.lineEditDescricaoPad.clear()
+        ee.padMarca.clear()
+        ee.padModelo.clear()
+        ee.padCondicao.clear()
+        ee.padValor.clear()
+        ee.padDescricao.clear()
         ee.label_Pad.clear()
 
     def cancelarCadPad():
@@ -539,25 +598,46 @@ def estoqueTi(mw,ee):
 
     # Cadastro de Teclado no banco =====================================================================================
     def cadastrarTeclado():
-        marca = ee.lineEditMarcaTeclado.text()
-        modelo = ee.lineEditModeloTeclado.text()
-        condicao = ee.lineEditCondicaoTeclado.text()
-        tipo = ee.comboBoxTipoTeclado.currentText()
-        valor = ee.lineEditValorTeclado.text()
-        descricao = ee.lineEditDescricaoTeclado.text()
+        marca = ee.tecMarca.text()
+        modelo = ee.tecModelo.text()
+        condicao = ee.tecCondicao.text()
+        tipo = ee.tecBoxTipo.currentText()
+        valor = ee.tecValor.text()
+        descricao = ee.tecDescricao.text()
+        data = date.today()
 
-        listaItems = [marca, modelo, condicao, tipo,  valor, descricao]
+        if marca == '' or modelo == '' or tipo == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.tecMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.tecModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.tecBoxTipo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Teclado.setText(mensagem)
 
-        print(listaItems)
-        texto = 'deu certo'
-        ee.label_Teclado.setText(texto)
+        else:
+            try:
+                cursor = db.conMySQL()
+                cursor.execute(
+                    f"""INSERT INTO Teclado VALUES ('{marca}','{modelo}','{condicao}','{tipo}', {valor},
+                           '{descricao}','{data}');""")
+                cursor.close()
+                limparCampsMemo()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Teclado.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Teclado.setText(mensage)
+
+            except pymysql.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Pad.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Pad.setText(mensageErro)
 
     def limparCampsTeclado():
-        ee.lineEditMarcaTeclado.clear()
-        ee.lineEditModeloTeclado.clear()
-        ee.lineEditCondicaoTeclado.clear()
-        ee.lineEditValorTeclado.clear()
-        ee.lineEditDescricaoTeclado.clear()
+        ee.tecMarca.clear()
+        ee.tecModelo.clear()
+        ee.tecCondicao.clear()
+        ee.tecValor.clear()
+        ee.tecDescricao.clear()
         ee.label_Teclado.clear()
 
     def cancelarCadTeclado():
@@ -568,24 +648,44 @@ def estoqueTi(mw,ee):
 
     # Cadastro de Suporte no banco =====================================================================================
     def cadastrarSuporte():
-        marca = ee.lineEditMarcaSuporte.text()
-        modelo = ee.lineEditModeloSuporte.text()
-        condicao = ee.lineEditCondicaoSuporte.text()
-        valor = ee.lineEditValorSuporte.text()
-        descricao = ee.lineEditDescricaoSuporte.text()
+        marca = ee.supMarca.text()
+        modelo = ee.supModelo.text()
+        condicao = ee.supCondicao.text()
+        valor = ee.supValor.text()
+        descricao = ee.supDescricao.text()
+        data = date.today()
 
-        listaItems = [marca, modelo, condicao, valor, descricao]
+        if marca == '' or modelo == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.supMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.supModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Suporte.setText(mensagem)
 
-        print(listaItems)
-        texto = 'deu certo'
-        ee.label_Suporte.setText(texto)
+        else:
+            try:
+                cursor = db.conMySQL()
+                cursor.execute(
+                    f"""INSERT INTO Suporte VALUES ('{marca}','{modelo}','{condicao}','{valor}',
+                           ,'{descricao}','{data}');""")
+                cursor.close()
+                limparCampsMemo()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Suporte.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Suporte.setText(mensage)
+
+            except pymysql.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Suporte.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Suporte.setText(mensageErro)
 
     def limparCampsSuporte():
-        ee.lineEditMarcaSuporte.clear()
-        ee.lineEditModeloSuporte.clear()
-        ee.lineEditCondicaoSuporte.clear()
-        ee.lineEditValorSuporte.clear()
-        ee.lineEditDescricaoSuporte.clear()
+        ee.supMarca.clear()
+        ee.supModelo.clear()
+        ee.supCondicao.clear()
+        ee.supDescricao.clear()
+        ee.supValor.clear()
         ee.label_Suporte.clear()
 
     def cancelarCadSuporte():
@@ -596,21 +696,40 @@ def estoqueTi(mw,ee):
 
     # Cadastro de Email no banco =======================================================================================
     def cadastrarEmail():
-        empresa = ee.lineEditEmpresaEmail.text()
-        quantidade = ee.comboBoxQuantidadeEmail.currentText()
-        valor = ee.lineEditValorEmail.text()
-        descricao = ee.lineEditDescricaoEmail.text()
+        empresa = ee.emailEmpresa.text()
+        quantidade = ee.emailBoxQuantidade.currentText()
+        valor = ee.emailValor.text()
+        descricao = ee.emailDescricao.text()
+        data = date.today()
 
-        listaItems = [empresa,  quantidade, valor, descricao]
+        if empresa == '' or quantidade == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.emailEmpresa.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.emailBoxQuantidade.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Email.setText(mensagem)
 
-        print(listaItems)
-        texto = 'deu certo'
-        ee.label_Email.setText(texto)
+        else:
+            try:
+                cursor = db.conMySQL()
+                cursor.execute(
+                    f"""INSERT INTO Email VALUES ('{empresa}',{quantidade},{valor},'{descricao}','{data}');""")
+                cursor.close()
+                limparCampsMemo()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Email.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Email.setText(mensage)
+
+            except pymysql.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Email.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Email.setText(mensageErro)
 
     def limparCampsEmail():
-        ee.lineEditEmpresaEmail.clear()
-        ee.lineEditValorEmail.clear()
-        ee.lineEditDescricaoEmail.clear()
+        ee.emailEmpresa.clear()
+        ee.emailValor.clear()
+        ee.emailDescricao.clear()
         ee.label_Email.clear()
 
     def cancelarCadEmail():
@@ -621,22 +740,43 @@ def estoqueTi(mw,ee):
 
     # Cadastro de Office no banco ======================================================================================
     def cadastrarOffice():
-        chave = ee.lineEditChaveOffice.text()
-        versaoPro = ee.lineEditVersaoProOffice.text()
-        versao = ee.comboBoxVersaoOffice.currentText()
-        valor = ee.lineEditValorOffice.text()
-        descricao = ee.lineEditDescricaoOffice.text()
+        chave = ee.offChave.text()
+        versaoPro = ee.offVersaoPro.text()
+        versao = ee.offBoxVersao.currentText()
+        valor = ee.offValor.text()
+        descricao = ee.offDescricao.text()
+        data = date.today()
 
-        listaItems = [chave, versaoPro, versao, valor, descricao]
+        if chave == '' or versaoPro == '' or versao == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.offChave.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.offVersaoPro.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.offBoxVersao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Office.setText(mensagem)
 
-        print(listaItems)
-        texto = 'deu certo'
-        ee.label_Office.setText(texto)
+        else:
+            try:
+                cursor = db.conMySQL()
+                cursor.execute(
+                    f"""INSERT INTO Office VALUES ('{chave}','{versaoPro}','{versao}', {valor}, '{descricao}','{data}');""")
+                cursor.close()
+                limparCampsMemo()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Office.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Office.setText(mensage)
+
+            except pymysql.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Office.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Office.setText(mensageErro)
 
     def limparCampsOffice():
-        ee.lineEditChaveOffice.clear()
-        ee.lineEditVersaoProOffice.clear()
-        ee.lineEditDescricaoOffice.clear()
+        ee.offChave.clear()
+        ee.offVersaoPro.clear()
+        ee.offValor.clear()
+        ee.offDescricao.clear()
         ee.label_Office.clear()
 
     def cancelarCadOffice():
@@ -648,22 +788,43 @@ def estoqueTi(mw,ee):
 
     # Cadastro de Windows no banco =====================================================================================
     def cadastrarWindows():
-        chave = ee.lineEditChaveWindows.text()
-        versaoPro = ee.lineEditVersaoProWindows.text()
-        versao = ee.comboBoxVersaoWindows.currentText()
-        valor = ee.lineEditValorWindows.text()
-        descricao = ee.lineEditDescricaoWindows.text()
+        chave = ee.wiChave.text()
+        versaoPro = ee.wiVersaoPro.text()
+        versao = ee.wiBoxVersao.currentText()
+        valor = ee.wiValor.text()
+        descricao = ee.wiDescricao.text()
+        data = date.today()
 
-        listaItems = [chave, versaoPro, versao, valor, descricao]
+        if chave == '' or versaoPro == '' or versao == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.wiChave.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.wiVersaoPro.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.wiBoxVersao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Windows.setText(mensagem)
 
-        print(listaItems)
-        texto = 'deu certo'
-        ee.label_Windows.setText(texto)
+        else:
+            try:
+                cursor = db.conMySQL()
+                cursor.execute(
+                    f"""INSERT INTO Windows VALUES ('{chave}','{versaoPro}','{versao}', {valor}, '{descricao}','{data}');""")
+                cursor.close()
+                limparCampsMemo()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Windows.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Windows.setText(mensage)
+
+            except pymysql.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Windows.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Windows.setText(mensageErro)
 
     def limparCampsWindows():
-        ee.lineEdit.clear()
-        ee.lineEdit.clear()
-        ee.lineEditDescricaoEmail.clear()
+        ee.wiChave.clear()
+        ee.wiVersaoPro.clear()
+        ee.wiValor.clear()
+        ee.wiDescricao.clear()
         ee.label_Windows.clear()
 
     def cancelarCadWindows():
@@ -675,26 +836,38 @@ def estoqueTi(mw,ee):
 
     # Cadastro de Outros no banco ======================================================================================
     def cadastrarOutros():
-        nome = ee.lineEditNomeOutro.text()
-        marca = ee.lineEditMarcaOutro.Text()
-        modelo = ee.lineEditModeloOutro.text()
-        condicao = ee.lineEditCondicaoOutro.text()
-        valor = ee.lineEditValorOutro.text()
-        descricao = ee.lineEditDescricaoOutro.text()
+        nome = ee.ouNome.text()
+        marca = ee.ouMarca.text()
+        modelo = ee.ouModelo.text()
+        condicao = ee.ouCondicao.text()
+        valor = ee.ouValor.text()
+        descricao = ee.ouDescricao.text()
+        data = date.today()
 
-        listaItems = [nome, marca, modelo, condicao, valor, descricao]
+        try:
+            cursor = db.conMySQL()
+            cursor.execute(
+                f"""INSERT INTO Outros VALUES ('{nome}','{marca}','{modelo}','{condicao}',{valor},'{descricao}','{data}');""")
+            cursor.close()
+            limparCampsMemo()
 
-        print(listaItems)
-        texto = 'deu certo'
-        ee.label_Outro.setText(texto)
+            mensage = 'CADASTRADO COM SUCESSO!'
+            ee.label_Outro.setStyleSheet("color: rgb(37, 163, 8);")
+            ee.label_Outro.setText(mensage)
+
+        except pymysql.Error as erro:
+            print(erro)
+            mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+            ee.label_Outro.setStyleSheet("rgb(255, 0, 0);")
+            ee.label_Outro.setText(mensageErro)
 
     def limparCampsOutros():
-        ee.lineEditNomeOutro.clear()
-        ee.lineEditMarcaOutro.clear()
-        ee.lineEditModeloOutro.clear()
-        ee.lineEditCondicaoOutro.clear()
-        ee.lineEditValorOutro.clear()
-        ee.lineEditDescricaoOutro.clear()
+        ee.ouMarca.clear()
+        ee.ouModelo.clear()
+        ee.ouNome.clear()
+        ee.ouCondicao.clear()
+        ee.ouValor.clear()
+        ee.ouDescricao.clear()
         ee.label_Outro.clear()
 
     def cancelarCadOutros():
@@ -733,8 +906,8 @@ if __name__ == "__main__":
     ee.setupUi(MainEEstoque)
 
 
-    #MainLogin.showMaximized()
-    MainEEstoque.show()
+    MainLogin.showMaximized()
+    # MainEEstoque.show()
     login(ui)
     estoqueTi(mw, ee)
 
