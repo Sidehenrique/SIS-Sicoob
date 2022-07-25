@@ -350,7 +350,9 @@ def estoqueTi(mw,ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Celular VALUES ({imei},{imei2},'{marca}','{modelo}','{condicao}',{anofab},'{cor}',
+                    f"""INSERT INTO celular (imei,imei2,marca,modelo,condicao,anofab,cor,preco,processador,modpro,
+                    frepro,ram,bateria,sistema,micro,memo,dualchip,chip,chip2,numero,numero2,descricao,data)
+                     VALUES ({imei},{imei2},'{marca}','{modelo}','{condicao}',{anofab},'{cor}',
                     {preco},'{processador}','{modeloPro}','{frequencia}',{ram},{bateria},'{sistema}',
                     '{microSD}',{memoria},'{dual}','{chip1}','{chip2}',{numero1},{numero2},'{descricao}','{data}');""")
                 cursor.close()
@@ -414,7 +416,8 @@ def estoqueTi(mw,ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Memoria VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}',{valor}
+                    f"""INSERT INTO Memoria (marca,modelo,condicao,tamanho,plataforma,valor,descricao,data)
+                    VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}',{valor}
                     ,'{descricao}','{data}');""")
                 cursor.close()
                 limparCampsMemo()
@@ -467,10 +470,11 @@ def estoqueTi(mw,ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Disco VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}'
+                    f"""INSERT INTO Disco (marca,modelo,condicao,tamanho,plataforma,valor,descricao,data)
+                    VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}'
                     ,'{descricao}','{data}');""")
                 cursor.close()
-                limparCampsMemo()
+                limparCampsDisco()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Disco.setStyleSheet("color: rgb(37, 163, 8);")
@@ -519,8 +523,8 @@ def estoqueTi(mw,ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Mouse VALUES ('{marca}','{modelo}','{condicao}','{tipo}',{valor},
-                    ,'{descricao}','{data}');""")
+                    f"""INSERT INTO Mouse (marca,modelo,condicao,tipo,valor,descricao,data)
+                    VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}','{descricao}','{data}');""")
                 cursor.close()
                 limparCampsMemo()
 
@@ -567,10 +571,10 @@ def estoqueTi(mw,ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO MousePad VALUES ('{marca}','{modelo}','{condicao}',{valor},
-                    ,'{descricao}','{data}');""")
+                    f"""INSERT INTO MousePad (marca,modelo,condicao,valor,descricao,data)
+                    VALUES ('{marca}','{modelo}','{condicao}','{valor}','{descricao}','{data}');""")
                 cursor.close()
-                limparCampsMemo()
+                limparCampsPad()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Pad.setStyleSheet("color: rgb(37, 163, 8);")
@@ -617,10 +621,10 @@ def estoqueTi(mw,ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Teclado VALUES ('{marca}','{modelo}','{condicao}','{tipo}', {valor},
-                           '{descricao}','{data}');""")
+                    f"""INSERT INTO teclado (marca,modelo,condicao,tipo,valor,descricao,data)
+                    VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}','{descricao}','{data}');""")
                 cursor.close()
-                limparCampsMemo()
+                limparCampsTeclado()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Teclado.setStyleSheet("color: rgb(37, 163, 8);")
@@ -629,8 +633,8 @@ def estoqueTi(mw,ee):
             except pymysql.Error as erro:
                 print(erro)
                 mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
-                ee.label_Pad.setStyleSheet("rgb(255, 0, 0);")
-                ee.label_Pad.setText(mensageErro)
+                ee.label_Teclado.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Teclado.setText(mensageErro)
 
     def limparCampsTeclado():
         ee.tecMarca.clear()
@@ -665,10 +669,10 @@ def estoqueTi(mw,ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Suporte VALUES ('{marca}','{modelo}','{condicao}','{valor}',
-                           ,'{descricao}','{data}');""")
+                    f"""INSERT INTO Suporte (marca,modelo,condicao,valor,descricao,data)
+                    VALUES ('{marca}','{modelo}','{condicao}','{valor}','{descricao}','{data}');""")
                 cursor.close()
-                limparCampsMemo()
+                limparCampsSuporte()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Suporte.setStyleSheet("color: rgb(37, 163, 8);")
@@ -712,9 +716,10 @@ def estoqueTi(mw,ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Email VALUES ('{empresa}',{quantidade},{valor},'{descricao}','{data}');""")
+                    f"""INSERT INTO Email (empresa,quantidade,valor,descricao,data)
+                    VALUES ('{empresa}',{quantidade},'{valor}','{descricao}','{data}');""")
                 cursor.close()
-                limparCampsMemo()
+                limparCampsEmail()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Email.setStyleSheet("color: rgb(37, 163, 8);")
@@ -758,9 +763,10 @@ def estoqueTi(mw,ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Office VALUES ('{chave}','{versaoPro}','{versao}', {valor}, '{descricao}','{data}');""")
+                    f"""INSERT INTO Office (chave,versaopro,versao,valor,descricao,data)
+                    VALUES ('{chave}','{versaoPro}','{versao}','{valor}','{descricao}','{data}');""")
                 cursor.close()
-                limparCampsMemo()
+                limparCampsOffice()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Office.setStyleSheet("color: rgb(37, 163, 8);")
@@ -806,9 +812,10 @@ def estoqueTi(mw,ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Windows VALUES ('{chave}','{versaoPro}','{versao}', {valor}, '{descricao}','{data}');""")
+                    f"""INSERT INTO Windows (chave,versaopro,versao,valor,descricao,data)
+                    VALUES ('{chave}','{versaoPro}','{versao}', '{valor}', '{descricao}','{data}');""")
                 cursor.close()
-                limparCampsMemo()
+                limparCampsWindows()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Windows.setStyleSheet("color: rgb(37, 163, 8);")
@@ -847,9 +854,10 @@ def estoqueTi(mw,ee):
         try:
             cursor = db.conMySQL()
             cursor.execute(
-                f"""INSERT INTO Outros VALUES ('{nome}','{marca}','{modelo}','{condicao}',{valor},'{descricao}','{data}');""")
+                f"""INSERT INTO Outros (nome,marca,modelo,condicao,valor,descricao,data)
+                VALUES ('{nome}','{marca}','{modelo}','{condicao}','{valor}','{descricao}','{data}');""")
             cursor.close()
-            limparCampsMemo()
+            limparCampsOutros()
 
             mensage = 'CADASTRADO COM SUCESSO!'
             ee.label_Outro.setStyleSheet("color: rgb(37, 163, 8);")
@@ -906,8 +914,8 @@ if __name__ == "__main__":
     ee.setupUi(MainEEstoque)
 
 
-    MainLogin.showMaximized()
-    # MainEEstoque.show()
+    # MainLogin.showMaximized()
+    MainEEstoque.show()
     login(ui)
     estoqueTi(mw, ee)
 
