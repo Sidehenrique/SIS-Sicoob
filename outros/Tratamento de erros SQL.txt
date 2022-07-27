@@ -1,0 +1,5 @@
+(1054, "Unknown column 'm' in 'field list") - Entrada int em varchar ou varchar em int
+(1136, "Column count doesn't match value count at row 1") Campos int preenchidos com caracteres ou nao preenchidos / são obrigatorios
+(1064, "You have an error in your SQL syntax;) campos não preenchidos / int obrigatorios
+(2003, "Can't connect to MySQL server) Sem conexão com o banco
+(1366, "Incorrect integer value: '' for column 'VALOR' at row 1") valor nulo ou string em campo int

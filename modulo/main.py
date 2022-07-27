@@ -5,8 +5,9 @@ import db
 from datetime import date
 import pymysql
 
+'''TRATAMENTO LOGIN ================================================================================================='''
 
-# TRATAMENTO LOGIN =====================================================================================================
+
 def login(ui):
     # Tratamento do POPUP -----------------------------------------------------------------
     ui.frame_erro.hide()
@@ -37,6 +38,8 @@ def login(ui):
                 if password == senha_bd[0][0]:
                     texto = 'BEM VINDO ' + usuario.upper()
                     mensage(texto)
+                    ui.lineEdit.clear()
+                    ui.lineEdit_3.clear()
                     MainLogin.close()
                     MainEstoque.showMaximized()
 
@@ -49,42 +52,10 @@ def login(ui):
                 mensage(texto)
                 return
 
-
-
-
-        # try:
-        #     cursor = db.conMySQL()
-        #     cursor.execute(f"""SELECT password FROM usuarios WHERE user = '{usuario}';""")
-        #     senha_bd = cursor.fetchall()
-        #     print(senha_bd[0][0] + '<--- banco de dados')
-        #     cursor.close()
-        #
-        #     if usuario == '' or password == '':
-        #         text = 'Campos Não Preenchidos'
-        #         mensage(text)
-        #
-        #     elif password == senha_bd[0][0]:
-        #         texto2 = 'Login efetuado com sucesso'
-        #         mensage(texto2)
-        #         print('Sucesso!!!')
-        #         MainLogin.close()
-        #         MainEstoque.showMaximized()
-        #
-        #     else:
-        #         texto3 = 'A senha esta incorreta'
-        #         mensage(texto3)
-        #
-        # except pymysql.Error as erro:
-        #     texto1 = 'Erro de Servidor' + str(erro)
-        #     print(str(erro))
-        #     mensage(texto1)
-        #     return
-
     ui.ENTER.clicked.connect(checkPassword)
 
 
-''' TRATAMENTO HOME ================================================================================================='''
-#
+'''TRATAMENTO HOME =================================================================================================='''
 # def home(mw):
 #     MainWindow.setWindowTitle('HOME')
 #     # Acionamento Botão sair -----------------------------------------------------------
@@ -121,8 +92,10 @@ def login(ui):
 #     # tratamento de informações com o BANCO DE DADOS ------------------------------------
 
 
-''' TRATAMENTO ESTOQUE TI ==========================================================================================='''
-def estoqueTi(mw,ee):
+'''TRATAMENTO ESTOQUE TI ============================================================================================'''
+
+
+def estoqueTi(mw, ee):
     MainEstoque.setWindowTitle('ESTOQUE')
 
     #  Acionamento Botões menu -----------------------------------------------------------------------------------------
@@ -130,35 +103,44 @@ def estoqueTi(mw,ee):
         mw.lineEdit_pesquisar.clear()
         mw.lineEdit_pesquisarTable_3.clear()
         MainEstoque.close()
+        ui.frame_erro.hide()
         MainLogin.showMaximized()
+
     mw.pushButtonVoltar.clicked.connect(ButtonVoltar)
 
     def ButtonChamados():
         mw.lineEdit_pesquisar.clear()
         mw.lineEdit_pesquisarTable_3.clear()
         pass
+
     mw.pushButtonChamados.clicked.connect(ButtonChamados)
 
     def ButtonControle():
         mw.lineEdit_pesquisar.clear()
         mw.lineEdit_pesquisarTable_3.clear()
         pass
+
     mw.pushButtonControle.clicked.connect(ButtonControle)
 
     def ButtonEstoque():
+        quantiTable()
         mw.lineEdit_pesquisar.clear()
         mw.lineEdit_pesquisarTable_3.clear()
         pass
+
     mw.pushButtonEstoque.clicked.connect(ButtonEstoque)
 
     #  Acionamento Botões Submenu --------------------------------------------------------------------------------------
     def ButtonInicio():
+        quantiTable()
         mw.lineEdit_pesquisarTable_3.clear()
         mw.stackedWidget.setCurrentWidget(mw.pageHome)
+
     mw.pushButton_Inicio.clicked.connect(ButtonInicio)
 
     def ButtonEntrada():
         MainEEstoque.show()
+
     mw.pushButtonEntrada.clicked.connect(ButtonEntrada)
 
     def ButtonSaida():
@@ -167,45 +149,99 @@ def estoqueTi(mw,ee):
     def ButtonHistorico():
         pass
 
+    #  pré visualização de quantidade ----------------------------------------------------------------------------------
+    def quantiTable():
+        cursor = db.conMySQL()
+        cursor.execute(f"""SELECT * FROM notebook;""")
+        notebook = len(cursor.fetchall())
+        print(notebook)
+        mw.labelNotebook.setText(str(notebook))
+
+        cursor.execute(f"""SELECT * FROM celular;""")
+        celular = len(cursor.fetchall())
+        print(celular)
+        mw.labelCelular.setText(str(celular))
+
+        cursor.execute(f"""SELECT * FROM memoria;""")
+        memoria = len(cursor.fetchall())
+        print(memoria)
+        mw.labelMemoria.setText(str(memoria))
+
+        cursor.execute(f"""SELECT * FROM disco;""")
+        disco = len(cursor.fetchall())
+        print(disco)
+        mw.labelSSD.setText(str(disco))
+
+        cursor.execute(f"""SELECT * FROM mouse;""")
+        mouse = len(cursor.fetchall())
+        print(mouse)
+        mw.labelMouse.setText(str(mouse))
+
+        cursor.execute(f"""SELECT * FROM mousePad;""")
+        pad = len(cursor.fetchall())
+        print(pad)
+        mw.labelMousepad.setText(str(pad))
+
+        cursor.execute(f"""SELECT * FROM teclado;""")
+        teclado = len(cursor.fetchall())
+        print(teclado)
+        mw.labelTeclado.setText(str(teclado))
+
+        cursor.execute(f"""SELECT * FROM suporte;""")
+        suporte = len(cursor.fetchall())
+        print(suporte)
+        mw.labelSuporte.setText(str(suporte))
+
+        cursor.execute(f"""SELECT * FROM email;""")
+        email = len(cursor.fetchall())
+        print(email)
+        mw.labelEmail.setText(str(email))
+
+        cursor.execute(f"""SELECT * FROM office;""")
+        office = len(cursor.fetchall())
+        print(office)
+        mw.labelOffice.setText(str(office))
+
+        cursor.execute(f"""SELECT * FROM windows;""")
+        windows = len(cursor.fetchall())
+        print(windows)
+        mw.labelWindows.setText(str(windows))
+
+        cursor.close()
+        return notebook, celular, memoria, disco, mouse, pad, teclado, suporte, email, office, windows
+
+    quantiTable()
+
     #  Acionamento Botões de icones de TABELA --------------------------------------------------------------------------
 
     mw.ButtonNotebook.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageNotebook))
     mw.ButtonCelular.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageCelular))
     mw.ButtonMemoria.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageMemoria))
-    mw.ButtonSSD.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget())
+    mw.ButtonSSD.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageSSD))
     mw.ButtonMouse.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget())
 
-    #  Tratamento info home ---------------------------------------------------------------
-
-    # def chekQuantidade(entrada):
-    #     cursor = db.conectar_mssql()
-    #     cursor.execute(f"""SELECT * FROM {entrada};""")
-    #     quantidade = cursor.fetchall()
-    #     q = (len(quantidade))
-    #     print(q)
-    #     cursor.close()
-    #     return q
-    # chekQuantidade('cadastro')
-
-    # mw.labelNotebook.setText(chekQuantidade)
 
 
-    # def tabelaNote():
-    #     mw.tableWidgetCelular.setStyleSheet("")
-    #
-    #     cursor = db.conectar_mssql()
-    #     cursor.execute(f"""SELECT * FROM cadastro;""")
-    #     quantidade = cursor.fetchall()
-    #
-    #
-    #
-    # mw.tableWidgetCelular.setSortingEnabled(True)
+    ''' Visualização de items da tabela ============================================================================='''
+    def carregarNote():
+        con = db.conMySQL()
+        con.execute("""SELECT * FROM notebook""")
+        result = con.fetchall()
+
+        mw.tableWidgetNotebook.clearContents()
+        mw.tableWidgetNotebook.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetNotebook.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.close()
+
+    carregarNote()
+    mw.ButtonNoteView.clicked.connect(carregarNote)
 
 
-        # mw.tableWidgetCelular.setColumnCount(15)
-        # mw.tableWidgetCelular.setRowCount(30)
-
-    ''' Cadastro de Items do estoque no banco -----------------------------------------------------------------------'''
+    ''' Cadastro de Items do estoque no banco ======================================================================='''
     # mudar o comboBox seletor dos items de cadastro
     ee.stackedWidgetCadastro.setCurrentIndex(0)
     ee.comboBoxSeletorGeral.activated['int'].connect(ee.stackedWidgetCadastro.setCurrentIndex)
@@ -243,7 +279,7 @@ def estoqueTi(mw,ee):
         anteVirus = ee.notBoxAntevirus.currentText()
         nomeRede = ee.notRede.text().upper()
 
-        if marca =='' or modelo =='' or serviceTag =='' or nomeRede =='' or carregador =='' or processador =='' or geracaoPro =='' or ram =='' or ddr =='':
+        if marca == '' or modelo == '' or serviceTag == '' or nomeRede == '' or carregador == '' or processador == '' or geracaoPro == '' or ram == '' or ddr == '':
 
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.notMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
@@ -265,16 +301,17 @@ def estoqueTi(mw,ee):
                     REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO, FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM,
                     LICENCAWINDOWS, LICENCAOFFICE, WINDOWS, OFFICE, ANTEVIRUS, DESCRICAO, DATA) 
                     
-                    VALUES ({imb},'{marca}','{modelo}','{condicao}',{anoFab},'{cfg}',{tela},
-                    {preco},'{serviceTag}','{teamViewer}','{nomeRede}','{ssd}','{HDexp}','{carregador}',
-                    '{processador}','{marcaPro}','{frequenciaPro}','{geracaoPro}',{ram},'{ddr}',{frequenciaMemo},
-                    '{anteVirus}','{memoExp}','{chaveW}','{chaveO}','{windows}','{office}','{descricao}','{data}');""")
+                    VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{cfg}','{tela}',
+                    '{preco}','{serviceTag}','{teamViewer}','{nomeRede}','{ssd}','{HDexp}','{carregador}',
+                    '{processador}','{marcaPro}','{frequenciaPro}','{geracaoPro}','{ram}','{ddr}','{frequenciaMemo}',
+                    '{memoExp}','{chaveW}','{chaveO}','{windows}','{office}','{anteVirus}','{descricao}','{data}');""")
                 cursor.close()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
                 limparCampsNote()
                 ee.labelNotebook.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.labelNotebook.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -306,6 +343,7 @@ def estoqueTi(mw,ee):
     def cancelarCadNote():
         limparCampsNote()
         MainEEstoque.close()
+
     ee.pushButtonCancelarNote.clicked.connect(cancelarCadNote)
     ee.pushButtonSalvarNote.clicked.connect(cadastrarNotebook)
 
@@ -335,7 +373,7 @@ def estoqueTi(mw,ee):
         descricao = ee.celDescricao.text()
         data = date.today()
 
-        if imei =='' or marca =='' or modelo =='' or condicao =='' or cor =='' or ram =='' or memoria =='':
+        if imei == '' or marca == '' or modelo == '' or condicao == '' or cor == '' or ram == '' or memoria == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.celMeiOne.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.celMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
@@ -352,15 +390,16 @@ def estoqueTi(mw,ee):
                 cursor.execute(
                     f"""INSERT INTO celular (imei,imei2,marca,modelo,condicao,anofab,cor,preco,processador,modpro,
                     frepro,ram,bateria,sistema,micro,memo,dualchip,chip,chip2,numero,numero2,descricao,data)
-                     VALUES ({imei},{imei2},'{marca}','{modelo}','{condicao}',{anofab},'{cor}',
-                    {preco},'{processador}','{modeloPro}','{frequencia}',{ram},{bateria},'{sistema}',
-                    '{microSD}',{memoria},'{dual}','{chip1}','{chip2}',{numero1},{numero2},'{descricao}','{data}');""")
+                     VALUES ('{imei}','{imei2}','{marca}','{modelo}','{condicao}','{anofab}','{cor}',
+                    '{preco}','{processador}','{modeloPro}','{frequencia}','{ram}','{bateria}','{sistema}',
+                    '{microSD}','{memoria}','{dual}','{chip1}','{chip2}','{numero1}','{numero2}','{descricao}','{data}');""")
                 cursor.close()
                 limparCampsCelu()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Celular.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Celular.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -377,6 +416,7 @@ def estoqueTi(mw,ee):
         ee.celAnoFab.clear()
         ee.celCor.clear()
         ee.celPreco.clear()
+        ee.celModPro.clear()
         ee.celMemo.clear()
         ee.celPro.clear()
         ee.celDescricao.clear()
@@ -390,6 +430,7 @@ def estoqueTi(mw,ee):
     def cancelarCadCelu():
         limparCampsCelu()
         MainEEstoque.close()
+
     ee.pushButtonCadastraCelular.clicked.connect(cadastrarCelu)
     ee.pushButtonCancelarCelular.clicked.connect(cancelarCadCelu)
 
@@ -417,7 +458,7 @@ def estoqueTi(mw,ee):
                 cursor = db.conMySQL()
                 cursor.execute(
                     f"""INSERT INTO Memoria (marca,modelo,condicao,tamanho,plataforma,valor,descricao,data)
-                    VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}',{valor}
+                    VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}'
                     ,'{descricao}','{data}');""")
                 cursor.close()
                 limparCampsMemo()
@@ -425,6 +466,7 @@ def estoqueTi(mw,ee):
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Memoria.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Memoria.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -444,6 +486,7 @@ def estoqueTi(mw,ee):
     def cancelarCadMemo():
         limparCampsMemo()
         MainEEstoque.close()
+
     ee.pushButtonCadastraMemo.clicked.connect(cadastrarMemo)
     ee.pushButtonCancelarMemo.clicked.connect(cancelarCadMemo)
 
@@ -479,6 +522,7 @@ def estoqueTi(mw,ee):
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Disco.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Disco.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -498,6 +542,7 @@ def estoqueTi(mw,ee):
     def cancelarCadDisco():
         limparCampsDisco()
         MainEEstoque.close()
+
     ee.pushButtonCadastraDisco.clicked.connect(cadastrarDisco)
     ee.pushButtonCancelarDisco.clicked.connect(cancelarCadDisco)
 
@@ -531,6 +576,7 @@ def estoqueTi(mw,ee):
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Mouse.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Mouse.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -549,6 +595,7 @@ def estoqueTi(mw,ee):
     def cancelarCadMouse():
         limparCampsMouse()
         MainEEstoque.close()
+
     ee.pushButtonCadastraMouse.clicked.connect(cadastrarMouse)
     ee.pushButtonCancelarMouse.clicked.connect(cancelarCadMouse)
 
@@ -579,6 +626,7 @@ def estoqueTi(mw,ee):
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Pad.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Pad.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -597,6 +645,7 @@ def estoqueTi(mw,ee):
     def cancelarCadPad():
         limparCampsPad()
         MainEEstoque.close()
+
     ee.pushButtonCadastraPad.clicked.connect(cadastrarPad)
     ee.pushButtonCancelarPad.clicked.connect(cancelarCadPad)
 
@@ -629,6 +678,7 @@ def estoqueTi(mw,ee):
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Teclado.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Teclado.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -647,6 +697,7 @@ def estoqueTi(mw,ee):
     def cancelarCadTeclado():
         limparCampsTeclado()
         MainEEstoque.close()
+
     ee.pushButtonCadastraTeclado.clicked.connect(cadastrarTeclado)
     ee.pushButtonCancelarTeclado.clicked.connect(cancelarCadTeclado)
 
@@ -677,6 +728,7 @@ def estoqueTi(mw,ee):
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Suporte.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Suporte.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -695,6 +747,7 @@ def estoqueTi(mw,ee):
     def cancelarCadSuporte():
         limparCampsSuporte()
         MainEEstoque.close()
+
     ee.pushButtonCadastraSuporte.clicked.connect(cadastrarSuporte)
     ee.pushButtonCancelarSuporte.clicked.connect(cancelarCadSuporte)
 
@@ -724,6 +777,7 @@ def estoqueTi(mw,ee):
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Email.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Email.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -740,6 +794,7 @@ def estoqueTi(mw,ee):
     def cancelarCadEmail():
         limparCampsEmail()
         MainEEstoque.close()
+
     ee.pushButtonCadastraEmail.clicked.connect(cadastrarEmail)
     ee.pushButtonCancelarEmail.clicked.connect(cancelarCadEmail)
 
@@ -771,6 +826,7 @@ def estoqueTi(mw,ee):
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Office.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Office.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -820,6 +876,7 @@ def estoqueTi(mw,ee):
                 mensage = 'CADASTRADO COM SUCESSO!'
                 ee.label_Windows.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Windows.setText(mensage)
+                quantiTable()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -851,23 +908,30 @@ def estoqueTi(mw,ee):
         descricao = ee.ouDescricao.text()
         data = date.today()
 
-        try:
-            cursor = db.conMySQL()
-            cursor.execute(
-                f"""INSERT INTO Outros (nome,marca,modelo,condicao,valor,descricao,data)
-                VALUES ('{nome}','{marca}','{modelo}','{condicao}','{valor}','{descricao}','{data}');""")
-            cursor.close()
-            limparCampsOutros()
+        if nome == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            ee.ouNome.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.label_Outro.setText(mensagem)
 
-            mensage = 'CADASTRADO COM SUCESSO!'
-            ee.label_Outro.setStyleSheet("color: rgb(37, 163, 8);")
-            ee.label_Outro.setText(mensage)
+        else:
+            try:
+                cursor = db.conMySQL()
+                cursor.execute(
+                    f"""INSERT INTO Outros (nome,marca,modelo,condicao,valor,descricao,data)
+                    VALUES ('{nome}','{marca}','{modelo}','{condicao}','{valor}','{descricao}','{data}');""")
+                cursor.close()
+                limparCampsOutros()
 
-        except pymysql.Error as erro:
-            print(erro)
-            mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
-            ee.label_Outro.setStyleSheet("rgb(255, 0, 0);")
-            ee.label_Outro.setText(mensageErro)
+                mensage = 'CADASTRADO COM SUCESSO!'
+                ee.label_Outro.setStyleSheet("color: rgb(37, 163, 8);")
+                ee.label_Outro.setText(mensage)
+                quantiTable()
+
+            except pymysql.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                ee.label_Outro.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Outro.setText(mensageErro)
 
     def limparCampsOutros():
         ee.ouMarca.clear()
@@ -886,17 +950,6 @@ def estoqueTi(mw,ee):
     ee.pushButtonCancelarOutro.clicked.connect(cancelarCadOutros)
 
 
-
-
-
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
     import sys
 
@@ -913,9 +966,8 @@ if __name__ == "__main__":
     mw.setupUi(MainEstoque)
     ee.setupUi(MainEEstoque)
 
-
-    # MainLogin.showMaximized()
-    MainEEstoque.show()
+    MainLogin.showMaximized()
+    # MainEEstoque.show()
     login(ui)
     estoqueTi(mw, ee)
 

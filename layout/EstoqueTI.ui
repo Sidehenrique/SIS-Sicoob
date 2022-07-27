@@ -2913,7 +2913,158 @@ background-repeat: no-repeat;
                </widget>
               </item>
               <item>
-               <widget class="QTableWidget" name="tableWidgetNotebook"/>
+               <widget class="QTableWidget" name="tableWidgetNotebook">
+                <column>
+                 <property name="text">
+                  <string>ID</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>IMB</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>MARCA</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>MODELO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>CONDIÇÃO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>ANO DE FAB</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>CFG</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>TELA</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>PREÇO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>SERVICE TAG</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>TEAMVIEWER</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>REDE</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>SSD</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>EXPANCIVEL</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>CARREGADOR</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>PROCESSADOR</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>MARCA PRO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>FREQUENCIA PRO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>GERAÇÃO PRO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>RAM</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>MODELO RAM</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>FREQUENCIA RAM</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>EXPANCIVEL RAM</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>LICENÇA WINDOWS</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>LICENÇA OFFICE</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>WINDOWS</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>OFFICE</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>ANTE-VIRUS</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>DESCRIÇÃO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>DATA</string>
+                 </property>
+                </column>
+               </widget>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_22">
