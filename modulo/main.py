@@ -1,5 +1,5 @@
 from login import *
-from estoqueTI import *
+from EstoqueTI import *
 from entradaEstoque import *
 import db
 from datetime import date
@@ -42,6 +42,7 @@ def login(ui):
                     ui.lineEdit_3.clear()
                     MainLogin.close()
                     MainEstoque.showMaximized()
+                    mw.stackedWidget.setCurrentIndex(0)
 
                 else:
                     texto = 'SENHA INCORRETA'
@@ -101,7 +102,6 @@ def estoqueTi(mw, ee):
     #  Acionamento Botões menu -----------------------------------------------------------------------------------------
     def ButtonVoltar():
         mw.lineEdit_pesquisar.clear()
-        mw.lineEdit_pesquisarTable_3.clear()
         MainEstoque.close()
         ui.frame_erro.hide()
         MainLogin.showMaximized()
@@ -110,14 +110,12 @@ def estoqueTi(mw, ee):
 
     def ButtonChamados():
         mw.lineEdit_pesquisar.clear()
-        mw.lineEdit_pesquisarTable_3.clear()
         pass
 
     mw.pushButtonChamados.clicked.connect(ButtonChamados)
 
     def ButtonControle():
         mw.lineEdit_pesquisar.clear()
-        mw.lineEdit_pesquisarTable_3.clear()
         pass
 
     mw.pushButtonControle.clicked.connect(ButtonControle)
@@ -125,15 +123,13 @@ def estoqueTi(mw, ee):
     def ButtonEstoque():
         quantiTable()
         mw.lineEdit_pesquisar.clear()
-        mw.lineEdit_pesquisarTable_3.clear()
         pass
 
     mw.pushButtonEstoque.clicked.connect(ButtonEstoque)
 
     #  Acionamento Botões Submenu --------------------------------------------------------------------------------------
     def ButtonInicio():
-        quantiTable()
-        mw.lineEdit_pesquisarTable_3.clear()
+        # quantiTable()
         mw.stackedWidget.setCurrentWidget(mw.pageHome)
 
     mw.pushButton_Inicio.clicked.connect(ButtonInicio)
@@ -144,7 +140,8 @@ def estoqueTi(mw, ee):
     mw.pushButtonEntrada.clicked.connect(ButtonEntrada)
 
     def ButtonSaida():
-        pass
+        mw.stackedWidget.setCurrentWidget(mw.pageSaida)
+    mw.pushButtonSaida.clicked.connect(ButtonSaida)
 
     def ButtonHistorico():
         pass
@@ -154,58 +151,63 @@ def estoqueTi(mw, ee):
         cursor = db.conMySQL()
         cursor.execute(f"""SELECT * FROM notebook;""")
         notebook = len(cursor.fetchall())
-        print(notebook)
         mw.labelNotebook.setText(str(notebook))
+        mw.labelTotalnotebook.setText(str(notebook))
 
         cursor.execute(f"""SELECT * FROM celular;""")
         celular = len(cursor.fetchall())
-        print(celular)
         mw.labelCelular.setText(str(celular))
+        mw.labelTotalcelular.setText(str(celular))
 
         cursor.execute(f"""SELECT * FROM memoria;""")
         memoria = len(cursor.fetchall())
-        print(memoria)
         mw.labelMemoria.setText(str(memoria))
+        mw.labelTotalmemoria.setText(str(memoria))
 
         cursor.execute(f"""SELECT * FROM disco;""")
         disco = len(cursor.fetchall())
-        print(disco)
         mw.labelSSD.setText(str(disco))
+        mw.labelTotaldisco.setText(str(disco))
 
         cursor.execute(f"""SELECT * FROM mouse;""")
         mouse = len(cursor.fetchall())
-        print(mouse)
         mw.labelMouse.setText(str(mouse))
+        mw.labelTotalMouse.setText(str(mouse))
 
         cursor.execute(f"""SELECT * FROM mousePad;""")
         pad = len(cursor.fetchall())
-        print(pad)
         mw.labelMousepad.setText(str(pad))
+        mw.labelTotalPad.setText(str(pad))
 
         cursor.execute(f"""SELECT * FROM teclado;""")
         teclado = len(cursor.fetchall())
-        print(teclado)
         mw.labelTeclado.setText(str(teclado))
+        mw.labelTotalTeclado.setText(str(teclado))
 
         cursor.execute(f"""SELECT * FROM suporte;""")
         suporte = len(cursor.fetchall())
-        print(suporte)
         mw.labelSuporte.setText(str(suporte))
+        mw.labelTotalSuporte.setText(str(suporte))
 
         cursor.execute(f"""SELECT * FROM email;""")
         email = len(cursor.fetchall())
-        print(email)
         mw.labelEmail.setText(str(email))
+        mw.labelTotalEmail.setText(str(email))
 
         cursor.execute(f"""SELECT * FROM office;""")
         office = len(cursor.fetchall())
-        print(office)
         mw.labelOffice.setText(str(office))
+        mw.labelTotalOffice.setText(str(office))
 
         cursor.execute(f"""SELECT * FROM windows;""")
         windows = len(cursor.fetchall())
-        print(windows)
         mw.labelWindows.setText(str(windows))
+        mw.labelTotalWindows.setText(str(windows))
+
+        # cursor.execute(f"""SELECT * FROM outros;""")
+        # outros = len(cursor.fetchall())
+        # mw.labelOutros.setText(str(outros))
+        # mw.labelTotalOutros.setText(str(outros))
 
         cursor.close()
         return notebook, celular, memoria, disco, mouse, pad, teclado, suporte, email, office, windows
@@ -217,13 +219,17 @@ def estoqueTi(mw, ee):
     mw.ButtonNotebook.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageNotebook))
     mw.ButtonCelular.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageCelular))
     mw.ButtonMemoria.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageMemoria))
-    mw.ButtonSSD.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageSSD))
-    mw.ButtonMouse.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget())
-
-
+    mw.ButtonSSD.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw. pageDisco))
+    mw.ButtonMouse.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageMouse))
+    mw.ButtonMousePad.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pagePad))
+    mw.ButtonTeclado.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageTeclado))
+    mw.ButtonSuporte.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageSuporte))
+    mw.ButtonEmail.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageEmail))
+    mw.ButtonOffice.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageOffice))
+    mw.ButtonWindows.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageWindows))
 
     ''' Visualização de items da tabela ============================================================================='''
-    def carregarNote():
+    def carregarDados():
         con = db.conMySQL()
         con.execute("""SELECT * FROM notebook""")
         result = con.fetchall()
@@ -235,11 +241,110 @@ def estoqueTi(mw, ee):
             for column, data in enumerate(text):
                 mw.tableWidgetNotebook.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
 
+        con.execute("""SELECT * FROM celular""")
+        result = con.fetchall()
+
+        mw.tableWidgetCelular.clearContents()
+        mw.tableWidgetCelular.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetCelular.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.execute("""SELECT * FROM memoria""")
+        result = con.fetchall()
+
+        mw.tableWidgetMemo.clearContents()
+        mw.tableWidgetMemo.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetMemo.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.execute("""SELECT * FROM disco""")
+        result = con.fetchall()
+
+        mw.tableWidgetDis.clearContents()
+        mw.tableWidgetDis.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetDis.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.execute("""SELECT * FROM mouse""")
+        result = con.fetchall()
+
+        mw.tableWidgetMouse.clearContents()
+        mw.tableWidgetMouse.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetMouse.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.execute("""SELECT * FROM mousepad""")
+        result = con.fetchall()
+
+        mw.tableWidgetPad.clearContents()
+        mw.tableWidgetPad.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetPad.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.execute("""SELECT * FROM teclado""")
+        result = con.fetchall()
+
+        mw.tableWidgetTec.clearContents()
+        mw.tableWidgetTec.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetTec.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.execute("""SELECT * FROM suporte""")
+        result = con.fetchall()
+
+        mw.tableWidgetSuporte.clearContents()
+        mw.tableWidgetSuporte.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetSuporte.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.execute("""SELECT * FROM email""")
+        result = con.fetchall()
+
+        mw.tableWidgetEmail.clearContents()
+        mw.tableWidgetEmail.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetEmail.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.execute("""SELECT * FROM office""")
+        result = con.fetchall()
+
+        mw.tableWidgetOffice.clearContents()
+        mw.tableWidgetOffice.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetOffice.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.execute("""SELECT * FROM windows""")
+        result = con.fetchall()
+
+        mw.tableWidgetWindows.clearContents()
+        mw.tableWidgetWindows.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetWindows.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
         con.close()
 
-    carregarNote()
-    mw.ButtonNoteView.clicked.connect(carregarNote)
-
+    carregarDados()
+    mw.ButtonNoteView.clicked.connect(carregarDados)
 
     ''' Cadastro de Items do estoque no banco ======================================================================='''
     # mudar o comboBox seletor dos items de cadastro
@@ -278,6 +383,9 @@ def estoqueTi(mw, ee):
         teamViewer = ee.notTeam.text().upper()
         anteVirus = ee.notBoxAntevirus.currentText()
         nomeRede = ee.notRede.text().upper()
+        status = 'ENTRADA'
+        item = ee.comboBoxSeletorGeral.currentText()
+
 
         if marca == '' or modelo == '' or serviceTag == '' or nomeRede == '' or carregador == '' or processador == '' or geracaoPro == '' or ram == '' or ddr == '':
 
@@ -299,19 +407,24 @@ def estoqueTi(mw, ee):
                 cursor.execute(
                     f"""INSERT INTO sisdb.notebook (IMB, MARCA, MODELO, CONDICAO, ANOFAB, CFG, TELA, PRECO, SERVICETAG, TEAMVIEWER,
                     REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO, FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM,
-                    LICENCAWINDOWS, LICENCAOFFICE, WINDOWS, OFFICE, ANTEVIRUS, DESCRICAO, DATA) 
+                    LICENCAWINDOWS, LICENCAOFFICE, WINDOWS, OFFICE, ANTEVIRUS, DESCRICAO, STATUS, DATA) 
                     
-                    VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{cfg}','{tela}',
-                    '{preco}','{serviceTag}','{teamViewer}','{nomeRede}','{ssd}','{HDexp}','{carregador}',
-                    '{processador}','{marcaPro}','{frequenciaPro}','{geracaoPro}','{ram}','{ddr}','{frequenciaMemo}',
-                    '{memoExp}','{chaveW}','{chaveO}','{windows}','{office}','{anteVirus}','{descricao}','{data}');""")
-                cursor.close()
+                    VALUES ('{item}','{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{cfg}','{tela}','{preco}','{serviceTag}',
+                    '{teamViewer}','{nomeRede}','{ssd}','{HDexp}','{carregador}','{processador}','{marcaPro}',
+                    '{frequenciaPro}','{geracaoPro}','{ram}','{ddr}','{frequenciaMemo}','{memoExp}','{chaveW}','{chaveO}',
+                    '{windows}','{office}','{anteVirus}','{descricao}','{status}','{data}');
+                    
+                    INSERT INTO sisdb.historico VALUES ('ENTRADA','{tipo}','{item}','{id}','{marca}','{modelo}',{data}
+                    );""")
 
+                cursor.close()
+                
                 mensage = 'CADASTRADO COM SUCESSO!'
                 limparCampsNote()
                 ee.labelNotebook.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.labelNotebook.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -400,6 +513,7 @@ def estoqueTi(mw, ee):
                 ee.label_Celular.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Celular.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -467,6 +581,7 @@ def estoqueTi(mw, ee):
                 ee.label_Memoria.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Memoria.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -523,6 +638,7 @@ def estoqueTi(mw, ee):
                 ee.label_Disco.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Disco.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -577,6 +693,7 @@ def estoqueTi(mw, ee):
                 ee.label_Mouse.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Mouse.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -627,6 +744,7 @@ def estoqueTi(mw, ee):
                 ee.label_Pad.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Pad.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -679,6 +797,7 @@ def estoqueTi(mw, ee):
                 ee.label_Teclado.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Teclado.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -729,6 +848,7 @@ def estoqueTi(mw, ee):
                 ee.label_Suporte.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Suporte.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -778,6 +898,7 @@ def estoqueTi(mw, ee):
                 ee.label_Email.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Email.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -827,6 +948,7 @@ def estoqueTi(mw, ee):
                 ee.label_Office.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Office.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -877,6 +999,7 @@ def estoqueTi(mw, ee):
                 ee.label_Windows.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Windows.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
@@ -926,6 +1049,7 @@ def estoqueTi(mw, ee):
                 ee.label_Outro.setStyleSheet("color: rgb(37, 163, 8);")
                 ee.label_Outro.setText(mensage)
                 quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)

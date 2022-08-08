@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="barr">
+    <file>estoque/hover/01.png</file>
+    <file>estoque/hover/02.png</file>
+    <file>estoque/hover/03.png</file>
+    <file>fundo01.png</file>
     <file>Grupo 131.png</file>
     <file>Grupo 192.png</file>
     <file>Grupo 193.png</file>
@@ -21,5 +25,23 @@
     <file>IconTI1.png</file>
     <file>IconLogo.png</file>
     <file>IconPesquisar.png</file>
+  </qresource>
+  <qresource prefix="menu">
+    <file>estoque/preset/01.png</file>
+    <file>estoque/preset/02.png</file>
+    <file>estoque/preset/03.png</file>
+    <file>estoque/hover/01.png</file>
+    <file>estoque/hover/02.png</file>
+    <file>estoque/hover/03.png</file>
+    <file>estoque/hover/06.png</file>
+    <file>estoque/icons/01.png</file>
+    <file>estoque/icons/02.png</file>
+    <file>estoque/icons/03.png</file>
+    <file>estoque/icons/06.png</file>
+    <file>estoque/preset/06.png</file>
+    <file>estoque/icon.png</file>
+    <file>estoque/icon344@2x.png</file>
+    <file>estoque/iconn.png</file>
+    <file>estoque/iconn344@2x.png</file>
   </qresource>
 </RCC>
