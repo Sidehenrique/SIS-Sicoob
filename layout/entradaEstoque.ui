@@ -68,16 +68,6 @@
         </property>
         <item>
          <property name="text">
-          <string>NOTEBOOK</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>CELULAR</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
           <string>MEMORIA</string>
          </property>
         </item>
@@ -152,7 +142,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="pageMemoria">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -583,7 +573,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Entrada de Disco:</string>
+           <string>Entrada de SSD/HD:</string>
           </property>
          </widget>
         </item>
@@ -627,7 +617,7 @@
              <number>25</number>
             </property>
             <property name="placeholderText">
-             <string>AXIS</string>
+             <string>SSD Kingston</string>
             </property>
            </widget>
           </widget>
@@ -660,7 +650,7 @@
              <number>25</number>
             </property>
             <property name="placeholderText">
-             <string>HD / SSD</string>
+             <string>A400</string>
             </property>
            </widget>
           </widget>
@@ -800,28 +790,31 @@
              </font>
             </property>
             <property name="text">
-             <string>Plataforma:</string>
+             <string>TIPO:</string>
             </property>
            </widget>
-           <widget class="QLineEdit" name="disPlataforma">
+           <widget class="QComboBox" name="comboBox">
             <property name="maximumSize">
              <size>
               <width>200</width>
               <height>16777215</height>
              </size>
             </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="maxLength">
-             <number>25</number>
-            </property>
-            <property name="placeholderText">
-             <string>Notebook / PC</string>
-            </property>
+            <item>
+             <property name="text">
+              <string/>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HD</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SSD</string>
+             </property>
+            </item>
            </widget>
           </widget>
           <widget class="QLabel" name="label_64">

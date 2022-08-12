@@ -134,17 +134,61 @@ def estoqueTi(mw, ee):
 
     mw.pushButton_Inicio.clicked.connect(ButtonInicio)
 
+    def ButtonGestao():
+        mw.stackedWidget.setCurrentWidget(mw.PageGestao)
+
+    mw.pushButtonGestao.clicked.connect(ButtonGestao)
+
+    def ButtonHistorico():
+        mw.stackedWidget.setCurrentWidget(mw.pageHistorico)
+        carregarDados()
+    mw.pushButtonHistorico.clicked.connect(ButtonHistorico)
+
+    #  Acionamento Botões PAGE GESTÃO-----------------------------------------------------------------------------------
+
+    def ButtonNovo():
+        mw.stackedWidget.setCurrentWidget(mw.pageModulos)
+        mw.stackedWidgetMenu.setCurrentWidget(mw.pageNovo)
+        mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+        print('click')
+
+    mw.pushButtonNovo.clicked.connect(ButtonNovo)
+
     def ButtonEntrada():
-        MainEEstoque.show()
+        mw.stackedWidget.setCurrentWidget(mw.pageModulos)
+        mw.stackedWidgetMenu.setCurrentWidget(mw.pageEntrada)
+        print('click')
 
     mw.pushButtonEntrada.clicked.connect(ButtonEntrada)
 
     def ButtonSaida():
-        mw.stackedWidget.setCurrentWidget(mw.pageSaida)
+        mw.stackedWidget.setCurrentWidget(mw.pageModulos)
+        mw.stackedWidgetMenu.setCurrentWidget(mw.pageSaida)
+        mw.stackedWidgetSaida.setCurrentWidget(mw.pagSaida)
+        print('click')
+
     mw.pushButtonSaida.clicked.connect(ButtonSaida)
 
-    def ButtonHistorico():
-        pass
+    #  Acionamento Botões PAGE NOVO-----------------------------------------------------------------------------------
+    def ButtonNote():
+        mw.stackedWidgetNovo.setCurrentWidget(mw.pageNovoNote)
+
+    mw.pushNote.clicked.connect(ButtonNote)
+
+    def ButtonCelu():
+        mw.stackedWidgetNovo.setCurrentWidget(mw.pageNovoCelu)
+
+    mw.pushCelular.clicked.connect(ButtonCelu)
+
+    def ButtonPeri():
+        MainEEstoque.show()
+
+    mw.pushPerifericos.clicked.connect(ButtonPeri)
+
+    def ButtonMon():
+        mw.stackedWidgetNovo.setCurrentWidget(mw.pageNovoMonitor)
+
+    mw.pushMonitor.clicked.connect(ButtonMon)
 
     #  pré visualização de quantidade ----------------------------------------------------------------------------------
     def quantiTable():
@@ -204,10 +248,10 @@ def estoqueTi(mw, ee):
         mw.labelWindows.setText(str(windows))
         mw.labelTotalWindows.setText(str(windows))
 
-        # cursor.execute(f"""SELECT * FROM outros;""")
-        # outros = len(cursor.fetchall())
-        # mw.labelOutros.setText(str(outros))
-        # mw.labelTotalOutros.setText(str(outros))
+        cursor.execute(f"""SELECT * FROM outros;""")
+        outros = len(cursor.fetchall())
+        mw.labelOutros.setText(str(outros))
+        mw.labelTotalOutros.setText(str(outros))
 
         cursor.close()
         return notebook, celular, memoria, disco, mouse, pad, teclado, suporte, email, office, windows
@@ -219,7 +263,7 @@ def estoqueTi(mw, ee):
     mw.ButtonNotebook.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageNotebook))
     mw.ButtonCelular.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageCelular))
     mw.ButtonMemoria.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageMemoria))
-    mw.ButtonSSD.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw. pageDisco))
+    mw.ButtonSSD.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageDisco))
     mw.ButtonMouse.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageMouse))
     mw.ButtonMousePad.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pagePad))
     mw.ButtonTeclado.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageTeclado))
@@ -227,8 +271,10 @@ def estoqueTi(mw, ee):
     mw.ButtonEmail.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageEmail))
     mw.ButtonOffice.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageOffice))
     mw.ButtonWindows.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageWindows))
+    mw.ButtonOutros.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageOutros))
 
     ''' Visualização de items da tabela ============================================================================='''
+
     def carregarDados():
         con = db.conMySQL()
         con.execute("""SELECT * FROM notebook""")
@@ -255,6 +301,9 @@ def estoqueTi(mw, ee):
         result = con.fetchall()
 
         mw.tableWidgetMemo.clearContents()
+        header = mw.tableWidgetMemo.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+
         mw.tableWidgetMemo.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
         for row, text in enumerate(result):
@@ -265,6 +314,8 @@ def estoqueTi(mw, ee):
         result = con.fetchall()
 
         mw.tableWidgetDis.clearContents()
+        header = mw.tableWidgetDis.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         mw.tableWidgetDis.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
         for row, text in enumerate(result):
@@ -275,6 +326,8 @@ def estoqueTi(mw, ee):
         result = con.fetchall()
 
         mw.tableWidgetMouse.clearContents()
+        header = mw.tableWidgetMouse.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         mw.tableWidgetMouse.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
         for row, text in enumerate(result):
@@ -285,6 +338,8 @@ def estoqueTi(mw, ee):
         result = con.fetchall()
 
         mw.tableWidgetPad.clearContents()
+        header = mw.tableWidgetPad.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         mw.tableWidgetPad.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
         for row, text in enumerate(result):
@@ -295,6 +350,8 @@ def estoqueTi(mw, ee):
         result = con.fetchall()
 
         mw.tableWidgetTec.clearContents()
+        header = mw.tableWidgetTec.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         mw.tableWidgetTec.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
         for row, text in enumerate(result):
@@ -305,6 +362,8 @@ def estoqueTi(mw, ee):
         result = con.fetchall()
 
         mw.tableWidgetSuporte.clearContents()
+        header = mw.tableWidgetSuporte.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         mw.tableWidgetSuporte.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
         for row, text in enumerate(result):
@@ -315,6 +374,8 @@ def estoqueTi(mw, ee):
         result = con.fetchall()
 
         mw.tableWidgetEmail.clearContents()
+        header = mw.tableWidgetEmail.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         mw.tableWidgetEmail.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
         for row, text in enumerate(result):
@@ -325,6 +386,8 @@ def estoqueTi(mw, ee):
         result = con.fetchall()
 
         mw.tableWidgetOffice.clearContents()
+        header = mw.tableWidgetOffice.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         mw.tableWidgetOffice.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
         for row, text in enumerate(result):
@@ -335,12 +398,38 @@ def estoqueTi(mw, ee):
         result = con.fetchall()
 
         mw.tableWidgetWindows.clearContents()
+        header = mw.tableWidgetWindows.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         mw.tableWidgetWindows.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
         for row, text in enumerate(result):
             for column, data in enumerate(text):
                 mw.tableWidgetWindows.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
 
+        con.execute("""SELECT * FROM outros""")
+        result = con.fetchall()
+
+        mw.tableWidgetOutros.clearContents()
+        header = mw.tableWidgetOutros.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetOutros.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetOutros.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        con.execute("""SELECT * FROM historico""")
+        result = con.fetchall()
+
+        mw.tableWidgetHistorico.clearContents()
+        header = mw.tableWidgetHistorico.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        # -------------------------------------------------------
+        mw.tableWidgetHistorico.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetHistorico.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
         con.close()
 
     carregarDados()
@@ -354,148 +443,144 @@ def estoqueTi(mw, ee):
 
     # Cadastro de Notebook no banco ====================================================================================
     def cadastrarNotebook():
-        imb = ee.notIMB.text()
-        marca = ee.notMarca.text().upper()
-        modelo = ee.notModelo.text().upper()
-        condicao = ee.notCondicao.text().upper()
-        anoFab = ee.notAno.text()
-        cfg = ee.notBoxCFG.currentText()
-        tela = ee.notBoxTela.currentText()
-        ssd = ee.notBoxSSD.currentText()
-        HDexp = ee.notBoxExp.currentText()
-        preco = ee.notPreco.text()
-        carregador = ee.notBoxCarregador.currentText()
-        processador = ee.notPro.text().upper()
-        marcaPro = ee.notMarcaPro.text().upper()
-        frequenciaPro = ee.notFrePro.text().upper()
-        geracaoPro = ee.notBoxGeracao.currentText()
-        ram = ee.notRam.text().upper()
-        ddr = ee.notVerRam.text().upper()
-        frequenciaMemo = ee.notFreRam.text()
-        memoExp = ee.notBoxExpRam.currentText()
-        chaveW = ee.notWindows.text().upper()
-        chaveO = ee.notOffice.text().upper()
-        windows = ee.notBoxWindows.currentText()
-        office = ee.notBoxOffice.currentText()
-        descricao = ee.notDecricao.text().upper()
+        tipo = mw.BoxNoteItem.currentText()
+        local = 'ESTOQUE'
+        imb = mw.notIMB.text()
+        marca = mw.notMarca.text().upper()
+        modelo = mw.notModelo.text().upper()
+        condicao = mw.notCondicao.text().upper()
+        anoFab = mw.notAno.text()
+        tela = mw.notBoxTela.currentText()
+        disco = mw.notBoxSSD.currentText()
+        DiscoExp = mw.notBoxExp.currentText()
+        preco = mw.notPreco.text()
+        carregador = mw.notBoxCarregador.currentText()
+        processador = mw.notPro.text().upper()
+        marcaPro = mw.notMarcaPro.text().upper()
+        frePro = mw.notFrePro.text().upper()
+        geracaoPro = mw.notBoxGeracao.currentText()
+        ram = mw.notRam.text().upper()
+        ramMod = mw.notVerRam.text().upper()
+        freRam = mw.notFreRam.text()
+        ramExp = mw.notBoxExpRam.currentText()
+        idWin = mw.notWindows.text().upper()
+        idOff = mw.notOffice.text().upper()
+        windows = mw.notBoxWindows.currentText()
+        office = mw.notBoxOffice.currentText()
+        descricao = mw.notDecricao.text()
         data = date.today()
-        serviceTag = ee.notService.text().upper()
-        teamViewer = ee.notTeam.text().upper()
-        anteVirus = ee.notBoxAntevirus.currentText()
-        nomeRede = ee.notRede.text().upper()
-        status = 'ENTRADA'
-        item = ee.comboBoxSeletorGeral.currentText()
+        serviceTag = mw.notService.text().upper()
+        teamViewer = mw.notTeam.text().upper()
+        anteVirus = mw.notBoxAntevirus.currentText()
+        nomeRede = mw.notRede.text().upper()
 
-
-        if marca == '' or modelo == '' or serviceTag == '' or nomeRede == '' or carregador == '' or processador == '' or geracaoPro == '' or ram == '' or ddr == '':
+        if tipo == '' or marca == '' or modelo == '' or serviceTag == '' or nomeRede == '' or carregador == '' or processador == '' or geracaoPro == '' or ram == '' or ramMod == '':
 
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
-            ee.notMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.notModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.notService.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.notRede.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.notBoxCarregador.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.notPro.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.notBoxGeracao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.notRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.notVerRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.labelNotebook.setText(mensagem)
+            mw.BoxNoteItem.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.notMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.notModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.notService.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.notRede.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.notBoxCarregador.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.notPro.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.notBoxGeracao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.notRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.notVerRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.labelNoteMensage.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO sisdb.notebook (IMB, MARCA, MODELO, CONDICAO, ANOFAB, CFG, TELA, PRECO, SERVICETAG, TEAMVIEWER,
+                    f"""INSERT INTO sisdb.notebook (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO, SERVICETAG, TEAMVIEWER,
                     REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO, FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM,
-                    LICENCAWINDOWS, LICENCAOFFICE, WINDOWS, OFFICE, ANTEVIRUS, DESCRICAO, STATUS, DATA) 
-                    
-                    VALUES ('{item}','{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{cfg}','{tela}','{preco}','{serviceTag}',
-                    '{teamViewer}','{nomeRede}','{ssd}','{HDexp}','{carregador}','{processador}','{marcaPro}',
-                    '{frequenciaPro}','{geracaoPro}','{ram}','{ddr}','{frequenciaMemo}','{memoExp}','{chaveW}','{chaveO}',
-                    '{windows}','{office}','{anteVirus}','{descricao}','{status}','{data}');
-                    
-                    INSERT INTO sisdb.historico VALUES ('ENTRADA','{tipo}','{item}','{id}','{marca}','{modelo}',{data}
-                    );""")
+                    LICENCAWINDOWS, LICENCAOFFICE, WINDOWS, OFFICE, ANTEVIRUS, DESCRICAO, DATA)
+
+                    VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}','{serviceTag}',
+                    '{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}','{processador}','{marcaPro}',
+                    '{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}','{ramExp}','{idWin}','{idOff}',
+                    '{windows}','{office}','{anteVirus}','{descricao}','{data}');""")
 
                 cursor.close()
-                
+
                 mensage = 'CADASTRADO COM SUCESSO!'
                 limparCampsNote()
-                ee.labelNotebook.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.labelNotebook.setText(mensage)
+                mw.labelNoteMensage.setStyleSheet("color: rgb(37, 163, 8);")
+                mw.labelNoteMensage.setText(mensage)
                 quantiTable()
                 carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
                 mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
-                ee.labelNotebook.setStyleSheet("rgb(255, 0, 0);")
-                ee.labelNotebook.setText(mensageErro)
+                mw.labelNoteMensage.setStyleSheet("rgb(255, 0, 0);")
+                mw.labelNoteMensage.setText(mensageErro)
 
     def limparCampsNote():
-        ee.notIMB.clear()
-        ee.notMarca.clear()
-        ee.notModelo.clear()
-        ee.notCondicao.clear()
-        ee.notAno.clear()
-        ee.notPreco.clear()
-        ee.notService.clear()
-        ee.notTeam.clear()
-        ee.notRede.clear()
-        ee.notPro.clear()
-        ee.notMarcaPro.clear()
-        ee.notFrePro.clear()
-        ee.notRam.clear()
-        ee.notVerRam.clear()
-        ee.notFreRam.clear()
-        ee.notWindows.clear()
-        ee.notOffice.clear()
-        ee.notDecricao.clear()
-        ee.labelNotebook.clear()
+        mw.notIMB.clear()
+        mw.notMarca.clear()
+        mw.notModelo.clear()
+        mw.notCondicao.clear()
+        mw.notAno.clear()
+        mw.notPreco.clear()
+        mw.notService.clear()
+        mw.notTeam.clear()
+        mw.notRede.clear()
+        mw.notPro.clear()
+        mw.notMarcaPro.clear()
+        mw.notFrePro.clear()
+        mw.notRam.clear()
+        mw.notVerRam.clear()
+        mw.notFreRam.clear()
+        mw.notWindows.clear()
+        mw.notOffice.clear()
+        mw.notDecricao.clear()
+        mw.labelNotebook.clear()
 
     def cancelarCadNote():
         limparCampsNote()
-        MainEEstoque.close()
+        mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
 
-    ee.pushButtonCancelarNote.clicked.connect(cancelarCadNote)
-    ee.pushButtonSalvarNote.clicked.connect(cadastrarNotebook)
+    mw.pushButtonCancelarNote.clicked.connect(cancelarCadNote)
+    mw.pushButtonSalvarNote.clicked.connect(cadastrarNotebook)
 
     # Cadastro de celular no banco =====================================================================================
     def cadastrarCelu():
-        imei = ee.celMeiOne.text()
-        imei2 = ee.celMeiTwo.text()
-        marca = ee.celMarca.text()
-        modelo = ee.celModelo.text()
-        condicao = ee.celEstado.text()
-        anofab = ee.celAnoFab.text()
-        cor = ee.celCor.text()
-        preco = ee.celPreco.text()
-        processador = ee.celPro.text()
-        modeloPro = ee.celModPro.text()
-        frequencia = ee.celFrePro.text()
-        ram = ee.celRam.text()
-        bateria = ee.celbat.text()
-        sistema = ee.notBoxSitema.currentText()
-        microSD = ee.celBoxMicro.currentText()
-        memoria = ee.celMemo.text()
-        dual = ee.celBoxDual.currentText()
-        chip1 = ee.celBoxChipOne.currentText()
-        chip2 = ee.celBoxChipTwo.currentText()
-        numero1 = ee.celNumeroOne.text()
-        numero2 = ee.celNumeroTwo.text()
-        descricao = ee.celDescricao.text()
+        imei = mw.celMeiOne.text()
+        imei2 = mw.celMeiTwo.text()
+        marca = mw.celMarca.text()
+        modelo = mw.celModelo.text()
+        condicao = mw.celEstado.text()
+        anofab = mw.celAnoFab.text()
+        cor = mw.celCor.text()
+        preco = mw.celPreco.text()
+        processador = mw.celPro.text()
+        modeloPro = mw.celModPro.text()
+        frequencia = mw.celFrePro.text()
+        ram = mw.celRam.text()
+        bateria = mw.celbat.text()
+        sistema = mw.notBoxSitema.currentText()
+        microSD = mw.celBoxMicro.currentText()
+        memoria = mw.celMemo.text()
+        dual = mw.celBoxDual.currentText()
+        chip1 = mw.celBoxChipOne.currentText()
+        chip2 = mw.celBoxChipTwo.currentText()
+        numero1 = mw.celNumeroOne.text()
+        numero2 = mw.celNumeroTwo.text()
+        descricao = mw.celDescricao.text()
         data = date.today()
 
         if imei == '' or marca == '' or modelo == '' or condicao == '' or cor == '' or ram == '' or memoria == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
-            ee.celMeiOne.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.celMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.celModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.celEstado.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.celCor.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.celRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.celMemo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.label_Celular.setText(mensagem)
+            mw.celMeiOne.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.celMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.celModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.celEstado.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.celCor.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.celRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.celMemo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.label_Celular.setText(mensagem)
 
         else:
             try:
@@ -510,46 +595,47 @@ def estoqueTi(mw, ee):
                 limparCampsCelu()
 
                 mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Celular.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Celular.setText(mensage)
+                mw.label_Celular.setStyleSheet("color: rgb(37, 163, 8);")
+                mw.label_Celular.setText(mensage)
                 quantiTable()
                 carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
                 mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
-                ee.label_Celular.setStyleSheet("rgb(255, 0, 0);")
-                ee.label_Celular.setText(mensageErro)
+                mw.label_Celular.setStyleSheet("rgb(255, 0, 0);")
+                mw.label_Celular.setText(mensageErro)
 
     def limparCampsCelu():
-        ee.celMeiOne.clear()
-        ee.celMeiTwo.clear()
-        ee.celMarca.clear()
-        ee.celModelo.clear()
-        ee.celEstado.clear()
-        ee.celAnoFab.clear()
-        ee.celCor.clear()
-        ee.celPreco.clear()
-        ee.celModPro.clear()
-        ee.celMemo.clear()
-        ee.celPro.clear()
-        ee.celDescricao.clear()
-        ee.celFrePro.clear()
-        ee.celRam.clear()
-        ee.celbat.clear()
-        ee.celNumeroOne.clear()
-        ee.celNumeroTwo.clear()
-        ee.label_Celular.clear()
+        mw.celMeiOne.clear()
+        mw.celMeiTwo.clear()
+        mw.celMarca.clear()
+        mw.celModelo.clear()
+        mw.celEstado.clear()
+        mw.celAnoFab.clear()
+        mw.celCor.clear()
+        mw.celPreco.clear()
+        mw.celModPro.clear()
+        mw.celMemo.clear()
+        mw.celPro.clear()
+        mw.celDescricao.clear()
+        mw.celFrePro.clear()
+        mw.celRam.clear()
+        mw.celbat.clear()
+        mw.celNumeroOne.clear()
+        mw.celNumeroTwo.clear()
+        mw.label_Celular.clear()
 
     def cancelarCadCelu():
         limparCampsCelu()
-        MainEEstoque.close()
+        mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
 
-    ee.pushButtonCadastraCelular.clicked.connect(cadastrarCelu)
-    ee.pushButtonCancelarCelular.clicked.connect(cancelarCadCelu)
+    mw.pushButtonCadastraCelular.clicked.connect(cadastrarCelu)
+    mw.pushButtonCancelarCelular.clicked.connect(cancelarCadCelu)
 
     # Cadastro de Memorias no banco ====================================================================================
     def cadastrarMemo():
+        tipo = ee.comboBoxSeletorGeral.currentText()
         marca = ee.meMarca.text()
         modelo = ee.meModelo.text()
         condicao = ee.meCondicao.text()
@@ -1072,6 +1158,58 @@ def estoqueTi(mw, ee):
 
     ee.pushButtonCadastraOutro.clicked.connect(cadastrarOutros)
     ee.pushButtonCancelarOutro.clicked.connect(cancelarCadOutros)
+
+    # Cadastro de Monitor no banco ======================================================================================
+    def cadastrarMonitor():
+        marca = mw.MonMarca.text()
+        modelo = mw.MonModelo.text()
+        condicao = mw.MonCondicao.text()
+        tamanho = mw.MonBoxTela.currentText()
+        valor = mw.MonValor.text()
+        descricao = mw.MonDescricao.text()
+        data = date.today()
+
+        if marca == '' or modelo == '' or tamanho == '':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            mw.MonMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.MonModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.MonBoxTela.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.label_Outro.setText(mensagem)
+
+        else:
+            try:
+                cursor = db.conMySQL()
+                cursor.execute(
+                    f"""INSERT INTO monitor (nome,marca,modelo,condicao,tamanho,valor,descricao,data)
+                        VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{valor}','{descricao}','{data}');""")
+                cursor.close()
+                limparCampsMonitor()
+
+                mensage = 'CADASTRADO COM SUCESSO!'
+                mw.label_Mon.setStyleSheet("color: rgb(37, 163, 8);")
+                mw.label_Mon.setText(mensage)
+                quantiTable()
+                carregarDados()
+
+            except pymysql.Error as erro:
+                print(erro)
+                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
+                mw.label_Mon.setStyleSheet("rgb(255, 0, 0);")
+                mw.label_Mon.setText(mensageErro)
+
+    def limparCampsMonitor():
+        mw.MonMarca.clear()
+        mw.MonModelo.clear()
+        mw.MonCondicao.clear()
+        mw.MonValor.clear()
+        mw.MonDescricao.clear()
+        mw.label_Mon.clear()
+
+    def cancelarCadMonitor():
+        limparCampsMonitor()
+
+    ee.pushButtonCadastraOutro.clicked.connect(cadastrarMonitor)
+    ee.pushButtonCancelarOutro.clicked.connect(cancelarCadMonitor)
 
 
 if __name__ == "__main__":
