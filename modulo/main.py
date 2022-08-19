@@ -1,6 +1,9 @@
+import MySQLdb
+
 from login import *
 from EstoqueTI import *
 from entradaEstoque import *
+from Dialog import *
 import db
 from datetime import date
 import pymysql
@@ -19,24 +22,26 @@ def login(ui):
 
     # VALIDAÇÃO DE DADOS -----------------------------------------------------------------
     def checkPassword():
-        usuario = ui.lineEdit.text()
+        global Usuario
+        Usuario = ui.lineEdit.text()
         password = ui.lineEdit_3.text()
-        print(usuario, password + '<--- entrada do Usuário')
+        print(Usuario, password + '<--- entrada do Usuário')
 
-        if usuario == '' or password == '':
+        if Usuario == '' or password == '':
             text = 'CAMPOS NÃO PREENCHIDOS'
             mensage(text)
 
         else:
             try:
                 cursor = db.conMySQL()
-                cursor.execute(f"""SELECT password FROM usuarios WHERE user = '{usuario}';""")
+                cursor.execute(f"""SELECT password FROM usuarios WHERE user = '{Usuario}';""")
                 senha_bd = cursor.fetchall()
                 print(senha_bd[0][0] + '<--- banco de dados')
                 cursor.close()
 
                 if password == senha_bd[0][0]:
-                    texto = 'BEM VINDO ' + usuario.upper()
+                    texto = 'BEM VINDO ' + Usuario.upper()
+                    print(texto)
                     mensage(texto)
                     ui.lineEdit.clear()
                     ui.lineEdit_3.clear()
@@ -193,7 +198,7 @@ def estoqueTi(mw, ee):
     #  pré visualização de quantidade ----------------------------------------------------------------------------------
     def quantiTable():
         cursor = db.conMySQL()
-        cursor.execute(f"""SELECT * FROM notebook;""")
+        cursor.execute(f"""SELECT * FROM computer;""")
         notebook = len(cursor.fetchall())
         mw.labelNotebook.setText(str(notebook))
         mw.labelTotalnotebook.setText(str(notebook))
@@ -277,7 +282,7 @@ def estoqueTi(mw, ee):
 
     def carregarDados():
         con = db.conMySQL()
-        con.execute("""SELECT * FROM notebook""")
+        con.execute("""SELECT * FROM computer""")
         result = con.fetchall()
 
         mw.tableWidgetNotebook.clearContents()
@@ -444,7 +449,7 @@ def estoqueTi(mw, ee):
     # Cadastro de Notebook no banco ====================================================================================
     def cadastrarNotebook():
         tipo = mw.BoxNoteItem.currentText()
-        local = 'ESTOQUE'
+        motivo = mw.BoxNoteMotivo.currentText()
         imb = mw.notIMB.text()
         marca = mw.notMarca.text().upper()
         modelo = mw.notModelo.text().upper()
@@ -463,10 +468,7 @@ def estoqueTi(mw, ee):
         ramMod = mw.notVerRam.text().upper()
         freRam = mw.notFreRam.text()
         ramExp = mw.notBoxExpRam.currentText()
-        idWin = mw.notWindows.text().upper()
-        idOff = mw.notOffice.text().upper()
-        windows = mw.notBoxWindows.currentText()
-        office = mw.notBoxOffice.currentText()
+
         descricao = mw.notDecricao.text()
         data = date.today()
         serviceTag = mw.notService.text().upper()
@@ -474,9 +476,10 @@ def estoqueTi(mw, ee):
         anteVirus = mw.notBoxAntevirus.currentText()
         nomeRede = mw.notRede.text().upper()
 
-        if tipo == '' or marca == '' or modelo == '' or serviceTag == '' or nomeRede == '' or carregador == '' or processador == '' or geracaoPro == '' or ram == '' or ramMod == '':
+        if tipo == '' or motivo == '' or marca == '' or modelo == '' or serviceTag == '' or nomeRede == '' or carregador == '' or processador == '' or geracaoPro == '' or ram == '' or ramMod == '':
 
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+            mw.BoxNoteMotivo.setStyleSheet("border: 1px solid rgb(255, 0, 0);")
             mw.BoxNoteItem.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             mw.notMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             mw.notModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
@@ -493,14 +496,24 @@ def estoqueTi(mw, ee):
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO sisdb.notebook (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO, SERVICETAG, TEAMVIEWER,
+                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO, SERVICETAG, TEAMVIEWER,
                     REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO, FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM,
                     LICENCAWINDOWS, LICENCAOFFICE, WINDOWS, OFFICE, ANTEVIRUS, DESCRICAO, DATA)
 
                     VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}','{serviceTag}',
                     '{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}','{processador}','{marcaPro}',
                     '{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}','{ramExp}','{idWin}','{idOff}',
-                    '{windows}','{office}','{anteVirus}','{descricao}','{data}');""")
+                    '{anteVirus}','{descricao}','{data}');""")
+
+                cursor.execute(
+                    f"""SELECT MAX(idNotebook) FROM computer;""")
+                id = cursor.fetchall()
+                print(id[0][0])
+
+                cursor.execute(
+                    f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id[0][0]}','{marca}','{modelo}',
+                    '{motivo}','ESTOQUE','{data}');"""
+                )
 
                 cursor.close()
 
@@ -544,6 +557,58 @@ def estoqueTi(mw, ee):
 
     mw.pushButtonCancelarNote.clicked.connect(cancelarCadNote)
     mw.pushButtonSalvarNote.clicked.connect(cadastrarNotebook)
+
+    # def checkWin():
+    #     print('acionado')
+    #     idWin = mw.LineIdWin.text()
+    #     windows = mw.notWindows.text().upper()
+    #     try:
+    #         cur = db.conMySQL()
+    #         cur.execute(
+    #             f"""SELECT * FROM windows WHERE idWindows = {idWin} or CHAVE = {windows};""")
+    #         var = cur.fetchall()[0][0]
+    #         cur.close()
+    #         print(var)
+    #         mw.labelViewerWin.setText(var)
+    #
+    #
+    #     except pymysql.Error as erro:
+    #         texto = 'nada encontrado' + str(erro)
+    #         mw.labelNoteMensage.setText(texto)
+    #         print(texto)
+    #
+    # mw.PesWindows.clicked.connect(checkWin)
+    #
+    # def checkOff():
+    #     print('acionado')
+    #     idOff = mw.lineIdOff.text()
+    #     office = mw.notOffice.text().upper()
+    #
+    #     if idOff == '':
+    #         texto = 'VOCÊ PRECISA INFORMAR A ID'
+    #         mw.labelNoteMensage.setText(texto)
+    #         print(texto)
+    #
+    #     else:
+    #         try:
+    #             cur = db.conMySQL()
+    #             cur.execute(f"""SELECT * FROM office WHERE idOffice = '{idOff}' or CHAVE = '{office}';""")  # Que Contenha
+    #             var = cur.fetchall()
+    #             cur.close()
+    #
+    #             texto = f"ID: {var[0][0]} CHAVE: {var[0][1]}"
+    #             mw.labelViwerOff.setText(texto)
+    #             mw.labelNoteMensage.setText(texto)
+    #             print('deu certo')
+    #             print(var)
+    #
+    #         except pymysql.Error as erro:
+    #             texto = 'nada encontrado' + str(erro)
+    #             mw.labelNoteMensage.setText(texto)
+    #             print(texto)
+    #
+    # mw.PesOffice.clicked.connect(checkOff)
+
 
     # Cadastro de celular no banco =====================================================================================
     def cadastrarCelu():
@@ -1219,17 +1284,19 @@ if __name__ == "__main__":
     MainLogin = QtWidgets.QMainWindow()
     MainEstoque = QtWidgets.QMainWindow()
     MainEEstoque = QtWidgets.QMainWindow()
+    Dialog = QtWidgets.QDialog()
 
     ui = Ui_MainLogin()
     mw = Ui_MainEstoque()
     ee = Ui_MainEEstoque()
+    dg = Ui_Dialog()
 
     ui.setupUi(MainLogin)
     mw.setupUi(MainEstoque)
     ee.setupUi(MainEEstoque)
+    dg.setupUi(Dialog)
 
     MainLogin.showMaximized()
-    # MainEEstoque.show()
     login(ui)
     estoqueTi(mw, ee)
 

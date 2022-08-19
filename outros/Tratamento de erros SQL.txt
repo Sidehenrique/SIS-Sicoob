@@ -3,3 +3,6 @@
 (1064, "You have an error in your SQL syntax;) campos não preenchidos / int obrigatorios
 (2003, "Can't connect to MySQL server) Sem conexão com o banco
 (1366, "Incorrect integer value: '' for column 'VALOR' at row 1") valor nulo ou string em campo int
+(1062 DUPLICATE ENTRY) Campo duplicado. mesma chave estrangeira na tabela. / tentando adicionar chave que ja existe na tabela
+(1452) Chave estrangeira não existe / id não cadastrada / não achou id da chave estrangeira informada
+(1364) Campos obrigatorios
