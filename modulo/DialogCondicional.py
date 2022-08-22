@@ -77,6 +77,7 @@ class Ui_DialogiConditional(object):
         self.LabelDialogMsg.setText(_translate("DialogiConditional", "henrique henrique henrique henrique henrique henrioque henrique "))
         self.pushButtonSim.setText(_translate("DialogiConditional", "SIM"))
         self.pushButtonNao.setText(_translate("DialogiConditional", "NÃO"))
+
 import IconAlert_rc
 
 

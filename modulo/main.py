@@ -476,6 +476,11 @@ def estoqueTi(mw, ee):
         anteVirus = mw.notBoxAntevirus.currentText()
         nomeRede = mw.notRede.text().upper()
 
+
+        db.checkWin(ui)
+
+
+
         if tipo == '' or motivo == '' or marca == '' or modelo == '' or serviceTag == '' or nomeRede == '' or carregador == '' or processador == '' or geracaoPro == '' or ram == '' or ramMod == '':
 
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
