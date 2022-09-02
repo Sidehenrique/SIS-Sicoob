@@ -3277,7 +3277,7 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
-                  <string>EXPANCIVEL</string>
+                  <string>SLOT EXPANCIVEL</string>
                  </property>
                 </column>
                 <column>
@@ -3307,7 +3307,7 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
-                  <string>RAM</string>
+                  <string>MEMORIA RAM</string>
                  </property>
                 </column>
                 <column>
@@ -3337,16 +3337,6 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
-                  <string>WINDOWS</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>OFFICE</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
                   <string>ANTE-VIRUS</string>
                  </property>
                 </column>
@@ -3357,7 +3347,22 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
+                  <string>LOCAL</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
                   <string>DATA</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>ID WINDOWS</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>ID OFFICE</string>
                  </property>
                 </column>
                </widget>
@@ -11946,41 +11951,6 @@ QPushButton:pressed{
                                <property name="orientation">
                                 <enum>Qt::Horizontal</enum>
                                </property>
-                               <widget class="QSplitter" name="splitter_28">
-                                <property name="orientation">
-                                 <enum>Qt::Vertical</enum>
-                                </property>
-                                <widget class="QLabel" name="label_79">
-                                 <property name="font">
-                                  <font>
-                                   <family>Asap</family>
-                                   <pointsize>10</pointsize>
-                                  </font>
-                                 </property>
-                                 <property name="text">
-                                  <string>ID WINDOWS:</string>
-                                 </property>
-                                </widget>
-                                <widget class="QSplitter" name="splitter_12">
-                                 <property name="orientation">
-                                  <enum>Qt::Horizontal</enum>
-                                 </property>
-                                 <widget class="QLineEdit" name="LineIdWin">
-                                  <property name="minimumSize">
-                                   <size>
-                                    <width>0</width>
-                                    <height>30</height>
-                                   </size>
-                                  </property>
-                                  <property name="maximumSize">
-                                   <size>
-                                    <width>100</width>
-                                    <height>16777215</height>
-                                   </size>
-                                  </property>
-                                 </widget>
-                                </widget>
-                               </widget>
                                <widget class="QSplitter" name="splitter_35">
                                 <property name="orientation">
                                  <enum>Qt::Vertical</enum>
@@ -12014,7 +11984,7 @@ QPushButton:pressed{
                                    </font>
                                   </property>
                                   <property name="maxLength">
-                                   <number>50</number>
+                                   <number>25</number>
                                   </property>
                                  </widget>
                                  <widget class="QPushButton" name="PesWindows">
@@ -12080,7 +12050,7 @@ QPushButton:pressed{
                                 </font>
                                </property>
                                <property name="text">
-                                <string>CHAVE</string>
+                                <string/>
                                </property>
                                <property name="alignment">
                                 <set>Qt::AlignCenter</set>
@@ -12118,41 +12088,6 @@ QPushButton:pressed{
                                <property name="orientation">
                                 <enum>Qt::Horizontal</enum>
                                </property>
-                               <widget class="QSplitter" name="splitter_29">
-                                <property name="orientation">
-                                 <enum>Qt::Vertical</enum>
-                                </property>
-                                <widget class="QLabel" name="label_80">
-                                 <property name="font">
-                                  <font>
-                                   <family>Asap</family>
-                                   <pointsize>10</pointsize>
-                                  </font>
-                                 </property>
-                                 <property name="text">
-                                  <string>ID OFFICE:</string>
-                                 </property>
-                                </widget>
-                                <widget class="QSplitter" name="splitter_13">
-                                 <property name="orientation">
-                                  <enum>Qt::Horizontal</enum>
-                                 </property>
-                                 <widget class="QLineEdit" name="lineIdOff">
-                                  <property name="minimumSize">
-                                   <size>
-                                    <width>0</width>
-                                    <height>30</height>
-                                   </size>
-                                  </property>
-                                  <property name="maximumSize">
-                                   <size>
-                                    <width>100</width>
-                                    <height>16777215</height>
-                                   </size>
-                                  </property>
-                                 </widget>
-                                </widget>
-                               </widget>
                                <widget class="QSplitter" name="splitter_39">
                                 <property name="orientation">
                                  <enum>Qt::Vertical</enum>
@@ -12186,7 +12121,7 @@ QPushButton:pressed{
                                    </font>
                                   </property>
                                   <property name="maxLength">
-                                   <number>50</number>
+                                   <number>25</number>
                                   </property>
                                  </widget>
                                  <widget class="QPushButton" name="PesOffice">
@@ -12252,7 +12187,7 @@ QPushButton:pressed{
                                 </font>
                                </property>
                                <property name="text">
-                                <string>CHAVE</string>
+                                <string/>
                                </property>
                                <property name="alignment">
                                 <set>Qt::AlignCenter</set>

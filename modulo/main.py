@@ -1,9 +1,10 @@
-import MySQLdb
-
 from login import *
 from EstoqueTI import *
 from entradaEstoque import *
 from Dialog import *
+from DialogCondicional import *
+from DialogCondicionalOne import *
+from DialogCondicionalTwe import *
 import db
 from datetime import date
 import pymysql
@@ -446,8 +447,7 @@ def estoqueTi(mw, ee):
     ee.comboBoxSeletorGeral.activated['int'].connect(ee.stackedWidgetCadastro.setCurrentIndex)
     QtCore.QMetaObject.connectSlotsByName(MainEEstoque)
 
-    # Cadastro de Notebook no banco ====================================================================================
-    def cadastrarNotebook():
+    def cadastrarNote():
         tipo = mw.BoxNoteItem.currentText()
         motivo = mw.BoxNoteMotivo.currentText()
         imb = mw.notIMB.text()
@@ -475,14 +475,15 @@ def estoqueTi(mw, ee):
         teamViewer = mw.notTeam.text().upper()
         anteVirus = mw.notBoxAntevirus.currentText()
         nomeRede = mw.notRede.text().upper()
+        local = 'ESTOQUE'
+        windows = mw.notWindows.text().upper()
+        office = mw.notOffice.text().upper()
 
+        print(windows,office +'<------')
 
-        db.checkWin(ui)
-
-
-
-        if tipo == '' or motivo == '' or marca == '' or modelo == '' or serviceTag == '' or nomeRede == '' or carregador == '' or processador == '' or geracaoPro == '' or ram == '' or ramMod == '':
-
+        '''Essa condicional é responsavel por verificar e tratar se tiver campos obrigatoris vazios'''
+        if tipo == '' or motivo == '' or marca == '' or modelo == '' or serviceTag == '' or nomeRede == '' or \
+                carregador == '' or processador == '' or geracaoPro == '' or ram == '' or ramMod == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             mw.BoxNoteMotivo.setStyleSheet("border: 1px solid rgb(255, 0, 0);")
             mw.BoxNoteItem.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
@@ -497,43 +498,280 @@ def estoqueTi(mw, ee):
             mw.notVerRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             mw.labelNoteMensage.setText(mensagem)
 
+        ## TRATAMENTO DE SAVE NO BANCO:
+        elif windows and office !='':
+            print('windows e office')
+
+        elif office !='':
+            print('office')
+
+        elif windows !='':
+            print('windows')
+
+        elif windows =='' and office =='':
+            print('so computer')
+        salvar(tipo, motivo, imb, marca, modelo, condicao,anoFab, tela, preco, serviceTag, teamViewer, nomeRede, disco, DiscoExp,
+           carregador, processador, marcaPro, frePro, geracaoPro, ram, ramMod, freRam, ramExp, windows, office,
+           anteVirus, descricao, local, data)
+
+    def verWin():
+        windows = mw.notWindows.text().upper()
+        if len(windows) != 25:
+            texto = 'O TAMANHO DA CHAVE NÃO CONFERE\nENTRE COM VINTE E CINCO NUMEROS'
+            dg.LabelDialog.setText(texto)
+            Dialog.show()
+
         else:
-            try:
-                cursor = db.conMySQL()
-                cursor.execute(
-                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO, SERVICETAG, TEAMVIEWER,
-                    REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO, FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM,
-                    LICENCAWINDOWS, LICENCAOFFICE, WINDOWS, OFFICE, ANTEVIRUS, DESCRICAO, DATA)
+            try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
+                cur = db.conMySQL()
+                cur.execute(f"""SELECT * FROM windows WHERE CHAVE = '{windows}';""")  # ------ Que Contenha
+                idw = cur.fetchall()
+                print(windows + '<--- Este é oque o usuario digitou')
+                print(idw)
 
-                    VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}','{serviceTag}',
-                    '{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}','{processador}','{marcaPro}',
-                    '{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}','{ramExp}','{idWin}','{idOff}',
-                    '{anteVirus}','{descricao}','{data}');""")
+                if idw == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
+                    texto = 'ESTA CHAVE NÃO EXISTE'
+                    dg.LabelDialog.setText(texto)
+                    Dialog.show()
 
-                cursor.execute(
-                    f"""SELECT MAX(idNotebook) FROM computer;""")
-                id = cursor.fetchall()
-                print(id[0][0])
+                if idw != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
+                    chave = idw[0][1]
+                    id = idw[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID OFFICE) int
+                    print(chave)
+                    print(id)
 
-                cursor.execute(
-                    f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id[0][0]}','{marca}','{modelo}',
-                    '{motivo}','ESTOQUE','{data}');"""
-                )
+                    try:  # <---------- vai pesquisar na tabela computer se essa (ID OFFICE) esta vinculada com alguma maquina
+                        cur.execute(f"""SELECT * FROM computer WHERE idWindows = {id};""")
+                        idNote = cur.fetchall()
+                        print(idNote)
+                        cur.close()
 
-                cursor.close()
+                        if idNote == ():  # <--------- se retornar tupla vazia não achou (ID WINDOWS) vinculado a alguma maquina
+                            texto = 'CHAVE WINDOWS DISPONIVEL'
+                            mw.labelViewerWin.setText(str(chave).upper())
+                            mw.labelViewerWin.setStyleSheet("color: rgb(37, 163, 8);")
+                            mw.labelNoteMensage.setText('CHAVE DISPONIVEL')
+                            mw.labelNoteMensage.setStyleSheet("color: rgb(37, 163, 8);")
+                            dg.LabelDialog.setText(texto)
+                            Dialog.show()
+                            return chave
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                limparCampsNote()
-                mw.labelNoteMensage.setStyleSheet("color: rgb(37, 163, 8);")
-                mw.labelNoteMensage.setText(mensage)
-                quantiTable()
-                carregarDados()
+                        else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
+                            print(f'ID COMPUTER {idNote[0][0]} ID WINDOWS {idNote[0][30]}')
+                            texto = f'ESTA ID WINDOWS {idNote[0][30]}\nJA ESTA EM USO NO COMPUTER {idNote[0][0]}'
+                            dg.LabelDialog.setText(texto)
+                            mw.labelNoteMensage.setText('CHAVE INDISPONIVEL')
+                            Dialog.show()
 
-            except pymysql.Error as erro:
-                print(erro)
-                mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
-                mw.labelNoteMensage.setStyleSheet("rgb(255, 0, 0);")
-                mw.labelNoteMensage.setText(mensageErro)
+                    except:
+                        texto = 'ALGO DEU ERRADO'
+                        dg.LabelDialog.setText(texto)
+                        Dialog.show()
+
+            except:
+                texto = 'ALGO DEU ERRADO'
+                dg.LabelDialog.setText(texto)
+                Dialog.show()
+
+    def verOff():
+        office = mw.notOffice.text().upper()
+        if len(office) != 25:
+            texto = 'O TAMANHO DA CHAVE NÃO CONFERE\nENTRE COM VINTE E CINCO NUMEROS'
+            dg.LabelDialog.setText(texto)
+            Dialog.show()
+
+        else:
+            try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
+                cur = db.conMySQL()
+                cur.execute(f"""SELECT * FROM office WHERE CHAVE = '{office}';""")  # ------ Que Contenha
+                ido = cur.fetchall()
+                print(office + '<--- Este é oque o usuario digitou')
+                print(ido)
+
+                if ido == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
+                    texto = 'ESTA CHAVE NÃO EXISTE'
+                    dg.LabelDialog.setText(texto)
+                    Dialog.show()
+
+                if ido != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
+                    chave = ido[0][1]
+                    id = ido[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID OFFICE) int
+                    print(chave)
+                    print(id)
+
+                    try:  # <---------- vai pesquisar na tabela computer se essa (ID OFFICE) esta vinculada com alguma maquina
+                        cur.execute(f"""SELECT * FROM computer WHERE idOffice = {id};""")
+                        idNote = cur.fetchall()
+                        print(idNote)
+                        cur.close()
+
+                        if idNote == ():  # <--------- se retornar tupla vazia não achou (ID WINDOWS) vinculado a alguma maquina
+                            texto = 'CHAVE OFFICE DISPONIVEL'
+                            mw.labelViwerOff.setText(str(chave).upper())
+                            mw.labelViwerOff.setStyleSheet("color: rgb(37, 163, 8);")
+                            mw.labelNoteMensage.setText('CHAVE DISPONIVEL')
+                            mw.labelNoteMensage.setStyleSheet("color: rgb(37, 163, 8);")
+                            dg.LabelDialog.setText(texto)
+                            Dialog.show()
+                            return chave
+
+                        else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
+                            print(f'ID COMPUTER {idNote[0][0]} ID OFFICE {idNote[0][30]}')
+                            texto = f'ESTA ID OFFICE {idNote[0][30]}\nJÁ ESTA EM USO NO COMPUTER {idNote[0][0]}'
+                            dg.LabelDialog.setText(texto)
+                            mw.labelNoteMensage.setText('CHAVE INDISPONIVEL')
+                            Dialog.show()
+
+                    except:
+                        texto = 'ALGO DEU ERRADO'
+                        dg.LabelDialog.setText(texto)
+                        Dialog.show()
+
+            except:
+                texto = 'ALGO DEU ERRADO'
+                dg.LabelDialog.setText(texto)
+                Dialog.show()
+
+    def salvar(tipo, motivo, imb, marca, modelo, condicao,anoFab, tela, preco, serviceTag, teamViewer, nomeRede, disco, DiscoExp,
+               carregador, processador, marcaPro, frePro, geracaoPro, ram, ramMod, freRam, ramExp, windows, office,
+               anteVirus, descricao, local, data):
+
+        try:
+            cursor = db.conMySQL()
+            cursor.execute(
+                f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
+               SERVICETAG, TEAMVIEWER,REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
+               FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, LICENCAWINDOWS, LICENCAOFFICE,
+               ANTEVIRUS, DESCRICAO, LOCAL, DATA)
+
+               VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}',
+               '{serviceTag}','{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}',
+               '{processador}','{marcaPro}','{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}',
+               '{ramExp}','{windows}','{office}','{anteVirus}','{descricao}','{local}','{data}');""")
+
+            cursor.execute(f"""SELECT MAX(idComputer) FROM computer;""")
+            cur = cursor.fetchall()
+            id_computer = cur[0][0]
+            print(id_computer)
+
+            cursor.execute(
+                f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id_computer}','{marca}','{modelo}',
+                '{motivo}','{local}','{data}');""")
+
+            cursor.close()
+            dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+            Dialog.show()
+
+        except pymysql.Error as erro:
+            dg.LabelDialog.setText('ITEM NÃO CADASTRADO')
+            Dialog.show()
+            print(erro)
+
+    def salvarW(tipo, motivo, imb, marca, modelo, condicao,anoFab, tela, preco, serviceTag, teamViewer, nomeRede, disco, DiscoExp,
+               carregador, processador, marcaPro, frePro, geracaoPro, ram, ramMod, freRam, ramExp, windows, office,
+               anteVirus, descricao, local, data, idWindows):
+
+        try:
+            cursor = db.conMySQL()
+            cursor.execute(
+                f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
+               SERVICETAG, TEAMVIEWER,REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
+               FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, LICENCAWINDOWS, LICENCAOFFICE,
+               ANTEVIRUS, DESCRICAO, LOCAL, DATA, idWindows)
+
+               VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}',
+               '{serviceTag}','{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}',
+               '{processador}','{marcaPro}','{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}',
+               '{ramExp}','{windows}','{office}','{anteVirus}','{descricao}','{local}','{data}','{idWindows}');""")
+
+            cursor.execute(f"""SELECT MAX(idComputer) FROM computer;""")
+            cur = cursor.fetchall()
+            id_computer = cur[0][0]
+            print(id_computer)
+
+            cursor.execute(
+                f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id_computer}','{marca}','{modelo}',
+                '{motivo}','{local}','{data}');""")
+
+            cursor.close()
+            dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+            Dialog.show()
+
+        except pymysql.Error as erro:
+            dg.LabelDialog.setText('ITEM NÃO CADASTRADO')
+            Dialog.show()
+            print(erro)
+
+    def salvarO(tipo, motivo, imb, marca, modelo, condicao,anoFab, tela, preco, serviceTag, teamViewer, nomeRede, disco, DiscoExp,
+               carregador, processador, marcaPro, frePro, geracaoPro, ram, ramMod, freRam, ramExp, windows, office,
+               anteVirus, descricao, local, data, idOffice):
+
+        try:
+            cursor = db.conMySQL()
+            cursor.execute(
+                f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
+               SERVICETAG, TEAMVIEWER,REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
+               FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, LICENCAWINDOWS, LICENCAOFFICE,
+               ANTEVIRUS, DESCRICAO, LOCAL, DATA, idOffice)
+
+               VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}',
+               '{serviceTag}','{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}',
+               '{processador}','{marcaPro}','{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}',
+               '{ramExp}','{windows}','{office}','{anteVirus}','{descricao}','{local}','{data}','{idOffice}');""")
+
+            cursor.execute(f"""SELECT MAX(idComputer) FROM computer;""")
+            cur = cursor.fetchall()
+            id_computer = cur[0][0]
+            print(id_computer)
+
+            cursor.execute(
+                f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id_computer}','{marca}','{modelo}',
+                '{motivo}','{local}','{data}');""")
+
+            cursor.close()
+            dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+            Dialog.show()
+
+        except pymysql.Error as erro:
+            dg.LabelDialog.setText('ITEM NÃO CADASTRADO')
+            Dialog.show()
+            print(erro)
+
+    def salvarFull(tipo, motivo, imb, marca, modelo, condicao,anoFab, tela, preco, serviceTag, teamViewer, nomeRede, disco, DiscoExp,
+               carregador, processador, marcaPro, frePro, geracaoPro, ram, ramMod, freRam, ramExp, windows, office,
+               anteVirus, descricao, local, data, idWindows, idOffice):
+
+        try:
+            cursor = db.conMySQL()
+            cursor.execute(
+                f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
+               SERVICETAG, TEAMVIEWER,REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
+               FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, LICENCAWINDOWS, LICENCAOFFICE,
+               ANTEVIRUS, DESCRICAO, LOCAL, DATA, idWindows, idOffice)
+
+               VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}',
+               '{serviceTag}','{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}',
+               '{processador}','{marcaPro}','{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}',
+               '{ramExp}','{windows}','{office}','{anteVirus}','{descricao}','{local}','{data}','{idWindows}','{idOffice}');""")
+
+            cursor.execute(f"""SELECT MAX(idComputer) FROM computer;""")
+            cur = cursor.fetchall()
+            id_computer = cur[0][0]
+            print(id_computer)
+
+            cursor.execute(
+                f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id_computer}','{marca}','{modelo}',
+                '{motivo}','{local}','{data}');""")
+
+            cursor.close()
+            dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+            Dialog.show()
+
+        except pymysql.Error as erro:
+            dg.LabelDialog.setText('ITEM NÃO CADASTRADO')
+            Dialog.show()
+            print(erro)
+
 
     def limparCampsNote():
         mw.notIMB.clear()
@@ -560,62 +798,13 @@ def estoqueTi(mw, ee):
         limparCampsNote()
         mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
 
+    mw.PesWindows.clicked.connect(verWin)
+    mw.PesOffice.clicked.connect(verOff)
     mw.pushButtonCancelarNote.clicked.connect(cancelarCadNote)
-    mw.pushButtonSalvarNote.clicked.connect(cadastrarNotebook)
-
-    # def checkWin():
-    #     print('acionado')
-    #     idWin = mw.LineIdWin.text()
-    #     windows = mw.notWindows.text().upper()
-    #     try:
-    #         cur = db.conMySQL()
-    #         cur.execute(
-    #             f"""SELECT * FROM windows WHERE idWindows = {idWin} or CHAVE = {windows};""")
-    #         var = cur.fetchall()[0][0]
-    #         cur.close()
-    #         print(var)
-    #         mw.labelViewerWin.setText(var)
-    #
-    #
-    #     except pymysql.Error as erro:
-    #         texto = 'nada encontrado' + str(erro)
-    #         mw.labelNoteMensage.setText(texto)
-    #         print(texto)
-    #
-    # mw.PesWindows.clicked.connect(checkWin)
-    #
-    # def checkOff():
-    #     print('acionado')
-    #     idOff = mw.lineIdOff.text()
-    #     office = mw.notOffice.text().upper()
-    #
-    #     if idOff == '':
-    #         texto = 'VOCÊ PRECISA INFORMAR A ID'
-    #         mw.labelNoteMensage.setText(texto)
-    #         print(texto)
-    #
-    #     else:
-    #         try:
-    #             cur = db.conMySQL()
-    #             cur.execute(f"""SELECT * FROM office WHERE idOffice = '{idOff}' or CHAVE = '{office}';""")  # Que Contenha
-    #             var = cur.fetchall()
-    #             cur.close()
-    #
-    #             texto = f"ID: {var[0][0]} CHAVE: {var[0][1]}"
-    #             mw.labelViwerOff.setText(texto)
-    #             mw.labelNoteMensage.setText(texto)
-    #             print('deu certo')
-    #             print(var)
-    #
-    #         except pymysql.Error as erro:
-    #             texto = 'nada encontrado' + str(erro)
-    #             mw.labelNoteMensage.setText(texto)
-    #             print(texto)
-    #
-    # mw.PesOffice.clicked.connect(checkOff)
+    mw.pushButtonSalvarNote.clicked.connect(cadastrarNote)
 
 
-    # Cadastro de celular no banco =====================================================================================
+
     def cadastrarCelu():
         imei = mw.celMeiOne.text()
         imei2 = mw.celMeiTwo.text()
@@ -1290,6 +1479,18 @@ if __name__ == "__main__":
     MainEstoque = QtWidgets.QMainWindow()
     MainEEstoque = QtWidgets.QMainWindow()
     Dialog = QtWidgets.QDialog()
+
+    DialogiConditional = QtWidgets.QMainWindow()
+    di = Ui_DialogiConditional()
+    di.setupUi(DialogiConditional)
+
+    DialogiConditionalOne = QtWidgets.QMainWindow()
+    di1 = Ui_DialogiConditionalOne()
+    di1.setupUi(DialogiConditionalOne)
+
+    DialogiConditionalTwe = QtWidgets.QMainWindow()
+    di2 = Ui_DialogiConditionalTwe()
+    di2.setupUi(DialogiConditionalTwe)
 
     ui = Ui_MainLogin()
     mw = Ui_MainEstoque()

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'DialogCondicional.ui'
+# Form implementation generated from reading ui file 'DialogCondicionalOne.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -11,13 +11,13 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_DialogiConditional(object):
-    def setupUi(self, DialogiConditional):
-        DialogiConditional.setObjectName("DialogiConditional")
-        DialogiConditional.resize(400, 150)
-        DialogiConditional.setMinimumSize(QtCore.QSize(400, 150))
-        DialogiConditional.setMaximumSize(QtCore.QSize(400, 150))
-        self.centralwidget = QtWidgets.QWidget(DialogiConditional)
+class Ui_DialogiConditionalOne(object):
+    def setupUi(self, DialogiConditionalOne):
+        DialogiConditionalOne.setObjectName("DialogiConditionalOne")
+        DialogiConditionalOne.resize(400, 150)
+        DialogiConditionalOne.setMinimumSize(QtCore.QSize(400, 150))
+        DialogiConditionalOne.setMaximumSize(QtCore.QSize(400, 150))
+        self.centralwidget = QtWidgets.QWidget(DialogiConditionalOne)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -67,25 +67,25 @@ class Ui_DialogiConditional(object):
         self.pushButtonNao.setMaximumSize(QtCore.QSize(93, 28))
         self.pushButtonNao.setObjectName("pushButtonNao")
         self.verticalLayout.addWidget(self.splitter_2)
-        DialogiConditional.setCentralWidget(self.centralwidget)
+        DialogiConditionalOne.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(DialogiConditional)
-        QtCore.QMetaObject.connectSlotsByName(DialogiConditional)
+        self.retranslateUi(DialogiConditionalOne)
+        QtCore.QMetaObject.connectSlotsByName(DialogiConditionalOne)
 
-    def retranslateUi(self, DialogiConditional):
+    def retranslateUi(self, DialogiConditionalOne):
         _translate = QtCore.QCoreApplication.translate
-        DialogiConditional.setWindowTitle(_translate("DialogiConditional", "Dialog"))
-        self.LabelDialogMsg.setText(_translate("DialogiConditional", "CHAVE NÃO CADASTRADA"))
-        self.pushButtonSim.setText(_translate("DialogiConditional", "SIM"))
-        self.pushButtonNao.setText(_translate("DialogiConditional", "NÃO"))
+        DialogiConditionalOne.setWindowTitle(_translate("DialogiConditionalOne", "Dialog"))
+        self.LabelDialogMsg.setText(_translate("DialogiConditionalOne", "CHAVE NÃO CADASTRADA"))
+        self.pushButtonSim.setText(_translate("DialogiConditionalOne", "SIM"))
+        self.pushButtonNao.setText(_translate("DialogiConditionalOne", "NÃO"))
 import IconAlert_rc
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    DialogiConditional = QtWidgets.QMainWindow()
-    ui = Ui_DialogiConditional()
-    ui.setupUi(DialogiConditional)
-    DialogiConditional.show()
+    DialogiConditionalOne = QtWidgets.QMainWindow()
+    ui = Ui_DialogiConditionalOne()
+    ui.setupUi(DialogiConditionalOne)
+    DialogiConditionalOne.show()
     sys.exit(app.exec_())

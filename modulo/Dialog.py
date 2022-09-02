@@ -24,6 +24,7 @@ class Ui_Dialog(object):
         self.splitter.setObjectName("splitter")
         self.frame = QtWidgets.QFrame(self.splitter)
         self.frame.setMinimumSize(QtCore.QSize(60, 60))
+        self.frame.setMaximumSize(QtCore.QSize(80, 90))
         self.frame.setStyleSheet("background-image: url(:/dialog/estoque/Alert.png);\n"
 "background-position:center;\n"
 "background-repeat: no-repeat;")
@@ -54,8 +55,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.LabelDialog.setText(_translate("Dialog", "henrique henrique henrique henrique henrique henrioque henrique "))
-
+        self.LabelDialog.setText(_translate("Dialog", "CHAVE NÃO CADASTRADA"))
 import IconAlert_rc
 
 
