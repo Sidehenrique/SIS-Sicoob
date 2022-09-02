@@ -479,6 +479,9 @@ def estoqueTi(mw, ee):
         windows = mw.notWindows.text().upper()
         office = mw.notOffice.text().upper()
 
+        idWindows = mw.labelViewerWin.text().upper()
+        idOffice = mw.labelViwerOff.text().upper()
+
         print(windows,office +'<------')
 
         '''Essa condicional é responsavel por verificar e tratar se tiver campos obrigatoris vazios'''
@@ -499,20 +502,39 @@ def estoqueTi(mw, ee):
             mw.labelNoteMensage.setText(mensagem)
 
         ## TRATAMENTO DE SAVE NO BANCO:
-        elif windows and office !='':
-            print('windows e office')
 
-        elif office !='':
-            print('office')
+        else:
+            try:
+                cursor = db.conMySQL()
+                cursor.execute(
+                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
+                   SERVICETAG, TEAMVIEWER,REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
+                   FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, LICENCAWINDOWS, LICENCAOFFICE,
+                   ANTEVIRUS, DESCRICAO, LOCAL, DATA, idWindows, idOffice)
 
-        elif windows !='':
-            print('windows')
+                   VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}',
+                   '{serviceTag}','{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}',
+                   '{processador}','{marcaPro}','{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}',
+                   '{ramExp}','{windows}','{office}','{anteVirus}','{descricao}','{local}','{data}','{idWindows}','{idOffice}');""")
 
-        elif windows =='' and office =='':
-            print('so computer')
-        salvar(tipo, motivo, imb, marca, modelo, condicao,anoFab, tela, preco, serviceTag, teamViewer, nomeRede, disco, DiscoExp,
-           carregador, processador, marcaPro, frePro, geracaoPro, ram, ramMod, freRam, ramExp, windows, office,
-           anteVirus, descricao, local, data)
+                cursor.execute(f"""SELECT MAX(idComputer) FROM computer;""")
+                cur = cursor.fetchall()
+                id_computer = cur[0][0]
+                print(id_computer)
+
+                cursor.execute(
+                    f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id_computer}','{marca}','{modelo}',
+                    '{motivo}','{local}','{data}');""")
+
+                cursor.close()
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
+
+            except pymysql.Error as erro:
+                dg.LabelDialog.setText('ITEM NÃO CADASTRADO')
+                Dialog.show()
+                print(erro)
+
 
     def verWin():
         windows = mw.notWindows.text().upper()
@@ -548,7 +570,7 @@ def estoqueTi(mw, ee):
 
                         if idNote == ():  # <--------- se retornar tupla vazia não achou (ID WINDOWS) vinculado a alguma maquina
                             texto = 'CHAVE WINDOWS DISPONIVEL'
-                            mw.labelViewerWin.setText(str(chave).upper())
+                            mw.labelViewerWin.setText(str(f'{id}').upper())
                             mw.labelViewerWin.setStyleSheet("color: rgb(37, 163, 8);")
                             mw.labelNoteMensage.setText('CHAVE DISPONIVEL')
                             mw.labelNoteMensage.setStyleSheet("color: rgb(37, 163, 8);")
@@ -631,147 +653,6 @@ def estoqueTi(mw, ee):
                 texto = 'ALGO DEU ERRADO'
                 dg.LabelDialog.setText(texto)
                 Dialog.show()
-
-    def salvar(tipo, motivo, imb, marca, modelo, condicao,anoFab, tela, preco, serviceTag, teamViewer, nomeRede, disco, DiscoExp,
-               carregador, processador, marcaPro, frePro, geracaoPro, ram, ramMod, freRam, ramExp, windows, office,
-               anteVirus, descricao, local, data):
-
-        try:
-            cursor = db.conMySQL()
-            cursor.execute(
-                f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
-               SERVICETAG, TEAMVIEWER,REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
-               FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, LICENCAWINDOWS, LICENCAOFFICE,
-               ANTEVIRUS, DESCRICAO, LOCAL, DATA)
-
-               VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}',
-               '{serviceTag}','{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}',
-               '{processador}','{marcaPro}','{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}',
-               '{ramExp}','{windows}','{office}','{anteVirus}','{descricao}','{local}','{data}');""")
-
-            cursor.execute(f"""SELECT MAX(idComputer) FROM computer;""")
-            cur = cursor.fetchall()
-            id_computer = cur[0][0]
-            print(id_computer)
-
-            cursor.execute(
-                f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id_computer}','{marca}','{modelo}',
-                '{motivo}','{local}','{data}');""")
-
-            cursor.close()
-            dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
-            Dialog.show()
-
-        except pymysql.Error as erro:
-            dg.LabelDialog.setText('ITEM NÃO CADASTRADO')
-            Dialog.show()
-            print(erro)
-
-    def salvarW(tipo, motivo, imb, marca, modelo, condicao,anoFab, tela, preco, serviceTag, teamViewer, nomeRede, disco, DiscoExp,
-               carregador, processador, marcaPro, frePro, geracaoPro, ram, ramMod, freRam, ramExp, windows, office,
-               anteVirus, descricao, local, data, idWindows):
-
-        try:
-            cursor = db.conMySQL()
-            cursor.execute(
-                f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
-               SERVICETAG, TEAMVIEWER,REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
-               FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, LICENCAWINDOWS, LICENCAOFFICE,
-               ANTEVIRUS, DESCRICAO, LOCAL, DATA, idWindows)
-
-               VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}',
-               '{serviceTag}','{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}',
-               '{processador}','{marcaPro}','{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}',
-               '{ramExp}','{windows}','{office}','{anteVirus}','{descricao}','{local}','{data}','{idWindows}');""")
-
-            cursor.execute(f"""SELECT MAX(idComputer) FROM computer;""")
-            cur = cursor.fetchall()
-            id_computer = cur[0][0]
-            print(id_computer)
-
-            cursor.execute(
-                f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id_computer}','{marca}','{modelo}',
-                '{motivo}','{local}','{data}');""")
-
-            cursor.close()
-            dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
-            Dialog.show()
-
-        except pymysql.Error as erro:
-            dg.LabelDialog.setText('ITEM NÃO CADASTRADO')
-            Dialog.show()
-            print(erro)
-
-    def salvarO(tipo, motivo, imb, marca, modelo, condicao,anoFab, tela, preco, serviceTag, teamViewer, nomeRede, disco, DiscoExp,
-               carregador, processador, marcaPro, frePro, geracaoPro, ram, ramMod, freRam, ramExp, windows, office,
-               anteVirus, descricao, local, data, idOffice):
-
-        try:
-            cursor = db.conMySQL()
-            cursor.execute(
-                f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
-               SERVICETAG, TEAMVIEWER,REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
-               FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, LICENCAWINDOWS, LICENCAOFFICE,
-               ANTEVIRUS, DESCRICAO, LOCAL, DATA, idOffice)
-
-               VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}',
-               '{serviceTag}','{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}',
-               '{processador}','{marcaPro}','{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}',
-               '{ramExp}','{windows}','{office}','{anteVirus}','{descricao}','{local}','{data}','{idOffice}');""")
-
-            cursor.execute(f"""SELECT MAX(idComputer) FROM computer;""")
-            cur = cursor.fetchall()
-            id_computer = cur[0][0]
-            print(id_computer)
-
-            cursor.execute(
-                f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id_computer}','{marca}','{modelo}',
-                '{motivo}','{local}','{data}');""")
-
-            cursor.close()
-            dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
-            Dialog.show()
-
-        except pymysql.Error as erro:
-            dg.LabelDialog.setText('ITEM NÃO CADASTRADO')
-            Dialog.show()
-            print(erro)
-
-    def salvarFull(tipo, motivo, imb, marca, modelo, condicao,anoFab, tela, preco, serviceTag, teamViewer, nomeRede, disco, DiscoExp,
-               carregador, processador, marcaPro, frePro, geracaoPro, ram, ramMod, freRam, ramExp, windows, office,
-               anteVirus, descricao, local, data, idWindows, idOffice):
-
-        try:
-            cursor = db.conMySQL()
-            cursor.execute(
-                f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
-               SERVICETAG, TEAMVIEWER,REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
-               FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, LICENCAWINDOWS, LICENCAOFFICE,
-               ANTEVIRUS, DESCRICAO, LOCAL, DATA, idWindows, idOffice)
-
-               VALUES ('{imb}','{marca}','{modelo}','{condicao}','{anoFab}','{tela}','{preco}',
-               '{serviceTag}','{teamViewer}','{nomeRede}','{disco}','{DiscoExp}','{carregador}',
-               '{processador}','{marcaPro}','{frePro}','{geracaoPro}','{ram}','{ramMod}','{freRam}',
-               '{ramExp}','{windows}','{office}','{anteVirus}','{descricao}','{local}','{data}','{idWindows}','{idOffice}');""")
-
-            cursor.execute(f"""SELECT MAX(idComputer) FROM computer;""")
-            cur = cursor.fetchall()
-            id_computer = cur[0][0]
-            print(id_computer)
-
-            cursor.execute(
-                f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id_computer}','{marca}','{modelo}',
-                '{motivo}','{local}','{data}');""")
-
-            cursor.close()
-            dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
-            Dialog.show()
-
-        except pymysql.Error as erro:
-            dg.LabelDialog.setText('ITEM NÃO CADASTRADO')
-            Dialog.show()
-            print(erro)
-
 
     def limparCampsNote():
         mw.notIMB.clear()
