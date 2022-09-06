@@ -447,6 +447,7 @@ def estoqueTi(mw, ee):
     ee.comboBoxSeletorGeral.activated['int'].connect(ee.stackedWidgetCadastro.setCurrentIndex)
     QtCore.QMetaObject.connectSlotsByName(MainEEstoque)
 
+    ################################################--NOTEBOOK--########################################################
     def cadastrarNote():
         tipo = mw.BoxNoteItem.currentText()
         motivo = mw.BoxNoteMotivo.currentText()
@@ -481,8 +482,6 @@ def estoqueTi(mw, ee):
 
         idWindows = mw.labelViewerWin.text().upper()
         idOffice = mw.labelViwerOff.text().upper()
-
-        print(windows,office +'<------')
 
         '''Essa condicional é responsavel por verificar e tratar se tiver campos obrigatoris vazios'''
         if tipo == '' or motivo == '' or marca == '' or modelo == '' or serviceTag == '' or nomeRede == '' or \
@@ -527,19 +526,33 @@ def estoqueTi(mw, ee):
                     '{motivo}','{local}','{data}');""")
 
                 cursor.close()
+
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
                 dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
                 Dialog.show()
+                limparCampsNote()
+                quantiTable()
+                carregarDados()
 
             except pymysql.Error as erro:
-                dg.LabelDialog.setText('ITEM NÃO CADASTRADO')
+                dg.LabelDialog.setText('ITEM NÃO CADASTRADO\n'+str(erro))
                 Dialog.show()
                 print(erro)
 
+    def limWin():
+        mw.labelViewerWin.clear()
+        mw.labelNoteMensage.clear()
+        mw.notWindows.clear()
+
+    def limOff():
+        mw.labelViwerOff.clear()
+        mw.labelNoteMensage.clear()
+        mw.notOffice.clear()
 
     def verWin():
         windows = mw.notWindows.text().upper()
         if len(windows) != 25:
-            texto = 'O TAMANHO DA CHAVE NÃO CONFERE\nENTRE COM VINTE E CINCO NUMEROS'
+            texto = 'O TAMANHO DA CHAVE NÃO CONFERE\nENTRE COM 25 DIGITOS SEM PONTOS'
             dg.LabelDialog.setText(texto)
             Dialog.show()
 
@@ -552,7 +565,7 @@ def estoqueTi(mw, ee):
                 print(idw)
 
                 if idw == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
-                    texto = 'ESTA CHAVE NÃO EXISTE'
+                    texto = 'ESTA CHAVE NÃO EXISTE\nCADASTRE A CHAVE PRIMEIRO'
                     dg.LabelDialog.setText(texto)
                     Dialog.show()
 
@@ -569,36 +582,36 @@ def estoqueTi(mw, ee):
                         cur.close()
 
                         if idNote == ():  # <--------- se retornar tupla vazia não achou (ID WINDOWS) vinculado a alguma maquina
-                            texto = 'CHAVE WINDOWS DISPONIVEL'
-                            mw.labelViewerWin.setText(str(f'{id}').upper())
+                            texto = 'CHAVE WINDOWS DISPONIVEL!'
+                            mw.labelViewerWin.setText(str(id))
                             mw.labelViewerWin.setStyleSheet("color: rgb(37, 163, 8);")
                             mw.labelNoteMensage.setText('CHAVE DISPONIVEL')
                             mw.labelNoteMensage.setStyleSheet("color: rgb(37, 163, 8);")
                             dg.LabelDialog.setText(texto)
                             Dialog.show()
-                            return chave
+                            return id
 
                         else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
-                            print(f'ID COMPUTER {idNote[0][0]} ID WINDOWS {idNote[0][30]}')
-                            texto = f'ESTA ID WINDOWS {idNote[0][30]}\nJA ESTA EM USO NO COMPUTER {idNote[0][0]}'
+                            print(f'ID COMPUTER {idNote[0][0]} ID WINDOWS {idNote[0][28]}')
+                            texto = f'ESTA ID WINDOWS {idNote[0][28]}\nJA ESTA EM USO NO COMPUTER {idNote[0][0]}'
                             dg.LabelDialog.setText(texto)
-                            mw.labelNoteMensage.setText('CHAVE INDISPONIVEL')
+                            mw.labelNoteMensage.setText('CHAVE INDISPONIVEL!')
                             Dialog.show()
 
                     except:
-                        texto = 'ALGO DEU ERRADO'
+                        texto = 'ALGO DEU ERRADO!'
                         dg.LabelDialog.setText(texto)
                         Dialog.show()
 
             except:
-                texto = 'ALGO DEU ERRADO'
+                texto = 'ALGO DEU ERRADO!!'
                 dg.LabelDialog.setText(texto)
                 Dialog.show()
 
     def verOff():
         office = mw.notOffice.text().upper()
         if len(office) != 25:
-            texto = 'O TAMANHO DA CHAVE NÃO CONFERE\nENTRE COM VINTE E CINCO NUMEROS'
+            texto = 'O TAMANHO DA CHAVE NÃO CONFERE\nENTRE COM 25 DIGITOS SEM PONTOS'
             dg.LabelDialog.setText(texto)
             Dialog.show()
 
@@ -611,7 +624,7 @@ def estoqueTi(mw, ee):
                 print(ido)
 
                 if ido == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
-                    texto = 'ESTA CHAVE NÃO EXISTE'
+                    texto = 'ESTA CHAVE NÃO EXISTE\nCADASTRE A CHAVE PRIMEIRO'
                     dg.LabelDialog.setText(texto)
                     Dialog.show()
 
@@ -628,20 +641,20 @@ def estoqueTi(mw, ee):
                         cur.close()
 
                         if idNote == ():  # <--------- se retornar tupla vazia não achou (ID WINDOWS) vinculado a alguma maquina
-                            texto = 'CHAVE OFFICE DISPONIVEL'
-                            mw.labelViwerOff.setText(str(chave).upper())
+                            texto = 'CHAVE OFFICE DISPONIVEL!'
+                            mw.labelViwerOff.setText(str(id))
                             mw.labelViwerOff.setStyleSheet("color: rgb(37, 163, 8);")
                             mw.labelNoteMensage.setText('CHAVE DISPONIVEL')
                             mw.labelNoteMensage.setStyleSheet("color: rgb(37, 163, 8);")
                             dg.LabelDialog.setText(texto)
                             Dialog.show()
-                            return chave
+                            return id
 
                         else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
-                            print(f'ID COMPUTER {idNote[0][0]} ID OFFICE {idNote[0][30]}')
-                            texto = f'ESTA ID OFFICE {idNote[0][30]}\nJÁ ESTA EM USO NO COMPUTER {idNote[0][0]}'
+                            print(f'ID COMPUTER {idNote[0][0]} ID OFFICE {idNote[0][29]}')
+                            texto = f'ESTA ID OFFICE {idNote[0][29]}\nJÁ ESTA EM USO NO COMPUTER {idNote[0][0]}'
                             dg.LabelDialog.setText(texto)
-                            mw.labelNoteMensage.setText('CHAVE INDISPONIVEL')
+                            mw.labelNoteMensage.setText('CHAVE INDISPONIVEL!')
                             Dialog.show()
 
                     except:
@@ -674,18 +687,26 @@ def estoqueTi(mw, ee):
         mw.notOffice.clear()
         mw.notDecricao.clear()
         mw.labelNotebook.clear()
+        mw.labelViwerOff.clear()
+        mw.labelNoteMensage.clear()
+        mw.notOffice.clear()
+        mw.labelViewerWin.clear()
+        mw.labelNoteMensage.clear()
+        mw.notWindows.clear()
 
     def cancelarCadNote():
         limparCampsNote()
         mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
 
+    mw.limWindows.clicked.connect(limWin)
+    mw.limOffice.clicked.connect(limOff)
     mw.PesWindows.clicked.connect(verWin)
     mw.PesOffice.clicked.connect(verOff)
     mw.pushButtonCancelarNote.clicked.connect(cancelarCadNote)
     mw.pushButtonSalvarNote.clicked.connect(cadastrarNote)
 
 
-
+    #################################################--CELULAR--########################################################
     def cadastrarCelu():
         imei = mw.celMeiOne.text()
         imei2 = mw.celMeiTwo.text()
@@ -709,9 +730,12 @@ def estoqueTi(mw, ee):
         numero1 = mw.celNumeroOne.text()
         numero2 = mw.celNumeroTwo.text()
         descricao = mw.celDescricao.text()
+        motivo = mw.BoxCelMotivo.currentText()
+        local = 'ESTOQUE'
         data = date.today()
 
-        if imei == '' or marca == '' or modelo == '' or condicao == '' or cor == '' or ram == '' or memoria == '':
+
+        if imei == '' or marca == '' or modelo == '' or condicao == '' or cor == '' or ram == '' or memoria == '' or motivo == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             mw.celMeiOne.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             mw.celMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
@@ -720,23 +744,37 @@ def estoqueTi(mw, ee):
             mw.celCor.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             mw.celRam.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             mw.celMemo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            mw.BoxCelMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             mw.label_Celular.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO celular (imei,imei2,marca,modelo,condicao,anofab,cor,preco,processador,modpro,
-                    frepro,ram,bateria,sistema,micro,memo,dualchip,chip,chip2,numero,numero2,descricao,data)
-                     VALUES ('{imei}','{imei2}','{marca}','{modelo}','{condicao}','{anofab}','{cor}',
-                    '{preco}','{processador}','{modeloPro}','{frequencia}','{ram}','{bateria}','{sistema}',
-                    '{microSD}','{memoria}','{dual}','{chip1}','{chip2}','{numero1}','{numero2}','{descricao}','{data}');""")
+                    f"""INSERT INTO celular (imei, imei2, marca, modelo, condicao, anofab, cor, 
+                    preco, processador, modpro, frepro, ram, bateria, sistema, 
+                    micro, memoint, DUALCHIP, chip, chip2, numero, numero2, descricao, local, data)
+
+                    VALUES ('{imei}','{imei2}','{marca}','{modelo}','{condicao}','{anofab}','{cor}',
+                            '{preco}','{processador}','{modeloPro}','{frequencia}','{ram}','{bateria}','{sistema}',
+                            '{microSD}','{memoria}','{dual}','{chip1}','{chip2}','{numero1}','{numero2}','{descricao}',
+                            '{local}','{data}');""")
+
+                cursor.execute(f"""SELECT MAX(idCelular) FROM celular;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(
+                    f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','CELULAR','{id}','{marca}','{modelo}',
+                            '{motivo}','{local}','{data}');""")
                 cursor.close()
+
                 limparCampsCelu()
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                mw.label_Celular.setStyleSheet("color: rgb(37, 163, 8);")
-                mw.label_Celular.setText(mensage)
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 
@@ -773,7 +811,7 @@ def estoqueTi(mw, ee):
     mw.pushButtonCadastraCelular.clicked.connect(cadastrarCelu)
     mw.pushButtonCancelarCelular.clicked.connect(cancelarCadCelu)
 
-    # Cadastro de Memorias no banco ====================================================================================
+    #################################################--MEMORIA--########################################################
     def cadastrarMemo():
         tipo = ee.comboBoxSeletorGeral.currentText()
         marca = ee.meMarca.text()
@@ -783,14 +821,17 @@ def estoqueTi(mw, ee):
         plataforma = ee.mePlataforma.text()
         valor = ee.meValor.text()
         descricao = ee.meDescricao.text()
+        motivo = ee.BoxMemoMotivo.currentText()
+        local = 'ESTOQUE'
         data = date.today()
 
-        if marca == '' or modelo == '' or tamanho == '' or plataforma == '':
+        if marca == '' or modelo == '' or tamanho == '' or plataforma == '' or motivo == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.meMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.meModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.meBoxTamanho.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.mePlataforma.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.BoxMemoMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Memoria.setText(mensagem)
 
         else:
@@ -800,12 +841,22 @@ def estoqueTi(mw, ee):
                     f"""INSERT INTO Memoria (marca,modelo,condicao,tamanho,plataforma,valor,descricao,data)
                     VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}'
                     ,'{descricao}','{data}');""")
+
+                cursor.execute(f"""SELECT MAX(idMemoria) FROM memoria;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(
+                    f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id}','{marca}','{modelo}',
+                            '{motivo}','{local}','{data}');""")
+
                 cursor.close()
                 limparCampsMemo()
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Memoria.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Memoria.setText(mensage)
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 
@@ -831,38 +882,51 @@ def estoqueTi(mw, ee):
     ee.pushButtonCadastraMemo.clicked.connect(cadastrarMemo)
     ee.pushButtonCancelarMemo.clicked.connect(cancelarCadMemo)
 
-    # Cadastro de Disco no banco =======================================================================================
+    #################################################-- DISCO --########################################################
     def cadastrarDisco():
         marca = ee.disMarca.text()
         modelo = ee.disModelo.text()
         condicao = ee.disCondicao.text()
         tamanho = ee.disBoxTamanho.currentText()
-        plataforma = ee.disPlataforma.text()
         valor = ee.disValor.text()
         descricao = ee.disDescricao.text()
         data = date.today()
 
-        if marca == '' or tamanho == '' or plataforma == '':
+        tipo = ee.comboBoxTipo.currentText()
+        local = 'ESTOQUE'
+        motivo = ee.BoxDiscoMotivo.currentText()
+
+        if marca == '' or tamanho == '' or tipo == '' or motivo == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.disMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.disModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.disBoxTamanho.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
-            ee.disPlataforma.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.BoxDiscoMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.comboBoxTipo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Disco.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Disco (marca,modelo,condicao,tamanho,plataforma,valor,descricao,data)
-                    VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}'
-                    ,'{descricao}','{data}');""")
+                    f"""INSERT INTO Disco (marca, modelo, condicao, tamanho, tipo, valor, descricao, local, data)
+                    VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{tipo}','{valor}','{descricao}',
+                    '{local}','{data}');""")
+
+                cursor.execute(f"""SELECT MAX(idDisco) FROM disco;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id}','{marca}','{modelo}',
+                '{motivo}','{local}','{data}');""")
+
                 cursor.close()
                 limparCampsDisco()
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Disco.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Disco.setText(mensage)
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 

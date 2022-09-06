@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1254</width>
-    <height>812</height>
+    <width>1119</width>
+    <height>807</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -3238,11 +3238,6 @@ QPushButton:pressed {
                 <column>
                  <property name="text">
                   <string>ANO DE FAB</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>CFG</string>
                  </property>
                 </column>
                 <column>
@@ -10791,7 +10786,7 @@ QPushButton:pressed{
                      <item>
                       <widget class="QStackedWidget" name="stackedWidgetNovo">
                        <property name="currentIndex">
-                        <number>0</number>
+                        <number>2</number>
                        </property>
                        <widget class="QWidget" name="pageNovoNote">
                         <layout class="QVBoxLayout" name="verticalLayout_61">
@@ -12033,6 +12028,52 @@ QPushButton:pressed{
                                    <string>B</string>
                                   </property>
                                  </widget>
+                                 <widget class="QPushButton" name="limWindows">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Asap</family>
+                                    <pointsize>14</pointsize>
+                                    <weight>75</weight>
+                                    <bold>true</bold>
+                                   </font>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+
+}</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>L</string>
+                                  </property>
+                                 </widget>
                                 </widget>
                                </widget>
                               </widget>
@@ -12168,6 +12209,52 @@ QPushButton:pressed{
                                   </property>
                                   <property name="text">
                                    <string>B</string>
+                                  </property>
+                                 </widget>
+                                 <widget class="QPushButton" name="limOffice">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Asap</family>
+                                    <pointsize>14</pointsize>
+                                    <weight>75</weight>
+                                    <bold>true</bold>
+                                   </font>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+
+}</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>L</string>
                                   </property>
                                  </widget>
                                 </widget>
@@ -12411,24 +12498,93 @@ background-repeat: no-repeat;</string>
                         </layout>
                        </widget>
                        <widget class="QWidget" name="pageNovoCelu">
-                        <layout class="QVBoxLayout" name="verticalLayout_46">
+                        <layout class="QVBoxLayout" name="verticalLayout_45">
                          <item>
-                          <widget class="QLabel" name="label_169">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
+                          <widget class="QSplitter" name="splitter_13">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
                            </property>
-                           <property name="font">
-                            <font>
-                             <family>Asap</family>
-                             <pointsize>11</pointsize>
-                            </font>
-                           </property>
-                           <property name="text">
-                            <string>NOVO CELULAR</string>
-                           </property>
+                           <widget class="QLabel" name="label_169">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Asap</family>
+                              <pointsize>11</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>NOVO CELULAR</string>
+                            </property>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_12">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <widget class="QLabel" name="label_79">
+                             <property name="maximumSize">
+                              <size>
+                               <width>70</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>MOTIVO:</string>
+                             </property>
+                            </widget>
+                            <widget class="QComboBox" name="BoxCelMotivo">
+                             <property name="minimumSize">
+                              <size>
+                               <width>250</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>250</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>COMPRA</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>CADASTRO</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>OUTROS</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </widget>
                           </widget>
                          </item>
                          <item>
