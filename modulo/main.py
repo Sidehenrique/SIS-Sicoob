@@ -135,7 +135,7 @@ def estoqueTi(mw, ee):
 
     #  Acionamento Botões Submenu --------------------------------------------------------------------------------------
     def ButtonInicio():
-        # quantiTable()
+        quantiTable()
         mw.stackedWidget.setCurrentWidget(mw.pageHome)
 
     mw.pushButton_Inicio.clicked.connect(ButtonInicio)
@@ -705,7 +705,6 @@ def estoqueTi(mw, ee):
     mw.pushButtonCancelarNote.clicked.connect(cancelarCadNote)
     mw.pushButtonSalvarNote.clicked.connect(cadastrarNote)
 
-
     #################################################--CELULAR--########################################################
     def cadastrarCelu():
         imei = mw.celMeiOne.text()
@@ -874,6 +873,8 @@ def estoqueTi(mw, ee):
         ee.meValor.clear()
         ee.meDescricao.clear()
         ee.label_Memoria.clear()
+        ee.BoxMemoMotivo.setCurrentIndex(0)
+        ee.meBoxTamanho.setCurrentIndex(0)
 
     def cancelarCadMemo():
         limparCampsMemo()
@@ -892,7 +893,7 @@ def estoqueTi(mw, ee):
         descricao = ee.disDescricao.text()
         data = date.today()
 
-        tipo = ee.comboBoxTipo.currentText()
+        tipo = ee.disBoxTipo.currentText()
         local = 'ESTOQUE'
         motivo = ee.BoxDiscoMotivo.currentText()
 
@@ -940,10 +941,12 @@ def estoqueTi(mw, ee):
         ee.disMarca.clear()
         ee.disModelo.clear()
         ee.disCondicao.clear()
-        ee.disPlataforma.clear()
         ee.disValor.clear()
         ee.disDescricao.clear()
         ee.label_Disco.clear()
+        ee.BoxDiscoMotivo.setCurrentIndex(0)
+        ee.disBoxTamanho.setCurrentIndex(0)
+        ee.disBoxTipo.setCurrentIndex(0)
 
     def cancelarCadDisco():
         limparCampsDisco()
@@ -952,7 +955,7 @@ def estoqueTi(mw, ee):
     ee.pushButtonCadastraDisco.clicked.connect(cadastrarDisco)
     ee.pushButtonCancelarDisco.clicked.connect(cancelarCadDisco)
 
-    # Cadastro de Mouse no banco =======================================================================================
+    #################################################-- MOUSE --########################################################
     def cadastrarMouse():
         marca = ee.moMarca.text()
         modelo = ee.moModelo.text()
@@ -961,35 +964,47 @@ def estoqueTi(mw, ee):
         valor = ee.moValor.text()
         descricao = ee.moDescricao.text()
         data = date.today()
+        motivo = ee.BoxMouseMotivo.currentText()
+        local = 'ESTOQUE'
 
-        if marca == '' or modelo == '' or tipo == '':
-            mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
+        if marca == '' or modelo == '' or tipo == '' or motivo =='':
+            mensagem = 'Por favor verifique se todos os campos obrigatórios estão devidamente preenchidos'
             ee.moMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.moModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.moCondicao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.moBoxTipo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.BoxMouseMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Mouse.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Mouse (marca,modelo,condicao,tipo,valor,descricao,data)
-                    VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}','{descricao}','{data}');""")
-                cursor.close()
-                limparCampsMemo()
+                    f"""INSERT INTO Mouse (marca,modelo,condicao,tipo,valor,descricao,local,data)
+                    VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}','{descricao}','{local}','{data}');""")
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Mouse.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Mouse.setText(mensage)
+                cursor.execute(f"""SELECT MAX(idMouse) FROM mouse;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id}','{marca}','{modelo}',
+                '{motivo}','{local}','{data}');""")
+
+                cursor.close()
+                limparCampsMouse()
+
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 
             except pymysql.Error as erro:
                 print(erro)
                 mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
-                ee.label_Mouse.setStyleSheet("rgb(255, 0, 0);")
-                ee.label_Mouse.setText(mensageErro)
+                ee.label_Disco.setStyleSheet("rgb(255, 0, 0);")
+                ee.label_Disco.setText(mensageErro)
 
     def limparCampsMouse():
         ee.moMarca.clear()
@@ -998,6 +1013,8 @@ def estoqueTi(mw, ee):
         ee.moValor.clear()
         ee.moDescricao.clear()
         ee.label_Mouse.clear()
+        ee.BoxMouseMotivo.setCurrentIndex(0)
+        ee.moBoxTipo.setCurrentIndex(0)
 
     def cancelarCadMouse():
         limparCampsMouse()
@@ -1006,33 +1023,45 @@ def estoqueTi(mw, ee):
     ee.pushButtonCadastraMouse.clicked.connect(cadastrarMouse)
     ee.pushButtonCancelarMouse.clicked.connect(cancelarCadMouse)
 
-    # Cadastro de Mouse Pad no banco ===================================================================================
+    ###############################################-- MOUSE PAD --######################################################
     def cadastrarPad():
         marca = ee.padMarca.text()
         modelo = ee.padModelo.text()
         condicao = ee.padCondicao.text()
         valor = ee.padValor.text()
         descricao = ee.padDescricao.text()
+        motivo = ee.BoxPadMotivo.currentText()
+        tipo = ee.comboBoxSeletorGeral.currentText()
+        local = 'ESTOQUE'
         data = date.today()
 
-        if marca == '' or modelo == '':
+        if marca == '' or modelo == '' or motivo == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.padMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.padModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.BoxPadMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Pad.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
-                cursor.execute(
-                    f"""INSERT INTO MousePad (marca,modelo,condicao,valor,descricao,data)
-                    VALUES ('{marca}','{modelo}','{condicao}','{valor}','{descricao}','{data}');""")
+                cursor.execute(f"""INSERT INTO MousePad (marca,modelo,condicao,valor,descricao,local,data)
+                VALUES ('{marca}','{modelo}','{condicao}','{valor}','{descricao}','{local}','{data}');""")
+
+                cursor.execute(f"""SELECT MAX(idMousePad) FROM mousepad;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id}','{marca}','{modelo}',
+                '{motivo}','{local}','{data}');""")
+
                 cursor.close()
                 limparCampsPad()
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Pad.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Pad.setText(mensage)
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 
@@ -1040,7 +1069,7 @@ def estoqueTi(mw, ee):
                 print(erro)
                 mensageErro = 'O ITEM NÃO FOI CADASTRADO!\n' + str(erro)
                 ee.label_Pad.setStyleSheet("rgb(255, 0, 0);")
-                ee.label_Pad.setText(mensageErro)
+                ee.label_pad.setText(mensageErro)
 
     def limparCampsPad():
         ee.padMarca.clear()
@@ -1049,6 +1078,7 @@ def estoqueTi(mw, ee):
         ee.padValor.clear()
         ee.padDescricao.clear()
         ee.label_Pad.clear()
+        ee.BoxPadMotivo.setCurrentIndex(0)
 
     def cancelarCadPad():
         limparCampsPad()
@@ -1057,35 +1087,48 @@ def estoqueTi(mw, ee):
     ee.pushButtonCadastraPad.clicked.connect(cadastrarPad)
     ee.pushButtonCancelarPad.clicked.connect(cancelarCadPad)
 
-    # Cadastro de Teclado no banco =====================================================================================
+    ################################################-- TECLADO --#######################################################
     def cadastrarTeclado():
-        marca = ee.tecMarca.text()
+        marca = ee.TecMarca.text()
         modelo = ee.tecModelo.text()
         condicao = ee.tecCondicao.text()
         tipo = ee.tecBoxTipo.currentText()
         valor = ee.tecValor.text()
         descricao = ee.tecDescricao.text()
+        tipo = ee.comboBoxSeletorGeral.currentText()
+        motivo = ee.BoxTecMotivo.currentText()
+        local = 'ESTOQUE'
         data = date.today()
 
-        if marca == '' or modelo == '' or tipo == '':
+        if marca == '' or modelo == '' or tipo == '' or motivo == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
-            ee.tecMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.TecMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.tecModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.tecBoxTipo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.BoxTecMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Teclado.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO teclado (marca,modelo,condicao,tipo,valor,descricao,data)
-                    VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}','{descricao}','{data}');""")
+                    f"""INSERT INTO teclado (marca,modelo,condicao,tipo,valor,descricao,local,data)
+                    VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}','{descricao}','{local}','{data}');""")
+
+                cursor.execute(f"""SELECT MAX(idTeclado) FROM teclado;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id}','{marca}','{modelo}',
+                '{motivo}','{local}','{data}');""")
+
                 cursor.close()
                 limparCampsTeclado()
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Teclado.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Teclado.setText(mensage)
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 
@@ -1096,12 +1139,14 @@ def estoqueTi(mw, ee):
                 ee.label_Teclado.setText(mensageErro)
 
     def limparCampsTeclado():
-        ee.tecMarca.clear()
+        ee.TecMarca.clear()
         ee.tecModelo.clear()
         ee.tecCondicao.clear()
         ee.tecValor.clear()
         ee.tecDescricao.clear()
         ee.label_Teclado.clear()
+        ee.BoxTecMotivo.setCurrentIndex(0)
+        ee.tecBoxTipo.setCurrentIndex(0)
 
     def cancelarCadTeclado():
         limparCampsTeclado()
@@ -1110,33 +1155,46 @@ def estoqueTi(mw, ee):
     ee.pushButtonCadastraTeclado.clicked.connect(cadastrarTeclado)
     ee.pushButtonCancelarTeclado.clicked.connect(cancelarCadTeclado)
 
-    # Cadastro de Suporte no banco =====================================================================================
+    ################################################-- SUPORTE --#######################################################
     def cadastrarSuporte():
         marca = ee.supMarca.text()
         modelo = ee.supModelo.text()
         condicao = ee.supCondicao.text()
         valor = ee.supValor.text()
         descricao = ee.supDescricao.text()
+        motivo = ee.BoxSupMotivo.currentText()
+        tipo = ee.comboBoxSeletorGeral.currentText()
+        local = 'ESTOQUE'
         data = date.today()
 
-        if marca == '' or modelo == '':
+        if marca == '' or modelo == '' or motivo == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.supMarca.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.supModelo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.BoxSupMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Suporte.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Suporte (marca,modelo,condicao,valor,descricao,data)
-                    VALUES ('{marca}','{modelo}','{condicao}','{valor}','{descricao}','{data}');""")
+                    f"""INSERT INTO Suporte (marca,modelo,condicao,valor,descricao,local, data)
+                    VALUES ('{marca}','{modelo}','{condicao}','{valor}','{descricao}','{local}','{data}');""")
+
+                cursor.execute(f"""SELECT MAX(idSuporte) FROM suporte;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id}','{marca}','{modelo}',
+                '{motivo}','{local}','{data}');""")
+
                 cursor.close()
                 limparCampsSuporte()
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Suporte.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Suporte.setText(mensage)
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 
@@ -1153,6 +1211,7 @@ def estoqueTi(mw, ee):
         ee.supDescricao.clear()
         ee.supValor.clear()
         ee.label_Suporte.clear()
+        ee.BoxSupMotivo.setCurrentIndex(0)
 
     def cancelarCadSuporte():
         limparCampsSuporte()
@@ -1161,32 +1220,45 @@ def estoqueTi(mw, ee):
     ee.pushButtonCadastraSuporte.clicked.connect(cadastrarSuporte)
     ee.pushButtonCancelarSuporte.clicked.connect(cancelarCadSuporte)
 
-    # Cadastro de Email no banco =======================================================================================
+    #################################################-- EMAIL --########################################################
     def cadastrarEmail():
         empresa = ee.emailEmpresa.text()
         quantidade = ee.emailBoxQuantidade.currentText()
         valor = ee.emailValor.text()
         descricao = ee.emailDescricao.text()
+        tipo = ee.comboBoxSeletorGeral.currentText()
+        motivo = ee.BoxEmailMotivo.currentText()
+        local = 'ESTOQUE'
         data = date.today()
 
-        if empresa == '' or quantidade == '':
+        if empresa == '' or quantidade == '' or motivo == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.emailEmpresa.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.emailBoxQuantidade.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.BoxEmailMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Email.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Email (empresa,quantidade,valor,descricao,data)
-                    VALUES ('{empresa}',{quantidade},'{valor}','{descricao}','{data}');""")
+                    f"""INSERT INTO Email (empresa,quantidade,valor,descricao,local, data)
+                    VALUES ('{empresa}',{quantidade},'{valor}','{descricao}','{local}','{data}');""")
+
+                cursor.execute(f"""SELECT MAX(idEmail) FROM Email;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id}','{empresa}','{empresa}',
+                '{motivo}','{local}','{data}');""")
+
                 cursor.close()
                 limparCampsEmail()
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Email.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Email.setText(mensage)
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 
@@ -1201,6 +1273,8 @@ def estoqueTi(mw, ee):
         ee.emailValor.clear()
         ee.emailDescricao.clear()
         ee.label_Email.clear()
+        ee.emailBoxQuantidade.setCurrentIndex(0)
+        ee.BoxEmailMotivo.setCurrentIndex(0)
 
     def cancelarCadEmail():
         limparCampsEmail()
@@ -1209,34 +1283,48 @@ def estoqueTi(mw, ee):
     ee.pushButtonCadastraEmail.clicked.connect(cadastrarEmail)
     ee.pushButtonCancelarEmail.clicked.connect(cancelarCadEmail)
 
-    # Cadastro de Office no banco ======================================================================================
+    ################################################-- OFFICE --########################################################
     def cadastrarOffice():
         chave = ee.offChave.text()
         versaoPro = ee.offVersaoPro.text()
         versao = ee.offBoxVersao.currentText()
         valor = ee.offValor.text()
         descricao = ee.offDescricao.text()
+        tipo = ee.comboBoxSeletorGeral.currentText()
+        motivo = ee.BoxOffMotivo.currentText()
+        local = 'ESTOQUE'
         data = date.today()
 
-        if chave == '' or versaoPro == '' or versao == '':
+        if chave == '' or versaoPro == '' or versao == '' or motivo == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.offChave.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.offVersaoPro.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.offBoxVersao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.BoxOffMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Office.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Office (chave,versaopro,versao,valor,descricao,data)
-                    VALUES ('{chave}','{versaoPro}','{versao}','{valor}','{descricao}','{data}');""")
+                    f"""INSERT INTO Office (chave,versaopro,versao,valor,descricao,local,data)
+                    VALUES ('{chave}','{versaoPro}','{versao}','{valor}','{descricao}','{local}','{data}');""")
+
+                cursor.execute(f"""SELECT MAX(idOffice) FROM office;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(
+                f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id}','{versao}','{versaoPro}',
+                '{motivo}','{local}','{data}');""")
+
                 cursor.close()
                 limparCampsOffice()
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Office.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Office.setText(mensage)
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 
@@ -1252,6 +1340,8 @@ def estoqueTi(mw, ee):
         ee.offValor.clear()
         ee.offDescricao.clear()
         ee.label_Office.clear()
+        ee.BoxOffMotivo.setCurrentIndex(0)
+        ee.offBoxVersao.setCurrentIndex(0)
 
     def cancelarCadOffice():
         limparCampsOffice()
@@ -1260,34 +1350,48 @@ def estoqueTi(mw, ee):
     ee.pushButtonCadastraOffice.clicked.connect(cadastrarOffice)
     ee.pushButtonCancelarOffice.clicked.connect(cancelarCadOffice)
 
-    # Cadastro de Windows no banco =====================================================================================
+    ################################################-- WINDOWS --#######################################################
     def cadastrarWindows():
         chave = ee.wiChave.text()
         versaoPro = ee.wiVersaoPro.text()
         versao = ee.wiBoxVersao.currentText()
         valor = ee.wiValor.text()
         descricao = ee.wiDescricao.text()
+        tipo = ee.comboBoxSeletorGeral.currentText()
+        motivo = ee.BoxWinMotivo.currentText()
+        local = 'ESTOQUE'
         data = date.today()
 
-        if chave == '' or versaoPro == '' or versao == '':
+        if chave == '' or versaoPro == '' or versao == '' or motivo =='':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.wiChave.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.wiVersaoPro.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.wiBoxVersao.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.BoxWinMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Windows.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
                 cursor.execute(
-                    f"""INSERT INTO Windows (chave,versaopro,versao,valor,descricao,data)
-                    VALUES ('{chave}','{versaoPro}','{versao}', '{valor}', '{descricao}','{data}');""")
+                    f"""INSERT INTO Windows (chave,versaopro,versao,valor,descricao,local,data)
+                    VALUES ('{chave}','{versaoPro}','{versao}', '{valor}', '{descricao}','{local}','{data}');""")
+
+                cursor.execute(f"""SELECT MAX(idWindows) FROM windows;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(
+                    f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id}','{versao}','{versaoPro}',
+                    '{motivo}','{local}','{data}');""")
+
                 cursor.close()
                 limparCampsWindows()
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Windows.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Windows.setText(mensage)
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 
@@ -1303,6 +1407,8 @@ def estoqueTi(mw, ee):
         ee.wiValor.clear()
         ee.wiDescricao.clear()
         ee.label_Windows.clear()
+        ee.BoxWinMotivo.setCurrentIndex(0)
+        ee.wiBoxVersao.setCurrentIndex(0)
 
     def cancelarCadWindows():
         limparCampsWindows()
@@ -1311,7 +1417,7 @@ def estoqueTi(mw, ee):
     ee.pushButtonCadastraWindows.clicked.connect(cadastrarWindows)
     ee.pushButtonCancelarWindows.clicked.connect(cancelarCadWindows)
 
-    # Cadastro de Outros no banco ======================================================================================
+    ################################################-- OUTROS --########################################################
     def cadastrarOutros():
         nome = ee.ouNome.text()
         marca = ee.ouMarca.text()
@@ -1319,25 +1425,37 @@ def estoqueTi(mw, ee):
         condicao = ee.ouCondicao.text()
         valor = ee.ouValor.text()
         descricao = ee.ouDescricao.text()
+        tipo = ee.comboBoxSeletorGeral.currentText()
+        motivo = ee.BoxOutrosMotivo.currentText()
+        local = 'ESTOQUE'
         data = date.today()
 
-        if nome == '':
+        if nome == '' or motivo == '':
             mensagem = 'Por favor verifique se todos os campos obrigatórios estão\ndevidamente preenchidos'
             ee.ouNome.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
+            ee.BoxOutrosMotivo.setStyleSheet(" border: 1px solid rgb(255, 0, 0);")
             ee.label_Outro.setText(mensagem)
 
         else:
             try:
                 cursor = db.conMySQL()
-                cursor.execute(
-                    f"""INSERT INTO Outros (nome,marca,modelo,condicao,valor,descricao,data)
-                    VALUES ('{nome}','{marca}','{modelo}','{condicao}','{valor}','{descricao}','{data}');""")
+                cursor.execute(f"""INSERT INTO Outros (nome,marca,modelo,condicao,valor,descricao,local,data)
+                    VALUES ('{nome}','{marca}','{modelo}','{condicao}','{valor}','{descricao}','{local}','{data}');""")
+
+                cursor.execute(f"""SELECT MAX(idOutros) FROM outro;""")
+                cur = cursor.fetchall()
+                id = cur[0][0]
+                print(id)
+
+                cursor.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{id}','{nome}','{marca}',
+                    '{motivo}','{local}','{data}');""")
+
                 cursor.close()
                 limparCampsOutros()
 
-                mensage = 'CADASTRADO COM SUCESSO!'
-                ee.label_Outro.setStyleSheet("color: rgb(37, 163, 8);")
-                ee.label_Outro.setText(mensage)
+                mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
+                dg.LabelDialog.setText('CADASTRADO COM SUCESSO')
+                Dialog.show()
                 quantiTable()
                 carregarDados()
 

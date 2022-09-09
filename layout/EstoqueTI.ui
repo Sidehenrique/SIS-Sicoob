@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1119</width>
-    <height>807</height>
+    <width>1100</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -816,7 +816,7 @@ QPushButton:pressed {
              <number>1</number>
             </property>
             <property name="currentIndex">
-             <number>14</number>
+             <number>12</number>
             </property>
             <widget class="QWidget" name="pageHome">
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1336,7 +1336,7 @@ border-radius: 10px;</string>
                         <string notr="true">color: rgb(255, 255, 255);</string>
                        </property>
                        <property name="text">
-                        <string>SSD</string>
+                        <string>HD / SSD</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
@@ -2078,7 +2078,7 @@ border-radius: 10px;</string>
                         <string notr="true">color: rgb(255, 255, 255);</string>
                        </property>
                        <property name="text">
-                        <string>DIVERSOS</string>
+                        <string>OUTROS</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
@@ -2890,7 +2890,7 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
-                  <string>TIPO</string>
+                  <string>ITEM</string>
                  </property>
                 </column>
                 <column>
@@ -3764,6 +3764,11 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
+                  <string>LOCAL</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
                   <string>DATA</string>
                  </property>
                 </column>
@@ -4092,6 +4097,11 @@ QPushButton:pressed {
                 <column>
                  <property name="text">
                   <string>DESCRIÇÃO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>LOCAL</string>
                  </property>
                 </column>
                 <column>
@@ -4428,6 +4438,11 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
+                  <string>LOCAL</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
                   <string>DATA</string>
                  </property>
                 </column>
@@ -4755,6 +4770,11 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
+                  <string>LOCAL</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
                   <string>DATA</string>
                  </property>
                 </column>
@@ -5073,6 +5093,11 @@ QPushButton:pressed {
                 <column>
                  <property name="text">
                   <string>DESCRIÇÃO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>LOCAL</string>
                  </property>
                 </column>
                 <column>
@@ -5404,6 +5429,11 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
+                  <string>LOCAL</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
                   <string>DATA</string>
                  </property>
                 </column>
@@ -5726,6 +5756,11 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
+                  <string>LOCAL</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
                   <string>DATA</string>
                  </property>
                 </column>
@@ -6039,6 +6074,11 @@ QPushButton:pressed {
                 <column>
                  <property name="text">
                   <string>DESCRIÇÃO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>LOCAL</string>
                  </property>
                 </column>
                 <column>
@@ -6365,6 +6405,11 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
+                  <string>LOCAL</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
                   <string>DATA</string>
                  </property>
                 </column>
@@ -6687,6 +6732,11 @@ QPushButton:pressed {
                 </column>
                 <column>
                  <property name="text">
+                  <string>LOCAL</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
                   <string>DATA</string>
                  </property>
                 </column>
@@ -7005,6 +7055,11 @@ QPushButton:pressed {
                 <column>
                  <property name="text">
                   <string>DESCRIÇÃO</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>LOCAL</string>
                  </property>
                 </column>
                 <column>

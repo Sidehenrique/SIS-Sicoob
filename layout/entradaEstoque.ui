@@ -142,7 +142,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>8</number>
       </property>
       <widget class="QWidget" name="pageMemoria">
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -380,6 +380,11 @@
             </property>
             <item>
              <property name="text">
+              <string/>
+             </property>
+            </item>
+            <item>
+             <property name="text">
               <string>2</string>
              </property>
             </item>
@@ -390,17 +395,7 @@
             </item>
             <item>
              <property name="text">
-              <string>6</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
               <string>8</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>12</string>
              </property>
             </item>
             <item>
@@ -864,6 +859,11 @@
             </property>
             <item>
              <property name="text">
+              <string/>
+             </property>
+            </item>
+            <item>
+             <property name="text">
               <string>128</string>
              </property>
             </item>
@@ -931,7 +931,7 @@
              <string>TIPO:</string>
             </property>
            </widget>
-           <widget class="QComboBox" name="comboBoxTipo">
+           <widget class="QComboBox" name="disBoxTipo">
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -1367,12 +1367,17 @@
             </property>
             <item>
              <property name="text">
-              <string>No-Wireless</string>
+              <string/>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Wireless</string>
+              <string>MOUSE NO-WIRELESS</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MOUSE WIRELESS</string>
              </property>
             </item>
            </widget>
@@ -2178,12 +2183,17 @@
             </property>
             <item>
              <property name="text">
-              <string>No-Wireless</string>
+              <string/>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Wireless</string>
+              <string>TECLADO NO-WIRELESS</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>TECLADO WIRELESS</string>
              </property>
             </item>
            </widget>
@@ -2909,6 +2919,11 @@
             </property>
             <item>
              <property name="text">
+              <string/>
+             </property>
+            </item>
+            <item>
+             <property name="text">
               <string>1</string>
              </property>
             </item>
@@ -3330,22 +3345,27 @@
             </property>
             <item>
              <property name="text">
-              <string>Office 356</string>
+              <string/>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Office 2019</string>
+              <string>OFFICE 2013</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Office 2016</string>
+              <string>OFFICE 2016</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Office 2013</string>
+              <string>OFFICE 2019</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>OFFICE 356</string>
              </property>
             </item>
            </widget>
@@ -3721,17 +3741,27 @@
             </property>
             <item>
              <property name="text">
-              <string>Windows 7</string>
+              <string/>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Windows 8</string>
+              <string>WINDOWS 7</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Windows 10</string>
+              <string>WINDOWS 8</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>WINDOWS 10</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>WINDOWS 11</string>
              </property>
             </item>
            </widget>
