@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
-    <height>800</height>
+    <width>1346</width>
+    <height>846</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -816,7 +816,7 @@ QPushButton:pressed {
              <number>1</number>
             </property>
             <property name="currentIndex">
-             <number>12</number>
+             <number>14</number>
             </property>
             <widget class="QWidget" name="pageHome">
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -8247,7 +8247,7 @@ QPushButton:pressed{
                   <item>
                    <widget class="QStackedWidget" name="stackedWidgetSaida">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>1</number>
                     </property>
                     <widget class="QWidget" name="pagSaida">
                      <layout class="QVBoxLayout" name="verticalLayout_50">
@@ -10591,6 +10591,12 @@ QPushButton:pressed{
                     <layout class="QVBoxLayout" name="verticalLayout_42">
                      <item>
                       <widget class="QFrame" name="frame_35">
+                       <property name="minimumSize">
+                        <size>
+                         <width>100</width>
+                         <height>100</height>
+                        </size>
+                       </property>
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
                        </property>
@@ -10602,21 +10608,58 @@ QPushButton:pressed{
                      <item>
                       <widget class="QPushButton" name="pushNote">
                        <property name="sizePolicy">
-                        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
                          <horstretch>0</horstretch>
                          <verstretch>0</verstretch>
                         </sizepolicy>
                        </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>115</width>
-                         <height>115</height>
-                        </size>
+                       <property name="font">
+                        <font>
+                         <family>Asap</family>
+                         <pointsize>8</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+	border-radius: 20px;
+
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>PERIFERICOS</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushCelular_2">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
                        <property name="font">
                         <font>
                          <family>Asap</family>
-                         <pointsize>10</pointsize>
+                         <pointsize>8</pointsize>
                          <weight>75</weight>
                          <bold>true</bold>
                         </font>
@@ -10649,23 +10692,60 @@ QPushButton:pressed{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushCelular">
+                      <widget class="QPushButton" name="pushCelular_3">
                        <property name="sizePolicy">
-                        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
                          <horstretch>0</horstretch>
                          <verstretch>0</verstretch>
                         </sizepolicy>
                        </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>115</width>
-                         <height>115</height>
-                        </size>
+                       <property name="font">
+                        <font>
+                         <family>Asap</family>
+                         <pointsize>8</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+	border-radius: 20px;
+
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>DESKTOP</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushCelular">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
                        <property name="font">
                         <font>
                          <family>Asap</family>
-                         <pointsize>10</pointsize>
+                         <pointsize>8</pointsize>
                          <weight>75</weight>
                          <bold>true</bold>
                         </font>
@@ -10700,70 +10780,15 @@ QPushButton:pressed{
                      <item>
                       <widget class="QPushButton" name="pushPerifericos">
                        <property name="sizePolicy">
-                        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
                          <horstretch>0</horstretch>
                          <verstretch>0</verstretch>
                         </sizepolicy>
                        </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>115</width>
-                         <height>115</height>
-                        </size>
-                       </property>
                        <property name="font">
                         <font>
                          <family>Asap</family>
-                         <pointsize>10</pointsize>
-                         <weight>75</weight>
-                         <bold>true</bold>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
-	
-	color: rgb(255, 255, 255);
-	background-color: rgb(1, 67, 78);
-	border: 1px solid;
-	border-color: rgb(0, 53, 62);
-	border-radius: 15px;
-}
-
-QPushButton:hover{
-	background-color: rgb(1, 81, 94);
-
-}
-
-QPushButton:pressed{
-	background-color: rgb(0, 68, 79);
-	color: rgb(1, 118, 136);
-	border-radius: 20px;
-
-}</string>
-                       </property>
-                       <property name="text">
-                        <string>PERIFERICOS</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="pushMonitor">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>115</width>
-                         <height>115</height>
-                        </size>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Asap</family>
-                         <pointsize>10</pointsize>
+                         <pointsize>8</pointsize>
                          <weight>75</weight>
                          <bold>true</bold>
                         </font>
@@ -10796,12 +10821,88 @@ QPushButton:pressed{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QFrame" name="frame_33">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
+                      <widget class="QPushButton" name="pushMonitor">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
                        </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
+                       <property name="font">
+                        <font>
+                         <family>Asap</family>
+                         <pointsize>8</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+	border-radius: 20px;
+
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>CHAVE WINDOWS</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushMonitor_2">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Asap</family>
+                         <pointsize>8</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+	border-radius: 20px;
+
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>CHAVE OFFICE</string>
                        </property>
                       </widget>
                      </item>
@@ -10841,151 +10942,38 @@ QPushButton:pressed{
                      <item>
                       <widget class="QStackedWidget" name="stackedWidgetNovo">
                        <property name="currentIndex">
-                        <number>2</number>
+                        <number>1</number>
                        </property>
                        <widget class="QWidget" name="pageNovoNote">
-                        <layout class="QVBoxLayout" name="verticalLayout_61">
+                        <layout class="QVBoxLayout" name="verticalLayout_47">
                          <item>
-                          <widget class="QSplitter" name="splitter_27">
-                           <property name="orientation">
-                            <enum>Qt::Horizontal</enum>
+                          <widget class="QLabel" name="label_140">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                             <horstretch>3</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
                            </property>
-                           <widget class="QLabel" name="label_140">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                              <horstretch>1</horstretch>
-                              <verstretch>0</verstretch>
-                             </sizepolicy>
-                            </property>
-                            <property name="minimumSize">
-                             <size>
-                              <width>0</width>
-                              <height>0</height>
-                             </size>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <family>Asap</family>
-                              <pointsize>11</pointsize>
-                              <weight>75</weight>
-                              <bold>true</bold>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>NOVA MAQUINA</string>
-                            </property>
-                           </widget>
-                           <widget class="QSplitter" name="splitter_20">
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
-                            </property>
-                            <widget class="QLabel" name="label_77">
-                             <property name="font">
-                              <font>
-                               <family>Asap</family>
-                               <pointsize>10</pointsize>
-                               <weight>75</weight>
-                               <bold>true</bold>
-                              </font>
-                             </property>
-                             <property name="text">
-                              <string>TIPO:</string>
-                             </property>
-                            </widget>
-                            <widget class="QComboBox" name="BoxNoteItem">
-                             <property name="minimumSize">
-                              <size>
-                               <width>250</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="maximumSize">
-                              <size>
-                               <width>250</width>
-                               <height>16777215</height>
-                              </size>
-                             </property>
-                             <property name="font">
-                              <font>
-                               <family>Asap</family>
-                               <pointsize>11</pointsize>
-                              </font>
-                             </property>
-                             <item>
-                              <property name="text">
-                               <string/>
-                              </property>
-                             </item>
-                             <item>
-                              <property name="text">
-                               <string>NOTEBOOK</string>
-                              </property>
-                             </item>
-                             <item>
-                              <property name="text">
-                               <string>DESKTOP</string>
-                              </property>
-                             </item>
-                            </widget>
-                           </widget>
-                           <widget class="QSplitter" name="splitter_18">
-                            <property name="orientation">
-                             <enum>Qt::Horizontal</enum>
-                            </property>
-                            <widget class="QLabel" name="label_48">
-                             <property name="font">
-                              <font>
-                               <family>Asap</family>
-                               <pointsize>10</pointsize>
-                               <weight>75</weight>
-                               <bold>true</bold>
-                              </font>
-                             </property>
-                             <property name="text">
-                              <string>MOTIVO</string>
-                             </property>
-                            </widget>
-                            <widget class="QComboBox" name="BoxNoteMotivo">
-                             <property name="minimumSize">
-                              <size>
-                               <width>250</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="maximumSize">
-                              <size>
-                               <width>250</width>
-                               <height>16777215</height>
-                              </size>
-                             </property>
-                             <property name="font">
-                              <font>
-                               <family>Asap</family>
-                               <pointsize>11</pointsize>
-                              </font>
-                             </property>
-                             <item>
-                              <property name="text">
-                               <string/>
-                              </property>
-                             </item>
-                             <item>
-                              <property name="text">
-                               <string>COMPRA</string>
-                              </property>
-                             </item>
-                             <item>
-                              <property name="text">
-                               <string>CADASTRO</string>
-                              </property>
-                             </item>
-                             <item>
-                              <property name="text">
-                               <string>OUTROS</string>
-                              </property>
-                             </item>
-                            </widget>
-                           </widget>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>100</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <family>Asap</family>
+                             <pointsize>20</pointsize>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>NOTEBOOK</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
                           </widget>
                          </item>
                          <item>
@@ -11009,6 +10997,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notIMB">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>80</width>
@@ -11018,7 +11012,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11051,6 +11045,12 @@ QPushButton:pressed{
                                <verstretch>0</verstretch>
                               </sizepolicy>
                              </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>150</width>
@@ -11060,7 +11060,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="styleSheet">
@@ -11090,10 +11090,16 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notModelo">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11126,6 +11132,12 @@ QPushButton:pressed{
                                <verstretch>0</verstretch>
                               </sizepolicy>
                              </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>150</width>
@@ -11135,7 +11147,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11174,6 +11186,12 @@ QPushButton:pressed{
                                <verstretch>0</verstretch>
                               </sizepolicy>
                              </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>150</width>
@@ -11183,7 +11201,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11210,6 +11228,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notPreco">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>80</width>
@@ -11219,7 +11243,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11253,6 +11277,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notService">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>150</width>
@@ -11262,7 +11292,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11289,10 +11319,16 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notRede">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11319,6 +11355,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notTeam">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>250</width>
@@ -11328,7 +11370,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11355,6 +11397,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QComboBox" name="notBoxAntevirus">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>150</width>
@@ -11364,7 +11412,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="cursor">
@@ -11406,7 +11454,7 @@ QPushButton:pressed{
                              <property name="minimumSize">
                               <size>
                                <width>100</width>
-                               <height>0</height>
+                               <height>35</height>
                               </size>
                              </property>
                              <property name="maximumSize">
@@ -11418,7 +11466,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="cursor">
@@ -11475,7 +11523,7 @@ QPushButton:pressed{
                              <property name="minimumSize">
                               <size>
                                <width>100</width>
-                               <height>0</height>
+                               <height>35</height>
                               </size>
                              </property>
                              <property name="maximumSize">
@@ -11487,7 +11535,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="cursor">
@@ -11533,6 +11581,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notPro">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>200</width>
@@ -11542,7 +11596,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="text">
@@ -11578,10 +11632,16 @@ QPushButton:pressed{
                                <verstretch>0</verstretch>
                               </sizepolicy>
                              </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11608,6 +11668,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notFrePro">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>200</width>
@@ -11617,7 +11683,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11644,6 +11710,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QComboBox" name="notBoxGeracao">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>150</width>
@@ -11653,7 +11725,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <item>
@@ -11744,6 +11816,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QComboBox" name="notBoxSSD">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>100</width>
@@ -11753,7 +11831,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="cursor">
@@ -11792,6 +11870,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QComboBox" name="notBoxExp">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>100</width>
@@ -11801,7 +11885,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="cursor">
@@ -11847,10 +11931,16 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notRam">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11877,10 +11967,16 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notVerRam">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11907,10 +12003,16 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QLineEdit" name="notFreRam">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <property name="maxLength">
@@ -11943,6 +12045,12 @@ QPushButton:pressed{
                              </property>
                             </widget>
                             <widget class="QComboBox" name="notBoxExpRam">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="maximumSize">
                               <size>
                                <width>100</width>
@@ -11952,7 +12060,7 @@ QPushButton:pressed{
                              <property name="font">
                               <font>
                                <family>Asap</family>
-                               <pointsize>10</pointsize>
+                               <pointsize>11</pointsize>
                               </font>
                              </property>
                              <item>
@@ -11975,11 +12083,210 @@ QPushButton:pressed{
                           </widget>
                          </item>
                          <item>
+                          <widget class="QFrame" name="frame_33">
+                           <property name="styleSheet">
+                            <string notr="true">background-color: rgb(231, 231, 231);</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_56">
+                            <item>
+                             <widget class="QLabel" name="label_80">
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="label_48">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>70</width>
+                                <height>16777215</height>
+                               </size>
+                              </property>
+                              <property name="font">
+                               <font>
+                                <family>Asap</family>
+                                <pointsize>10</pointsize>
+                                <weight>75</weight>
+                                <bold>true</bold>
+                               </font>
+                              </property>
+                              <property name="text">
+                               <string>LOCAL:  </string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QComboBox" name="notBoxLocal">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                                <horstretch>1</horstretch>
+                                <verstretch>1</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="minimumSize">
+                               <size>
+                                <width>250</width>
+                                <height>35</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>250</width>
+                                <height>16777215</height>
+                               </size>
+                              </property>
+                              <property name="font">
+                               <font>
+                                <family>Asap</family>
+                                <pointsize>11</pointsize>
+                               </font>
+                              </property>
+                              <item>
+                               <property name="text">
+                                <string/>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>00 - SIA</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>01 - PAD/DF </string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>02 - FORMOSA</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>03 - SJA</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>06 - PLANALTINA</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>07 - VICENTE PIRES</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>08 - AGUAS CLARAS</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>97 - PA DIGITAL</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>99 - UAD</string>
+                               </property>
+                              </item>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QSplitter" name="splitter_20">
+                              <property name="orientation">
+                               <enum>Qt::Horizontal</enum>
+                              </property>
+                              <widget class="QLabel" name="label_77">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>80</width>
+                                 <height>16777215</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Asap</family>
+                                 <pointsize>10</pointsize>
+                                 <weight>75</weight>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="text">
+                                <string>MOTIVO:</string>
+                               </property>
+                              </widget>
+                              <widget class="QComboBox" name="notBoxMotivo">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>250</width>
+                                 <height>35</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>250</width>
+                                 <height>16777215</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Asap</family>
+                                 <pointsize>11</pointsize>
+                                </font>
+                               </property>
+                               <item>
+                                <property name="text">
+                                 <string/>
+                                </property>
+                               </item>
+                               <item>
+                                <property name="text">
+                                 <string>COMPRA</string>
+                                </property>
+                               </item>
+                               <item>
+                                <property name="text">
+                                 <string>CADASTRO</string>
+                                </property>
+                               </item>
+                               <item>
+                                <property name="text">
+                                 <string>OUTROS</string>
+                                </property>
+                               </item>
+                              </widget>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                         </item>
+                         <item>
                           <widget class="QFrame" name="frame_43">
                            <property name="sizePolicy">
-                            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
+                            <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                             <horstretch>1</horstretch>
+                             <verstretch>1</verstretch>
                             </sizepolicy>
                            </property>
                            <property name="styleSheet">
@@ -12009,8 +12316,11 @@ QPushButton:pressed{
                                  <property name="font">
                                   <font>
                                    <family>Asap</family>
-                                   <pointsize>10</pointsize>
+                                   <pointsize>14</pointsize>
                                   </font>
+                                 </property>
+                                 <property name="layoutDirection">
+                                  <enum>Qt::LeftToRight</enum>
                                  </property>
                                  <property name="text">
                                   <string>LICENÇA WINDOWS:</string>
@@ -12020,24 +12330,24 @@ QPushButton:pressed{
                                  <property name="orientation">
                                   <enum>Qt::Horizontal</enum>
                                  </property>
-                                 <widget class="QLineEdit" name="notWindows">
+                                 <widget class="QLineEdit" name="notWindows_4">
                                   <property name="minimumSize">
                                    <size>
                                     <width>0</width>
-                                    <height>30</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="font">
                                    <font>
                                     <family>Asap</family>
-                                    <pointsize>10</pointsize>
+                                    <pointsize>11</pointsize>
                                    </font>
                                   </property>
                                   <property name="maxLength">
                                    <number>25</number>
                                   </property>
                                  </widget>
-                                 <widget class="QPushButton" name="PesWindows">
+                                 <widget class="QPushButton" name="notWindows">
                                   <property name="minimumSize">
                                    <size>
                                     <width>30</width>
@@ -12083,7 +12393,7 @@ QPushButton:pressed{
                                    <string>B</string>
                                   </property>
                                  </widget>
-                                 <widget class="QPushButton" name="limWindows">
+                                 <widget class="QPushButton" name="notWindows_3">
                                   <property name="minimumSize">
                                    <size>
                                     <width>30</width>
@@ -12192,7 +12502,7 @@ QPushButton:pressed{
                                  <property name="font">
                                   <font>
                                    <family>Asap</family>
-                                   <pointsize>10</pointsize>
+                                   <pointsize>14</pointsize>
                                   </font>
                                  </property>
                                  <property name="text">
@@ -12207,20 +12517,20 @@ QPushButton:pressed{
                                   <property name="minimumSize">
                                    <size>
                                     <width>0</width>
-                                    <height>30</height>
+                                    <height>35</height>
                                    </size>
                                   </property>
                                   <property name="font">
                                    <font>
                                     <family>Asap</family>
-                                    <pointsize>10</pointsize>
+                                    <pointsize>11</pointsize>
                                    </font>
                                   </property>
                                   <property name="maxLength">
                                    <number>25</number>
                                   </property>
                                  </widget>
-                                 <widget class="QPushButton" name="PesOffice">
+                                 <widget class="QPushButton" name="notPesOffice">
                                   <property name="minimumSize">
                                    <size>
                                     <width>30</width>
@@ -12266,7 +12576,7 @@ QPushButton:pressed{
                                    <string>B</string>
                                   </property>
                                  </widget>
-                                 <widget class="QPushButton" name="limOffice">
+                                 <widget class="QPushButton" name="notlimOffice">
                                   <property name="minimumSize">
                                    <size>
                                     <width>30</width>
@@ -12341,47 +12651,6 @@ QPushButton:pressed{
                              </widget>
                             </item>
                            </layout>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QSplitter" name="splitter_82">
-                           <property name="orientation">
-                            <enum>Qt::Vertical</enum>
-                           </property>
-                           <widget class="QLabel" name="label_133">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                              <horstretch>0</horstretch>
-                              <verstretch>0</verstretch>
-                             </sizepolicy>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <family>Asap</family>
-                              <pointsize>10</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>Descrição:</string>
-                            </property>
-                           </widget>
-                           <widget class="QLineEdit" name="notDecricao">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                              <horstretch>0</horstretch>
-                              <verstretch>1</verstretch>
-                             </sizepolicy>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <family>Asap</family>
-                              <pointsize>10</pointsize>
-                             </font>
-                            </property>
-                            <property name="alignment">
-                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                            </property>
-                           </widget>
                           </widget>
                          </item>
                          <item>
@@ -12463,6 +12732,1728 @@ QPushButton:pressed{
                             </property>
                            </widget>
                            <widget class="QPushButton" name="pushButtonSalvarNote">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>1</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>150</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Asap</family>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+	border-radius: 20px;
+
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>CADASTRA</string>
+                            </property>
+                           </widget>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                       <widget class="QWidget" name="pageNovoTop">
+                        <layout class="QVBoxLayout" name="verticalLayout_61">
+                         <item>
+                          <widget class="QLabel" name="label_219">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                             <horstretch>3</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>100</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <family>Asap</family>
+                             <pointsize>20</pointsize>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>DESKTOP</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QSplitter" name="splitter_82">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <widget class="QSplitter" name="splitter_120">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_197">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>IMB:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topIMB">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>80</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>5</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>16000</string>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_132">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_199">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Marca:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topMarca">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                               <horstretch>5</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true"/>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>Acer</string>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_137">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_200">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Modelo:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topModelo">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>Aspire</string>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_138">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_201">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Condição:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topCondicao">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>novo</string>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_140">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_202">
+                             <property name="maximumSize">
+                              <size>
+                               <width>16777215</width>
+                               <height>200</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Ano Fabricação</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topAno">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>2020</string>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_146">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_203">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Preço:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topPreco">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>80</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>3000</string>
+                             </property>
+                            </widget>
+                           </widget>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QSplitter" name="splitter_192">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <widget class="QSplitter" name="splitter_188">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_220">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Service TAG:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topService">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string/>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_185">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_218">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Nome de Rede:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topRede">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string/>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_169">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_214">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>TeamViewer:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topTeam">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>250</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string/>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_168">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_213">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Antevirus:</string>
+                             </property>
+                            </widget>
+                            <widget class="QComboBox" name="topBoxAntevirus">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>DESATUALIZADO</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>ATUALIZADO</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </widget>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QSplitter" name="splitter_152">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <widget class="QSplitter" name="splitter_153">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_207">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Processador:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topPro">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>200</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>Core i5</string>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_154">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_208">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Marca:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topMarcaPro">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                               <horstretch>5</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>Intel</string>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_160">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_209">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Frequencia:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topFrePro">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>200</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>2.0</string>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_164">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_210">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Geração:</string>
+                             </property>
+                            </widget>
+                            <widget class="QComboBox" name="topBoxGeracao">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>1ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>2ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>3ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>4ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>5ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>6ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>7ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>8ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>9ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>10ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>11ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>12ª Geração</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>13ª Geração</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_165">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_211">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>SSD:</string>
+                             </property>
+                            </widget>
+                            <widget class="QComboBox" name="topBoxSSD">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>NÃO</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>SIM</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_166">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_212">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Expancivel:</string>
+                             </property>
+                            </widget>
+                            <widget class="QComboBox" name="topBoxExp">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>NÃO</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>SIM</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </widget>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QSplitter" name="splitter_147">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <widget class="QSplitter" name="splitter_148">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_204">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>RAM:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topRam">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>4</string>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_149">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_205">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>GDDR:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topVerRam">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="placeholderText">
+                              <string>DDR4</string>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_150">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_206">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Frequencia:</string>
+                             </property>
+                            </widget>
+                            <widget class="QLineEdit" name="topFreRam">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <property name="maxLength">
+                              <number>25</number>
+                             </property>
+                             <property name="frame">
+                              <bool>true</bool>
+                             </property>
+                             <property name="placeholderText">
+                              <string>1600</string>
+                             </property>
+                             <property name="clearButtonEnabled">
+                              <bool>false</bool>
+                             </property>
+                            </widget>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_151">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <widget class="QLabel" name="label_108">
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Expancivel:</string>
+                             </property>
+                            </widget>
+                            <widget class="QComboBox" name="topBoxExpRam">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>NÃO</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>SIM</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </widget>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QFrame" name="frame_44">
+                           <property name="styleSheet">
+                            <string notr="true">background-color: rgb(231, 231, 231);</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_59">
+                            <item>
+                             <widget class="QLabel" name="label_85">
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="label_86">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>70</width>
+                                <height>16777215</height>
+                               </size>
+                              </property>
+                              <property name="font">
+                               <font>
+                                <family>Asap</family>
+                                <pointsize>10</pointsize>
+                                <weight>75</weight>
+                                <bold>true</bold>
+                               </font>
+                              </property>
+                              <property name="text">
+                               <string>LOCAL:  </string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QComboBox" name="topBoxLocal">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                                <horstretch>1</horstretch>
+                                <verstretch>1</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="minimumSize">
+                               <size>
+                                <width>250</width>
+                                <height>35</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>250</width>
+                                <height>16777215</height>
+                               </size>
+                              </property>
+                              <property name="font">
+                               <font>
+                                <family>Asap</family>
+                                <pointsize>11</pointsize>
+                               </font>
+                              </property>
+                              <item>
+                               <property name="text">
+                                <string/>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>00 - SIA</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>01 - PAD/DF </string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>02 - FORMOSA</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>03 - SJA</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>06 - PLANALTINA</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>07 - VICENTE PIRES</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>08 - AGUAS CLARAS</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>97 - PA DIGITAL</string>
+                               </property>
+                              </item>
+                              <item>
+                               <property name="text">
+                                <string>99 - UAD</string>
+                               </property>
+                              </item>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QSplitter" name="splitter_167">
+                              <property name="orientation">
+                               <enum>Qt::Horizontal</enum>
+                              </property>
+                              <widget class="QLabel" name="label_87">
+                               <property name="sizePolicy">
+                                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                                 <horstretch>0</horstretch>
+                                 <verstretch>0</verstretch>
+                                </sizepolicy>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>80</width>
+                                 <height>16777215</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Asap</family>
+                                 <pointsize>10</pointsize>
+                                 <weight>75</weight>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="text">
+                                <string>MOTIVO:</string>
+                               </property>
+                              </widget>
+                              <widget class="QComboBox" name="topBoxMotivo">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>250</width>
+                                 <height>35</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>250</width>
+                                 <height>16777215</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Asap</family>
+                                 <pointsize>11</pointsize>
+                                </font>
+                               </property>
+                               <item>
+                                <property name="text">
+                                 <string/>
+                                </property>
+                               </item>
+                               <item>
+                                <property name="text">
+                                 <string>COMPRA</string>
+                                </property>
+                               </item>
+                               <item>
+                                <property name="text">
+                                 <string>CADASTRO</string>
+                                </property>
+                               </item>
+                               <item>
+                                <property name="text">
+                                 <string>OUTROS</string>
+                                </property>
+                               </item>
+                              </widget>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QFrame" name="frame_46">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                             <horstretch>1</horstretch>
+                             <verstretch>1</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background-color: rgb(231, 231, 231);</string>
+                           </property>
+                           <property name="frameShape">
+                            <enum>QFrame::StyledPanel</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QHBoxLayout" name="horizontalLayout_60">
+                            <item>
+                             <widget class="QSplitter" name="splitter_171">
+                              <property name="orientation">
+                               <enum>Qt::Vertical</enum>
+                              </property>
+                              <widget class="QSplitter" name="splitter_172">
+                               <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                               </property>
+                               <widget class="QSplitter" name="splitter_173">
+                                <property name="orientation">
+                                 <enum>Qt::Vertical</enum>
+                                </property>
+                                <widget class="QLabel" name="label_216">
+                                 <property name="font">
+                                  <font>
+                                   <family>Asap</family>
+                                   <pointsize>14</pointsize>
+                                  </font>
+                                 </property>
+                                 <property name="layoutDirection">
+                                  <enum>Qt::LeftToRight</enum>
+                                 </property>
+                                 <property name="text">
+                                  <string>LICENÇA WINDOWS:</string>
+                                 </property>
+                                </widget>
+                                <widget class="QSplitter" name="splitter_176">
+                                 <property name="orientation">
+                                  <enum>Qt::Horizontal</enum>
+                                 </property>
+                                 <widget class="QLineEdit" name="topWindows">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>0</width>
+                                    <height>35</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Asap</family>
+                                    <pointsize>11</pointsize>
+                                   </font>
+                                  </property>
+                                  <property name="maxLength">
+                                   <number>25</number>
+                                  </property>
+                                 </widget>
+                                 <widget class="QPushButton" name="topPesWindows">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Asap</family>
+                                    <pointsize>14</pointsize>
+                                    <weight>75</weight>
+                                    <bold>true</bold>
+                                   </font>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+
+}</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>B</string>
+                                  </property>
+                                 </widget>
+                                 <widget class="QPushButton" name="toplimWindows">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Asap</family>
+                                    <pointsize>14</pointsize>
+                                    <weight>75</weight>
+                                    <bold>true</bold>
+                                   </font>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+
+}</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>L</string>
+                                  </property>
+                                 </widget>
+                                </widget>
+                               </widget>
+                              </widget>
+                              <widget class="QLabel" name="labeltopViewerWin">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>50</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Asap</family>
+                                 <pointsize>11</pointsize>
+                                </font>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                               <property name="alignment">
+                                <set>Qt::AlignCenter</set>
+                               </property>
+                               <property name="wordWrap">
+                                <bool>true</bool>
+                               </property>
+                              </widget>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLabel" name="label_88">
+                              <property name="font">
+                               <font>
+                                <family>Asap</family>
+                                <pointsize>10</pointsize>
+                                <weight>75</weight>
+                                <bold>true</bold>
+                               </font>
+                              </property>
+                              <property name="text">
+                               <string>PRODUCT KEY</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QSplitter" name="splitter_180">
+                              <property name="orientation">
+                               <enum>Qt::Vertical</enum>
+                              </property>
+                              <widget class="QSplitter" name="splitter_182">
+                               <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                               </property>
+                               <widget class="QSplitter" name="splitter_183">
+                                <property name="orientation">
+                                 <enum>Qt::Vertical</enum>
+                                </property>
+                                <widget class="QLabel" name="label_217">
+                                 <property name="font">
+                                  <font>
+                                   <family>Asap</family>
+                                   <pointsize>14</pointsize>
+                                  </font>
+                                 </property>
+                                 <property name="text">
+                                  <string>LICENÇA OFFICE:</string>
+                                 </property>
+                                </widget>
+                                <widget class="QSplitter" name="splitter_184">
+                                 <property name="orientation">
+                                  <enum>Qt::Horizontal</enum>
+                                 </property>
+                                 <widget class="QLineEdit" name="topOffice">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>0</width>
+                                    <height>35</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Asap</family>
+                                    <pointsize>11</pointsize>
+                                   </font>
+                                  </property>
+                                  <property name="maxLength">
+                                   <number>25</number>
+                                  </property>
+                                 </widget>
+                                 <widget class="QPushButton" name="topPesOffice">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Asap</family>
+                                    <pointsize>14</pointsize>
+                                    <weight>75</weight>
+                                    <bold>true</bold>
+                                   </font>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+
+}</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>B</string>
+                                  </property>
+                                 </widget>
+                                 <widget class="QPushButton" name="toplimOffice">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Asap</family>
+                                    <pointsize>14</pointsize>
+                                    <weight>75</weight>
+                                    <bold>true</bold>
+                                   </font>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+
+}</string>
+                                  </property>
+                                  <property name="text">
+                                   <string>L</string>
+                                  </property>
+                                 </widget>
+                                </widget>
+                               </widget>
+                              </widget>
+                              <widget class="QLabel" name="labeltopViwerOff">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>50</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Asap</family>
+                                 <pointsize>11</pointsize>
+                                </font>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                               <property name="alignment">
+                                <set>Qt::AlignCenter</set>
+                               </property>
+                               <property name="wordWrap">
+                                <bool>true</bool>
+                               </property>
+                              </widget>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QSplitter" name="splitter_191">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <widget class="QLabel" name="labeltopMensage">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>1</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>9</pointsize>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color: rgb(255, 0, 0);</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                           </widget>
+                           <widget class="QPushButton" name="pushButtonCancelarTop">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>1</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>150</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Asap</family>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QPushButton{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(1, 67, 78);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+	background-color: rgb(1, 81, 94);
+
+}
+
+QPushButton:pressed{
+	background-color: rgb(0, 68, 79);
+	color: rgb(1, 118, 136);
+	border-radius: 20px;
+
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>CANCELAR</string>
+                            </property>
+                           </widget>
+                           <widget class="QPushButton" name="pushButtonSalvarTop">
                             <property name="sizePolicy">
                              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                               <horstretch>0</horstretch>
@@ -13125,7 +15116,7 @@ background-repeat: no-repeat;</string>
                               <string>Sistema Op:</string>
                              </property>
                             </widget>
-                            <widget class="QComboBox" name="notBoxSitema">
+                            <widget class="QComboBox" name="celBoxSistema">
                              <property name="maximumSize">
                               <size>
                                <width>100</width>
@@ -13635,24 +15626,93 @@ QPushButton:pressed{
                         </layout>
                        </widget>
                        <widget class="QWidget" name="pageNovoMonitor">
-                        <layout class="QVBoxLayout" name="verticalLayout_47">
+                        <layout class="QVBoxLayout" name="verticalLayout_46">
                          <item>
-                          <widget class="QLabel" name="label_172">
-                           <property name="sizePolicy">
-                            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                             <horstretch>0</horstretch>
-                             <verstretch>0</verstretch>
-                            </sizepolicy>
+                          <widget class="QSplitter" name="splitter_29">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
                            </property>
-                           <property name="font">
-                            <font>
-                             <family>Asap</family>
-                             <pointsize>11</pointsize>
-                            </font>
-                           </property>
-                           <property name="text">
-                            <string>NOVO MONITOR</string>
-                           </property>
+                           <widget class="QLabel" name="label_172">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Asap</family>
+                              <pointsize>11</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>NOVO MONITOR</string>
+                            </property>
+                           </widget>
+                           <widget class="QSplitter" name="splitter_28">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <widget class="QLabel" name="label_114">
+                             <property name="maximumSize">
+                              <size>
+                               <width>70</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>10</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>MOTIVO:</string>
+                             </property>
+                            </widget>
+                            <widget class="QComboBox" name="BoxMoMotivo">
+                             <property name="minimumSize">
+                              <size>
+                               <width>250</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>250</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Asap</family>
+                               <pointsize>11</pointsize>
+                              </font>
+                             </property>
+                             <item>
+                              <property name="text">
+                               <string/>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>COMPRA</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>CADASTRO</string>
+                              </property>
+                             </item>
+                             <item>
+                              <property name="text">
+                               <string>OUTROS</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </widget>
                           </widget>
                          </item>
                          <item>

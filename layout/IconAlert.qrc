@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="dialog">
+    <file>estoque/positiv.png</file>
     <file>estoque/Alert.png</file>
   </qresource>
 </RCC>
