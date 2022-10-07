@@ -1,0 +1,42 @@
+<RCC>
+  <qresource prefix="cad">
+    <file>Controle/cadastro/baixa.png</file>
+    <file>Controle/cadastro/baixahover.png</file>
+    <file>Controle/cadastro/baixapress.png</file>
+    <file>Controle/cadastro/cad.png</file>
+    <file>Controle/cadastro/novo.png</file>
+    <file>Controle/cadastro/novohover.png</file>
+    <file>Controle/cadastro/novopress.png</file>
+    <file>Controle/cadastro/pes.png</file>
+    <file>Controle/cadastro/peshover.png</file>
+    <file>Controle/cadastro/pespress.png</file>
+    <file>Controle/cadastro/trans.png</file>
+    <file>Controle/cadastro/transhover.png</file>
+    <file>Controle/cadastro/transpes.png</file>
+  </qresource>
+  <qresource prefix="note">
+    <file>Controle/notebook/local.png</file>
+    <file>Controle/notebook/Office.png</file>
+    <file>Controle/notebook/set.png</file>
+    <file>Controle/notebook/user.png</file>
+    <file>Controle/notebook/windows.png</file>
+  </qresource>
+  <qresource prefix="novo">
+    <file>Controle/novo/celpress.png</file>
+    <file>Controle/novo/deskpress.png</file>
+    <file>Controle/novo/mopress.png</file>
+    <file>Controle/novo/notepress.png</file>
+    <file>Controle/novo/offpress.png</file>
+    <file>Controle/novo/peripress.png</file>
+    <file>Controle/novo/winpress.png</file>
+    <file>Controle/novo/celular.png</file>
+    <file>Controle/novo/Novo.png</file>
+    <file>Controle/novo/desk.png</file>
+    <file>Controle/novo/monitor.png</file>
+    <file>Controle/novo/note.png</file>
+    <file>Controle/novo/novoo.png</file>
+    <file>Controle/novo/office.png</file>
+    <file>Controle/novo/perifericos.png</file>
+    <file>Controle/novo/windows.png</file>
+  </qresource>
+</RCC>
