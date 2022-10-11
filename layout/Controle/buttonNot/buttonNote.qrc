@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="button">
+    <file>local.png</file>
+    <file>office.png</file>
+    <file>user.png</file>
+    <file>windows.png</file>
+  </qresource>
+</RCC>

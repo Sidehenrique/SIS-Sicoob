@@ -72,8 +72,13 @@ background-repeat: no-repeat;</string>
       <property name="font">
        <font>
         <family>Asap</family>
-        <pointsize>10</pointsize>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 161, 148);</string>
       </property>
       <property name="text">
        <string>CADASTRADO COM SUCESSO</string>

@@ -4,8 +4,8 @@ from EstoqueTI import *
 from entradaEstoque import *
 from Dialog import *
 from DialogCondicional import *
-from DialogCondicionalOne import *
-from DialogCondicionalTwe import *
+from Positive import *
+from opNote import *
 import db
 from datetime import date
 import pymysql
@@ -106,7 +106,7 @@ def login(ui):
 def controle():
     MainControle.setWindowTitle('PAINEL DE CONTROLE TI')
 
-    # BUTÕES DE NAVEGAÇÃO ##############################################################################################
+    # BUTÕES DE NAVEGAÇÃO DO MENU ######################################################################################
     def ButtonEstoqueTI():
         MainEstoque.showMaximized()
         MainControle.close()
@@ -171,16 +171,142 @@ def controle():
             try:
                 cur = db.conMySQL()
                 cur.execute(
-                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
-                    SERVICETAG, TEAMVIEWER, REDE, SSD, EXPANCIVEL, CARREGADOR, RPOCESSADOR, MARCAPRO,
-                    FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, ANTEVIRUS, LOCAL, DATA)
+                    f"""INSERT INTO bdsister.computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
+                        SERVICETAG, TEAMVIEWER, REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
+                        FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, ANTEVIRUS,
+                        DESCRICAO, TIPO, LOCAL, DATA)
                     
-                    VALUES ('{imb}','{marca}','{modelo}','{condicao}','{ano}','{tela}','{preco}','{service}','{team}',
-                    '{rede}','{disco}','{exp}','{car}','{pro}','{marPro}','{frePro}','{gePro}','{ram}','{verRam}',
-                    '{freRam}','{expRam}','{ant}','{tipo}','{local}','{data}');""")
+                        VALUES ('{imb}','{marca}','{modelo}','{condicao}','{ano}','{tela}','{preco}',
+                        '{service}','{team}','{rede}','{disco}','{exp}','{car}','{pro}','{marPro}',
+                        '{frePro}','{gePro}','{ram}','{verRam}','{freRam}','{expRam}','{ant}',
+                        '{'descricao'}','{tipo}','{local}','{data}');""")
 
             except:
                 print('algo deu errado')
+
+    def win():
+        opNote.close()
+        opNote.show()
+        op.stackedWidget.setCurrentWidget(op.pageOpWin)
+
+        def checkWin():
+
+                windows = op.notLineWin.text()
+
+                if len(windows) < 25:
+                    texto = 'Chave Windows Invalida'
+                    op.notlabelWin.setText(texto)
+
+                else:
+                    try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
+                        cur = db.conMySQL()
+                        cur.execute(f"""SELECT * FROM windows WHERE CHAVE = '{windows}';""")  # ------ Que Contenha
+                        idw = cur.fetchall()
+                        print(windows + '<--- Isto é oque o usuario digitou')
+
+                        if idw == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
+                            texto = 'Chave Windows Não Cadastrada'
+                            op.notlabelWin.setText(texto)
+
+                        if idw != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
+                            chave = idw[0][1]  # <-------------------- pega o campo da chave
+                            id = idw[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID WINDOWS) int
+                            versao = idw[0][2]  # <-------------------- pega o campo da versão do windows
+
+                            try:  # <---------- vai pesquisar na tabela computer se essa (ID WINDOWS) esta vinculada com alguma maquina
+                                cur.execute(f"""SELECT * FROM computer WHERE idWindows = {id};""")
+                                idN = cur.fetchall()
+                                cur.close()
+
+                                if idN == ():  # <--------- se retornar tupla vazia não achou (ID WINDOWS) vinculado a alguma maquina
+                                    texto = 'Esta chave Windows \nEstá disponivel!'
+                                    mc.notFrameWindows.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                                    mc.notVerWin.setText(versao)
+                                    mc.notCodWin.setText(str(id))
+
+                                    Positive.show()
+                                    op.notLineWin.clear()
+                                    po.LabelDialog.setText(texto)
+                                    opNote.close()
+
+                                else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
+                                    texto = 'Esta chave Windows \nNão está disponivel!'
+                                    op.notlabelWin.setText(texto)
+
+                            except pymysql.Error as erro:
+                                texto = str(erro)
+                                dg.LabelDialog.setText(texto)
+                                Dialog.show()
+
+                    except:
+                        texto = 'ALGO DEU ERRADO!'
+                        dg.LabelDialog.setText(texto)
+                        Dialog.show()
+
+        op.notButtonWin.clicked.connect(checkWin)
+
+    def off():
+        opNote.close()
+        opNote.show()
+        op.stackedWidget.setCurrentWidget(op.pageOpOff)
+
+        def checkOff():
+
+                office = op.notLineOff.text()
+
+                if len(office) < 25:
+                    texto = 'Chave Office Invalida'
+                    op.notlabelOff.setText(texto)
+
+                else:
+                    try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
+                        cur = db.conMySQL()
+                        cur.execute(f"""SELECT * FROM office WHERE CHAVE = '{office}';""")  # ------ Que Contenha
+                        ido = cur.fetchall()
+                        print(office + '<--- Isto é oque o usuario digitou')
+
+                        if ido == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
+                            texto = 'Chave Office Não Cadastrada'
+                            op.notlabelOff.setText(texto)
+
+                        if ido != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
+                            chave = ido[0][1]  # <-------------------- pega o campo da chave
+                            id = ido[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID OFFICE) int
+                            versao = ido[0][2]  # <-------------------- pega o campo da versão do windows
+
+                            try:  # <---------- vai pesquisar na tabela computer se essa (ID OFFICE) esta vinculada com alguma maquina
+                                cur.execute(f"""SELECT * FROM computer WHERE idOffice = {id};""")
+                                idN = cur.fetchall()
+                                cur.close()
+
+                                if idN == ():  # <--------- se retornar tupla vazia não achou (ID OFFICE) vinculado a alguma maquina
+                                    texto = 'Esta chave Office \nEstá disponivel!'
+                                    mc.notFrameOffice.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                                    mc.notVerOff.setText(versao)
+                                    mc.notCodOff.setText(str(id))
+
+                                    Positive.show()
+                                    op.notLineOff.clear()
+                                    po.LabelDialog.setText(texto)
+                                    opNote.close()
+
+                                else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
+                                    texto = 'Esta chave Office \nNão está disponivel!'
+                                    op.notlabelOff.setText(texto)
+
+                            except pymysql.Error as erro:
+                                texto = str(erro)
+                                dg.LabelDialog.setText(texto)
+                                Dialog.show()
+
+                    except:
+                        texto = 'ALGO DEU ERRADO!'
+                        dg.LabelDialog.setText(texto)
+                        Dialog.show()
+
+        op.notButtonOff.clicked.connect(checkOff)
 
     def lpNote():
         mc.notIMB.clear()
@@ -216,15 +342,69 @@ def controle():
         mc.notRam.setStyleSheet('background-color: rgb(255, 255, 255);')
         mc.notVerRam.setStyleSheet('background-color: rgb(255, 255, 255);')
 
+        mc.notFrameWindows.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mc.notCodWin.setText('------------')
+        mc.notVerWin.setText('------------')
+
+        mc.notFrameOffice.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mc.notCodOff.setText('------------')
+        mc.notVerOff.setText('------------')
+
+    def user():
+        opNote.close()
+        opNote.show()
+        op.stackedWidget.setCurrentWidget(op.pageOpUser)
+
+        def pUser():
+            user = op.notLineUser.text()
+            print(user + '<--- entrada do usuario')
+
+            if user == '':
+                texto = 'Campo de pesquisa em branco \nPor favor preencha o campo de pesquisa de usuario'
+                op.notLineUser.setStyleSheet('background-color: rgb(255, 192, 193);')
+                op.notlabelUser.setText(texto)
+
+            else:
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT * FROM colaborador WHERE nome like '%{user}%';""")
+                    dados = con.fetchall()
+                    con.close()
+
+                    nome = dados[0][1]
+                    cargo = dados[0][4]
+                    idu = dados[0][0]
+
+                    if dados == ():
+                        texto = 'Usuário não encontrado\n certifique se de que o mesmo esta cadastrado'
+                        op.notlabelUser.setText(texto)
+
+                    else:
+                        texto = 'Colaborador Encontrado'
+                        mc.notFrameUser.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                        mc.notLabelUser.setText(nome)
+                        mc.notCarUser.setText(cargo)
+                        mc.notCodUser.setText(str(idu))
+
+                        Positive.show()
+                        op.notLineUser.clear()
+                        po.LabelDialog.setText(texto)
+                        opNote.close()
+
+
+                except:
+                    texto = 'ALGO DEU ERRADO!'
+                    dg.LabelDialog.setText(texto)
+                    Dialog.show()
+
+        op.notButtonUser.clicked.connect(pUser)
+
+    mc.notButtonUser.clicked.connect(user)
+    mc.notButtonWin.clicked.connect(win)
+    mc.notButtonOff.clicked.connect(off)
     mc.notButtonLimpar.clicked.connect(lpNote)
     mc.notButtonConfirmar.clicked.connect(cadNote)
-
-
-
-
-
-
-
 
 
 '''TRATAMENTO ESTOQUE TI ============================================================================================'''
@@ -581,6 +761,10 @@ if __name__ == "__main__":
     MainEEstoque = QtWidgets.QMainWindow()
     Dialog = QtWidgets.QDialog()
 
+    opNote = QtWidgets.QMainWindow()
+    op = Ui_opNote()
+    op.setupUi(opNote)
+
     MainControle = QtWidgets.QMainWindow()
     mc = Ui_MainControle()
     mc.setupUi(MainControle)
@@ -589,13 +773,9 @@ if __name__ == "__main__":
     di = Ui_DialogiConditional()
     di.setupUi(DialogiConditional)
 
-    DialogiConditionalOne = QtWidgets.QMainWindow()
-    di1 = Ui_DialogiConditionalOne()
-    di1.setupUi(DialogiConditionalOne)
-
-    DialogiConditionalTwe = QtWidgets.QMainWindow()
-    di2 = Ui_DialogiConditionalTwe()
-    di2.setupUi(DialogiConditionalTwe)
+    Positive = QtWidgets.QDialog()
+    po = Ui_Positive()
+    po.setupUi(Positive)
 
     ui = Ui_MainLogin()
     mw = Ui_MainEstoque()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1417</width>
-    <height>816</height>
+    <width>1100</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -76,7 +76,7 @@
         <widget class="QFrame" name="frameBottons">
          <property name="minimumSize">
           <size>
-           <width>500</width>
+           <width>580</width>
            <height>0</height>
           </size>
          </property>
@@ -195,7 +195,7 @@ QPushButton:pressed {
             </property>
             <property name="minimumSize">
              <size>
-              <width>0</width>
+              <width>108</width>
               <height>0</height>
              </size>
             </property>
@@ -242,6 +242,12 @@ QPushButton:pressed {
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="minimumSize">
+             <size>
+              <width>108</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="font">
              <font>
               <family>Asap</family>
@@ -284,6 +290,12 @@ QPushButton:pressed {
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>108</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="font">
              <font>
@@ -1901,7 +1913,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>5</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> 16000</string>
@@ -1959,7 +1971,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> Acer</string>
@@ -2005,7 +2017,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> Aspire</string>
@@ -2063,7 +2075,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> novo</string>
@@ -2127,7 +2139,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> 2020</string>
@@ -2179,7 +2191,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> 3000</string>
@@ -2241,7 +2253,7 @@ border-radius:5px</string>
                       <string/>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> 121456</string>
@@ -2287,7 +2299,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> adm4155_00</string>
@@ -2339,7 +2351,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> 1605 223 454</string>
@@ -2605,7 +2617,7 @@ border-radius:5px</string>
                       <string/>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> Core i5</string>
@@ -2657,7 +2669,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> Intel</string>
@@ -2709,7 +2721,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> 2.0</string>
@@ -3003,7 +3015,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> 4 GB</string>
@@ -3049,7 +3061,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> DDR4</string>
@@ -3095,7 +3107,7 @@ border:1px;
 border-radius:5px</string>
                      </property>
                      <property name="maxLength">
-                      <number>25</number>
+                      <number>30</number>
                      </property>
                      <property name="frame">
                       <bool>true</bool>
@@ -3225,7 +3237,7 @@ border: no border</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButtonCompra">
+                  <widget class="QRadioButton" name="notRadioCompra">
                    <property name="font">
                     <font>
                      <family>Asap</family>
@@ -3244,7 +3256,7 @@ border: no border</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButtonCadastro">
+                  <widget class="QRadioButton" name="notRadioCadastro">
                    <property name="font">
                     <font>
                      <family>Asap</family>
@@ -3263,7 +3275,7 @@ border: no border</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButtonProvisorio">
+                  <widget class="QRadioButton" name="notRadioProvisorio">
                    <property name="font">
                     <font>
                      <family>Asap</family>
@@ -3282,7 +3294,7 @@ border: no border</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButtonOutro">
+                  <widget class="QRadioButton" name="notRadioOutro">
                    <property name="font">
                     <font>
                      <family>Asap</family>
@@ -3354,7 +3366,7 @@ border: no border</string>
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QFrame" name="frame_13">
+                  <widget class="QFrame" name="notFrameWindows">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -3515,7 +3527,7 @@ color: rgb(0, 53, 62);</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QFrame" name="frame_14">
+                  <widget class="QFrame" name="notFrameOffice">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -3676,7 +3688,7 @@ color: rgb(0, 53, 62);</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QFrame" name="frame_15">
+                  <widget class="QFrame" name="notFrameUser">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -3859,7 +3871,7 @@ background-repeat: no-repeat;
                   </widget>
                  </item>
                  <item>
-                  <widget class="QFrame" name="frame_17">
+                  <widget class="QFrame" name="notFrameLocal">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -3875,7 +3887,8 @@ background-repeat: no-repeat;
                    <property name="styleSheet">
                     <string notr="true">background-color: rgb(7, 183, 168);
 border: 1px;
-border-radius: 10px;</string>
+border-radius: 10px;
+</string>
                    </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
@@ -3923,7 +3936,7 @@ background-repeat: no-repeat;</string>
                         <string notr="true">color: rgb(0, 53, 62);</string>
                        </property>
                        <property name="text">
-                        <string>PLANALTINA</string>
+                        <string>LOCAL</string>
                        </property>
                       </widget>
                       <widget class="QSplitter" name="splitter_13">
@@ -4030,11 +4043,15 @@ color: rgb(0, 53, 62);</string>
                 <widget class="QLabel" name="notLabelDialog">
                  <property name="font">
                   <font>
+                   <family>Asap</family>
                    <pointsize>9</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(255, 255, 255);</string>
+                 </property>
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string/>
                  </property>
                 </widget>
                 <widget class="QSplitter" name="splitter">
