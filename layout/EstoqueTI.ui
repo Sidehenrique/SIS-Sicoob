@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
-    <height>846</height>
+    <width>1370</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -10942,7 +10942,7 @@ QPushButton:pressed{
                    <item>
                     <widget class="QStackedWidget" name="stackedWidgetNovo">
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>3</number>
                      </property>
                      <widget class="QWidget" name="pageNovoNote">
                       <widget class="QLabel" name="label_140">
@@ -14612,70 +14612,6 @@ background-repeat: no-repeat;</string>
                           <property name="text">
                            <string>NOVO CELULAR</string>
                           </property>
-                         </widget>
-                         <widget class="QSplitter" name="splitter_12">
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <widget class="QLabel" name="label_79">
-                           <property name="maximumSize">
-                            <size>
-                             <width>70</width>
-                             <height>16777215</height>
-                            </size>
-                           </property>
-                           <property name="font">
-                            <font>
-                             <family>Asap</family>
-                             <pointsize>10</pointsize>
-                             <weight>75</weight>
-                             <bold>true</bold>
-                            </font>
-                           </property>
-                           <property name="text">
-                            <string>MOTIVO:</string>
-                           </property>
-                          </widget>
-                          <widget class="QComboBox" name="BoxCelMotivo">
-                           <property name="minimumSize">
-                            <size>
-                             <width>250</width>
-                             <height>0</height>
-                            </size>
-                           </property>
-                           <property name="maximumSize">
-                            <size>
-                             <width>250</width>
-                             <height>16777215</height>
-                            </size>
-                           </property>
-                           <property name="font">
-                            <font>
-                             <family>Asap</family>
-                             <pointsize>11</pointsize>
-                            </font>
-                           </property>
-                           <item>
-                            <property name="text">
-                             <string/>
-                            </property>
-                           </item>
-                           <item>
-                            <property name="text">
-                             <string>COMPRA</string>
-                            </property>
-                           </item>
-                           <item>
-                            <property name="text">
-                             <string>CADASTRO</string>
-                            </property>
-                           </item>
-                           <item>
-                            <property name="text">
-                             <string>OUTROS</string>
-                            </property>
-                           </item>
-                          </widget>
                          </widget>
                         </widget>
                        </item>

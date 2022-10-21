@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="button">
+    <file>email.png</file>
+    <file>imei.png</file>
     <file>local.png</file>
     <file>office.png</file>
     <file>user.png</file>

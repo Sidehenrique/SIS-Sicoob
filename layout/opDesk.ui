@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>opNote</class>
- <widget class="QMainWindow" name="opNote">
+ <class>opDesk</class>
+ <widget class="QMainWindow" name="opDesk">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -48,7 +48,7 @@
        <string notr="true">background-color: rgb(0, 161, 148);</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageOpWin">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -83,7 +83,7 @@ background-repeat: no-repeat;</string>
             <string/>
            </property>
           </widget>
-          <widget class="QLineEdit" name="notLineWin">
+          <widget class="QLineEdit" name="topLineWin">
            <property name="minimumSize">
             <size>
              <width>406</width>
@@ -134,7 +134,7 @@ border-radius: 10px</string>
             <string/>
            </property>
           </widget>
-          <widget class="QPushButton" name="notButtonWin">
+          <widget class="QPushButton" name="topButtonWin">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -194,7 +194,7 @@ background-color: rgb(0, 64, 74);
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="notlabelWin">
+         <widget class="QLabel" name="toplabelWin">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -255,7 +255,7 @@ background-repeat: no-repeat;</string>
             <string/>
            </property>
           </widget>
-          <widget class="QLineEdit" name="notLineOff">
+          <widget class="QLineEdit" name="topLineOff">
            <property name="minimumSize">
             <size>
              <width>406</width>
@@ -306,7 +306,7 @@ border-radius: 10px</string>
             <string/>
            </property>
           </widget>
-          <widget class="QPushButton" name="notButtonOff">
+          <widget class="QPushButton" name="topButtonOff">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -366,7 +366,7 @@ background-color: rgb(0, 64, 74);
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="notlabelOff">
+         <widget class="QLabel" name="toplabelOff">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -427,7 +427,7 @@ background-repeat: no-repeat;</string>
             <string/>
            </property>
           </widget>
-          <widget class="QLineEdit" name="notLineUser">
+          <widget class="QLineEdit" name="topLineUser">
            <property name="minimumSize">
             <size>
              <width>406</width>
@@ -478,7 +478,7 @@ border-radius: 10px</string>
             <string/>
            </property>
           </widget>
-          <widget class="QPushButton" name="notButtonUser">
+          <widget class="QPushButton" name="topButtonUser">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -538,7 +538,7 @@ background-color: rgb(0, 64, 74);
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="notlabelUser">
+         <widget class="QLabel" name="toplabelUser">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -599,7 +599,7 @@ background-repeat: no-repeat;</string>
             <string/>
            </property>
           </widget>
-          <widget class="QComboBox" name="notBoxLocal">
+          <widget class="QComboBox" name="topBoxLocal">
            <property name="minimumSize">
             <size>
              <width>406</width>
@@ -793,7 +793,7 @@ background-repeat: no-repeat;</string>
             <string/>
            </property>
           </widget>
-          <widget class="QPushButton" name="notButtonLocal">
+          <widget class="QPushButton" name="topButtonLocal">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -853,7 +853,7 @@ background-color: rgb(0, 64, 74);
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="notlabelLocal">
+         <widget class="QLabel" name="toplabelLocal">
           <property name="maximumSize">
            <size>
             <width>16777215</width>

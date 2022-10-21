@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>opNote</class>
- <widget class="QMainWindow" name="opNote">
+ <class>opCell</class>
+ <widget class="QMainWindow" name="opCell">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -48,9 +48,9 @@
        <string notr="true">background-color: rgb(0, 161, 148);</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="pageOpWin">
+      <widget class="QWidget" name="pageOpImei">
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QFrame" name="frame_2">
@@ -61,7 +61,7 @@
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/button/windows.png);
+           <string notr="true">background-image: url(:/button/imei.png);
 background-position:center;
 background-repeat: no-repeat;</string>
           </property>
@@ -74,16 +74,38 @@ background-repeat: no-repeat;</string>
          </widget>
         </item>
         <item>
-         <widget class="QSplitter" name="splitter_4">
+         <widget class="QSplitter" name="splitter_9">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <widget class="QLabel" name="label_8">
+          <widget class="QLabel" name="label_10">
            <property name="text">
             <string/>
            </property>
           </widget>
-          <widget class="QLineEdit" name="notLineWin">
+          <widget class="QLabel" name="label">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Asap</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>IMEI 1:</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="opLineImei_2">
            <property name="minimumSize">
             <size>
              <width>406</width>
@@ -111,10 +133,83 @@ border-radius: 10px</string>
             <string/>
            </property>
            <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
            </property>
            <property name="placeholderText">
-            <string>TND98-PM9HM-QB6BR-KFGX9-2YT4C</string>
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_15">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSplitter" name="splitter_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_20">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Asap</family>
+             <pointsize>16</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>IMEI 2:</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="opLineImei">
+           <property name="minimumSize">
+            <size>
+             <width>406</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>406</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Asap</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);
+border:1px;
+border-radius: 10px</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string/>
            </property>
           </widget>
           <widget class="QLabel" name="label_9">
@@ -134,7 +229,7 @@ border-radius: 10px</string>
             <string/>
            </property>
           </widget>
-          <widget class="QPushButton" name="notButtonWin">
+          <widget class="QPushButton" name="opButtonImei">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -183,7 +278,7 @@ background-color: rgb(0, 64, 74);
 </string>
            </property>
            <property name="text">
-            <string>PESQUISAR</string>
+            <string>COMFIRMAR</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_7">
@@ -194,7 +289,7 @@ background-color: rgb(0, 64, 74);
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="notlabelWin">
+         <widget class="QLabel" name="opLabelImei">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -222,7 +317,7 @@ background-color: rgb(0, 64, 74);
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="pageOpOff">
+      <widget class="QWidget" name="pageOpEmail">
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
          <widget class="QFrame" name="frame_4">
@@ -233,7 +328,7 @@ background-color: rgb(0, 64, 74);
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/button/office.png);
+           <string notr="true">background-image: url(:/button/email.png);
 background-position:center;
 background-repeat: no-repeat;</string>
           </property>
@@ -255,7 +350,7 @@ background-repeat: no-repeat;</string>
             <string/>
            </property>
           </widget>
-          <widget class="QLineEdit" name="notLineOff">
+          <widget class="QLineEdit" name="opLineEmail">
            <property name="minimumSize">
             <size>
              <width>406</width>
@@ -306,7 +401,7 @@ border-radius: 10px</string>
             <string/>
            </property>
           </widget>
-          <widget class="QPushButton" name="notButtonOff">
+          <widget class="QPushButton" name="opButtonEmail">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -366,7 +461,7 @@ background-color: rgb(0, 64, 74);
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="notlabelOff">
+         <widget class="QLabel" name="opLabelEmail">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -427,7 +522,7 @@ background-repeat: no-repeat;</string>
             <string/>
            </property>
           </widget>
-          <widget class="QLineEdit" name="notLineUser">
+          <widget class="QLineEdit" name="opLineUser">
            <property name="minimumSize">
             <size>
              <width>406</width>
@@ -478,7 +573,7 @@ border-radius: 10px</string>
             <string/>
            </property>
           </widget>
-          <widget class="QPushButton" name="notButtonUser">
+          <widget class="QPushButton" name="opButtonUser">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -538,7 +633,7 @@ background-color: rgb(0, 64, 74);
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="notlabelUser">
+         <widget class="QLabel" name="opLabelUser">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -599,7 +694,7 @@ background-repeat: no-repeat;</string>
             <string/>
            </property>
           </widget>
-          <widget class="QComboBox" name="notBoxLocal">
+          <widget class="QComboBox" name="opBoxLocal">
            <property name="minimumSize">
             <size>
              <width>406</width>
@@ -775,6 +870,11 @@ background-repeat: no-repeat;</string>
              <string>PA- Digital</string>
             </property>
            </item>
+           <item>
+            <property name="text">
+             <string>ESTOQUE TI</string>
+            </property>
+           </item>
           </widget>
           <widget class="QLabel" name="label_14">
            <property name="text">
@@ -793,7 +893,7 @@ background-repeat: no-repeat;</string>
             <string/>
            </property>
           </widget>
-          <widget class="QPushButton" name="notButtonLocal">
+          <widget class="QPushButton" name="opButtonLocal">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -853,7 +953,7 @@ background-color: rgb(0, 64, 74);
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="notlabelLocal">
+         <widget class="QLabel" name="oplabelLocal">
           <property name="maximumSize">
            <size>
             <width>16777215</width>

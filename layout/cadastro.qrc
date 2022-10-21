@@ -14,6 +14,10 @@
     <file>Controle/cadastro/transhover.png</file>
     <file>Controle/cadastro/transpes.png</file>
   </qresource>
+  <qresource prefix="cell">
+    <file>Controle/notebook/Grupo 680.png</file>
+    <file>Controle/notebook/Grupo 642.png</file>
+  </qresource>
   <qresource prefix="note">
     <file>Controle/notebook/local.png</file>
     <file>Controle/notebook/Office.png</file>
