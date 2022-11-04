@@ -19,9 +19,3 @@ def conMySQL():
     cur = conx.cursor()
     return cur
 
-
-dataa = datetime.datetime.today()
-
-d = datetime.datetime.strftime(dataa, "%d/%m/%Y")
-
-print(d)

@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainControle(object):
     def setupUi(self, MainControle):
         MainControle.setObjectName("MainControle")
-        MainControle.resize(1100, 680)
+        MainControle.resize(1154, 680)
         MainControle.setMinimumSize(QtCore.QSize(1100, 680))
         self.centralwidget = QtWidgets.QWidget(MainControle)
         self.centralwidget.setObjectName("centralwidget")
@@ -520,12 +520,1308 @@ class Ui_MainControle(object):
         self.stackedWidget.setStyleSheet("background-color: rgb(0, 161, 148);")
         self.stackedWidget.setObjectName("stackedWidget")
         self.pageHome = QtWidgets.QWidget()
-        self.pageHome.setStyleSheet("background-color: rgb(0, 161, 148);")
         self.pageHome.setObjectName("pageHome")
+        self.splitter_199 = QtWidgets.QSplitter(self.pageHome)
+        self.splitter_199.setGeometry(QtCore.QRect(440, 70, 458, 491))
+        self.splitter_199.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_199.setObjectName("splitter_199")
+        self.frame_59 = QtWidgets.QFrame(self.splitter_199)
+        self.frame_59.setStyleSheet("background-image: url(:/cad/Controle/Grupo 777.png);")
+        self.frame_59.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_59.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_59.setObjectName("frame_59")
+        self.label_66 = QtWidgets.QLabel(self.splitter_199)
+        self.label_66.setMaximumSize(QtCore.QSize(16777215, 35))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(26)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_66.setFont(font)
+        self.label_66.setObjectName("label_66")
         self.stackedWidget.addWidget(self.pageHome)
         self.pageUser = QtWidgets.QWidget()
         self.pageUser.setObjectName("pageUser")
+        self.splitter_200 = QtWidgets.QSplitter(self.pageUser)
+        self.splitter_200.setGeometry(QtCore.QRect(440, 40, 461, 481))
+        self.splitter_200.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_200.setObjectName("splitter_200")
+        self.frame_63 = QtWidgets.QFrame(self.splitter_200)
+        self.frame_63.setStyleSheet("background-image: url(:/cad/Controle/Grupo 777.png);")
+        self.frame_63.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_63.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_63.setObjectName("frame_63")
+        self.label_67 = QtWidgets.QLabel(self.splitter_200)
+        self.label_67.setMaximumSize(QtCore.QSize(16777215, 35))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(26)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_67.setFont(font)
+        self.label_67.setObjectName("label_67")
         self.stackedWidget.addWidget(self.pageUser)
+        self.pagePad = QtWidgets.QWidget()
+        self.pagePad.setStyleSheet("background-color: rgb(0, 161, 148);")
+        self.pagePad.setObjectName("pagePad")
+        self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.pagePad)
+        self.verticalLayout_17.setObjectName("verticalLayout_17")
+        self.label_53 = QtWidgets.QLabel(self.pagePad)
+        self.label_53.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_53.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_53.setFont(font)
+        self.label_53.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_53.setObjectName("label_53")
+        self.verticalLayout_17.addWidget(self.label_53)
+        self.splitter_143 = QtWidgets.QSplitter(self.pagePad)
+        self.splitter_143.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_143.setObjectName("splitter_143")
+        self.frame_48 = QtWidgets.QFrame(self.splitter_143)
+        self.frame_48.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_48.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_48.setObjectName("frame_48")
+        self.splitter_145 = QtWidgets.QSplitter(self.splitter_143)
+        self.splitter_145.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_145.setObjectName("splitter_145")
+        self.frame_49 = QtWidgets.QFrame(self.splitter_145)
+        self.frame_49.setMinimumSize(QtCore.QSize(100, 100))
+        self.frame_49.setMaximumSize(QtCore.QSize(812, 16777215))
+        self.frame_49.setStyleSheet("background-image: url(:/controle/Controle/mouse pad.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_49.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_49.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_49.setObjectName("frame_49")
+        self.padModelo = QtWidgets.QLineEdit(self.splitter_145)
+        self.padModelo.setMinimumSize(QtCore.QSize(750, 35))
+        self.padModelo.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.padModelo.setFont(font)
+        self.padModelo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.padModelo.setMaxLength(30)
+        self.padModelo.setAlignment(QtCore.Qt.AlignCenter)
+        self.padModelo.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.padModelo.setClearButtonEnabled(False)
+        self.padModelo.setObjectName("padModelo")
+        self.splitter_146 = QtWidgets.QSplitter(self.splitter_145)
+        self.splitter_146.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_146.setObjectName("splitter_146")
+        self.splitter_147 = QtWidgets.QSplitter(self.splitter_146)
+        self.splitter_147.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_147.setObjectName("splitter_147")
+        self.label_186 = QtWidgets.QLabel(self.splitter_147)
+        self.label_186.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_186.setFont(font)
+        self.label_186.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_186.setObjectName("label_186")
+        self.padMarca = QtWidgets.QLineEdit(self.splitter_147)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(5)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.padMarca.sizePolicy().hasHeightForWidth())
+        self.padMarca.setSizePolicy(sizePolicy)
+        self.padMarca.setMinimumSize(QtCore.QSize(0, 35))
+        self.padMarca.setMaximumSize(QtCore.QSize(16777215, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.padMarca.setFont(font)
+        self.padMarca.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.padMarca.setMaxLength(30)
+        self.padMarca.setObjectName("padMarca")
+        self.splitter_148 = QtWidgets.QSplitter(self.splitter_146)
+        self.splitter_148.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_148.setObjectName("splitter_148")
+        self.label_187 = QtWidgets.QLabel(self.splitter_148)
+        self.label_187.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_187.setFont(font)
+        self.label_187.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_187.setObjectName("label_187")
+        self.padCondicao = QtWidgets.QLineEdit(self.splitter_148)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.padCondicao.sizePolicy().hasHeightForWidth())
+        self.padCondicao.setSizePolicy(sizePolicy)
+        self.padCondicao.setMinimumSize(QtCore.QSize(0, 35))
+        self.padCondicao.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.padCondicao.setFont(font)
+        self.padCondicao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.padCondicao.setMaxLength(30)
+        self.padCondicao.setObjectName("padCondicao")
+        self.splitter_154 = QtWidgets.QSplitter(self.splitter_146)
+        self.splitter_154.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_154.setObjectName("splitter_154")
+        self.label_188 = QtWidgets.QLabel(self.splitter_154)
+        self.label_188.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_188.setFont(font)
+        self.label_188.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_188.setObjectName("label_188")
+        self.padPreco = QtWidgets.QLineEdit(self.splitter_154)
+        self.padPreco.setMinimumSize(QtCore.QSize(0, 35))
+        self.padPreco.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.padPreco.setFont(font)
+        self.padPreco.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.padPreco.setMaxLength(30)
+        self.padPreco.setObjectName("padPreco")
+        self.padMotivo = QtWidgets.QFrame(self.splitter_145)
+        self.padMotivo.setMinimumSize(QtCore.QSize(0, 50))
+        self.padMotivo.setMaximumSize(QtCore.QSize(812, 100))
+        self.padMotivo.setStyleSheet("border: 2px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.padMotivo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.padMotivo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.padMotivo.setObjectName("padMotivo")
+        self.horizontalLayout_34 = QtWidgets.QHBoxLayout(self.padMotivo)
+        self.horizontalLayout_34.setObjectName("horizontalLayout_34")
+        self.label_54 = QtWidgets.QLabel(self.padMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_54.setFont(font)
+        self.label_54.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.label_54.setObjectName("label_54")
+        self.horizontalLayout_34.addWidget(self.label_54)
+        self.padRadioCompra = QtWidgets.QRadioButton(self.padMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.padRadioCompra.setFont(font)
+        self.padRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.padRadioCompra.setObjectName("padRadioCompra")
+        self.horizontalLayout_34.addWidget(self.padRadioCompra)
+        self.padRadioCadastro = QtWidgets.QRadioButton(self.padMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.padRadioCadastro.setFont(font)
+        self.padRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.padRadioCadastro.setObjectName("padRadioCadastro")
+        self.horizontalLayout_34.addWidget(self.padRadioCadastro)
+        self.padRadioProvisorio = QtWidgets.QRadioButton(self.padMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.padRadioProvisorio.setFont(font)
+        self.padRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.padRadioProvisorio.setObjectName("padRadioProvisorio")
+        self.horizontalLayout_34.addWidget(self.padRadioProvisorio)
+        self.padRadioOutro = QtWidgets.QRadioButton(self.padMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.padRadioOutro.setFont(font)
+        self.padRadioOutro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.padRadioOutro.setObjectName("padRadioOutro")
+        self.horizontalLayout_34.addWidget(self.padRadioOutro)
+        self.splitter_178 = QtWidgets.QSplitter(self.splitter_145)
+        self.splitter_178.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_178.setObjectName("splitter_178")
+        self.Label_12 = QtWidgets.QLabel(self.splitter_178)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_12.setFont(font)
+        self.Label_12.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_12.setText("")
+        self.Label_12.setObjectName("Label_12")
+        self.padButtonLimpar = QtWidgets.QPushButton(self.splitter_178)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.padButtonLimpar.sizePolicy().hasHeightForWidth())
+        self.padButtonLimpar.setSizePolicy(sizePolicy)
+        self.padButtonLimpar.setMinimumSize(QtCore.QSize(0, 37))
+        self.padButtonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.padButtonLimpar.setFont(font)
+        self.padButtonLimpar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.padButtonLimpar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.padButtonLimpar.setObjectName("padButtonLimpar")
+        self.padButtonTermo = QtWidgets.QPushButton(self.splitter_178)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.padButtonTermo.sizePolicy().hasHeightForWidth())
+        self.padButtonTermo.setSizePolicy(sizePolicy)
+        self.padButtonTermo.setMinimumSize(QtCore.QSize(0, 37))
+        self.padButtonTermo.setMaximumSize(QtCore.QSize(160, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.padButtonTermo.setFont(font)
+        self.padButtonTermo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.padButtonTermo.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.padButtonTermo.setObjectName("padButtonTermo")
+        self.padButtonCancelar = QtWidgets.QPushButton(self.splitter_178)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.padButtonCancelar.sizePolicy().hasHeightForWidth())
+        self.padButtonCancelar.setSizePolicy(sizePolicy)
+        self.padButtonCancelar.setMinimumSize(QtCore.QSize(0, 37))
+        self.padButtonCancelar.setMaximumSize(QtCore.QSize(105, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.padButtonCancelar.setFont(font)
+        self.padButtonCancelar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.padButtonCancelar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.padButtonCancelar.setObjectName("padButtonCancelar")
+        self.padButtonConfirmar = QtWidgets.QPushButton(self.splitter_178)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.padButtonConfirmar.sizePolicy().hasHeightForWidth())
+        self.padButtonConfirmar.setSizePolicy(sizePolicy)
+        self.padButtonConfirmar.setMinimumSize(QtCore.QSize(0, 37))
+        self.padButtonConfirmar.setMaximumSize(QtCore.QSize(115, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.padButtonConfirmar.setFont(font)
+        self.padButtonConfirmar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.padButtonConfirmar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.padButtonConfirmar.setObjectName("padButtonConfirmar")
+        self.Label_11 = QtWidgets.QLabel(self.splitter_178)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_11.setFont(font)
+        self.Label_11.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_11.setText("")
+        self.Label_11.setObjectName("Label_11")
+        self.frame_50 = QtWidgets.QFrame(self.splitter_143)
+        self.frame_50.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_50.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_50.setObjectName("frame_50")
+        self.verticalLayout_17.addWidget(self.splitter_143)
+        self.stackedWidget.addWidget(self.pagePad)
+        self.pageTeclado = QtWidgets.QWidget()
+        self.pageTeclado.setObjectName("pageTeclado")
+        self.verticalLayout_18 = QtWidgets.QVBoxLayout(self.pageTeclado)
+        self.verticalLayout_18.setObjectName("verticalLayout_18")
+        self.label_55 = QtWidgets.QLabel(self.pageTeclado)
+        self.label_55.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_55.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_55.setFont(font)
+        self.label_55.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_55.setObjectName("label_55")
+        self.verticalLayout_18.addWidget(self.label_55)
+        self.splitter_179 = QtWidgets.QSplitter(self.pageTeclado)
+        self.splitter_179.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_179.setObjectName("splitter_179")
+        self.frame_51 = QtWidgets.QFrame(self.splitter_179)
+        self.frame_51.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_51.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_51.setObjectName("frame_51")
+        self.splitter_180 = QtWidgets.QSplitter(self.splitter_179)
+        self.splitter_180.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_180.setObjectName("splitter_180")
+        self.frame_52 = QtWidgets.QFrame(self.splitter_180)
+        self.frame_52.setMinimumSize(QtCore.QSize(100, 100))
+        self.frame_52.setMaximumSize(QtCore.QSize(812, 16777215))
+        self.frame_52.setStyleSheet("background-image: url(:/controle/Controle/teclado.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_52.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_52.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_52.setObjectName("frame_52")
+        self.telModelo = QtWidgets.QLineEdit(self.splitter_180)
+        self.telModelo.setMinimumSize(QtCore.QSize(0, 35))
+        self.telModelo.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.telModelo.setFont(font)
+        self.telModelo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.telModelo.setMaxLength(30)
+        self.telModelo.setAlignment(QtCore.Qt.AlignCenter)
+        self.telModelo.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.telModelo.setClearButtonEnabled(False)
+        self.telModelo.setObjectName("telModelo")
+        self.splitter_181 = QtWidgets.QSplitter(self.splitter_180)
+        self.splitter_181.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_181.setObjectName("splitter_181")
+        self.splitter_182 = QtWidgets.QSplitter(self.splitter_181)
+        self.splitter_182.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_182.setObjectName("splitter_182")
+        self.label_190 = QtWidgets.QLabel(self.splitter_182)
+        self.label_190.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_190.setFont(font)
+        self.label_190.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_190.setObjectName("label_190")
+        self.telMarca = QtWidgets.QLineEdit(self.splitter_182)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(5)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.telMarca.sizePolicy().hasHeightForWidth())
+        self.telMarca.setSizePolicy(sizePolicy)
+        self.telMarca.setMinimumSize(QtCore.QSize(0, 35))
+        self.telMarca.setMaximumSize(QtCore.QSize(245, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.telMarca.setFont(font)
+        self.telMarca.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.telMarca.setMaxLength(30)
+        self.telMarca.setObjectName("telMarca")
+        self.splitter_183 = QtWidgets.QSplitter(self.splitter_181)
+        self.splitter_183.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_183.setObjectName("splitter_183")
+        self.label_191 = QtWidgets.QLabel(self.splitter_183)
+        self.label_191.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_191.setFont(font)
+        self.label_191.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_191.setObjectName("label_191")
+        self.telCondicao = QtWidgets.QLineEdit(self.splitter_183)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.telCondicao.sizePolicy().hasHeightForWidth())
+        self.telCondicao.setSizePolicy(sizePolicy)
+        self.telCondicao.setMinimumSize(QtCore.QSize(0, 35))
+        self.telCondicao.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.telCondicao.setFont(font)
+        self.telCondicao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.telCondicao.setMaxLength(30)
+        self.telCondicao.setObjectName("telCondicao")
+        self.splitter_184 = QtWidgets.QSplitter(self.splitter_181)
+        self.splitter_184.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_184.setObjectName("splitter_184")
+        self.label_192 = QtWidgets.QLabel(self.splitter_184)
+        self.label_192.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_192.setFont(font)
+        self.label_192.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_192.setObjectName("label_192")
+        self.telValor = QtWidgets.QLineEdit(self.splitter_184)
+        self.telValor.setMinimumSize(QtCore.QSize(0, 35))
+        self.telValor.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.telValor.setFont(font)
+        self.telValor.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.telValor.setMaxLength(30)
+        self.telValor.setObjectName("telValor")
+        self.splitter_188 = QtWidgets.QSplitter(self.splitter_181)
+        self.splitter_188.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_188.setObjectName("splitter_188")
+        self.label_193 = QtWidgets.QLabel(self.splitter_188)
+        self.label_193.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_193.setFont(font)
+        self.label_193.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_193.setObjectName("label_193")
+        self.telBoxTipo = QtWidgets.QComboBox(self.splitter_188)
+        self.telBoxTipo.setMinimumSize(QtCore.QSize(0, 35))
+        self.telBoxTipo.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.telBoxTipo.setFont(font)
+        self.telBoxTipo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.telBoxTipo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;")
+        self.telBoxTipo.setObjectName("telBoxTipo")
+        self.telBoxTipo.addItem("")
+        self.telBoxTipo.setItemText(0, "")
+        self.telBoxTipo.addItem("")
+        self.telBoxTipo.addItem("")
+        self.telMotivo = QtWidgets.QFrame(self.splitter_180)
+        self.telMotivo.setMinimumSize(QtCore.QSize(0, 50))
+        self.telMotivo.setMaximumSize(QtCore.QSize(812, 100))
+        self.telMotivo.setStyleSheet("border: 2px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.telMotivo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.telMotivo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.telMotivo.setObjectName("telMotivo")
+        self.horizontalLayout_35 = QtWidgets.QHBoxLayout(self.telMotivo)
+        self.horizontalLayout_35.setObjectName("horizontalLayout_35")
+        self.label_56 = QtWidgets.QLabel(self.telMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_56.setFont(font)
+        self.label_56.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.label_56.setObjectName("label_56")
+        self.horizontalLayout_35.addWidget(self.label_56)
+        self.telRadioCompra = QtWidgets.QRadioButton(self.telMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.telRadioCompra.setFont(font)
+        self.telRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.telRadioCompra.setObjectName("telRadioCompra")
+        self.horizontalLayout_35.addWidget(self.telRadioCompra)
+        self.telRadioCadastro = QtWidgets.QRadioButton(self.telMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.telRadioCadastro.setFont(font)
+        self.telRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.telRadioCadastro.setObjectName("telRadioCadastro")
+        self.horizontalLayout_35.addWidget(self.telRadioCadastro)
+        self.telRadioProvisorio = QtWidgets.QRadioButton(self.telMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.telRadioProvisorio.setFont(font)
+        self.telRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.telRadioProvisorio.setObjectName("telRadioProvisorio")
+        self.horizontalLayout_35.addWidget(self.telRadioProvisorio)
+        self.telRadioOutro = QtWidgets.QRadioButton(self.telMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.telRadioOutro.setFont(font)
+        self.telRadioOutro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.telRadioOutro.setObjectName("telRadioOutro")
+        self.horizontalLayout_35.addWidget(self.telRadioOutro)
+        self.splitter_189 = QtWidgets.QSplitter(self.splitter_180)
+        self.splitter_189.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_189.setObjectName("splitter_189")
+        self.Label_13 = QtWidgets.QLabel(self.splitter_189)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_13.setFont(font)
+        self.Label_13.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_13.setText("")
+        self.Label_13.setObjectName("Label_13")
+        self.telButtonLimpar = QtWidgets.QPushButton(self.splitter_189)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.telButtonLimpar.sizePolicy().hasHeightForWidth())
+        self.telButtonLimpar.setSizePolicy(sizePolicy)
+        self.telButtonLimpar.setMinimumSize(QtCore.QSize(0, 37))
+        self.telButtonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.telButtonLimpar.setFont(font)
+        self.telButtonLimpar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.telButtonLimpar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.telButtonLimpar.setObjectName("telButtonLimpar")
+        self.telButtonTermo = QtWidgets.QPushButton(self.splitter_189)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.telButtonTermo.sizePolicy().hasHeightForWidth())
+        self.telButtonTermo.setSizePolicy(sizePolicy)
+        self.telButtonTermo.setMinimumSize(QtCore.QSize(0, 37))
+        self.telButtonTermo.setMaximumSize(QtCore.QSize(160, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.telButtonTermo.setFont(font)
+        self.telButtonTermo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.telButtonTermo.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.telButtonTermo.setObjectName("telButtonTermo")
+        self.telButtonCancelar = QtWidgets.QPushButton(self.splitter_189)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.telButtonCancelar.sizePolicy().hasHeightForWidth())
+        self.telButtonCancelar.setSizePolicy(sizePolicy)
+        self.telButtonCancelar.setMinimumSize(QtCore.QSize(0, 37))
+        self.telButtonCancelar.setMaximumSize(QtCore.QSize(105, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.telButtonCancelar.setFont(font)
+        self.telButtonCancelar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.telButtonCancelar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.telButtonCancelar.setObjectName("telButtonCancelar")
+        self.telButtonConfirmar = QtWidgets.QPushButton(self.splitter_189)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.telButtonConfirmar.sizePolicy().hasHeightForWidth())
+        self.telButtonConfirmar.setSizePolicy(sizePolicy)
+        self.telButtonConfirmar.setMinimumSize(QtCore.QSize(0, 37))
+        self.telButtonConfirmar.setMaximumSize(QtCore.QSize(115, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.telButtonConfirmar.setFont(font)
+        self.telButtonConfirmar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.telButtonConfirmar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.telButtonConfirmar.setObjectName("telButtonConfirmar")
+        self.Label_14 = QtWidgets.QLabel(self.splitter_189)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_14.setFont(font)
+        self.Label_14.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_14.setText("")
+        self.Label_14.setObjectName("Label_14")
+        self.frame_53 = QtWidgets.QFrame(self.splitter_179)
+        self.frame_53.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_53.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_53.setObjectName("frame_53")
+        self.verticalLayout_18.addWidget(self.splitter_179)
+        self.stackedWidget.addWidget(self.pageTeclado)
+        self.pageSuporte = QtWidgets.QWidget()
+        self.pageSuporte.setObjectName("pageSuporte")
+        self.verticalLayout_19 = QtWidgets.QVBoxLayout(self.pageSuporte)
+        self.verticalLayout_19.setObjectName("verticalLayout_19")
+        self.label_60 = QtWidgets.QLabel(self.pageSuporte)
+        self.label_60.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_60.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_60.setFont(font)
+        self.label_60.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_60.setObjectName("label_60")
+        self.verticalLayout_19.addWidget(self.label_60)
+        self.splitter_48 = QtWidgets.QSplitter(self.pageSuporte)
+        self.splitter_48.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_48.setObjectName("splitter_48")
+        self.frame_56 = QtWidgets.QFrame(self.splitter_48)
+        self.frame_56.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_56.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_56.setObjectName("frame_56")
+        self.splitter_190 = QtWidgets.QSplitter(self.splitter_48)
+        self.splitter_190.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_190.setObjectName("splitter_190")
+        self.frame_55 = QtWidgets.QFrame(self.splitter_190)
+        self.frame_55.setMinimumSize(QtCore.QSize(100, 100))
+        self.frame_55.setMaximumSize(QtCore.QSize(812, 16777215))
+        self.frame_55.setStyleSheet("background-image: url(:/controle/Controle/suporte.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_55.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_55.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_55.setObjectName("frame_55")
+        self.supModelo = QtWidgets.QLineEdit(self.splitter_190)
+        self.supModelo.setMinimumSize(QtCore.QSize(750, 35))
+        self.supModelo.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.supModelo.setFont(font)
+        self.supModelo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.supModelo.setMaxLength(30)
+        self.supModelo.setAlignment(QtCore.Qt.AlignCenter)
+        self.supModelo.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.supModelo.setClearButtonEnabled(False)
+        self.supModelo.setObjectName("supModelo")
+        self.splitter_191 = QtWidgets.QSplitter(self.splitter_190)
+        self.splitter_191.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_191.setObjectName("splitter_191")
+        self.splitter_192 = QtWidgets.QSplitter(self.splitter_191)
+        self.splitter_192.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_192.setObjectName("splitter_192")
+        self.label_194 = QtWidgets.QLabel(self.splitter_192)
+        self.label_194.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_194.setFont(font)
+        self.label_194.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_194.setObjectName("label_194")
+        self.supMarca = QtWidgets.QLineEdit(self.splitter_192)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(5)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.supMarca.sizePolicy().hasHeightForWidth())
+        self.supMarca.setSizePolicy(sizePolicy)
+        self.supMarca.setMinimumSize(QtCore.QSize(0, 35))
+        self.supMarca.setMaximumSize(QtCore.QSize(16777215, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.supMarca.setFont(font)
+        self.supMarca.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.supMarca.setMaxLength(30)
+        self.supMarca.setObjectName("supMarca")
+        self.splitter_193 = QtWidgets.QSplitter(self.splitter_191)
+        self.splitter_193.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_193.setObjectName("splitter_193")
+        self.label_195 = QtWidgets.QLabel(self.splitter_193)
+        self.label_195.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_195.setFont(font)
+        self.label_195.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_195.setObjectName("label_195")
+        self.supCondicao = QtWidgets.QLineEdit(self.splitter_193)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.supCondicao.sizePolicy().hasHeightForWidth())
+        self.supCondicao.setSizePolicy(sizePolicy)
+        self.supCondicao.setMinimumSize(QtCore.QSize(0, 35))
+        self.supCondicao.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.supCondicao.setFont(font)
+        self.supCondicao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.supCondicao.setMaxLength(30)
+        self.supCondicao.setObjectName("supCondicao")
+        self.splitter_194 = QtWidgets.QSplitter(self.splitter_191)
+        self.splitter_194.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_194.setObjectName("splitter_194")
+        self.label_203 = QtWidgets.QLabel(self.splitter_194)
+        self.label_203.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_203.setFont(font)
+        self.label_203.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_203.setObjectName("label_203")
+        self.supValor = QtWidgets.QLineEdit(self.splitter_194)
+        self.supValor.setMinimumSize(QtCore.QSize(0, 35))
+        self.supValor.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.supValor.setFont(font)
+        self.supValor.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.supValor.setMaxLength(30)
+        self.supValor.setObjectName("supValor")
+        self.supMotivo = QtWidgets.QFrame(self.splitter_190)
+        self.supMotivo.setMinimumSize(QtCore.QSize(0, 50))
+        self.supMotivo.setMaximumSize(QtCore.QSize(812, 100))
+        self.supMotivo.setStyleSheet("border: 2px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.supMotivo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.supMotivo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.supMotivo.setObjectName("supMotivo")
+        self.horizontalLayout_36 = QtWidgets.QHBoxLayout(self.supMotivo)
+        self.horizontalLayout_36.setObjectName("horizontalLayout_36")
+        self.label_59 = QtWidgets.QLabel(self.supMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_59.setFont(font)
+        self.label_59.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.label_59.setObjectName("label_59")
+        self.horizontalLayout_36.addWidget(self.label_59)
+        self.supRadioCompra = QtWidgets.QRadioButton(self.supMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.supRadioCompra.setFont(font)
+        self.supRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.supRadioCompra.setObjectName("supRadioCompra")
+        self.horizontalLayout_36.addWidget(self.supRadioCompra)
+        self.supRadioCadastro = QtWidgets.QRadioButton(self.supMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.supRadioCadastro.setFont(font)
+        self.supRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.supRadioCadastro.setObjectName("supRadioCadastro")
+        self.horizontalLayout_36.addWidget(self.supRadioCadastro)
+        self.supRadioProvisorio = QtWidgets.QRadioButton(self.supMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.supRadioProvisorio.setFont(font)
+        self.supRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.supRadioProvisorio.setObjectName("supRadioProvisorio")
+        self.horizontalLayout_36.addWidget(self.supRadioProvisorio)
+        self.supRadioOutro = QtWidgets.QRadioButton(self.supMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.supRadioOutro.setFont(font)
+        self.supRadioOutro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.supRadioOutro.setObjectName("supRadioOutro")
+        self.horizontalLayout_36.addWidget(self.supRadioOutro)
+        self.splitter_196 = QtWidgets.QSplitter(self.splitter_190)
+        self.splitter_196.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_196.setObjectName("splitter_196")
+        self.Label_15 = QtWidgets.QLabel(self.splitter_196)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_15.setFont(font)
+        self.Label_15.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_15.setText("")
+        self.Label_15.setObjectName("Label_15")
+        self.supButtonLimpar = QtWidgets.QPushButton(self.splitter_196)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.supButtonLimpar.sizePolicy().hasHeightForWidth())
+        self.supButtonLimpar.setSizePolicy(sizePolicy)
+        self.supButtonLimpar.setMinimumSize(QtCore.QSize(0, 37))
+        self.supButtonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.supButtonLimpar.setFont(font)
+        self.supButtonLimpar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.supButtonLimpar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.supButtonLimpar.setObjectName("supButtonLimpar")
+        self.supButtonTermo = QtWidgets.QPushButton(self.splitter_196)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.supButtonTermo.sizePolicy().hasHeightForWidth())
+        self.supButtonTermo.setSizePolicy(sizePolicy)
+        self.supButtonTermo.setMinimumSize(QtCore.QSize(0, 37))
+        self.supButtonTermo.setMaximumSize(QtCore.QSize(160, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.supButtonTermo.setFont(font)
+        self.supButtonTermo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.supButtonTermo.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.supButtonTermo.setObjectName("supButtonTermo")
+        self.supButtonCancelar = QtWidgets.QPushButton(self.splitter_196)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.supButtonCancelar.sizePolicy().hasHeightForWidth())
+        self.supButtonCancelar.setSizePolicy(sizePolicy)
+        self.supButtonCancelar.setMinimumSize(QtCore.QSize(0, 37))
+        self.supButtonCancelar.setMaximumSize(QtCore.QSize(105, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.supButtonCancelar.setFont(font)
+        self.supButtonCancelar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.supButtonCancelar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.supButtonCancelar.setObjectName("supButtonCancelar")
+        self.supButtonConfirmar = QtWidgets.QPushButton(self.splitter_196)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.supButtonConfirmar.sizePolicy().hasHeightForWidth())
+        self.supButtonConfirmar.setSizePolicy(sizePolicy)
+        self.supButtonConfirmar.setMinimumSize(QtCore.QSize(0, 37))
+        self.supButtonConfirmar.setMaximumSize(QtCore.QSize(115, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.supButtonConfirmar.setFont(font)
+        self.supButtonConfirmar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.supButtonConfirmar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.supButtonConfirmar.setObjectName("supButtonConfirmar")
+        self.Label_16 = QtWidgets.QLabel(self.splitter_196)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_16.setFont(font)
+        self.Label_16.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_16.setText("")
+        self.Label_16.setObjectName("Label_16")
+        self.frame_54 = QtWidgets.QFrame(self.splitter_48)
+        self.frame_54.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_54.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_54.setObjectName("frame_54")
+        self.verticalLayout_19.addWidget(self.splitter_48)
+        self.stackedWidget.addWidget(self.pageSuporte)
+        self.pageHistorico = QtWidgets.QWidget()
+        self.pageHistorico.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.pageHistorico.setObjectName("pageHistorico")
+        self.verticalLayout_21 = QtWidgets.QVBoxLayout(self.pageHistorico)
+        self.verticalLayout_21.setContentsMargins(0, 0, 0, -1)
+        self.verticalLayout_21.setObjectName("verticalLayout_21")
+        self.frame_57 = QtWidgets.QFrame(self.pageHistorico)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(1)
+        sizePolicy.setVerticalStretch(1)
+        sizePolicy.setHeightForWidth(self.frame_57.sizePolicy().hasHeightForWidth())
+        self.frame_57.setSizePolicy(sizePolicy)
+        self.frame_57.setMinimumSize(QtCore.QSize(0, 58))
+        self.frame_57.setMaximumSize(QtCore.QSize(16777215, 58))
+        self.frame_57.setStyleSheet("background-color: rgb(0, 53, 62);")
+        self.frame_57.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_57.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_57.setObjectName("frame_57")
+        self.horizontalLayout_45 = QtWidgets.QHBoxLayout(self.frame_57)
+        self.horizontalLayout_45.setContentsMargins(-1, 0, 11, 0)
+        self.horizontalLayout_45.setSpacing(20)
+        self.horizontalLayout_45.setObjectName("horizontalLayout_45")
+        self.label_71 = QtWidgets.QLabel(self.frame_57)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(18)
+        self.label_71.setFont(font)
+        self.label_71.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_71.setObjectName("label_71")
+        self.horizontalLayout_45.addWidget(self.label_71)
+        self.verticalLayout_54 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_54.setContentsMargins(-1, -1, -1, 0)
+        self.verticalLayout_54.setSpacing(0)
+        self.verticalLayout_54.setObjectName("verticalLayout_54")
+        self.horizontalLayout_45.addLayout(self.verticalLayout_54)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_45.addItem(spacerItem2)
+        self.frame_PesquisarTable_14 = QtWidgets.QFrame(self.frame_57)
+        self.frame_PesquisarTable_14.setMaximumSize(QtCore.QSize(200, 35))
+        self.frame_PesquisarTable_14.setStyleSheet("background-color:  rgb(238, 238, 238);")
+        self.frame_PesquisarTable_14.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_PesquisarTable_14.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_PesquisarTable_14.setObjectName("frame_PesquisarTable_14")
+        self.horizontalLayout_46 = QtWidgets.QHBoxLayout(self.frame_PesquisarTable_14)
+        self.horizontalLayout_46.setContentsMargins(4, 0, 0, 0)
+        self.horizontalLayout_46.setSpacing(0)
+        self.horizontalLayout_46.setObjectName("horizontalLayout_46")
+        self.LineEditPesHistorico = QtWidgets.QLineEdit(self.frame_PesquisarTable_14)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.LineEditPesHistorico.sizePolicy().hasHeightForWidth())
+        self.LineEditPesHistorico.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        self.LineEditPesHistorico.setFont(font)
+        self.LineEditPesHistorico.setStyleSheet("background-color: rgb(238, 238, 238);\n"
+"border: 0px")
+        self.LineEditPesHistorico.setText("")
+        self.LineEditPesHistorico.setCursorPosition(0)
+        self.LineEditPesHistorico.setObjectName("LineEditPesHistorico")
+        self.horizontalLayout_46.addWidget(self.LineEditPesHistorico)
+        self.hisPesButton = QtWidgets.QPushButton(self.frame_PesquisarTable_14)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.hisPesButton.sizePolicy().hasHeightForWidth())
+        self.hisPesButton.setSizePolicy(sizePolicy)
+        self.hisPesButton.setMaximumSize(QtCore.QSize(43, 36))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        self.hisPesButton.setFont(font)
+        self.hisPesButton.setStyleSheet("QPushButton {\n"
+"    background-image: url(:/barr/IconPesquisar.png);\n"
+"    background-position:center;\n"
+"    background-repeat: no-repeat;\n"
+"    background-color: rgb(238, 238, 238);\n"
+"    border: 1px solid;\n"
+"    \n"
+"    border-color:  rgb(238, 238, 238);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-image: url(:/barr/IconPesquisar1.png);\n"
+"    background-color: rgb(243, 243, 243);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(226, 226, 226);\n"
+"}")
+        self.hisPesButton.setObjectName("hisPesButton")
+        self.horizontalLayout_46.addWidget(self.hisPesButton)
+        self.horizontalLayout_45.addWidget(self.frame_PesquisarTable_14)
+        self.verticalLayout_21.addWidget(self.frame_57)
+        self.tableWidgetHistorico = QtWidgets.QTableWidget(self.pageHistorico)
+        self.tableWidgetHistorico.setStyleSheet("# QHeaderView::section{\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    border: 1px solid;\n"
+"    selection-color: white ;\n"
+"    color: rgb(255, 255, 255);\n"
+"    border-color: rgb(207, 207, 207);\n"
+"};\n"
+"")
+        self.tableWidgetHistorico.setObjectName("tableWidgetHistorico")
+        self.tableWidgetHistorico.setColumnCount(9)
+        self.tableWidgetHistorico.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetHistorico.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetHistorico.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetHistorico.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetHistorico.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetHistorico.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetHistorico.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetHistorico.setHorizontalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetHistorico.setHorizontalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidgetHistorico.setHorizontalHeaderItem(8, item)
+        self.verticalLayout_21.addWidget(self.tableWidgetHistorico)
+        self.splitter_120 = QtWidgets.QSplitter(self.pageHistorico)
+        self.splitter_120.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_120.setObjectName("splitter_120")
+        self.label_64 = QtWidgets.QLabel(self.splitter_120)
+        self.label_64.setText("")
+        self.label_64.setObjectName("label_64")
+        self.ButtonHistoricoAtualizar = QtWidgets.QPushButton(self.splitter_120)
+        self.ButtonHistoricoAtualizar.setMinimumSize(QtCore.QSize(120, 50))
+        self.ButtonHistoricoAtualizar.setMaximumSize(QtCore.QSize(120, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ButtonHistoricoAtualizar.setFont(font)
+        self.ButtonHistoricoAtualizar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.ButtonHistoricoAtualizar.setObjectName("ButtonHistoricoAtualizar")
+        self.label_65 = QtWidgets.QLabel(self.splitter_120)
+        self.label_65.setText("")
+        self.label_65.setObjectName("label_65")
+        self.verticalLayout_21.addWidget(self.splitter_120)
+        self.stackedWidget.addWidget(self.pageHistorico)
         self.pageCad = QtWidgets.QWidget()
         self.pageCad.setObjectName("pageCad")
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.pageCad)
@@ -1129,11 +2425,292 @@ class Ui_MainControle(object):
         font.setWeight(75)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet("color: rgb(255, 255, 255);")
-        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.label_3.setObjectName("label_3")
         self.verticalLayout_5.addWidget(self.label_3)
         self.horizontalLayout_6.addWidget(self.frame_5)
         self.stackedWidget.addWidget(self.pageNovoCad)
+        self.pagePerifericos = QtWidgets.QWidget()
+        self.pagePerifericos.setObjectName("pagePerifericos")
+        self.horizontalLayout_22 = QtWidgets.QHBoxLayout(self.pagePerifericos)
+        self.horizontalLayout_22.setContentsMargins(0, 0, 11, 0)
+        self.horizontalLayout_22.setObjectName("horizontalLayout_22")
+        self.frame_29 = QtWidgets.QFrame(self.pagePerifericos)
+        self.frame_29.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.frame_29.setStyleSheet("background-color: rgb(0, 53, 62);")
+        self.frame_29.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_29.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_29.setObjectName("frame_29")
+        self.verticalLayout_22 = QtWidgets.QVBoxLayout(self.frame_29)
+        self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_22.setObjectName("verticalLayout_22")
+        self.label_61 = QtWidgets.QLabel(self.frame_29)
+        self.label_61.setMaximumSize(QtCore.QSize(16777215, 150))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_61.setFont(font)
+        self.label_61.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_61.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_61.setObjectName("label_61")
+        self.verticalLayout_22.addWidget(self.label_61)
+        self.frame_58 = QtWidgets.QFrame(self.frame_29)
+        self.frame_58.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_58.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_58.setObjectName("frame_58")
+        self.verticalLayout_23 = QtWidgets.QVBoxLayout(self.frame_58)
+        self.verticalLayout_23.setContentsMargins(4, 0, 4, 4)
+        self.verticalLayout_23.setObjectName("verticalLayout_23")
+        self.buttonMemo = QtWidgets.QPushButton(self.frame_58)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.buttonMemo.sizePolicy().hasHeightForWidth())
+        self.buttonMemo.setSizePolicy(sizePolicy)
+        self.buttonMemo.setMinimumSize(QtCore.QSize(0, 56))
+        self.buttonMemo.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.buttonMemo.setStyleSheet("QPushButton{\n"
+"    \n"
+"    background-image: url(:/perifericos/Controle/perifericos/menoria.png);\n"
+"    background-position:center;\n"
+"    background-repeat: no-repeat;\n"
+"    background-color: rgb(1, 67, 78);\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(0, 53, 62);\n"
+"    border-radius: 10px;\n"
+"    \n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(1, 87, 100);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-image: url(:/novo/Controle/novo/celpress.png);\n"
+"background-color: rgb(0, 64, 74);\n"
+"}\n"
+"")
+        self.buttonMemo.setText("")
+        self.buttonMemo.setObjectName("buttonMemo")
+        self.verticalLayout_23.addWidget(self.buttonMemo)
+        self.buttonDisco = QtWidgets.QPushButton(self.frame_58)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.buttonDisco.sizePolicy().hasHeightForWidth())
+        self.buttonDisco.setSizePolicy(sizePolicy)
+        self.buttonDisco.setMinimumSize(QtCore.QSize(0, 56))
+        self.buttonDisco.setStyleSheet("QPushButton{\n"
+"    \n"
+"    background-image: url(:/perifericos/Controle/perifericos/disco.png);\n"
+"    background-position:center;\n"
+"    background-repeat: no-repeat;\n"
+"    background-color: rgb(1, 67, 78);\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(0, 53, 62);\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(1, 87, 100);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-image: url(:/novo/Controle/novo/deskpress.png);\n"
+"background-color: rgb(0, 64, 74);\n"
+"\n"
+"\n"
+"}\n"
+"")
+        self.buttonDisco.setText("")
+        self.buttonDisco.setObjectName("buttonDisco")
+        self.verticalLayout_23.addWidget(self.buttonDisco)
+        self.buttonMouse = QtWidgets.QPushButton(self.frame_58)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.buttonMouse.sizePolicy().hasHeightForWidth())
+        self.buttonMouse.setSizePolicy(sizePolicy)
+        self.buttonMouse.setMinimumSize(QtCore.QSize(0, 56))
+        self.buttonMouse.setStyleSheet("QPushButton{\n"
+"background-image: url(:/perifericos/Controle/perifericos/mouse.png);\n"
+"    background-position:center;\n"
+"    background-repeat: no-repeat;\n"
+"    background-color: rgb(1, 67, 78);\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(0, 53, 62);\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(1, 87, 100);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-image: url(:/novo/Controle/novo/notepress.png);\n"
+"background-color: rgb(0, 64, 74);\n"
+"\n"
+"}\n"
+"")
+        self.buttonMouse.setText("")
+        self.buttonMouse.setObjectName("buttonMouse")
+        self.verticalLayout_23.addWidget(self.buttonMouse)
+        self.buttonPad = QtWidgets.QPushButton(self.frame_58)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.buttonPad.sizePolicy().hasHeightForWidth())
+        self.buttonPad.setSizePolicy(sizePolicy)
+        self.buttonPad.setMinimumSize(QtCore.QSize(0, 56))
+        self.buttonPad.setStyleSheet("QPushButton{\n"
+"background-image: url(:/perifericos/Controle/perifericos/mouse pad.png);\n"
+"    background-position:center;\n"
+"    background-repeat: no-repeat;\n"
+"    background-color: rgb(1, 67, 78);\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(0, 53, 62);\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(1, 87, 100);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-image: url(:/novo/Controle/novo/mopress.png);\n"
+"background-color: rgb(0, 64, 74);\n"
+"\n"
+"\n"
+"}\n"
+"")
+        self.buttonPad.setText("")
+        self.buttonPad.setObjectName("buttonPad")
+        self.verticalLayout_23.addWidget(self.buttonPad)
+        self.buttonTeclado = QtWidgets.QPushButton(self.frame_58)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.buttonTeclado.sizePolicy().hasHeightForWidth())
+        self.buttonTeclado.setSizePolicy(sizePolicy)
+        self.buttonTeclado.setMinimumSize(QtCore.QSize(0, 56))
+        self.buttonTeclado.setStyleSheet("QPushButton{\n"
+"    background-image: url(:/perifericos/Controle/perifericos/teclado.png);\n"
+"    background-position:center;\n"
+"    background-repeat: no-repeat;\n"
+"    background-color: rgb(1, 67, 78);\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(0, 53, 62);\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(1, 87, 100);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-image: url(:/novo/Controle/novo/peripress.png);\n"
+"background-color: rgb(0, 64, 74);\n"
+"\n"
+"}\n"
+"")
+        self.buttonTeclado.setText("")
+        self.buttonTeclado.setObjectName("buttonTeclado")
+        self.verticalLayout_23.addWidget(self.buttonTeclado)
+        self.buttonUporte = QtWidgets.QPushButton(self.frame_58)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.buttonUporte.sizePolicy().hasHeightForWidth())
+        self.buttonUporte.setSizePolicy(sizePolicy)
+        self.buttonUporte.setMinimumSize(QtCore.QSize(0, 56))
+        self.buttonUporte.setStyleSheet("QPushButton{\n"
+"background-image: url(:/perifericos/Controle/perifericos/suporte.png);\n"
+"    background-position:center;\n"
+"    background-repeat: no-repeat;\n"
+"    background-color: rgb(1, 67, 78);\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(0, 53, 62);\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(1, 87, 100);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-image: url(:/novo/Controle/novo/winpress.png);\n"
+"background-color: rgb(0, 64, 74);\n"
+"\n"
+"\n"
+"}\n"
+"")
+        self.buttonUporte.setText("")
+        self.buttonUporte.setObjectName("buttonUporte")
+        self.verticalLayout_23.addWidget(self.buttonUporte)
+        self.buttonOutros = QtWidgets.QPushButton(self.frame_58)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.buttonOutros.sizePolicy().hasHeightForWidth())
+        self.buttonOutros.setSizePolicy(sizePolicy)
+        self.buttonOutros.setMinimumSize(QtCore.QSize(0, 56))
+        self.buttonOutros.setStyleSheet("QPushButton{\n"
+"background-image: url(:/perifericos/Controle/perifericos/outros.png);\n"
+"    background-position:center;\n"
+"    background-repeat: no-repeat;\n"
+"    background-color: rgb(1, 67, 78);\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(0, 53, 62);\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(1, 87, 100);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-image: url(:/novo/Controle/novo/offpress.png);\n"
+"background-color: rgb(0, 64, 74);\n"
+"\n"
+"\n"
+"}\n"
+"")
+        self.buttonOutros.setText("")
+        self.buttonOutros.setObjectName("buttonOutros")
+        self.verticalLayout_23.addWidget(self.buttonOutros)
+        self.verticalLayout_22.addWidget(self.frame_58)
+        self.horizontalLayout_22.addWidget(self.frame_29)
+        self.splitter_198 = QtWidgets.QSplitter(self.pagePerifericos)
+        self.splitter_198.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_198.setObjectName("splitter_198")
+        self.frame_21 = QtWidgets.QFrame(self.splitter_198)
+        self.frame_21.setMinimumSize(QtCore.QSize(0, 300))
+        self.frame_21.setStyleSheet("background-image: url(:/perifericos/Controle/perifericos/perifericos.png);\n"
+"background-position:center;\n"
+"    background-repeat: no-repeat;")
+        self.frame_21.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_21.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_21.setObjectName("frame_21")
+        self.label_30 = QtWidgets.QLabel(self.splitter_198)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_30.sizePolicy().hasHeightForWidth())
+        self.label_30.setSizePolicy(sizePolicy)
+        self.label_30.setMinimumSize(QtCore.QSize(0, 300))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_30.setFont(font)
+        self.label_30.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_30.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_30.setObjectName("label_30")
+        self.horizontalLayout_22.addWidget(self.splitter_198)
+        self.stackedWidget.addWidget(self.pagePerifericos)
         self.pageNotebook = QtWidgets.QWidget()
         self.pageNotebook.setObjectName("pageNotebook")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.pageNotebook)
@@ -4626,6 +6203,2706 @@ class Ui_MainControle(object):
         self.topButtonConfirmar.setObjectName("topButtonConfirmar")
         self.verticalLayout_9.addWidget(self.splitter_2)
         self.stackedWidget.addWidget(self.pageDesktop)
+        self.pageMonitor = QtWidgets.QWidget()
+        self.pageMonitor.setObjectName("pageMonitor")
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.pageMonitor)
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
+        self.label_28 = QtWidgets.QLabel(self.pageMonitor)
+        self.label_28.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_28.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_28.setFont(font)
+        self.label_28.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_28.setObjectName("label_28")
+        self.verticalLayout_11.addWidget(self.label_28)
+        self.splitter_46 = QtWidgets.QSplitter(self.pageMonitor)
+        self.splitter_46.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_46.setObjectName("splitter_46")
+        self.frame_27 = QtWidgets.QFrame(self.splitter_46)
+        self.frame_27.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_27.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_27.setObjectName("frame_27")
+        self.splitter_45 = QtWidgets.QSplitter(self.splitter_46)
+        self.splitter_45.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_45.setObjectName("splitter_45")
+        self.frame_22 = QtWidgets.QFrame(self.splitter_45)
+        self.frame_22.setMinimumSize(QtCore.QSize(100, 100))
+        self.frame_22.setMaximumSize(QtCore.QSize(812, 16777215))
+        self.frame_22.setStyleSheet("background-image: url(:/controle/Controle/monitor.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_22.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_22.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_22.setObjectName("frame_22")
+        self.moModelo = QtWidgets.QLineEdit(self.splitter_45)
+        self.moModelo.setMinimumSize(QtCore.QSize(750, 35))
+        self.moModelo.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.moModelo.setFont(font)
+        self.moModelo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.moModelo.setMaxLength(30)
+        self.moModelo.setAlignment(QtCore.Qt.AlignCenter)
+        self.moModelo.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.moModelo.setClearButtonEnabled(False)
+        self.moModelo.setObjectName("moModelo")
+        self.splitter_41 = QtWidgets.QSplitter(self.splitter_45)
+        self.splitter_41.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_41.setObjectName("splitter_41")
+        self.splitter_101 = QtWidgets.QSplitter(self.splitter_41)
+        self.splitter_101.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_101.setObjectName("splitter_101")
+        self.label_157 = QtWidgets.QLabel(self.splitter_101)
+        self.label_157.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_157.setFont(font)
+        self.label_157.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_157.setObjectName("label_157")
+        self.moMarca = QtWidgets.QLineEdit(self.splitter_101)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(5)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.moMarca.sizePolicy().hasHeightForWidth())
+        self.moMarca.setSizePolicy(sizePolicy)
+        self.moMarca.setMinimumSize(QtCore.QSize(0, 35))
+        self.moMarca.setMaximumSize(QtCore.QSize(245, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.moMarca.setFont(font)
+        self.moMarca.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.moMarca.setMaxLength(30)
+        self.moMarca.setObjectName("moMarca")
+        self.splitter_103 = QtWidgets.QSplitter(self.splitter_41)
+        self.splitter_103.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_103.setObjectName("splitter_103")
+        self.label_159 = QtWidgets.QLabel(self.splitter_103)
+        self.label_159.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_159.setFont(font)
+        self.label_159.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_159.setObjectName("label_159")
+        self.moCondicao = QtWidgets.QLineEdit(self.splitter_103)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.moCondicao.sizePolicy().hasHeightForWidth())
+        self.moCondicao.setSizePolicy(sizePolicy)
+        self.moCondicao.setMinimumSize(QtCore.QSize(0, 35))
+        self.moCondicao.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.moCondicao.setFont(font)
+        self.moCondicao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.moCondicao.setMaxLength(30)
+        self.moCondicao.setObjectName("moCondicao")
+        self.splitter_33 = QtWidgets.QSplitter(self.splitter_41)
+        self.splitter_33.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_33.setObjectName("splitter_33")
+        self.label_160 = QtWidgets.QLabel(self.splitter_33)
+        self.label_160.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_160.setFont(font)
+        self.label_160.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_160.setObjectName("label_160")
+        self.moValor = QtWidgets.QLineEdit(self.splitter_33)
+        self.moValor.setMinimumSize(QtCore.QSize(0, 35))
+        self.moValor.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.moValor.setFont(font)
+        self.moValor.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.moValor.setMaxLength(30)
+        self.moValor.setObjectName("moValor")
+        self.splitter_38 = QtWidgets.QSplitter(self.splitter_41)
+        self.splitter_38.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_38.setObjectName("splitter_38")
+        self.label_161 = QtWidgets.QLabel(self.splitter_38)
+        self.label_161.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_161.setFont(font)
+        self.label_161.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_161.setObjectName("label_161")
+        self.moBoxTamanho = QtWidgets.QComboBox(self.splitter_38)
+        self.moBoxTamanho.setMinimumSize(QtCore.QSize(0, 35))
+        self.moBoxTamanho.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.moBoxTamanho.setFont(font)
+        self.moBoxTamanho.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.moBoxTamanho.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;")
+        self.moBoxTamanho.setObjectName("moBoxTamanho")
+        self.moBoxTamanho.addItem("")
+        self.moBoxTamanho.setItemText(0, "")
+        self.moBoxTamanho.addItem("")
+        self.moBoxTamanho.addItem("")
+        self.moBoxTamanho.addItem("")
+        self.moBoxTamanho.addItem("")
+        self.moBoxTamanho.addItem("")
+        self.moBoxTamanho.addItem("")
+        self.moFrameMotivo = QtWidgets.QFrame(self.splitter_45)
+        self.moFrameMotivo.setMinimumSize(QtCore.QSize(0, 50))
+        self.moFrameMotivo.setMaximumSize(QtCore.QSize(812, 100))
+        self.moFrameMotivo.setStyleSheet("border: 2px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.moFrameMotivo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.moFrameMotivo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.moFrameMotivo.setObjectName("moFrameMotivo")
+        self.horizontalLayout_21 = QtWidgets.QHBoxLayout(self.moFrameMotivo)
+        self.horizontalLayout_21.setObjectName("horizontalLayout_21")
+        self.label_29 = QtWidgets.QLabel(self.moFrameMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_29.setFont(font)
+        self.label_29.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.label_29.setObjectName("label_29")
+        self.horizontalLayout_21.addWidget(self.label_29)
+        self.moRadioCompra = QtWidgets.QRadioButton(self.moFrameMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.moRadioCompra.setFont(font)
+        self.moRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.moRadioCompra.setObjectName("moRadioCompra")
+        self.horizontalLayout_21.addWidget(self.moRadioCompra)
+        self.moRadioCadastro = QtWidgets.QRadioButton(self.moFrameMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.moRadioCadastro.setFont(font)
+        self.moRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.moRadioCadastro.setObjectName("moRadioCadastro")
+        self.horizontalLayout_21.addWidget(self.moRadioCadastro)
+        self.moRadioProvisorio = QtWidgets.QRadioButton(self.moFrameMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.moRadioProvisorio.setFont(font)
+        self.moRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.moRadioProvisorio.setObjectName("moRadioProvisorio")
+        self.horizontalLayout_21.addWidget(self.moRadioProvisorio)
+        self.moRadioOutros = QtWidgets.QRadioButton(self.moFrameMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.moRadioOutros.setFont(font)
+        self.moRadioOutros.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.moRadioOutros.setObjectName("moRadioOutros")
+        self.horizontalLayout_21.addWidget(self.moRadioOutros)
+        self.splitter_44 = QtWidgets.QSplitter(self.splitter_45)
+        self.splitter_44.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_44.setObjectName("splitter_44")
+        self.label_57 = QtWidgets.QLabel(self.splitter_44)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.label_57.setFont(font)
+        self.label_57.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_57.setText("")
+        self.label_57.setObjectName("label_57")
+        self.moButtonLimpar = QtWidgets.QPushButton(self.splitter_44)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.moButtonLimpar.sizePolicy().hasHeightForWidth())
+        self.moButtonLimpar.setSizePolicy(sizePolicy)
+        self.moButtonLimpar.setMinimumSize(QtCore.QSize(0, 37))
+        self.moButtonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.moButtonLimpar.setFont(font)
+        self.moButtonLimpar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.moButtonLimpar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.moButtonLimpar.setObjectName("moButtonLimpar")
+        self.moButtonTermo = QtWidgets.QPushButton(self.splitter_44)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.moButtonTermo.sizePolicy().hasHeightForWidth())
+        self.moButtonTermo.setSizePolicy(sizePolicy)
+        self.moButtonTermo.setMinimumSize(QtCore.QSize(0, 37))
+        self.moButtonTermo.setMaximumSize(QtCore.QSize(160, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.moButtonTermo.setFont(font)
+        self.moButtonTermo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.moButtonTermo.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.moButtonTermo.setObjectName("moButtonTermo")
+        self.moButtonCancelar = QtWidgets.QPushButton(self.splitter_44)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.moButtonCancelar.sizePolicy().hasHeightForWidth())
+        self.moButtonCancelar.setSizePolicy(sizePolicy)
+        self.moButtonCancelar.setMinimumSize(QtCore.QSize(0, 37))
+        self.moButtonCancelar.setMaximumSize(QtCore.QSize(105, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.moButtonCancelar.setFont(font)
+        self.moButtonCancelar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.moButtonCancelar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.moButtonCancelar.setObjectName("moButtonCancelar")
+        self.moButtonConfirmar = QtWidgets.QPushButton(self.splitter_44)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.moButtonConfirmar.sizePolicy().hasHeightForWidth())
+        self.moButtonConfirmar.setSizePolicy(sizePolicy)
+        self.moButtonConfirmar.setMinimumSize(QtCore.QSize(0, 37))
+        self.moButtonConfirmar.setMaximumSize(QtCore.QSize(115, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.moButtonConfirmar.setFont(font)
+        self.moButtonConfirmar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.moButtonConfirmar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.moButtonConfirmar.setObjectName("moButtonConfirmar")
+        self.label_58 = QtWidgets.QLabel(self.splitter_44)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.label_58.setFont(font)
+        self.label_58.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_58.setText("")
+        self.label_58.setObjectName("label_58")
+        self.frame_28 = QtWidgets.QFrame(self.splitter_46)
+        self.frame_28.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_28.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_28.setObjectName("frame_28")
+        self.verticalLayout_11.addWidget(self.splitter_46)
+        self.stackedWidget.addWidget(self.pageMonitor)
+        self.pageWindows = QtWidgets.QWidget()
+        self.pageWindows.setObjectName("pageWindows")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.pageWindows)
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.label_32 = QtWidgets.QLabel(self.pageWindows)
+        self.label_32.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_32.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_32.setFont(font)
+        self.label_32.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_32.setObjectName("label_32")
+        self.verticalLayout_12.addWidget(self.label_32)
+        self.splitter_107 = QtWidgets.QSplitter(self.pageWindows)
+        self.splitter_107.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_107.setObjectName("splitter_107")
+        self.frame_32 = QtWidgets.QFrame(self.splitter_107)
+        self.frame_32.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_32.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_32.setObjectName("frame_32")
+        self.splitter_47 = QtWidgets.QSplitter(self.splitter_107)
+        self.splitter_47.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_47.setObjectName("splitter_47")
+        self.frame_30 = QtWidgets.QFrame(self.splitter_47)
+        self.frame_30.setMinimumSize(QtCore.QSize(100, 100))
+        self.frame_30.setMaximumSize(QtCore.QSize(812, 16777215))
+        self.frame_30.setStyleSheet("background-image: url(:/controle/Controle/windows.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_30.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_30.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_30.setObjectName("frame_30")
+        self.winCod = QtWidgets.QLineEdit(self.splitter_47)
+        self.winCod.setMinimumSize(QtCore.QSize(750, 35))
+        self.winCod.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.winCod.setFont(font)
+        self.winCod.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.winCod.setMaxLength(30)
+        self.winCod.setAlignment(QtCore.Qt.AlignCenter)
+        self.winCod.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.winCod.setClearButtonEnabled(False)
+        self.winCod.setObjectName("winCod")
+        self.splitter_52 = QtWidgets.QSplitter(self.splitter_47)
+        self.splitter_52.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_52.setObjectName("splitter_52")
+        self.splitter_105 = QtWidgets.QSplitter(self.splitter_52)
+        self.splitter_105.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_105.setObjectName("splitter_105")
+        self.label_165 = QtWidgets.QLabel(self.splitter_105)
+        self.label_165.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_165.setFont(font)
+        self.label_165.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_165.setObjectName("label_165")
+        self.winVersao = QtWidgets.QLineEdit(self.splitter_105)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(5)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.winVersao.sizePolicy().hasHeightForWidth())
+        self.winVersao.setSizePolicy(sizePolicy)
+        self.winVersao.setMinimumSize(QtCore.QSize(245, 35))
+        self.winVersao.setMaximumSize(QtCore.QSize(500, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.winVersao.setFont(font)
+        self.winVersao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.winVersao.setMaxLength(30)
+        self.winVersao.setObjectName("winVersao")
+        self.splitter_53 = QtWidgets.QSplitter(self.splitter_52)
+        self.splitter_53.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_53.setObjectName("splitter_53")
+        self.label_167 = QtWidgets.QLabel(self.splitter_53)
+        self.label_167.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_167.setFont(font)
+        self.label_167.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_167.setObjectName("label_167")
+        self.winValor = QtWidgets.QLineEdit(self.splitter_53)
+        self.winValor.setMinimumSize(QtCore.QSize(0, 35))
+        self.winValor.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.winValor.setFont(font)
+        self.winValor.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.winValor.setMaxLength(30)
+        self.winValor.setObjectName("winValor")
+        self.splitter_99 = QtWidgets.QSplitter(self.splitter_52)
+        self.splitter_99.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_99.setObjectName("splitter_99")
+        self.label_168 = QtWidgets.QLabel(self.splitter_99)
+        self.label_168.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_168.setFont(font)
+        self.label_168.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_168.setObjectName("label_168")
+        self.winBoxVersao = QtWidgets.QComboBox(self.splitter_99)
+        self.winBoxVersao.setMinimumSize(QtCore.QSize(0, 35))
+        self.winBoxVersao.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.winBoxVersao.setFont(font)
+        self.winBoxVersao.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.winBoxVersao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;")
+        self.winBoxVersao.setObjectName("winBoxVersao")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.setItemText(0, "")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.setItemText(10, "")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winBoxVersao.addItem("")
+        self.winMotivo = QtWidgets.QFrame(self.splitter_47)
+        self.winMotivo.setMinimumSize(QtCore.QSize(0, 50))
+        self.winMotivo.setMaximumSize(QtCore.QSize(812, 100))
+        self.winMotivo.setStyleSheet("border: 2px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.winMotivo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.winMotivo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.winMotivo.setObjectName("winMotivo")
+        self.horizontalLayout_23 = QtWidgets.QHBoxLayout(self.winMotivo)
+        self.horizontalLayout_23.setObjectName("horizontalLayout_23")
+        self.label_31 = QtWidgets.QLabel(self.winMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_31.setFont(font)
+        self.label_31.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.label_31.setObjectName("label_31")
+        self.horizontalLayout_23.addWidget(self.label_31)
+        self.winRadioCompra = QtWidgets.QRadioButton(self.winMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.winRadioCompra.setFont(font)
+        self.winRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.winRadioCompra.setObjectName("winRadioCompra")
+        self.horizontalLayout_23.addWidget(self.winRadioCompra)
+        self.winRadioCadastro = QtWidgets.QRadioButton(self.winMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.winRadioCadastro.setFont(font)
+        self.winRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.winRadioCadastro.setObjectName("winRadioCadastro")
+        self.horizontalLayout_23.addWidget(self.winRadioCadastro)
+        self.winRadioProvisorio = QtWidgets.QRadioButton(self.winMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.winRadioProvisorio.setFont(font)
+        self.winRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.winRadioProvisorio.setObjectName("winRadioProvisorio")
+        self.horizontalLayout_23.addWidget(self.winRadioProvisorio)
+        self.winRadioOutro = QtWidgets.QRadioButton(self.winMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.winRadioOutro.setFont(font)
+        self.winRadioOutro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.winRadioOutro.setObjectName("winRadioOutro")
+        self.horizontalLayout_23.addWidget(self.winRadioOutro)
+        self.splitter_100 = QtWidgets.QSplitter(self.splitter_47)
+        self.splitter_100.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_100.setObjectName("splitter_100")
+        self.Label = QtWidgets.QLabel(self.splitter_100)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label.setFont(font)
+        self.Label.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label.setText("")
+        self.Label.setObjectName("Label")
+        self.winButtonLimpar = QtWidgets.QPushButton(self.splitter_100)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.winButtonLimpar.sizePolicy().hasHeightForWidth())
+        self.winButtonLimpar.setSizePolicy(sizePolicy)
+        self.winButtonLimpar.setMinimumSize(QtCore.QSize(0, 37))
+        self.winButtonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.winButtonLimpar.setFont(font)
+        self.winButtonLimpar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.winButtonLimpar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.winButtonLimpar.setObjectName("winButtonLimpar")
+        self.winButtonTermo = QtWidgets.QPushButton(self.splitter_100)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.winButtonTermo.sizePolicy().hasHeightForWidth())
+        self.winButtonTermo.setSizePolicy(sizePolicy)
+        self.winButtonTermo.setMinimumSize(QtCore.QSize(0, 37))
+        self.winButtonTermo.setMaximumSize(QtCore.QSize(160, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.winButtonTermo.setFont(font)
+        self.winButtonTermo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.winButtonTermo.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.winButtonTermo.setObjectName("winButtonTermo")
+        self.winButtonCancelar = QtWidgets.QPushButton(self.splitter_100)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.winButtonCancelar.sizePolicy().hasHeightForWidth())
+        self.winButtonCancelar.setSizePolicy(sizePolicy)
+        self.winButtonCancelar.setMinimumSize(QtCore.QSize(0, 37))
+        self.winButtonCancelar.setMaximumSize(QtCore.QSize(105, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.winButtonCancelar.setFont(font)
+        self.winButtonCancelar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.winButtonCancelar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.winButtonCancelar.setObjectName("winButtonCancelar")
+        self.winButtonConfirmar = QtWidgets.QPushButton(self.splitter_100)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.winButtonConfirmar.sizePolicy().hasHeightForWidth())
+        self.winButtonConfirmar.setSizePolicy(sizePolicy)
+        self.winButtonConfirmar.setMinimumSize(QtCore.QSize(0, 37))
+        self.winButtonConfirmar.setMaximumSize(QtCore.QSize(115, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.winButtonConfirmar.setFont(font)
+        self.winButtonConfirmar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.winButtonConfirmar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.winButtonConfirmar.setObjectName("winButtonConfirmar")
+        self.Label_2 = QtWidgets.QLabel(self.splitter_100)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_2.setFont(font)
+        self.Label_2.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_2.setText("")
+        self.Label_2.setObjectName("Label_2")
+        self.frame_31 = QtWidgets.QFrame(self.splitter_107)
+        self.frame_31.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_31.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_31.setObjectName("frame_31")
+        self.verticalLayout_12.addWidget(self.splitter_107)
+        self.stackedWidget.addWidget(self.pageWindows)
+        self.pageOffice = QtWidgets.QWidget()
+        self.pageOffice.setObjectName("pageOffice")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.pageOffice)
+        self.verticalLayout_13.setObjectName("verticalLayout_13")
+        self.label_33 = QtWidgets.QLabel(self.pageOffice)
+        self.label_33.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_33.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_33.setFont(font)
+        self.label_33.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_33.setObjectName("label_33")
+        self.verticalLayout_13.addWidget(self.label_33)
+        self.splitter_108 = QtWidgets.QSplitter(self.pageOffice)
+        self.splitter_108.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_108.setObjectName("splitter_108")
+        self.frame_33 = QtWidgets.QFrame(self.splitter_108)
+        self.frame_33.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_33.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_33.setObjectName("frame_33")
+        self.splitter_109 = QtWidgets.QSplitter(self.splitter_108)
+        self.splitter_109.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_109.setObjectName("splitter_109")
+        self.frame_34 = QtWidgets.QFrame(self.splitter_109)
+        self.frame_34.setMinimumSize(QtCore.QSize(100, 100))
+        self.frame_34.setMaximumSize(QtCore.QSize(812, 16777215))
+        self.frame_34.setStyleSheet("background-image: url(:/controle/Controle/office.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_34.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_34.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_34.setObjectName("frame_34")
+        self.offCod = QtWidgets.QLineEdit(self.splitter_109)
+        self.offCod.setMinimumSize(QtCore.QSize(750, 35))
+        self.offCod.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.offCod.setFont(font)
+        self.offCod.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.offCod.setMaxLength(30)
+        self.offCod.setAlignment(QtCore.Qt.AlignCenter)
+        self.offCod.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.offCod.setClearButtonEnabled(False)
+        self.offCod.setObjectName("offCod")
+        self.splitter_110 = QtWidgets.QSplitter(self.splitter_109)
+        self.splitter_110.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_110.setObjectName("splitter_110")
+        self.splitter_111 = QtWidgets.QSplitter(self.splitter_110)
+        self.splitter_111.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_111.setObjectName("splitter_111")
+        self.label_169 = QtWidgets.QLabel(self.splitter_111)
+        self.label_169.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_169.setFont(font)
+        self.label_169.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_169.setObjectName("label_169")
+        self.offVersao = QtWidgets.QLineEdit(self.splitter_111)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(5)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.offVersao.sizePolicy().hasHeightForWidth())
+        self.offVersao.setSizePolicy(sizePolicy)
+        self.offVersao.setMinimumSize(QtCore.QSize(0, 35))
+        self.offVersao.setMaximumSize(QtCore.QSize(500, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.offVersao.setFont(font)
+        self.offVersao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.offVersao.setMaxLength(30)
+        self.offVersao.setObjectName("offVersao")
+        self.splitter_113 = QtWidgets.QSplitter(self.splitter_110)
+        self.splitter_113.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_113.setObjectName("splitter_113")
+        self.label_171 = QtWidgets.QLabel(self.splitter_113)
+        self.label_171.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_171.setFont(font)
+        self.label_171.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_171.setObjectName("label_171")
+        self.offValor = QtWidgets.QLineEdit(self.splitter_113)
+        self.offValor.setMinimumSize(QtCore.QSize(0, 35))
+        self.offValor.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.offValor.setFont(font)
+        self.offValor.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.offValor.setMaxLength(30)
+        self.offValor.setObjectName("offValor")
+        self.splitter_114 = QtWidgets.QSplitter(self.splitter_110)
+        self.splitter_114.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_114.setObjectName("splitter_114")
+        self.label_172 = QtWidgets.QLabel(self.splitter_114)
+        self.label_172.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_172.setFont(font)
+        self.label_172.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_172.setObjectName("label_172")
+        self.offBoxVersao = QtWidgets.QComboBox(self.splitter_114)
+        self.offBoxVersao.setMinimumSize(QtCore.QSize(0, 35))
+        self.offBoxVersao.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.offBoxVersao.setFont(font)
+        self.offBoxVersao.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.offBoxVersao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;")
+        self.offBoxVersao.setObjectName("offBoxVersao")
+        self.offBoxVersao.addItem("")
+        self.offBoxVersao.setItemText(0, "")
+        self.offBoxVersao.addItem("")
+        self.offBoxVersao.addItem("")
+        self.offBoxVersao.addItem("")
+        self.offBoxVersao.addItem("")
+        self.offMotivo = QtWidgets.QFrame(self.splitter_109)
+        self.offMotivo.setMinimumSize(QtCore.QSize(0, 50))
+        self.offMotivo.setMaximumSize(QtCore.QSize(812, 100))
+        self.offMotivo.setStyleSheet("border: 2px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.offMotivo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.offMotivo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.offMotivo.setObjectName("offMotivo")
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout(self.offMotivo)
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.label_34 = QtWidgets.QLabel(self.offMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_34.setFont(font)
+        self.label_34.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.label_34.setObjectName("label_34")
+        self.horizontalLayout_24.addWidget(self.label_34)
+        self.offRadioCompra = QtWidgets.QRadioButton(self.offMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.offRadioCompra.setFont(font)
+        self.offRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.offRadioCompra.setObjectName("offRadioCompra")
+        self.horizontalLayout_24.addWidget(self.offRadioCompra)
+        self.offRadioCadastro = QtWidgets.QRadioButton(self.offMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.offRadioCadastro.setFont(font)
+        self.offRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.offRadioCadastro.setObjectName("offRadioCadastro")
+        self.horizontalLayout_24.addWidget(self.offRadioCadastro)
+        self.offRadioProvisorio = QtWidgets.QRadioButton(self.offMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.offRadioProvisorio.setFont(font)
+        self.offRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.offRadioProvisorio.setObjectName("offRadioProvisorio")
+        self.horizontalLayout_24.addWidget(self.offRadioProvisorio)
+        self.offRadioOutro = QtWidgets.QRadioButton(self.offMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.offRadioOutro.setFont(font)
+        self.offRadioOutro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.offRadioOutro.setObjectName("offRadioOutro")
+        self.horizontalLayout_24.addWidget(self.offRadioOutro)
+        self.splitter_115 = QtWidgets.QSplitter(self.splitter_109)
+        self.splitter_115.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_115.setObjectName("splitter_115")
+        self.Label_3 = QtWidgets.QLabel(self.splitter_115)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_3.setFont(font)
+        self.Label_3.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_3.setText("")
+        self.Label_3.setObjectName("Label_3")
+        self.offButtonLimpar = QtWidgets.QPushButton(self.splitter_115)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.offButtonLimpar.sizePolicy().hasHeightForWidth())
+        self.offButtonLimpar.setSizePolicy(sizePolicy)
+        self.offButtonLimpar.setMinimumSize(QtCore.QSize(0, 37))
+        self.offButtonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.offButtonLimpar.setFont(font)
+        self.offButtonLimpar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.offButtonLimpar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.offButtonLimpar.setObjectName("offButtonLimpar")
+        self.offButtonTermo = QtWidgets.QPushButton(self.splitter_115)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.offButtonTermo.sizePolicy().hasHeightForWidth())
+        self.offButtonTermo.setSizePolicy(sizePolicy)
+        self.offButtonTermo.setMinimumSize(QtCore.QSize(0, 37))
+        self.offButtonTermo.setMaximumSize(QtCore.QSize(160, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.offButtonTermo.setFont(font)
+        self.offButtonTermo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.offButtonTermo.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.offButtonTermo.setObjectName("offButtonTermo")
+        self.offButtonCancelar = QtWidgets.QPushButton(self.splitter_115)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.offButtonCancelar.sizePolicy().hasHeightForWidth())
+        self.offButtonCancelar.setSizePolicy(sizePolicy)
+        self.offButtonCancelar.setMinimumSize(QtCore.QSize(0, 37))
+        self.offButtonCancelar.setMaximumSize(QtCore.QSize(105, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.offButtonCancelar.setFont(font)
+        self.offButtonCancelar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.offButtonCancelar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.offButtonCancelar.setObjectName("offButtonCancelar")
+        self.offButtonConfirmar = QtWidgets.QPushButton(self.splitter_115)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.offButtonConfirmar.sizePolicy().hasHeightForWidth())
+        self.offButtonConfirmar.setSizePolicy(sizePolicy)
+        self.offButtonConfirmar.setMinimumSize(QtCore.QSize(0, 37))
+        self.offButtonConfirmar.setMaximumSize(QtCore.QSize(115, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.offButtonConfirmar.setFont(font)
+        self.offButtonConfirmar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.offButtonConfirmar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.offButtonConfirmar.setObjectName("offButtonConfirmar")
+        self.Label_4 = QtWidgets.QLabel(self.splitter_115)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_4.setFont(font)
+        self.Label_4.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_4.setText("")
+        self.Label_4.setObjectName("Label_4")
+        self.frame_35 = QtWidgets.QFrame(self.splitter_108)
+        self.frame_35.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_35.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_35.setObjectName("frame_35")
+        self.verticalLayout_13.addWidget(self.splitter_108)
+        self.stackedWidget.addWidget(self.pageOffice)
+        self.pageMemoria = QtWidgets.QWidget()
+        self.pageMemoria.setObjectName("pageMemoria")
+        self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.pageMemoria)
+        self.verticalLayout_14.setObjectName("verticalLayout_14")
+        self.label_35 = QtWidgets.QLabel(self.pageMemoria)
+        self.label_35.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_35.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_35.setFont(font)
+        self.label_35.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_35.setObjectName("label_35")
+        self.verticalLayout_14.addWidget(self.label_35)
+        self.splitter_118 = QtWidgets.QSplitter(self.pageMemoria)
+        self.splitter_118.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_118.setObjectName("splitter_118")
+        self.frame_38 = QtWidgets.QFrame(self.splitter_118)
+        self.frame_38.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_38.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_38.setObjectName("frame_38")
+        self.splitter_51 = QtWidgets.QSplitter(self.splitter_118)
+        self.splitter_51.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_51.setObjectName("splitter_51")
+        self.frame_39 = QtWidgets.QFrame(self.splitter_51)
+        self.frame_39.setMinimumSize(QtCore.QSize(100, 100))
+        self.frame_39.setMaximumSize(QtCore.QSize(812, 16777215))
+        self.frame_39.setStyleSheet("background-image: url(:/controle/Controle/memoria.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_39.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_39.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_39.setObjectName("frame_39")
+        self.splitter_49 = QtWidgets.QSplitter(self.splitter_51)
+        self.splitter_49.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_49.setObjectName("splitter_49")
+        self.meMarca = QtWidgets.QLineEdit(self.splitter_49)
+        self.meMarca.setMinimumSize(QtCore.QSize(660, 35))
+        self.meMarca.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.meMarca.setFont(font)
+        self.meMarca.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.meMarca.setMaxLength(30)
+        self.meMarca.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.meMarca.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.meMarca.setClearButtonEnabled(False)
+        self.meMarca.setObjectName("meMarca")
+        self.meBarramento = QtWidgets.QLineEdit(self.splitter_49)
+        self.meBarramento.setMinimumSize(QtCore.QSize(150, 35))
+        self.meBarramento.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.meBarramento.setFont(font)
+        self.meBarramento.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.meBarramento.setMaxLength(30)
+        self.meBarramento.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.meBarramento.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.meBarramento.setClearButtonEnabled(False)
+        self.meBarramento.setObjectName("meBarramento")
+        self.splitter_50 = QtWidgets.QSplitter(self.splitter_51)
+        self.splitter_50.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_50.setObjectName("splitter_50")
+        self.splitter_119 = QtWidgets.QSplitter(self.splitter_50)
+        self.splitter_119.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_119.setObjectName("splitter_119")
+        self.label_173 = QtWidgets.QLabel(self.splitter_119)
+        self.label_173.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_173.setFont(font)
+        self.label_173.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_173.setObjectName("label_173")
+        self.meCondicao = QtWidgets.QLineEdit(self.splitter_119)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(5)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.meCondicao.sizePolicy().hasHeightForWidth())
+        self.meCondicao.setSizePolicy(sizePolicy)
+        self.meCondicao.setMinimumSize(QtCore.QSize(0, 35))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.meCondicao.setFont(font)
+        self.meCondicao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.meCondicao.setMaxLength(30)
+        self.meCondicao.setObjectName("meCondicao")
+        self.splitter_121 = QtWidgets.QSplitter(self.splitter_50)
+        self.splitter_121.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_121.setObjectName("splitter_121")
+        self.label_176 = QtWidgets.QLabel(self.splitter_121)
+        self.label_176.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_176.setFont(font)
+        self.label_176.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_176.setObjectName("label_176")
+        self.meValor = QtWidgets.QLineEdit(self.splitter_121)
+        self.meValor.setMinimumSize(QtCore.QSize(0, 35))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.meValor.setFont(font)
+        self.meValor.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.meValor.setMaxLength(30)
+        self.meValor.setObjectName("meValor")
+        self.splitter_122 = QtWidgets.QSplitter(self.splitter_50)
+        self.splitter_122.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_122.setObjectName("splitter_122")
+        self.label_177 = QtWidgets.QLabel(self.splitter_122)
+        self.label_177.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_177.setFont(font)
+        self.label_177.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_177.setObjectName("label_177")
+        self.meBoxPlataforma = QtWidgets.QComboBox(self.splitter_122)
+        self.meBoxPlataforma.setMinimumSize(QtCore.QSize(0, 35))
+        self.meBoxPlataforma.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.meBoxPlataforma.setFont(font)
+        self.meBoxPlataforma.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.meBoxPlataforma.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;")
+        self.meBoxPlataforma.setObjectName("meBoxPlataforma")
+        self.meBoxPlataforma.addItem("")
+        self.meBoxPlataforma.setItemText(0, "")
+        self.meBoxPlataforma.addItem("")
+        self.meBoxPlataforma.addItem("")
+        self.splitter_204 = QtWidgets.QSplitter(self.splitter_50)
+        self.splitter_204.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_204.setObjectName("splitter_204")
+        self.label_227 = QtWidgets.QLabel(self.splitter_204)
+        self.label_227.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_227.setFont(font)
+        self.label_227.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_227.setObjectName("label_227")
+        self.meBoxTamanho = QtWidgets.QComboBox(self.splitter_204)
+        self.meBoxTamanho.setMinimumSize(QtCore.QSize(0, 35))
+        self.meBoxTamanho.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.meBoxTamanho.setFont(font)
+        self.meBoxTamanho.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.meBoxTamanho.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;")
+        self.meBoxTamanho.setObjectName("meBoxTamanho")
+        self.meBoxTamanho.addItem("")
+        self.meBoxTamanho.setItemText(0, "")
+        self.meBoxTamanho.addItem("")
+        self.meBoxTamanho.addItem("")
+        self.meBoxTamanho.addItem("")
+        self.meBoxTamanho.addItem("")
+        self.meBoxTamanho.addItem("")
+        self.meMotivo = QtWidgets.QFrame(self.splitter_51)
+        self.meMotivo.setMinimumSize(QtCore.QSize(0, 50))
+        self.meMotivo.setMaximumSize(QtCore.QSize(812, 100))
+        self.meMotivo.setStyleSheet("border: 2px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.meMotivo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.meMotivo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.meMotivo.setObjectName("meMotivo")
+        self.horizontalLayout_25 = QtWidgets.QHBoxLayout(self.meMotivo)
+        self.horizontalLayout_25.setObjectName("horizontalLayout_25")
+        self.label_36 = QtWidgets.QLabel(self.meMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_36.setFont(font)
+        self.label_36.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.label_36.setObjectName("label_36")
+        self.horizontalLayout_25.addWidget(self.label_36)
+        self.meRadioCompra = QtWidgets.QRadioButton(self.meMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.meRadioCompra.setFont(font)
+        self.meRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.meRadioCompra.setObjectName("meRadioCompra")
+        self.horizontalLayout_25.addWidget(self.meRadioCompra)
+        self.meRadioCadastro = QtWidgets.QRadioButton(self.meMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.meRadioCadastro.setFont(font)
+        self.meRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.meRadioCadastro.setObjectName("meRadioCadastro")
+        self.horizontalLayout_25.addWidget(self.meRadioCadastro)
+        self.meRadioProvisorio = QtWidgets.QRadioButton(self.meMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.meRadioProvisorio.setFont(font)
+        self.meRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.meRadioProvisorio.setObjectName("meRadioProvisorio")
+        self.horizontalLayout_25.addWidget(self.meRadioProvisorio)
+        self.meRadioOutro = QtWidgets.QRadioButton(self.meMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.meRadioOutro.setFont(font)
+        self.meRadioOutro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.meRadioOutro.setObjectName("meRadioOutro")
+        self.horizontalLayout_25.addWidget(self.meRadioOutro)
+        self.splitter_123 = QtWidgets.QSplitter(self.splitter_51)
+        self.splitter_123.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_123.setObjectName("splitter_123")
+        self.Label_5 = QtWidgets.QLabel(self.splitter_123)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_5.setFont(font)
+        self.Label_5.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_5.setText("")
+        self.Label_5.setObjectName("Label_5")
+        self.meButtonLimpar = QtWidgets.QPushButton(self.splitter_123)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.meButtonLimpar.sizePolicy().hasHeightForWidth())
+        self.meButtonLimpar.setSizePolicy(sizePolicy)
+        self.meButtonLimpar.setMinimumSize(QtCore.QSize(0, 37))
+        self.meButtonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.meButtonLimpar.setFont(font)
+        self.meButtonLimpar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.meButtonLimpar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.meButtonLimpar.setObjectName("meButtonLimpar")
+        self.meButtonTermo = QtWidgets.QPushButton(self.splitter_123)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.meButtonTermo.sizePolicy().hasHeightForWidth())
+        self.meButtonTermo.setSizePolicy(sizePolicy)
+        self.meButtonTermo.setMinimumSize(QtCore.QSize(0, 37))
+        self.meButtonTermo.setMaximumSize(QtCore.QSize(160, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.meButtonTermo.setFont(font)
+        self.meButtonTermo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.meButtonTermo.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.meButtonTermo.setObjectName("meButtonTermo")
+        self.meButtonCancelar = QtWidgets.QPushButton(self.splitter_123)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.meButtonCancelar.sizePolicy().hasHeightForWidth())
+        self.meButtonCancelar.setSizePolicy(sizePolicy)
+        self.meButtonCancelar.setMinimumSize(QtCore.QSize(0, 37))
+        self.meButtonCancelar.setMaximumSize(QtCore.QSize(105, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.meButtonCancelar.setFont(font)
+        self.meButtonCancelar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.meButtonCancelar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.meButtonCancelar.setObjectName("meButtonCancelar")
+        self.meButtonConfirmar = QtWidgets.QPushButton(self.splitter_123)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.meButtonConfirmar.sizePolicy().hasHeightForWidth())
+        self.meButtonConfirmar.setSizePolicy(sizePolicy)
+        self.meButtonConfirmar.setMinimumSize(QtCore.QSize(0, 37))
+        self.meButtonConfirmar.setMaximumSize(QtCore.QSize(115, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.meButtonConfirmar.setFont(font)
+        self.meButtonConfirmar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.meButtonConfirmar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.meButtonConfirmar.setObjectName("meButtonConfirmar")
+        self.Label_6 = QtWidgets.QLabel(self.splitter_123)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_6.setFont(font)
+        self.Label_6.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_6.setText("")
+        self.Label_6.setObjectName("Label_6")
+        self.frame_40 = QtWidgets.QFrame(self.splitter_118)
+        self.frame_40.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_40.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_40.setObjectName("frame_40")
+        self.verticalLayout_14.addWidget(self.splitter_118)
+        self.stackedWidget.addWidget(self.pageMemoria)
+        self.pageDisco = QtWidgets.QWidget()
+        self.pageDisco.setObjectName("pageDisco")
+        self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.pageDisco)
+        self.verticalLayout_15.setObjectName("verticalLayout_15")
+        self.label_37 = QtWidgets.QLabel(self.pageDisco)
+        self.label_37.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_37.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_37.setFont(font)
+        self.label_37.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_37.setObjectName("label_37")
+        self.verticalLayout_15.addWidget(self.label_37)
+        self.splitter_112 = QtWidgets.QSplitter(self.pageDisco)
+        self.splitter_112.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_112.setObjectName("splitter_112")
+        self.frame_41 = QtWidgets.QFrame(self.splitter_112)
+        self.frame_41.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_41.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_41.setObjectName("frame_41")
+        self.splitter_106 = QtWidgets.QSplitter(self.splitter_112)
+        self.splitter_106.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_106.setObjectName("splitter_106")
+        self.frame_42 = QtWidgets.QFrame(self.splitter_106)
+        self.frame_42.setMinimumSize(QtCore.QSize(100, 100))
+        self.frame_42.setMaximumSize(QtCore.QSize(812, 16777215))
+        self.frame_42.setStyleSheet("background-image: url(:/controle/Controle/disco.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_42.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_42.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_42.setObjectName("frame_42")
+        self.disModelo = QtWidgets.QLineEdit(self.splitter_106)
+        self.disModelo.setMinimumSize(QtCore.QSize(0, 35))
+        self.disModelo.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.disModelo.setFont(font)
+        self.disModelo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.disModelo.setMaxLength(30)
+        self.disModelo.setAlignment(QtCore.Qt.AlignCenter)
+        self.disModelo.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.disModelo.setClearButtonEnabled(False)
+        self.disModelo.setObjectName("disModelo")
+        self.splitter_104 = QtWidgets.QSplitter(self.splitter_106)
+        self.splitter_104.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_104.setObjectName("splitter_104")
+        self.splitter_128 = QtWidgets.QSplitter(self.splitter_104)
+        self.splitter_128.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_128.setObjectName("splitter_128")
+        self.label_178 = QtWidgets.QLabel(self.splitter_128)
+        self.label_178.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_178.setFont(font)
+        self.label_178.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_178.setObjectName("label_178")
+        self.disMarca = QtWidgets.QLineEdit(self.splitter_128)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(5)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.disMarca.sizePolicy().hasHeightForWidth())
+        self.disMarca.setSizePolicy(sizePolicy)
+        self.disMarca.setMinimumSize(QtCore.QSize(0, 35))
+        self.disMarca.setMaximumSize(QtCore.QSize(245, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.disMarca.setFont(font)
+        self.disMarca.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.disMarca.setMaxLength(30)
+        self.disMarca.setObjectName("disMarca")
+        self.splitter_129 = QtWidgets.QSplitter(self.splitter_104)
+        self.splitter_129.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_129.setObjectName("splitter_129")
+        self.label_179 = QtWidgets.QLabel(self.splitter_129)
+        self.label_179.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_179.setFont(font)
+        self.label_179.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_179.setObjectName("label_179")
+        self.disCondicao = QtWidgets.QLineEdit(self.splitter_129)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.disCondicao.sizePolicy().hasHeightForWidth())
+        self.disCondicao.setSizePolicy(sizePolicy)
+        self.disCondicao.setMinimumSize(QtCore.QSize(0, 35))
+        self.disCondicao.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.disCondicao.setFont(font)
+        self.disCondicao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.disCondicao.setMaxLength(30)
+        self.disCondicao.setObjectName("disCondicao")
+        self.splitter_131 = QtWidgets.QSplitter(self.splitter_104)
+        self.splitter_131.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_131.setObjectName("splitter_131")
+        self.label_180 = QtWidgets.QLabel(self.splitter_131)
+        self.label_180.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_180.setFont(font)
+        self.label_180.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_180.setObjectName("label_180")
+        self.disValor = QtWidgets.QLineEdit(self.splitter_131)
+        self.disValor.setMinimumSize(QtCore.QSize(0, 35))
+        self.disValor.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.disValor.setFont(font)
+        self.disValor.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.disValor.setMaxLength(30)
+        self.disValor.setObjectName("disValor")
+        self.splitter_132 = QtWidgets.QSplitter(self.splitter_104)
+        self.splitter_132.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_132.setObjectName("splitter_132")
+        self.label_181 = QtWidgets.QLabel(self.splitter_132)
+        self.label_181.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_181.setFont(font)
+        self.label_181.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_181.setObjectName("label_181")
+        self.disBoxTipo = QtWidgets.QComboBox(self.splitter_132)
+        self.disBoxTipo.setMinimumSize(QtCore.QSize(100, 35))
+        self.disBoxTipo.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.disBoxTipo.setFont(font)
+        self.disBoxTipo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.disBoxTipo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;")
+        self.disBoxTipo.setObjectName("disBoxTipo")
+        self.disBoxTipo.addItem("")
+        self.disBoxTipo.setItemText(0, "")
+        self.disBoxTipo.addItem("")
+        self.disBoxTipo.addItem("")
+        self.splitter_102 = QtWidgets.QSplitter(self.splitter_104)
+        self.splitter_102.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_102.setObjectName("splitter_102")
+        self.label_225 = QtWidgets.QLabel(self.splitter_102)
+        self.label_225.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_225.setFont(font)
+        self.label_225.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_225.setObjectName("label_225")
+        self.disBoxTamanho = QtWidgets.QComboBox(self.splitter_102)
+        self.disBoxTamanho.setMinimumSize(QtCore.QSize(100, 0))
+        self.disBoxTamanho.setMaximumSize(QtCore.QSize(100, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        self.disBoxTamanho.setFont(font)
+        self.disBoxTamanho.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;")
+        self.disBoxTamanho.setObjectName("disBoxTamanho")
+        self.disBoxTamanho.addItem("")
+        self.disBoxTamanho.setItemText(0, "")
+        self.disBoxTamanho.addItem("")
+        self.disBoxTamanho.addItem("")
+        self.disBoxTamanho.addItem("")
+        self.disBoxTamanho.addItem("")
+        self.disBoxTamanho.addItem("")
+        self.disBoxTamanho.addItem("")
+        self.disBoxTamanho.addItem("")
+        self.disBoxTamanho.addItem("")
+        self.disBoxTamanho.addItem("")
+        self.disMotivo = QtWidgets.QFrame(self.splitter_106)
+        self.disMotivo.setMinimumSize(QtCore.QSize(0, 50))
+        self.disMotivo.setMaximumSize(QtCore.QSize(812, 100))
+        self.disMotivo.setStyleSheet("border: 2px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.disMotivo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.disMotivo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.disMotivo.setObjectName("disMotivo")
+        self.horizontalLayout_26 = QtWidgets.QHBoxLayout(self.disMotivo)
+        self.horizontalLayout_26.setObjectName("horizontalLayout_26")
+        self.label_39 = QtWidgets.QLabel(self.disMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_39.setFont(font)
+        self.label_39.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.label_39.setObjectName("label_39")
+        self.horizontalLayout_26.addWidget(self.label_39)
+        self.disRadioCompra = QtWidgets.QRadioButton(self.disMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.disRadioCompra.setFont(font)
+        self.disRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.disRadioCompra.setObjectName("disRadioCompra")
+        self.horizontalLayout_26.addWidget(self.disRadioCompra)
+        self.disRadioCadastro = QtWidgets.QRadioButton(self.disMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.disRadioCadastro.setFont(font)
+        self.disRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.disRadioCadastro.setObjectName("disRadioCadastro")
+        self.horizontalLayout_26.addWidget(self.disRadioCadastro)
+        self.disRadioProvisorio = QtWidgets.QRadioButton(self.disMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.disRadioProvisorio.setFont(font)
+        self.disRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.disRadioProvisorio.setObjectName("disRadioProvisorio")
+        self.horizontalLayout_26.addWidget(self.disRadioProvisorio)
+        self.disRadioOutro = QtWidgets.QRadioButton(self.disMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.disRadioOutro.setFont(font)
+        self.disRadioOutro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.disRadioOutro.setObjectName("disRadioOutro")
+        self.horizontalLayout_26.addWidget(self.disRadioOutro)
+        self.splitter_133 = QtWidgets.QSplitter(self.splitter_106)
+        self.splitter_133.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_133.setObjectName("splitter_133")
+        self.Label_7 = QtWidgets.QLabel(self.splitter_133)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_7.setFont(font)
+        self.Label_7.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_7.setText("")
+        self.Label_7.setObjectName("Label_7")
+        self.disButtonLimpar = QtWidgets.QPushButton(self.splitter_133)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.disButtonLimpar.sizePolicy().hasHeightForWidth())
+        self.disButtonLimpar.setSizePolicy(sizePolicy)
+        self.disButtonLimpar.setMinimumSize(QtCore.QSize(0, 37))
+        self.disButtonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.disButtonLimpar.setFont(font)
+        self.disButtonLimpar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.disButtonLimpar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.disButtonLimpar.setObjectName("disButtonLimpar")
+        self.disButtonTermo = QtWidgets.QPushButton(self.splitter_133)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.disButtonTermo.sizePolicy().hasHeightForWidth())
+        self.disButtonTermo.setSizePolicy(sizePolicy)
+        self.disButtonTermo.setMinimumSize(QtCore.QSize(0, 37))
+        self.disButtonTermo.setMaximumSize(QtCore.QSize(160, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.disButtonTermo.setFont(font)
+        self.disButtonTermo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.disButtonTermo.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.disButtonTermo.setObjectName("disButtonTermo")
+        self.disButtonCancelar = QtWidgets.QPushButton(self.splitter_133)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.disButtonCancelar.sizePolicy().hasHeightForWidth())
+        self.disButtonCancelar.setSizePolicy(sizePolicy)
+        self.disButtonCancelar.setMinimumSize(QtCore.QSize(0, 37))
+        self.disButtonCancelar.setMaximumSize(QtCore.QSize(105, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.disButtonCancelar.setFont(font)
+        self.disButtonCancelar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.disButtonCancelar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.disButtonCancelar.setObjectName("disButtonCancelar")
+        self.disButtonConfirmar = QtWidgets.QPushButton(self.splitter_133)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.disButtonConfirmar.sizePolicy().hasHeightForWidth())
+        self.disButtonConfirmar.setSizePolicy(sizePolicy)
+        self.disButtonConfirmar.setMinimumSize(QtCore.QSize(0, 37))
+        self.disButtonConfirmar.setMaximumSize(QtCore.QSize(115, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.disButtonConfirmar.setFont(font)
+        self.disButtonConfirmar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.disButtonConfirmar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.disButtonConfirmar.setObjectName("disButtonConfirmar")
+        self.Label_8 = QtWidgets.QLabel(self.splitter_133)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_8.setFont(font)
+        self.Label_8.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_8.setText("")
+        self.Label_8.setObjectName("Label_8")
+        self.frame_43 = QtWidgets.QFrame(self.splitter_112)
+        self.frame_43.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_43.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_43.setObjectName("frame_43")
+        self.verticalLayout_15.addWidget(self.splitter_112)
+        self.stackedWidget.addWidget(self.pageDisco)
+        self.pageMouse = QtWidgets.QWidget()
+        self.pageMouse.setObjectName("pageMouse")
+        self.verticalLayout_16 = QtWidgets.QVBoxLayout(self.pageMouse)
+        self.verticalLayout_16.setObjectName("verticalLayout_16")
+        self.label_51 = QtWidgets.QLabel(self.pageMouse)
+        self.label_51.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_51.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_51.setFont(font)
+        self.label_51.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_51.setObjectName("label_51")
+        self.verticalLayout_16.addWidget(self.label_51)
+        self.splitter_126 = QtWidgets.QSplitter(self.pageMouse)
+        self.splitter_126.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_126.setObjectName("splitter_126")
+        self.frame_45 = QtWidgets.QFrame(self.splitter_126)
+        self.frame_45.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_45.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_45.setObjectName("frame_45")
+        self.splitter_116 = QtWidgets.QSplitter(self.splitter_126)
+        self.splitter_116.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_116.setObjectName("splitter_116")
+        self.frame_46 = QtWidgets.QFrame(self.splitter_116)
+        self.frame_46.setMinimumSize(QtCore.QSize(100, 100))
+        self.frame_46.setMaximumSize(QtCore.QSize(812, 16777215))
+        self.frame_46.setStyleSheet("background-image: url(:/controle/Controle/mouse.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_46.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_46.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_46.setObjectName("frame_46")
+        self.mouModelo = QtWidgets.QLineEdit(self.splitter_116)
+        self.mouModelo.setMinimumSize(QtCore.QSize(0, 35))
+        self.mouModelo.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.mouModelo.setFont(font)
+        self.mouModelo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.mouModelo.setMaxLength(30)
+        self.mouModelo.setAlignment(QtCore.Qt.AlignCenter)
+        self.mouModelo.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.mouModelo.setClearButtonEnabled(False)
+        self.mouModelo.setObjectName("mouModelo")
+        self.splitter_117 = QtWidgets.QSplitter(self.splitter_116)
+        self.splitter_117.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_117.setObjectName("splitter_117")
+        self.splitter_134 = QtWidgets.QSplitter(self.splitter_117)
+        self.splitter_134.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_134.setObjectName("splitter_134")
+        self.label_182 = QtWidgets.QLabel(self.splitter_134)
+        self.label_182.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_182.setFont(font)
+        self.label_182.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_182.setObjectName("label_182")
+        self.mouMarca = QtWidgets.QLineEdit(self.splitter_134)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(5)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.mouMarca.sizePolicy().hasHeightForWidth())
+        self.mouMarca.setSizePolicy(sizePolicy)
+        self.mouMarca.setMinimumSize(QtCore.QSize(0, 35))
+        self.mouMarca.setMaximumSize(QtCore.QSize(16777215, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.mouMarca.setFont(font)
+        self.mouMarca.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.mouMarca.setMaxLength(30)
+        self.mouMarca.setObjectName("mouMarca")
+        self.splitter_136 = QtWidgets.QSplitter(self.splitter_117)
+        self.splitter_136.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_136.setObjectName("splitter_136")
+        self.label_183 = QtWidgets.QLabel(self.splitter_136)
+        self.label_183.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_183.setFont(font)
+        self.label_183.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_183.setObjectName("label_183")
+        self.mouCondicao = QtWidgets.QLineEdit(self.splitter_136)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.mouCondicao.sizePolicy().hasHeightForWidth())
+        self.mouCondicao.setSizePolicy(sizePolicy)
+        self.mouCondicao.setMinimumSize(QtCore.QSize(0, 35))
+        self.mouCondicao.setMaximumSize(QtCore.QSize(16777215, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.mouCondicao.setFont(font)
+        self.mouCondicao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.mouCondicao.setMaxLength(30)
+        self.mouCondicao.setObjectName("mouCondicao")
+        self.splitter_137 = QtWidgets.QSplitter(self.splitter_117)
+        self.splitter_137.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_137.setObjectName("splitter_137")
+        self.label_184 = QtWidgets.QLabel(self.splitter_137)
+        self.label_184.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_184.setFont(font)
+        self.label_184.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_184.setObjectName("label_184")
+        self.mouValor = QtWidgets.QLineEdit(self.splitter_137)
+        self.mouValor.setMinimumSize(QtCore.QSize(0, 35))
+        self.mouValor.setMaximumSize(QtCore.QSize(16777215, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.mouValor.setFont(font)
+        self.mouValor.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.mouValor.setMaxLength(30)
+        self.mouValor.setObjectName("mouValor")
+        self.splitter_138 = QtWidgets.QSplitter(self.splitter_117)
+        self.splitter_138.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_138.setObjectName("splitter_138")
+        self.label_185 = QtWidgets.QLabel(self.splitter_138)
+        self.label_185.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_185.setFont(font)
+        self.label_185.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_185.setObjectName("label_185")
+        self.mouBoxTipo = QtWidgets.QComboBox(self.splitter_138)
+        self.mouBoxTipo.setMinimumSize(QtCore.QSize(150, 35))
+        self.mouBoxTipo.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.mouBoxTipo.setFont(font)
+        self.mouBoxTipo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.mouBoxTipo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius: 5px;\n"
+"")
+        self.mouBoxTipo.setObjectName("mouBoxTipo")
+        self.mouBoxTipo.addItem("")
+        self.mouBoxTipo.setItemText(0, "")
+        self.mouBoxTipo.addItem("")
+        self.mouBoxTipo.addItem("")
+        self.mouMotivo = QtWidgets.QFrame(self.splitter_116)
+        self.mouMotivo.setMinimumSize(QtCore.QSize(0, 50))
+        self.mouMotivo.setMaximumSize(QtCore.QSize(812, 100))
+        self.mouMotivo.setStyleSheet("border: 2px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.mouMotivo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.mouMotivo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.mouMotivo.setObjectName("mouMotivo")
+        self.horizontalLayout_33 = QtWidgets.QHBoxLayout(self.mouMotivo)
+        self.horizontalLayout_33.setObjectName("horizontalLayout_33")
+        self.label_52 = QtWidgets.QLabel(self.mouMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_52.setFont(font)
+        self.label_52.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.label_52.setObjectName("label_52")
+        self.horizontalLayout_33.addWidget(self.label_52)
+        self.mouRadioCompra = QtWidgets.QRadioButton(self.mouMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mouRadioCompra.setFont(font)
+        self.mouRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.mouRadioCompra.setObjectName("mouRadioCompra")
+        self.horizontalLayout_33.addWidget(self.mouRadioCompra)
+        self.mouRadioCadastro = QtWidgets.QRadioButton(self.mouMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mouRadioCadastro.setFont(font)
+        self.mouRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.mouRadioCadastro.setObjectName("mouRadioCadastro")
+        self.horizontalLayout_33.addWidget(self.mouRadioCadastro)
+        self.mouRadioProvisorio = QtWidgets.QRadioButton(self.mouMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mouRadioProvisorio.setFont(font)
+        self.mouRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.mouRadioProvisorio.setObjectName("mouRadioProvisorio")
+        self.horizontalLayout_33.addWidget(self.mouRadioProvisorio)
+        self.mouRadioOutro = QtWidgets.QRadioButton(self.mouMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mouRadioOutro.setFont(font)
+        self.mouRadioOutro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.mouRadioOutro.setObjectName("mouRadioOutro")
+        self.horizontalLayout_33.addWidget(self.mouRadioOutro)
+        self.splitter_139 = QtWidgets.QSplitter(self.splitter_116)
+        self.splitter_139.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_139.setObjectName("splitter_139")
+        self.Label_9 = QtWidgets.QLabel(self.splitter_139)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_9.setFont(font)
+        self.Label_9.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_9.setText("")
+        self.Label_9.setObjectName("Label_9")
+        self.mouButtonLimpar = QtWidgets.QPushButton(self.splitter_139)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.mouButtonLimpar.sizePolicy().hasHeightForWidth())
+        self.mouButtonLimpar.setSizePolicy(sizePolicy)
+        self.mouButtonLimpar.setMinimumSize(QtCore.QSize(0, 37))
+        self.mouButtonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mouButtonLimpar.setFont(font)
+        self.mouButtonLimpar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.mouButtonLimpar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.mouButtonLimpar.setObjectName("mouButtonLimpar")
+        self.mouButtonTermo = QtWidgets.QPushButton(self.splitter_139)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.mouButtonTermo.sizePolicy().hasHeightForWidth())
+        self.mouButtonTermo.setSizePolicy(sizePolicy)
+        self.mouButtonTermo.setMinimumSize(QtCore.QSize(0, 37))
+        self.mouButtonTermo.setMaximumSize(QtCore.QSize(160, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mouButtonTermo.setFont(font)
+        self.mouButtonTermo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.mouButtonTermo.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.mouButtonTermo.setObjectName("mouButtonTermo")
+        self.mouButtonCancelar = QtWidgets.QPushButton(self.splitter_139)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.mouButtonCancelar.sizePolicy().hasHeightForWidth())
+        self.mouButtonCancelar.setSizePolicy(sizePolicy)
+        self.mouButtonCancelar.setMinimumSize(QtCore.QSize(0, 37))
+        self.mouButtonCancelar.setMaximumSize(QtCore.QSize(105, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mouButtonCancelar.setFont(font)
+        self.mouButtonCancelar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.mouButtonCancelar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.mouButtonCancelar.setObjectName("mouButtonCancelar")
+        self.mouButtonConfirmar = QtWidgets.QPushButton(self.splitter_139)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.mouButtonConfirmar.sizePolicy().hasHeightForWidth())
+        self.mouButtonConfirmar.setSizePolicy(sizePolicy)
+        self.mouButtonConfirmar.setMinimumSize(QtCore.QSize(0, 37))
+        self.mouButtonConfirmar.setMaximumSize(QtCore.QSize(115, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mouButtonConfirmar.setFont(font)
+        self.mouButtonConfirmar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.mouButtonConfirmar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.mouButtonConfirmar.setObjectName("mouButtonConfirmar")
+        self.Label_10 = QtWidgets.QLabel(self.splitter_139)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_10.setFont(font)
+        self.Label_10.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_10.setText("")
+        self.Label_10.setObjectName("Label_10")
+        self.frame_44 = QtWidgets.QFrame(self.splitter_126)
+        self.frame_44.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_44.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_44.setObjectName("frame_44")
+        self.verticalLayout_16.addWidget(self.splitter_126)
+        self.stackedWidget.addWidget(self.pageMouse)
+        self.pageOutros = QtWidgets.QWidget()
+        self.pageOutros.setObjectName("pageOutros")
+        self.verticalLayout_20 = QtWidgets.QVBoxLayout(self.pageOutros)
+        self.verticalLayout_20.setObjectName("verticalLayout_20")
+        self.label_62 = QtWidgets.QLabel(self.pageOutros)
+        self.label_62.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_62.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_62.setFont(font)
+        self.label_62.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_62.setObjectName("label_62")
+        self.verticalLayout_20.addWidget(self.label_62)
+        self.splitter_197 = QtWidgets.QSplitter(self.pageOutros)
+        self.splitter_197.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_197.setObjectName("splitter_197")
+        self.frame_60 = QtWidgets.QFrame(self.splitter_197)
+        self.frame_60.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_60.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_60.setObjectName("frame_60")
+        self.splitter_155 = QtWidgets.QSplitter(self.splitter_197)
+        self.splitter_155.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_155.setObjectName("splitter_155")
+        self.frame_61 = QtWidgets.QFrame(self.splitter_155)
+        self.frame_61.setMinimumSize(QtCore.QSize(100, 100))
+        self.frame_61.setMaximumSize(QtCore.QSize(812, 16777215))
+        self.frame_61.setStyleSheet("background-image: url(:/controle/Controle/outros.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_61.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_61.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_61.setObjectName("frame_61")
+        self.splitter_125 = QtWidgets.QSplitter(self.splitter_155)
+        self.splitter_125.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_125.setObjectName("splitter_125")
+        self.ouNome = QtWidgets.QLineEdit(self.splitter_125)
+        self.ouNome.setMinimumSize(QtCore.QSize(600, 35))
+        self.ouNome.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.ouNome.setFont(font)
+        self.ouNome.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.ouNome.setMaxLength(30)
+        self.ouNome.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.ouNome.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.ouNome.setClearButtonEnabled(False)
+        self.ouNome.setObjectName("ouNome")
+        self.ouMarca = QtWidgets.QLineEdit(self.splitter_125)
+        self.ouMarca.setMinimumSize(QtCore.QSize(150, 35))
+        self.ouMarca.setMaximumSize(QtCore.QSize(812, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.ouMarca.setFont(font)
+        self.ouMarca.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.ouMarca.setMaxLength(30)
+        self.ouMarca.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.ouMarca.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
+        self.ouMarca.setClearButtonEnabled(False)
+        self.ouMarca.setObjectName("ouMarca")
+        self.splitter_127 = QtWidgets.QSplitter(self.splitter_155)
+        self.splitter_127.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_127.setObjectName("splitter_127")
+        self.splitter_140 = QtWidgets.QSplitter(self.splitter_127)
+        self.splitter_140.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_140.setObjectName("splitter_140")
+        self.label_189 = QtWidgets.QLabel(self.splitter_140)
+        self.label_189.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_189.setFont(font)
+        self.label_189.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_189.setObjectName("label_189")
+        self.ouModelo = QtWidgets.QLineEdit(self.splitter_140)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(5)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.ouModelo.sizePolicy().hasHeightForWidth())
+        self.ouModelo.setSizePolicy(sizePolicy)
+        self.ouModelo.setMinimumSize(QtCore.QSize(0, 35))
+        self.ouModelo.setMaximumSize(QtCore.QSize(16777215, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.ouModelo.setFont(font)
+        self.ouModelo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.ouModelo.setMaxLength(30)
+        self.ouModelo.setObjectName("ouModelo")
+        self.splitter_141 = QtWidgets.QSplitter(self.splitter_127)
+        self.splitter_141.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_141.setObjectName("splitter_141")
+        self.label_204 = QtWidgets.QLabel(self.splitter_141)
+        self.label_204.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_204.setFont(font)
+        self.label_204.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_204.setObjectName("label_204")
+        self.ouCondicao = QtWidgets.QLineEdit(self.splitter_141)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.ouCondicao.sizePolicy().hasHeightForWidth())
+        self.ouCondicao.setSizePolicy(sizePolicy)
+        self.ouCondicao.setMinimumSize(QtCore.QSize(0, 35))
+        self.ouCondicao.setMaximumSize(QtCore.QSize(16777215, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.ouCondicao.setFont(font)
+        self.ouCondicao.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.ouCondicao.setMaxLength(30)
+        self.ouCondicao.setObjectName("ouCondicao")
+        self.splitter_142 = QtWidgets.QSplitter(self.splitter_127)
+        self.splitter_142.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_142.setObjectName("splitter_142")
+        self.label_226 = QtWidgets.QLabel(self.splitter_142)
+        self.label_226.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_226.setFont(font)
+        self.label_226.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_226.setObjectName("label_226")
+        self.ouValor = QtWidgets.QLineEdit(self.splitter_142)
+        self.ouValor.setMinimumSize(QtCore.QSize(0, 35))
+        self.ouValor.setMaximumSize(QtCore.QSize(150, 40))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(11)
+        self.ouValor.setFont(font)
+        self.ouValor.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:1px;\n"
+"border-radius:5px")
+        self.ouValor.setMaxLength(30)
+        self.ouValor.setObjectName("ouValor")
+        self.ouMotivo = QtWidgets.QFrame(self.splitter_155)
+        self.ouMotivo.setMinimumSize(QtCore.QSize(0, 50))
+        self.ouMotivo.setMaximumSize(QtCore.QSize(812, 100))
+        self.ouMotivo.setStyleSheet("border: 2px solid;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
+        self.ouMotivo.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.ouMotivo.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.ouMotivo.setObjectName("ouMotivo")
+        self.horizontalLayout_38 = QtWidgets.QHBoxLayout(self.ouMotivo)
+        self.horizontalLayout_38.setObjectName("horizontalLayout_38")
+        self.label_63 = QtWidgets.QLabel(self.ouMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_63.setFont(font)
+        self.label_63.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.label_63.setObjectName("label_63")
+        self.horizontalLayout_38.addWidget(self.label_63)
+        self.ouRadioCompra = QtWidgets.QRadioButton(self.ouMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ouRadioCompra.setFont(font)
+        self.ouRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.ouRadioCompra.setObjectName("ouRadioCompra")
+        self.horizontalLayout_38.addWidget(self.ouRadioCompra)
+        self.ouRadioCadastro = QtWidgets.QRadioButton(self.ouMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ouRadioCadastro.setFont(font)
+        self.ouRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.ouRadioCadastro.setObjectName("ouRadioCadastro")
+        self.horizontalLayout_38.addWidget(self.ouRadioCadastro)
+        self.ouRadioProvisorio = QtWidgets.QRadioButton(self.ouMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ouRadioProvisorio.setFont(font)
+        self.ouRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.ouRadioProvisorio.setObjectName("ouRadioProvisorio")
+        self.horizontalLayout_38.addWidget(self.ouRadioProvisorio)
+        self.ouRadioOutro = QtWidgets.QRadioButton(self.ouMotivo)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ouRadioOutro.setFont(font)
+        self.ouRadioOutro.setStyleSheet("color: rgb(255, 255, 255);\n"
+"border: no border")
+        self.ouRadioOutro.setObjectName("ouRadioOutro")
+        self.horizontalLayout_38.addWidget(self.ouRadioOutro)
+        self.splitter_195 = QtWidgets.QSplitter(self.splitter_155)
+        self.splitter_195.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_195.setObjectName("splitter_195")
+        self.Label_17 = QtWidgets.QLabel(self.splitter_195)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_17.setFont(font)
+        self.Label_17.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_17.setText("")
+        self.Label_17.setObjectName("Label_17")
+        self.ouButtonLimpar = QtWidgets.QPushButton(self.splitter_195)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.ouButtonLimpar.sizePolicy().hasHeightForWidth())
+        self.ouButtonLimpar.setSizePolicy(sizePolicy)
+        self.ouButtonLimpar.setMinimumSize(QtCore.QSize(0, 37))
+        self.ouButtonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ouButtonLimpar.setFont(font)
+        self.ouButtonLimpar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.ouButtonLimpar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.ouButtonLimpar.setObjectName("ouButtonLimpar")
+        self.ouButtonTermo = QtWidgets.QPushButton(self.splitter_195)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.ouButtonTermo.sizePolicy().hasHeightForWidth())
+        self.ouButtonTermo.setSizePolicy(sizePolicy)
+        self.ouButtonTermo.setMinimumSize(QtCore.QSize(0, 37))
+        self.ouButtonTermo.setMaximumSize(QtCore.QSize(160, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ouButtonTermo.setFont(font)
+        self.ouButtonTermo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.ouButtonTermo.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.ouButtonTermo.setObjectName("ouButtonTermo")
+        self.ouButtonCancelar = QtWidgets.QPushButton(self.splitter_195)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.ouButtonCancelar.sizePolicy().hasHeightForWidth())
+        self.ouButtonCancelar.setSizePolicy(sizePolicy)
+        self.ouButtonCancelar.setMinimumSize(QtCore.QSize(0, 37))
+        self.ouButtonCancelar.setMaximumSize(QtCore.QSize(105, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ouButtonCancelar.setFont(font)
+        self.ouButtonCancelar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.ouButtonCancelar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.ouButtonCancelar.setObjectName("ouButtonCancelar")
+        self.ouButtonConfirmar = QtWidgets.QPushButton(self.splitter_195)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.ouButtonConfirmar.sizePolicy().hasHeightForWidth())
+        self.ouButtonConfirmar.setSizePolicy(sizePolicy)
+        self.ouButtonConfirmar.setMinimumSize(QtCore.QSize(0, 37))
+        self.ouButtonConfirmar.setMaximumSize(QtCore.QSize(115, 50))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ouButtonConfirmar.setFont(font)
+        self.ouButtonConfirmar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.ouButtonConfirmar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px;\n"
+"    border-radius: 10px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(0, 73, 85);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(0, 64, 74);\n"
+"    color: rgb(98, 98, 98);\n"
+"}\n"
+"")
+        self.ouButtonConfirmar.setObjectName("ouButtonConfirmar")
+        self.Label_18 = QtWidgets.QLabel(self.splitter_195)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        self.Label_18.setFont(font)
+        self.Label_18.setStyleSheet("color: rgb(255, 255, 255);")
+        self.Label_18.setText("")
+        self.Label_18.setObjectName("Label_18")
+        self.frame_62 = QtWidgets.QFrame(self.splitter_197)
+        self.frame_62.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_62.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_62.setObjectName("frame_62")
+        self.verticalLayout_20.addWidget(self.splitter_197)
+        self.stackedWidget.addWidget(self.pageOutros)
         self.verticalLayout_2.addWidget(self.stackedWidget)
         self.horizontalLayout_4.addWidget(self.frameContainerBody)
         self.frame_6 = QtWidgets.QFrame(self.frameBody)
@@ -4643,7 +8920,7 @@ class Ui_MainControle(object):
         MainControle.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainControle)
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainControle)
 
     def retranslateUi(self, MainControle):
@@ -4659,6 +8936,83 @@ class Ui_MainControle(object):
         self.pushButtonUser.setText(_translate("MainControle", "USUARIO"))
         self.pushButtonCadastro.setText(_translate("MainControle", "CADASTRO"))
         self.pushButtonHistorico.setText(_translate("MainControle", "HISTORICO"))
+        self.label_66.setText(_translate("MainControle", "EM DESENVOLVIMENTO"))
+        self.label_67.setText(_translate("MainControle", "EM DESENVOLVIMENTO"))
+        self.label_53.setText(_translate("MainControle", "  MOUSE PAD"))
+        self.padModelo.setPlaceholderText(_translate("MainControle", "Modelo"))
+        self.label_186.setText(_translate("MainControle", "Marca:"))
+        self.padMarca.setPlaceholderText(_translate("MainControle", " Husky"))
+        self.label_187.setText(_translate("MainControle", "Condição:"))
+        self.padCondicao.setPlaceholderText(_translate("MainControle", " novo"))
+        self.label_188.setText(_translate("MainControle", "Valor:"))
+        self.padPreco.setPlaceholderText(_translate("MainControle", " 39,90"))
+        self.label_54.setText(_translate("MainControle", " MOTIVO"))
+        self.padRadioCompra.setText(_translate("MainControle", "compra"))
+        self.padRadioCadastro.setText(_translate("MainControle", "cadastro"))
+        self.padRadioProvisorio.setText(_translate("MainControle", "provisorio"))
+        self.padRadioOutro.setText(_translate("MainControle", "outros"))
+        self.padButtonLimpar.setText(_translate("MainControle", "LIMPAR"))
+        self.padButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
+        self.padButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
+        self.padButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
+        self.label_55.setText(_translate("MainControle", "  TECLADO"))
+        self.telModelo.setPlaceholderText(_translate("MainControle", "Modelo"))
+        self.label_190.setText(_translate("MainControle", "Marca:"))
+        self.telMarca.setPlaceholderText(_translate("MainControle", " Logitech"))
+        self.label_191.setText(_translate("MainControle", "Condição:"))
+        self.telCondicao.setPlaceholderText(_translate("MainControle", " novo"))
+        self.label_192.setText(_translate("MainControle", "Valor:"))
+        self.telValor.setPlaceholderText(_translate("MainControle", " 69,90"))
+        self.label_193.setText(_translate("MainControle", "Tipo:"))
+        self.telBoxTipo.setItemText(1, _translate("MainControle", "NO-WIRELESS"))
+        self.telBoxTipo.setItemText(2, _translate("MainControle", "WIRELESS"))
+        self.label_56.setText(_translate("MainControle", " MOTIVO"))
+        self.telRadioCompra.setText(_translate("MainControle", "compra"))
+        self.telRadioCadastro.setText(_translate("MainControle", "cadastro"))
+        self.telRadioProvisorio.setText(_translate("MainControle", "provisorio"))
+        self.telRadioOutro.setText(_translate("MainControle", "outros"))
+        self.telButtonLimpar.setText(_translate("MainControle", "LIMPAR"))
+        self.telButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
+        self.telButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
+        self.telButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
+        self.label_60.setText(_translate("MainControle", "  SUPORTE"))
+        self.supModelo.setPlaceholderText(_translate("MainControle", "Modelo"))
+        self.label_194.setText(_translate("MainControle", "Marca:"))
+        self.supMarca.setPlaceholderText(_translate("MainControle", " MASTICMOL"))
+        self.label_195.setText(_translate("MainControle", "Condição:"))
+        self.supCondicao.setPlaceholderText(_translate("MainControle", " novo"))
+        self.label_203.setText(_translate("MainControle", "Valor:"))
+        self.supValor.setPlaceholderText(_translate("MainControle", " 29,90"))
+        self.label_59.setText(_translate("MainControle", " MOTIVO"))
+        self.supRadioCompra.setText(_translate("MainControle", "compra"))
+        self.supRadioCadastro.setText(_translate("MainControle", "cadastro"))
+        self.supRadioProvisorio.setText(_translate("MainControle", "provisorio"))
+        self.supRadioOutro.setText(_translate("MainControle", "outros"))
+        self.supButtonLimpar.setText(_translate("MainControle", "LIMPAR"))
+        self.supButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
+        self.supButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
+        self.supButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
+        self.label_71.setText(_translate("MainControle", "HISTORICO:"))
+        self.LineEditPesHistorico.setPlaceholderText(_translate("MainControle", "Pesquisar"))
+        item = self.tableWidgetHistorico.horizontalHeaderItem(0)
+        item.setText(_translate("MainControle", "USER"))
+        item = self.tableWidgetHistorico.horizontalHeaderItem(1)
+        item.setText(_translate("MainControle", "STATUS"))
+        item = self.tableWidgetHistorico.horizontalHeaderItem(2)
+        item.setText(_translate("MainControle", "ITEM"))
+        item = self.tableWidgetHistorico.horizontalHeaderItem(3)
+        item.setText(_translate("MainControle", "ID"))
+        item = self.tableWidgetHistorico.horizontalHeaderItem(4)
+        item.setText(_translate("MainControle", "MARCA"))
+        item = self.tableWidgetHistorico.horizontalHeaderItem(5)
+        item.setText(_translate("MainControle", "MODELO"))
+        item = self.tableWidgetHistorico.horizontalHeaderItem(6)
+        item.setText(_translate("MainControle", "MOTIVO"))
+        item = self.tableWidgetHistorico.horizontalHeaderItem(7)
+        item.setText(_translate("MainControle", "LOCAL"))
+        item = self.tableWidgetHistorico.horizontalHeaderItem(8)
+        item.setText(_translate("MainControle", "DATA"))
+        self.ButtonHistoricoAtualizar.setText(_translate("MainControle", "ATUALIZAR"))
         self.label_96.setText(_translate("MainControle", "MOVIMENTAR"))
         self.label_101.setText(_translate("MainControle", "VISUALIZAR"))
         self.label_97.setText(_translate("MainControle", "BAIXA"))
@@ -4671,6 +9025,13 @@ class Ui_MainControle(object):
 "para gestão de itens e periféricos controle,\n"
 " visualização e transferência do setor."))
         self.label_3.setText(_translate("MainControle", "Bem vindo ao modulo de cadastramento de\n"
+"novos itens do setor de tecnologia.\n"
+"\n"
+"Aqui você poderá cadastrar itens não existentes\n"
+"na base da cooperativa. Caso oque não seja essa\n"
+" a sua intenção tente o modulo de estoque."))
+        self.label_61.setText(_translate("MainControle", "PERIFÉRICOS"))
+        self.label_30.setText(_translate("MainControle", "Bem vindo ao modulo de cadastramento de\n"
 "novos itens do setor de tecnologia.\n"
 "\n"
 "Aqui você poderá cadastrar itens não existentes\n"
@@ -4943,7 +9304,175 @@ class Ui_MainControle(object):
         self.topButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
         self.topButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
         self.topButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
-
+        self.label_28.setText(_translate("MainControle", "  MONITOR"))
+        self.moModelo.setPlaceholderText(_translate("MainControle", "Modelo"))
+        self.label_157.setText(_translate("MainControle", "Marca:"))
+        self.moMarca.setPlaceholderText(_translate("MainControle", " DELL"))
+        self.label_159.setText(_translate("MainControle", "Condição:"))
+        self.moCondicao.setPlaceholderText(_translate("MainControle", " novo"))
+        self.label_160.setText(_translate("MainControle", "Valor:"))
+        self.moValor.setPlaceholderText(_translate("MainControle", " 649,90"))
+        self.label_161.setText(_translate("MainControle", "Tamanho:"))
+        self.moBoxTamanho.setItemText(1, _translate("MainControle", "14"))
+        self.moBoxTamanho.setItemText(2, _translate("MainControle", "15"))
+        self.moBoxTamanho.setItemText(3, _translate("MainControle", "16"))
+        self.moBoxTamanho.setItemText(4, _translate("MainControle", "17"))
+        self.moBoxTamanho.setItemText(5, _translate("MainControle", "18"))
+        self.moBoxTamanho.setItemText(6, _translate("MainControle", "19"))
+        self.label_29.setText(_translate("MainControle", " MOTIVO"))
+        self.moRadioCompra.setText(_translate("MainControle", "compra"))
+        self.moRadioCadastro.setText(_translate("MainControle", "cadastro"))
+        self.moRadioProvisorio.setText(_translate("MainControle", "provisorio"))
+        self.moRadioOutros.setText(_translate("MainControle", "outros"))
+        self.moButtonLimpar.setText(_translate("MainControle", "LIMPAR"))
+        self.moButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
+        self.moButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
+        self.moButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
+        self.label_32.setText(_translate("MainControle", "  WINDOWS"))
+        self.winCod.setPlaceholderText(_translate("MainControle", "TND98-PM9HM-QB6BR-KFGX9-2HT66"))
+        self.label_165.setText(_translate("MainControle", "Versão do Produto:"))
+        self.winVersao.setPlaceholderText(_translate("MainControle", "  Windows 10 Pro"))
+        self.label_167.setText(_translate("MainControle", "Valor:"))
+        self.winValor.setPlaceholderText(_translate("MainControle", " 759,90"))
+        self.label_168.setText(_translate("MainControle", "Versão:"))
+        self.winBoxVersao.setItemText(1, _translate("MainControle", "Windows 95"))
+        self.winBoxVersao.setItemText(2, _translate("MainControle", "Windows 98"))
+        self.winBoxVersao.setItemText(3, _translate("MainControle", "Windows XP"))
+        self.winBoxVersao.setItemText(4, _translate("MainControle", "Windows Vista"))
+        self.winBoxVersao.setItemText(5, _translate("MainControle", "Windows 7"))
+        self.winBoxVersao.setItemText(6, _translate("MainControle", "Windows 8"))
+        self.winBoxVersao.setItemText(7, _translate("MainControle", "Windows 8.1"))
+        self.winBoxVersao.setItemText(8, _translate("MainControle", "Windows 10"))
+        self.winBoxVersao.setItemText(9, _translate("MainControle", "Windows 11"))
+        self.winBoxVersao.setItemText(11, _translate("MainControle", "Windows Server 2003"))
+        self.winBoxVersao.setItemText(12, _translate("MainControle", "Windows Server 2008"))
+        self.winBoxVersao.setItemText(13, _translate("MainControle", "Windows Server 2011"))
+        self.winBoxVersao.setItemText(14, _translate("MainControle", "Windows Server 2012"))
+        self.winBoxVersao.setItemText(15, _translate("MainControle", "Windows Server 2016"))
+        self.winBoxVersao.setItemText(16, _translate("MainControle", "Windows Server 2019"))
+        self.winBoxVersao.setItemText(17, _translate("MainControle", "Windows Server 2022"))
+        self.label_31.setText(_translate("MainControle", " MOTIVO"))
+        self.winRadioCompra.setText(_translate("MainControle", "compra"))
+        self.winRadioCadastro.setText(_translate("MainControle", "cadastro"))
+        self.winRadioProvisorio.setText(_translate("MainControle", "provisorio"))
+        self.winRadioOutro.setText(_translate("MainControle", "outros"))
+        self.winButtonLimpar.setText(_translate("MainControle", "LIMPAR"))
+        self.winButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
+        self.winButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
+        self.winButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
+        self.label_33.setText(_translate("MainControle", "  OFFICE"))
+        self.offCod.setPlaceholderText(_translate("MainControle", "TND98-PM9HM-QB6BR-KFGX9-2HT66"))
+        self.label_169.setText(_translate("MainControle", "Versão do Produto:"))
+        self.offVersao.setPlaceholderText(_translate("MainControle", " Home & Business 2016"))
+        self.label_171.setText(_translate("MainControle", "Valor:"))
+        self.offValor.setPlaceholderText(_translate("MainControle", " 759,90"))
+        self.label_172.setText(_translate("MainControle", "Versão:"))
+        self.offBoxVersao.setItemText(1, _translate("MainControle", "Office 2013"))
+        self.offBoxVersao.setItemText(2, _translate("MainControle", "Office 2016"))
+        self.offBoxVersao.setItemText(3, _translate("MainControle", "Office 2019"))
+        self.offBoxVersao.setItemText(4, _translate("MainControle", "Office 356"))
+        self.label_34.setText(_translate("MainControle", " MOTIVO"))
+        self.offRadioCompra.setText(_translate("MainControle", "compra"))
+        self.offRadioCadastro.setText(_translate("MainControle", "cadastro"))
+        self.offRadioProvisorio.setText(_translate("MainControle", "provisorio"))
+        self.offRadioOutro.setText(_translate("MainControle", "outros"))
+        self.offButtonLimpar.setText(_translate("MainControle", "LIMPAR"))
+        self.offButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
+        self.offButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
+        self.offButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
+        self.label_35.setText(_translate("MainControle", "  MEMORIA"))
+        self.meMarca.setPlaceholderText(_translate("MainControle", " Marca"))
+        self.meBarramento.setPlaceholderText(_translate("MainControle", " Barramento"))
+        self.label_173.setText(_translate("MainControle", "Condição:"))
+        self.meCondicao.setPlaceholderText(_translate("MainControle", " Novo"))
+        self.label_176.setText(_translate("MainControle", "Valor:"))
+        self.meValor.setPlaceholderText(_translate("MainControle", " 259,90"))
+        self.label_177.setText(_translate("MainControle", "Plataforma:"))
+        self.meBoxPlataforma.setItemText(1, _translate("MainControle", "DESKTOP"))
+        self.meBoxPlataforma.setItemText(2, _translate("MainControle", "NOTEBOOK"))
+        self.label_227.setText(_translate("MainControle", "Tamanho:"))
+        self.meBoxTamanho.setItemText(1, _translate("MainControle", "2GB"))
+        self.meBoxTamanho.setItemText(2, _translate("MainControle", "4GB"))
+        self.meBoxTamanho.setItemText(3, _translate("MainControle", "8GB"))
+        self.meBoxTamanho.setItemText(4, _translate("MainControle", "16GB"))
+        self.meBoxTamanho.setItemText(5, _translate("MainControle", "32GB"))
+        self.label_36.setText(_translate("MainControle", " MOTIVO"))
+        self.meRadioCompra.setText(_translate("MainControle", "compra"))
+        self.meRadioCadastro.setText(_translate("MainControle", "cadastro"))
+        self.meRadioProvisorio.setText(_translate("MainControle", "provisorio"))
+        self.meRadioOutro.setText(_translate("MainControle", "outros"))
+        self.meButtonLimpar.setText(_translate("MainControle", "LIMPAR"))
+        self.meButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
+        self.meButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
+        self.meButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
+        self.label_37.setText(_translate("MainControle", "  DISCO"))
+        self.disModelo.setPlaceholderText(_translate("MainControle", "Modelo"))
+        self.label_178.setText(_translate("MainControle", "Marca:"))
+        self.disMarca.setPlaceholderText(_translate("MainControle", " Kingston"))
+        self.label_179.setText(_translate("MainControle", "Condição:"))
+        self.disCondicao.setPlaceholderText(_translate("MainControle", " novo"))
+        self.label_180.setText(_translate("MainControle", "Valor:"))
+        self.disValor.setPlaceholderText(_translate("MainControle", " 259,90"))
+        self.label_181.setText(_translate("MainControle", "Tipo:"))
+        self.disBoxTipo.setItemText(1, _translate("MainControle", "HD"))
+        self.disBoxTipo.setItemText(2, _translate("MainControle", "SSD"))
+        self.label_225.setText(_translate("MainControle", "Tamanho:"))
+        self.disBoxTamanho.setItemText(1, _translate("MainControle", "128"))
+        self.disBoxTamanho.setItemText(2, _translate("MainControle", "256"))
+        self.disBoxTamanho.setItemText(3, _translate("MainControle", "512"))
+        self.disBoxTamanho.setItemText(4, _translate("MainControle", "720"))
+        self.disBoxTamanho.setItemText(5, _translate("MainControle", "1000"))
+        self.disBoxTamanho.setItemText(6, _translate("MainControle", "2000"))
+        self.disBoxTamanho.setItemText(7, _translate("MainControle", "4000"))
+        self.disBoxTamanho.setItemText(8, _translate("MainControle", "6000"))
+        self.disBoxTamanho.setItemText(9, _translate("MainControle", "10000"))
+        self.label_39.setText(_translate("MainControle", " MOTIVO"))
+        self.disRadioCompra.setText(_translate("MainControle", "compra"))
+        self.disRadioCadastro.setText(_translate("MainControle", "cadastro"))
+        self.disRadioProvisorio.setText(_translate("MainControle", "provisorio"))
+        self.disRadioOutro.setText(_translate("MainControle", "outros"))
+        self.disButtonLimpar.setText(_translate("MainControle", "LIMPAR"))
+        self.disButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
+        self.disButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
+        self.disButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
+        self.label_51.setText(_translate("MainControle", "  MOUSE"))
+        self.mouModelo.setPlaceholderText(_translate("MainControle", "Modelo"))
+        self.label_182.setText(_translate("MainControle", "Marca:"))
+        self.mouMarca.setPlaceholderText(_translate("MainControle", " Logitech"))
+        self.label_183.setText(_translate("MainControle", "Condição:"))
+        self.mouCondicao.setPlaceholderText(_translate("MainControle", " novo"))
+        self.label_184.setText(_translate("MainControle", "Valor:"))
+        self.mouValor.setPlaceholderText(_translate("MainControle", " 149,99"))
+        self.label_185.setText(_translate("MainControle", "Tipo:"))
+        self.mouBoxTipo.setItemText(1, _translate("MainControle", "NO-WIRELESS"))
+        self.mouBoxTipo.setItemText(2, _translate("MainControle", "WIRELESS"))
+        self.label_52.setText(_translate("MainControle", " MOTIVO"))
+        self.mouRadioCompra.setText(_translate("MainControle", "compra"))
+        self.mouRadioCadastro.setText(_translate("MainControle", "cadastro"))
+        self.mouRadioProvisorio.setText(_translate("MainControle", "provisorio"))
+        self.mouRadioOutro.setText(_translate("MainControle", "outros"))
+        self.mouButtonLimpar.setText(_translate("MainControle", "LIMPAR"))
+        self.mouButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
+        self.mouButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
+        self.mouButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
+        self.label_62.setText(_translate("MainControle", "  OUTROS"))
+        self.ouNome.setPlaceholderText(_translate("MainControle", " Nome"))
+        self.ouMarca.setPlaceholderText(_translate("MainControle", " Marca"))
+        self.label_189.setText(_translate("MainControle", "Modelo:"))
+        self.ouModelo.setPlaceholderText(_translate("MainControle", " Logitech"))
+        self.label_204.setText(_translate("MainControle", "Condição:"))
+        self.ouCondicao.setPlaceholderText(_translate("MainControle", " novo"))
+        self.label_226.setText(_translate("MainControle", "Valor:"))
+        self.ouValor.setPlaceholderText(_translate("MainControle", " 149,99"))
+        self.label_63.setText(_translate("MainControle", " MOTIVO"))
+        self.ouRadioCompra.setText(_translate("MainControle", "compra"))
+        self.ouRadioCadastro.setText(_translate("MainControle", "cadastro"))
+        self.ouRadioProvisorio.setText(_translate("MainControle", "provisorio"))
+        self.ouRadioOutro.setText(_translate("MainControle", "outros"))
+        self.ouButtonLimpar.setText(_translate("MainControle", "LIMPAR"))
+        self.ouButtonTermo.setText(_translate("MainControle", "IMPRIMIR TERMO"))
+        self.ouButtonCancelar.setText(_translate("MainControle", "CANCELAR"))
+        self.ouButtonConfirmar.setText(_translate("MainControle", "CONFIRMAR"))
 import cadastro_rc
 
 

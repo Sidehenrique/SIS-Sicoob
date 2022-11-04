@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="cad">
+    <file>Controle/Grupo 777.png</file>
     <file>Controle/cadastro/baixa.png</file>
     <file>Controle/cadastro/baixahover.png</file>
     <file>Controle/cadastro/baixapress.png</file>
@@ -42,5 +43,27 @@
     <file>Controle/novo/office.png</file>
     <file>Controle/novo/perifericos.png</file>
     <file>Controle/novo/windows.png</file>
+  </qresource>
+  <qresource prefix="controle">
+    <file>Controle/outros.png</file>
+    <file>Controle/disco.png</file>
+    <file>Controle/memoria.png</file>
+    <file>Controle/mouse pad.png</file>
+    <file>Controle/mouse.png</file>
+    <file>Controle/office.png</file>
+    <file>Controle/suporte.png</file>
+    <file>Controle/teclado.png</file>
+    <file>Controle/windows.png</file>
+    <file>Controle/monitor.png</file>
+  </qresource>
+  <qresource prefix="perifericos">
+    <file>Controle/perifericos/disco.png</file>
+    <file>Controle/perifericos/menoria.png</file>
+    <file>Controle/perifericos/mouse pad.png</file>
+    <file>Controle/perifericos/mouse.png</file>
+    <file>Controle/perifericos/outros.png</file>
+    <file>Controle/perifericos/perifericos.png</file>
+    <file>Controle/perifericos/suporte.png</file>
+    <file>Controle/perifericos/teclado.png</file>
   </qresource>
 </RCC>
