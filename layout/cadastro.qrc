@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="cad">
+    <file>login/LOGOQ.png</file>
     <file>Controle/Grupo 777.png</file>
     <file>Controle/cadastro/baixa.png</file>
     <file>Controle/cadastro/baixahover.png</file>

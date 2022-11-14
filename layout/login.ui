@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1392</width>
-    <height>714</height>
+    <width>889</width>
+    <height>576</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -418,13 +418,13 @@ QPushButton:pressed {
              <property name="geometry">
               <rect>
                <x>36</x>
-               <y>100</y>
+               <y>90</y>
                <width>226</width>
-               <height>68</height>
+               <height>91</height>
               </rect>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-image: url(:/logo/LOGO.png);</string>
+              <string notr="true">background-image: url(:/logo/login/LOGOH.png);</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -436,9 +436,9 @@ QPushButton:pressed {
             <widget class="QLabel" name="label">
              <property name="geometry">
               <rect>
-               <x>20</x>
+               <x>10</x>
                <y>420</y>
-               <width>261</width>
+               <width>281</width>
                <height>20</height>
               </rect>
              </property>
@@ -452,7 +452,7 @@ QPushButton:pressed {
               <string notr="true">color: rgb(208, 208, 208);</string>
              </property>
              <property name="text">
-              <string>© 2022 Comunication Technological Solution</string>
+              <string>© 2022 TIC - Tecnologia Inovação e Comunicação.</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>

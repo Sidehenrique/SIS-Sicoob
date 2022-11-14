@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainLogin(object):
     def setupUi(self, MainLogin):
         MainLogin.setObjectName("MainLogin")
-        MainLogin.resize(1392, 714)
+        MainLogin.resize(889, 576)
         self.centralwidget = QtWidgets.QWidget(MainLogin)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -198,13 +198,13 @@ class Ui_MainLogin(object):
 "")
         self.ENTER.setObjectName("ENTER")
         self.frame = QtWidgets.QFrame(self.frame_login)
-        self.frame.setGeometry(QtCore.QRect(36, 100, 226, 68))
-        self.frame.setStyleSheet("background-image: url(:/logo/LOGO.png);")
+        self.frame.setGeometry(QtCore.QRect(36, 90, 226, 91))
+        self.frame.setStyleSheet("background-image: url(:/logo/login/LOGOH.png);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.label = QtWidgets.QLabel(self.frame_login)
-        self.label.setGeometry(QtCore.QRect(20, 420, 261, 20))
+        self.label.setGeometry(QtCore.QRect(10, 420, 281, 20))
         self.label.setMaximumSize(QtCore.QSize(16777215, 30))
         self.label.setStyleSheet("color: rgb(208, 208, 208);")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
@@ -234,7 +234,7 @@ class Ui_MainLogin(object):
         self.lineEdit.setPlaceholderText(_translate("MainLogin", "Usuario"))
         self.lineEdit_3.setPlaceholderText(_translate("MainLogin", "Senha"))
         self.ENTER.setText(_translate("MainLogin", "ENTRAR"))
-        self.label.setText(_translate("MainLogin", "© 2022 Comunication Technological Solution"))
+        self.label.setText(_translate("MainLogin", "© 2022 TIC - Tecnologia Inovação e Comunicação."))
 import iconesLogin_rc
 
 

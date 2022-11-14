@@ -1,1 +1,61 @@
-<RCC/>
+<RCC>
+  <qresource prefix="logo">
+    <file>login/LOGOQ.png</file>
+  </qresource>
+  <qresource prefix="gestao">
+    <file>estoque/preset/01.png</file>
+    <file>estoque/preset/02.png</file>
+    <file>estoque/preset/03.png</file>
+    <file>estoque/preset/06.png</file>
+    <file>estoque/hover/01.png</file>
+    <file>estoque/hover/02.png</file>
+    <file>estoque/hover/03.png</file>
+    <file>estoque/hover/06.png</file>
+    <file>estoque/icons/01.png</file>
+    <file>estoque/icons/02.png</file>
+    <file>estoque/icons/03.png</file>
+    <file>estoque/icons/06.png</file>
+    <file>estoque/icons/Grupo 324@2x.png</file>
+    <file>estoque/icons/Grupo 325@2x.png</file>
+    <file>estoque/icons/Grupo 327@2x.png</file>
+    <file>estoque/icons/Grupo 330@2x.png</file>
+  </qresource>
+  <qresource prefix="home">
+    <file>estoque/Grupo 26.png</file>
+    <file>estoque/Grupo 835.png</file>
+    <file>estoque/home/Grupo 832.png</file>
+    <file>estoque/home/Grupo 833.png</file>
+    <file>estoque/home/Grupo 834.png</file>
+    <file>estoque/home/Grupo 131.png</file>
+    <file>estoque/home/Grupo 192.png</file>
+    <file>estoque/home/Grupo 193.png</file>
+    <file>estoque/home/Grupo 194.png</file>
+    <file>estoque/home/Grupo 195.png</file>
+    <file>estoque/home/Grupo 197.png</file>
+    <file>estoque/home/Grupo 198.png</file>
+    <file>estoque/home/Grupo 200.png</file>
+    <file>estoque/home/Grupo 201.png</file>
+    <file>estoque/home/Grupo 202.png</file>
+    <file>estoque/home/Grupo 203.png</file>
+  </qresource>
+  <qresource prefix="entrada">
+    <file>estoque/entrada e saida/Grupo 451.png</file>
+    <file>estoque/entrada e saida/Grupo 495.png</file>
+    <file>estoque/entrada e saida/Grupo 452.png</file>
+    <file>estoque/entrada e saida/Grupo 468.png</file>
+    <file>estoque/entrada e saida/Grupo 472.png</file>
+    <file>estoque/entrada e saida/Grupo 487.png</file>
+    <file>estoque/entrada e saida/Grupo 499.png</file>
+    <file>estoque/entrada e saida/Grupo 501.png</file>
+    <file>estoque/entrada e saida/Grupo 915.png</file>
+  </qresource>
+  <qresource prefix="saida">
+    <file>estoque/entrada e saida/Grupo 486.png</file>
+    <file>estoque/entrada e saida/Grupo 490.png</file>
+    <file>estoque/entrada e saida/Grupo 491.png</file>
+  </qresource>
+  <qresource prefix="baixa">
+    <file>estoque/entrada e saida/Caminho 477.png</file>
+    <file>estoque/entrada e saida/Grupo 550.png</file>
+  </qresource>
+</RCC>

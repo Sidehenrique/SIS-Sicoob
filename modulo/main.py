@@ -2224,13 +2224,11 @@ def controle():
 ########################################################################################################################
       ################################################ ESTOQUE TI ###############################################
 
-
 def estoqueTi():
     MainEstoque.setWindowTitle('ESTOQUE')
 
     #  Acionamento Botões menu -----------------------------------------------------------------------------------------
     def ButtonVoltar():
-        mw.lineEdit_pesquisar.clear()
         MainEstoque.close()
         ui.frame_erro.hide()
         MainLogin.showMaximized()
@@ -2238,7 +2236,6 @@ def estoqueTi():
     mw.pushButtonVoltar.clicked.connect(ButtonVoltar)
 
     def ButtonChamados():
-        mw.lineEdit_pesquisar.clear()
         pass
 
     mw.pushButtonChamados.clicked.connect(ButtonChamados)
@@ -2250,10 +2247,11 @@ def estoqueTi():
     mw.pushButtonControle.clicked.connect(ButtonControleTI)
 
     def ButtonEstoque():
+        MainEstoque.showMaximized()
+        MainControle.close()
+        mw.stackedWidget.setCurrentWidget(mw.pageHome)
         quantiTable()
-        mw.lineEdit_pesquisar.clear()
-        pass
-
+        carregarDados()
     mw.pushButtonEstoque.clicked.connect(ButtonEstoque)
 
     #  Acionamento Botões Submenu --------------------------------------------------------------------------------------
@@ -2276,52 +2274,23 @@ def estoqueTi():
 
     #  Acionamento Botões PAGE GESTÃO-----------------------------------------------------------------------------------
 
-    # def ButtonNovo():
-    #     mw.stackedWidget.setCurrentWidget(mw.pageModulos)
-    #     mw.stackedWidgetMenu.setCurrentWidget(mw.pageNovo)
-    #     mw.stackedWidgetNovo.setCurrentWidget(mw.pageHomeNovo)
-    #     print('click')
-    #
-    # mw.pushButtonNovo.clicked.connect(ButtonNovo)
-    #
-    # def ButtonEntrada():
-    #     mw.stackedWidget.setCurrentWidget(mw.pageModulos)
-    #     mw.stackedWidgetMenu.setCurrentWidget(mw.pageEntrada)
-    #     print('click')
-    #
-    # mw.pushButtonEntrada.clicked.connect(ButtonEntrada)
-    #
-    # def ButtonSaida():
-    #     mw.stackedWidget.setCurrentWidget(mw.pageModulos)
-    #     mw.stackedWidgetMenu.setCurrentWidget(mw.pageSaida)
-    #     mw.stackedWidgetSaida.setCurrentWidget(mw.pagSaida)
-    #     print('click')
-    #
-    # mw.pushButtonSaida.clicked.connect(ButtonSaida)
+    def ButtonEntrada():
+        mw.stackedWidget.setCurrentWidget(mw.pageEntrada)
+    mw.pushButtonEntrada.clicked.connect(ButtonEntrada)
 
-    #  Acionamento Botões PAGE NOVO-----------------------------------------------------------------------------------
-    # def ButtonNote():
-    #     mw.stackedWidgetNovo.setCurrentWidget(mw.pageNovoNote)
-    #
-    # mw.pushNote.clicked.connect(ButtonNote)
-    #
-    # def ButtonCelu():
-    #     mw.stackedWidgetNovo.setCurrentWidget(mw.pageNovoCelu)
-    #
-    # mw.pushCelular.clicked.connect(ButtonCelu)
-    #
-    # def ButtonPeri():
-    #     MainEEstoque.show()
-    #
-    # mw.pushPerifericos.clicked.connect(ButtonPeri)
-    #
-    # def ButtonMon():
-    #     mw.stackedWidgetNovo.setCurrentWidget(mw.pageNovoMonitor)
-    #
-    # mw.pushMonitor.clicked.connect(ButtonMon)
+    def ButtonSaida():
+        mw.stackedWidget.setCurrentWidget(mw.pageSaida)
+    mw.pushButtonSaida.clicked.connect(ButtonSaida)
 
+    def ButtonBaixa():
+        mw.stackedWidget.setCurrentWidget(mw.pageBaixa)
+    mw.pushButtonBaixa.clicked.connect(ButtonBaixa)
 
-    ##  pré visualização de quantidade ----------------------------------------------------------------------------------
+    def ButtonVisualizar():
+        pass
+    mw.pushButtonVisualizar.clicked.connect(ButtonVisualizar)
+
+    #  pré visualização de quantidade ----------------------------------------------------------------------------------
 
     def quantiTable():
         cursor = db.conMySQL()
@@ -2584,6 +2553,271 @@ def estoqueTi():
                 mw.tableWidgetOffice.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
 
     mw.officePesButton.clicked.connect(pesOffice)
+
+    # TRATAMENTO PAGE ENTRADA ESTOQUE ----------------------------------------------------------------------------------
+    def pesEntrada():
+        boxTipo = mw.entradaComboBoxTipo.currentText()
+        boxCampo = mw.entradaComboBoxCampo.currentText()
+        inputUser = mw.entradalineEditPes.text()
+
+        print(boxTipo, boxCampo, inputUser)
+
+        if boxTipo == '' or boxCampo == '' or inputUser == '':
+            mw.entradaComboBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.entradaComboBoxCampo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.entradalineEditPes.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            texto = 'Campos obrigatórios não preenchidos'
+            mw.entradalabelDialog.setText(texto)
+
+        else:
+            tabela = tabCod()[0]
+            coluna = tabCod()[1]
+            print(tabela, coluna)
+            if boxCampo == 'CÓDIGO':
+
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM office
+                                        WHERE idOffice LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        print(str(erro))
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM windows
+                                        WHERE idWindows LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        print(str(erro))
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                        FROM {tabela}
+                                        WHERE {coluna} LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        print(str(erro))
+
+            if boxCampo == 'MARCA':
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                    FROM {boxTipo}
+                                    WHERE MARCA LIKE '%{inputUser}%'""")
+                    result = con.fetchall()
+                    print(result)
+
+                    mw.entradaTableWidget.clearContents()
+                    header = mw.entradaTableWidget.horizontalHeader()
+                    header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                    mw.entradaTableWidget.setRowCount(
+                        len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                    for row, text in enumerate(result):
+                        for column, data in enumerate(text):
+                            mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                    con.close()
+
+                except pymysql.Error as erro:
+                    print(str(erro))
+
+            if boxCampo == 'CHAVE':
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT {coluna}, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA
+                                    FROM {boxTipo}
+                                    WHERE CHAVE LIKE '%{inputUser}%'""")
+                    result = con.fetchall()
+                    print(result)
+
+                    mw.entradaTableWidget.clearContents()
+                    header = mw.entradaTableWidget.horizontalHeader()
+                    header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                    mw.entradaTableWidget.setRowCount(
+                        len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                    for row, text in enumerate(result):
+                        for column, data in enumerate(text):
+                            mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                    con.close()
+
+                except pymysql.Error as erro:
+                    print(str(erro))
+
+            if boxCampo == 'LOCAL':
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                    FROM {boxTipo}
+                                    WHERE LOCAL LIKE '%{inputUser}%'""")
+                    result = con.fetchall()
+                    print(result)
+
+                    mw.entradaTableWidget.clearContents()
+                    header = mw.entradaTableWidget.horizontalHeader()
+                    header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                    mw.entradaTableWidget.setRowCount(
+                        len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                    for row, text in enumerate(result):
+                        for column, data in enumerate(text):
+                            mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                    con.close()
+
+                except pymysql.Error as erro:
+                    print(str(erro))
+
+            if boxCampo == 'DATA':
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                    FROM {boxTipo}
+                                    WHERE DATA LIKE '%{inputUser}%'""")
+                    result = con.fetchall()
+                    print(result)
+
+                    mw.entradaTableWidget.clearContents()
+                    header = mw.entradaTableWidget.horizontalHeader()
+                    header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                    mw.entradaTableWidget.setRowCount(
+                        len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                    for row, text in enumerate(result):
+                        for column, data in enumerate(text):
+                            mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                    con.close()
+
+                except pymysql.Error as erro:
+                    print(str(erro))
+
+    def tabCod():
+        teste = mw.entradaComboBoxTipo.currentText().lower()
+
+        if teste == 'celular':
+            ret = ('celular', 'idCelular')
+            return ret
+
+        if teste == 'computer':
+            ret = ('computer', 'idComputer')
+            return ret
+
+        if teste == 'disco':
+            ret = ('disco', 'idDisco')
+            return ret
+
+        if teste == 'memoria':
+            ret = ('memoria', 'idMemoria')
+            return ret
+
+        if teste == 'monitor':
+            ret = ('monitor', 'idMonitor')
+            return ret
+
+        if teste == 'mouse':
+            ret = ('mouse', 'idMouse')
+            return ret
+
+        if teste == 'mousepad':
+            ret = ('mousepad', 'idMousePad')
+            return ret
+
+        if teste == 'office':
+            ret = ('office', 'idOffice')
+            return ret
+
+        if teste == 'outros':
+            ret = ('outros', 'idOutros')
+            return ret
+
+        if teste == 'suporte':
+            ret = ('suporte', 'idSuporte')
+            return ret
+
+        if teste == 'windows':
+            ret = ('windows', 'idWindows')
+            return ret
+
+    mw.entradaButtonBuscar.clicked.connect(pesEntrada)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

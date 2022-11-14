@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainControle(object):
     def setupUi(self, MainControle):
         MainControle.setObjectName("MainControle")
-        MainControle.resize(1154, 680)
+        MainControle.resize(1100, 680)
         MainControle.setMinimumSize(QtCore.QSize(1100, 680))
         self.centralwidget = QtWidgets.QWidget(MainControle)
         self.centralwidget.setObjectName("centralwidget")
@@ -64,7 +64,7 @@ class Ui_MainControle(object):
         self.frame_logo = QtWidgets.QFrame(self.frameBottons)
         self.frame_logo.setMinimumSize(QtCore.QSize(80, 0))
         self.frame_logo.setMaximumSize(QtCore.QSize(80, 16777215))
-        self.frame_logo.setStyleSheet("background-image: url(:/barr/IconLogo.png);\n"
+        self.frame_logo.setStyleSheet("background-image: url(:/cad/login/LOGOQ.png);\n"
 "background-position:center;\n"
 "background-repeat: no-repeat;\n"
 "")
@@ -207,61 +207,12 @@ class Ui_MainControle(object):
         self.horizontalLayout.addWidget(self.frameBottons)
         spacerItem = QtWidgets.QSpacerItem(78, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
-        self.frame_Pesquisar = QtWidgets.QFrame(self.frame_14)
-        self.frame_Pesquisar.setMaximumSize(QtCore.QSize(347, 41))
-        self.frame_Pesquisar.setStyleSheet("background-color:  rgb(238, 238, 238);")
-        self.frame_Pesquisar.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_Pesquisar.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_Pesquisar.setObjectName("frame_Pesquisar")
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_Pesquisar)
-        self.horizontalLayout_3.setContentsMargins(4, 0, 0, 0)
-        self.horizontalLayout_3.setSpacing(0)
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.lineEdit_pesquisar = QtWidgets.QLineEdit(self.frame_Pesquisar)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.lineEdit_pesquisar.sizePolicy().hasHeightForWidth())
-        self.lineEdit_pesquisar.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(14)
-        self.lineEdit_pesquisar.setFont(font)
-        self.lineEdit_pesquisar.setStyleSheet("background-color: rgb(238, 238, 238);\n"
-"border: 0px")
-        self.lineEdit_pesquisar.setText("")
-        self.lineEdit_pesquisar.setCursorPosition(0)
-        self.lineEdit_pesquisar.setObjectName("lineEdit_pesquisar")
-        self.horizontalLayout_3.addWidget(self.lineEdit_pesquisar)
-        self.pushButton_Pesquisar = QtWidgets.QPushButton(self.frame_Pesquisar)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_Pesquisar.sizePolicy().hasHeightForWidth())
-        self.pushButton_Pesquisar.setSizePolicy(sizePolicy)
-        self.pushButton_Pesquisar.setMaximumSize(QtCore.QSize(43, 36))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        self.pushButton_Pesquisar.setFont(font)
-        self.pushButton_Pesquisar.setStyleSheet("QPushButton {\n"
-"    background-image: url(:/barr/IconPesquisar.png);\n"
-"    background-position:center;\n"
-"    background-repeat: no-repeat;\n"
-"    background-color: rgb(238, 238, 238);\n"
-"    border: 1px solid;\n"
-"    \n"
-"    border-color:  rgb(238, 238, 238);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-image: url(:/barr/IconPesquisar1.png);\n"
-"    background-color: rgb(243, 243, 243);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(226, 226, 226);\n"
-"}")
-        self.pushButton_Pesquisar.setObjectName("pushButton_Pesquisar")
-        self.horizontalLayout_3.addWidget(self.pushButton_Pesquisar)
-        self.horizontalLayout.addWidget(self.frame_Pesquisar)
+        self.label_68 = QtWidgets.QLabel(self.frame_14)
+        self.label_68.setMinimumSize(QtCore.QSize(200, 0))
+        self.label_68.setStyleSheet("color: rgb(0, 161, 148);")
+        self.label_68.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_68.setObjectName("label_68")
+        self.horizontalLayout.addWidget(self.label_68)
         self.frame_perfil = QtWidgets.QFrame(self.frame_14)
         self.frame_perfil.setMaximumSize(QtCore.QSize(80, 16777215))
         self.frame_perfil.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -1755,11 +1706,11 @@ class Ui_MainControle(object):
         self.horizontalLayout_45.addWidget(self.frame_PesquisarTable_14)
         self.verticalLayout_21.addWidget(self.frame_57)
         self.tableWidgetHistorico = QtWidgets.QTableWidget(self.pageHistorico)
-        self.tableWidgetHistorico.setStyleSheet("# QHeaderView::section{\n"
+        self.tableWidgetHistorico.setStyleSheet("QHeaderView::section{\n"
 "    background-color: rgb(255, 255, 255);\n"
 "    border: 1px solid;\n"
 "    selection-color: white ;\n"
-"    color: rgb(255, 255, 255);\n"
+"    color: rgb(0, 53, 62);\n"
 "    border-color: rgb(207, 207, 207);\n"
 "};\n"
 "")
@@ -8920,7 +8871,7 @@ class Ui_MainControle(object):
         MainControle.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainControle)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(5)
         QtCore.QMetaObject.connectSlotsByName(MainControle)
 
     def retranslateUi(self, MainControle):
@@ -8930,7 +8881,7 @@ class Ui_MainControle(object):
         self.pushButtonControle.setText(_translate("MainControle", "CONTROLE"))
         self.pushButtonEstoque.setText(_translate("MainControle", "ESTOQUE"))
         self.pushButtonVoltar.setText(_translate("MainControle", "VOLTAR"))
-        self.lineEdit_pesquisar.setPlaceholderText(_translate("MainControle", "Pesquisar"))
+        self.label_68.setText(_translate("MainControle", "Versão - BETA08112022"))
         self.labelNomemodulo.setText(_translate("MainControle", "PAINEL DE CONTROLE"))
         self.pushButtonInicio.setText(_translate("MainControle", "INICIO"))
         self.pushButtonUser.setText(_translate("MainControle", "USUARIO"))
