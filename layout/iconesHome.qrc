@@ -2,23 +2,38 @@
   <qresource prefix="logo">
     <file>login/LOGOQ.png</file>
   </qresource>
+  <qresource prefix="Viws">
+    <file>estoque/Viws/Grupo 948.png</file>
+  </qresource>
+  <qresource prefix="picture">
+    <file>estoque/entrada e saida/pictures/Grupo 950.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 951.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 952.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 953.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 954.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 955.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 956.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 957.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 958.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 959.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 960.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 961.png</file>
+    <file>estoque/entrada e saida/pictures/Grupo 974.png</file>
+  </qresource>
   <qresource prefix="gestao">
-    <file>estoque/preset/01.png</file>
-    <file>estoque/preset/02.png</file>
-    <file>estoque/preset/03.png</file>
-    <file>estoque/preset/06.png</file>
-    <file>estoque/hover/01.png</file>
-    <file>estoque/hover/02.png</file>
-    <file>estoque/hover/03.png</file>
-    <file>estoque/hover/06.png</file>
-    <file>estoque/icons/01.png</file>
-    <file>estoque/icons/02.png</file>
-    <file>estoque/icons/03.png</file>
-    <file>estoque/icons/06.png</file>
-    <file>estoque/icons/Grupo 324@2x.png</file>
-    <file>estoque/icons/Grupo 325@2x.png</file>
-    <file>estoque/icons/Grupo 327@2x.png</file>
-    <file>estoque/icons/Grupo 330@2x.png</file>
+    <file>estoque/entrada e saida/Grupo 437.png</file>
+    <file>estoque/entrada e saida/Grupo 408.png</file>
+    <file>estoque/entrada e saida/Grupo 409.png</file>
+    <file>estoque/entrada e saida/Grupo 916.png</file>
+    <file>estoque/entrada e saida/baixapress.png</file>
+    <file>estoque/entrada e saida/hover 383.png</file>
+    <file>estoque/entrada e saida/hover 409.png</file>
+    <file>estoque/entrada e saida/hover916.png</file>
+    <file>estoque/entrada e saida/pes.png</file>
+    <file>estoque/entrada e saida/peshover.png</file>
+    <file>estoque/entrada e saida/pespress.png</file>
+    <file>estoque/entrada e saida/press 408.png</file>
+    <file>estoque/entrada e saida/press 409.png</file>
   </qresource>
   <qresource prefix="home">
     <file>estoque/Grupo 26.png</file>
@@ -41,8 +56,8 @@
   <qresource prefix="entrada">
     <file>estoque/entrada e saida/Grupo 451.png</file>
     <file>estoque/entrada e saida/Grupo 495.png</file>
-    <file>estoque/entrada e saida/Grupo 452.png</file>
     <file>estoque/entrada e saida/Grupo 468.png</file>
+    <file>estoque/entrada e saida/Caminho 510.png</file>
     <file>estoque/entrada e saida/Grupo 472.png</file>
     <file>estoque/entrada e saida/Grupo 487.png</file>
     <file>estoque/entrada e saida/Grupo 499.png</file>
@@ -50,6 +65,8 @@
     <file>estoque/entrada e saida/Grupo 915.png</file>
   </qresource>
   <qresource prefix="saida">
+    <file>estoque/entrada e saida/Grupo 979.png</file>
+    <file>estoque/entrada e saida/Grupo 978.png</file>
     <file>estoque/entrada e saida/Grupo 486.png</file>
     <file>estoque/entrada e saida/Grupo 490.png</file>
     <file>estoque/entrada e saida/Grupo 491.png</file>

@@ -924,7 +924,7 @@ QPushButton:pressed {
              <string notr="true">background-color: rgb(0, 161, 148);</string>
             </property>
             <property name="currentIndex">
-             <number>8</number>
+             <number>9</number>
             </property>
             <widget class="QWidget" name="pageHome">
              <widget class="QSplitter" name="splitter_199">
@@ -5066,9 +5066,6 @@ na base da cooperativa. Caso oque não seja essa
 border:1px;
 border-radius:5px</string>
                      </property>
-                     <property name="maxLength">
-                      <number>30</number>
-                     </property>
                      <property name="placeholderText">
                       <string> 16000</string>
                      </property>
@@ -5124,9 +5121,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                      </property>
-                     <property name="maxLength">
-                      <number>30</number>
-                     </property>
                      <property name="placeholderText">
                       <string> Acer</string>
                      </property>
@@ -5169,9 +5163,6 @@ border-radius:5px</string>
                       <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                     </property>
-                     <property name="maxLength">
-                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> Aspire</string>
@@ -5227,9 +5218,6 @@ border-radius:5px</string>
                       <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                     </property>
-                     <property name="maxLength">
-                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> novo</string>
@@ -5292,9 +5280,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                      </property>
-                     <property name="maxLength">
-                      <number>30</number>
-                     </property>
                      <property name="placeholderText">
                       <string> 2020</string>
                      </property>
@@ -5343,9 +5328,6 @@ border-radius:5px</string>
                       <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                     </property>
-                     <property name="maxLength">
-                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> 3000</string>
@@ -5406,9 +5388,6 @@ border-radius:5px</string>
                      <property name="text">
                       <string/>
                      </property>
-                     <property name="maxLength">
-                      <number>30</number>
-                     </property>
                      <property name="placeholderText">
                       <string> 121456</string>
                      </property>
@@ -5451,9 +5430,6 @@ border-radius:5px</string>
                       <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                     </property>
-                     <property name="maxLength">
-                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> adm4155_00</string>
@@ -5503,9 +5479,6 @@ border-radius:5px</string>
                       <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                     </property>
-                     <property name="maxLength">
-                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> 1605 223 454</string>
@@ -5770,9 +5743,6 @@ border-radius:5px</string>
                      <property name="text">
                       <string/>
                      </property>
-                     <property name="maxLength">
-                      <number>30</number>
-                     </property>
                      <property name="placeholderText">
                       <string> Core i5</string>
                      </property>
@@ -5822,9 +5792,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                      </property>
-                     <property name="maxLength">
-                      <number>30</number>
-                     </property>
                      <property name="placeholderText">
                       <string> Intel</string>
                      </property>
@@ -5873,9 +5840,6 @@ border-radius:5px</string>
                       <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                     </property>
-                     <property name="maxLength">
-                      <number>30</number>
                      </property>
                      <property name="placeholderText">
                       <string> 2.0</string>
@@ -6168,9 +6132,6 @@ border:1px;</string>
 border:1px;
 border-radius:5px</string>
                      </property>
-                     <property name="maxLength">
-                      <number>30</number>
-                     </property>
                      <property name="placeholderText">
                       <string> 4 GB</string>
                      </property>
@@ -6214,9 +6175,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                      </property>
-                     <property name="maxLength">
-                      <number>30</number>
-                     </property>
                      <property name="placeholderText">
                       <string> DDR4</string>
                      </property>
@@ -6259,9 +6217,6 @@ border-radius:5px</string>
                       <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                     </property>
-                     <property name="maxLength">
-                      <number>30</number>
                      </property>
                      <property name="frame">
                       <bool>true</bool>
@@ -7513,9 +7468,6 @@ background-color: rgb(0, 64, 74);
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>25</number>
-                  </property>
                   <property name="placeholderText">
                    <string>Samsung</string>
                   </property>
@@ -7574,9 +7526,6 @@ border-radius:5px</string>
                   <property name="text">
                    <string/>
                   </property>
-                  <property name="maxLength">
-                   <number>25</number>
-                  </property>
                   <property name="placeholderText">
                    <string>A 02</string>
                   </property>
@@ -7631,9 +7580,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>25</number>
                   </property>
                   <property name="placeholderText">
                    <string>Novo</string>
@@ -7690,9 +7636,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>4</number>
-                  </property>
                   <property name="placeholderText">
                    <string>2020</string>
                   </property>
@@ -7748,9 +7691,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>25</number>
-                  </property>
                   <property name="placeholderText">
                    <string>Preto</string>
                   </property>
@@ -7805,9 +7745,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>5</number>
                   </property>
                   <property name="placeholderText">
                    <string>699,99</string>
@@ -7871,9 +7808,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>25</number>
-                  </property>
                   <property name="placeholderText">
                    <string>Quad-Core</string>
                   </property>
@@ -7928,9 +7862,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>25</number>
                   </property>
                   <property name="placeholderText">
                    <string>Snapdragon 732G</string>
@@ -7987,9 +7918,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>25</number>
-                  </property>
                   <property name="placeholderText">
                    <string>1.5</string>
                   </property>
@@ -8045,9 +7973,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>3</number>
-                  </property>
                   <property name="placeholderText">
                    <string>2</string>
                   </property>
@@ -8102,9 +8027,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>5</number>
                   </property>
                   <property name="placeholderText">
                    <string>5000</string>
@@ -8235,6 +8157,9 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                   </property>
+                  <property name="maxVisibleItems">
+                   <number>25</number>
+                  </property>
                   <item>
                    <property name="text">
                     <string/>
@@ -8301,9 +8226,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>5</number>
                   </property>
                   <property name="placeholderText">
                    <string>32</string>
@@ -8507,9 +8429,6 @@ border-radius:5px</string>
                   <property name="text">
                    <string/>
                   </property>
-                  <property name="maxLength">
-                   <number>11</number>
-                  </property>
                   <property name="placeholderText">
                    <string>61981644678</string>
                   </property>
@@ -8564,6 +8483,9 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
+                  </property>
+                  <property name="maxVisibleItems">
+                   <number>25</number>
                   </property>
                   <item>
                    <property name="text">
@@ -8641,9 +8563,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>11</number>
                   </property>
                   <property name="placeholderText">
                    <string>61991942675</string>
@@ -9825,9 +9744,6 @@ background-color: rgb(0, 64, 74);
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>30</number>
-                  </property>
                   <property name="placeholderText">
                    <string> 16000</string>
                   </property>
@@ -9883,9 +9799,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>30</number>
-                  </property>
                   <property name="placeholderText">
                    <string> Acer</string>
                   </property>
@@ -9928,9 +9841,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>30</number>
                   </property>
                   <property name="placeholderText">
                    <string> Aspire</string>
@@ -9986,9 +9896,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>30</number>
                   </property>
                   <property name="placeholderText">
                    <string> novo</string>
@@ -10051,9 +9958,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>30</number>
-                  </property>
                   <property name="placeholderText">
                    <string> 2020</string>
                   </property>
@@ -10102,9 +10006,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>30</number>
                   </property>
                   <property name="placeholderText">
                    <string> 3000</string>
@@ -10169,9 +10070,6 @@ border-radius:5px</string>
                    <property name="text">
                     <string/>
                    </property>
-                   <property name="maxLength">
-                    <number>30</number>
-                   </property>
                    <property name="placeholderText">
                     <string> 121456</string>
                    </property>
@@ -10214,9 +10112,6 @@ border-radius:5px</string>
                     <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                   </property>
-                   <property name="maxLength">
-                    <number>30</number>
                    </property>
                    <property name="placeholderText">
                     <string> adm4155_00</string>
@@ -10266,9 +10161,6 @@ border-radius:5px</string>
                     <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                   </property>
-                   <property name="maxLength">
-                    <number>30</number>
                    </property>
                    <property name="placeholderText">
                     <string> 1605 223 454</string>
@@ -10461,9 +10353,6 @@ border-radius:5px</string>
                   <property name="text">
                    <string/>
                   </property>
-                  <property name="maxLength">
-                   <number>30</number>
-                  </property>
                   <property name="placeholderText">
                    <string> Core i5</string>
                   </property>
@@ -10513,9 +10402,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>30</number>
-                  </property>
                   <property name="placeholderText">
                    <string> Intel</string>
                   </property>
@@ -10564,9 +10450,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>30</number>
                   </property>
                   <property name="placeholderText">
                    <string> 2.0</string>
@@ -10859,9 +10742,6 @@ border:1px;</string>
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>30</number>
-                  </property>
                   <property name="placeholderText">
                    <string> 4 GB</string>
                   </property>
@@ -10905,9 +10785,6 @@ border-radius:5px</string>
 border:1px;
 border-radius:5px</string>
                   </property>
-                  <property name="maxLength">
-                   <number>30</number>
-                  </property>
                   <property name="placeholderText">
                    <string> DDR4</string>
                   </property>
@@ -10950,9 +10827,6 @@ border-radius:5px</string>
                    <string notr="true">background-color: rgb(255, 255, 255);
 border:1px;
 border-radius:5px</string>
-                  </property>
-                  <property name="maxLength">
-                   <number>30</number>
                   </property>
                   <property name="frame">
                    <bool>true</bool>

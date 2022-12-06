@@ -3,11 +3,15 @@ from ControleTI import *
 from EstoqueTI import *
 from entradaEstoque import *
 from Dialog import *
+from DialogEntrada import *
+from DialogSaida import *
+from DialogBaixa import *
 from DialogCondicional import *
 from Positive import *
 from opNote import *
 from opDesk import *
 from opCell import *
+from opSaidaEstoqueTI import *
 import db
 import datetime
 import pymysql
@@ -268,7 +272,7 @@ def controle():
             try:
                 cur = db.conMySQL()
                 cur.execute(
-                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
+                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, VALOR,
                         SERVICETAG, TEAMVIEWER, REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
                         FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, ANTEVIRUS,
                         TIPO, LOCAL, DATA, idWindows, idOffice)
@@ -682,7 +686,7 @@ def controle():
             try:
                 cur = db.conMySQL()
                 cur.execute(
-                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, PRECO,
+                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, VALOR,
                         SERVICETAG, TEAMVIEWER, REDE, SSD, EXPANCIVEL, PROCESSADOR, MARCAPRO,
                         FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, ANTEVIRUS,
                         TIPO, LOCAL, DATA, idWindows, idOffice)
@@ -1073,7 +1077,7 @@ def controle():
             try:
                 cur = db.conMySQL()
                 cur.execute(
-                    f"""INSERT INTO celular (IMEI, IMEI2, MARCA, MODELO, CONDICAO, ANOFAB, COR, PRECO,
+                    f"""INSERT INTO celular (IMEI, IMEI2, MARCA, MODELO, CONDICAO, ANOFAB, COR, VALOR,
                             PROCESSADOR, MODPRO, FREPRO, RAM, BATERIA, SISTEMA, MICRO, MEMOINT, DUO,
                             CHIP, CHIP2, NUMERO, NUMERO2, EMAIL, TIPO, LOCAL, DATA)
 
@@ -2164,8 +2168,8 @@ def controle():
             try:
                 cur = db.conMySQL()
                 cur.execute(
-                    f"""INSERT INTO suporte (MARCA, MODELO, CONDICAO, TIPO, VALOR, LOCAL, DATA)
-                                       VALUES ('{marca}','{modelo}','{condicao}','{valor}','{local}','{data}');""")
+                    f"""INSERT INTO suporte (MARCA, MODELO, CONDICAO, VALOR, TIPO, LOCAL, DATA)
+                                       VALUES ('{marca}','{modelo}','{condicao}','{valor}', '{tipo}', '{local}','{data}');""")
 
                 cur.execute(f"""SELECT MAX(idSuporte) FROM suporte;""")
                 result = cur.fetchall()
@@ -2225,6 +2229,12 @@ def controle():
       ################################################ ESTOQUE TI ###############################################
 
 def estoqueTi():
+
+    def datAT():
+        data = datetime.datetime.now()
+        d = datetime.datetime.strftime(data, "%d-%m-%Y %H:%M")
+        return d
+
     MainEstoque.setWindowTitle('ESTOQUE')
 
     #  Acionamento Botões menu -----------------------------------------------------------------------------------------
@@ -2563,17 +2573,23 @@ def estoqueTi():
         print(boxTipo, boxCampo, inputUser)
 
         if boxTipo == '' or boxCampo == '' or inputUser == '':
-            mw.entradaComboBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mw.entradaComboBoxCampo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mw.entradalineEditPes.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.entradaComboBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193);')
+            mw.entradaComboBoxCampo.setStyleSheet('background-color: rgb(255, 192, 193);')
+            mw.entradalineEditPes.setStyleSheet('background-color: rgb(255, 192, 193);')
 
             texto = 'Campos obrigatórios não preenchidos'
             mw.entradalabelDialog.setText(texto)
 
         else:
+            mw.entradaComboBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255);')
+            mw.entradaComboBoxCampo.setStyleSheet('background-color: rgb(255, 255, 255);')
+            mw.entradalineEditPes.setStyleSheet('background-color: rgb(255, 255, 255);')
+            mw.entradalabelDialog.clear()
+
             tabela = tabCod()[0]
             coluna = tabCod()[1]
             print(tabela, coluna)
+
             if boxCampo == 'CÓDIGO':
 
                 if tabela == 'office':
@@ -2599,7 +2615,9 @@ def estoqueTi():
                         con.close()
 
                     except pymysql.Error as erro:
-                        print(str(erro))
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
 
                 if tabela == 'windows':
                     try:
@@ -2623,8 +2641,11 @@ def estoqueTi():
 
                         con.close()
 
+
                     except pymysql.Error as erro:
-                        print(str(erro))
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
 
                 else:
                     try:
@@ -2648,31 +2669,91 @@ def estoqueTi():
                         con.close()
 
                     except pymysql.Error as erro:
-                        print(str(erro))
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
 
             if boxCampo == 'MARCA':
-                try:
-                    con = db.conMySQL()
-                    con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
-                                    FROM {boxTipo}
-                                    WHERE MARCA LIKE '%{inputUser}%'""")
-                    result = con.fetchall()
-                    print(result)
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM office
+                                        WHERE VERSAO LIKE '%{inputUser}%'""")
 
-                    mw.entradaTableWidget.clearContents()
-                    header = mw.entradaTableWidget.horizontalHeader()
-                    header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-                    mw.entradaTableWidget.setRowCount(
-                        len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+                        result = con.fetchall()
+                        print(result)
 
-                    for row, text in enumerate(result):
-                        for column, data in enumerate(text):
-                            mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
 
-                    con.close()
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
 
-                except pymysql.Error as erro:
-                    print(str(erro))
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM windows
+                                        WHERE VERSAO LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                        FROM {boxTipo}
+                                        WHERE MARCA LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
 
             if boxCampo == 'CHAVE':
                 try:
@@ -2696,33 +2777,151 @@ def estoqueTi():
                     con.close()
 
                 except pymysql.Error as erro:
-                    print(str(erro))
+                    texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                    # mw.entradalabelDialog.setText(texto)
+                    print(str(erro) + texto)
 
             if boxCampo == 'LOCAL':
-                try:
-                    con = db.conMySQL()
-                    con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
-                                    FROM {boxTipo}
-                                    WHERE LOCAL LIKE '%{inputUser}%'""")
-                    result = con.fetchall()
-                    print(result)
 
-                    mw.entradaTableWidget.clearContents()
-                    header = mw.entradaTableWidget.horizontalHeader()
-                    header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-                    mw.entradaTableWidget.setRowCount(
-                        len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM office
+                                        WHERE LOCAL LIKE '%{inputUser}%'""")
 
-                    for row, text in enumerate(result):
-                        for column, data in enumerate(text):
-                            mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+                        result = con.fetchall()
+                        print(result)
 
-                    con.close()
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
 
-                except pymysql.Error as erro:
-                    print(str(erro))
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM windows
+                                        WHERE LOCAL LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                        FROM {boxTipo}
+                                        WHERE LOCAL LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
 
             if boxCampo == 'DATA':
+
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM office
+                                        WHERE DATA LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        #mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM windows
+                                        WHERE DATA LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.entradaTableWidget.clearContents()
+                        header = mw.entradaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.entradaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
                 try:
                     con = db.conMySQL()
                     con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
@@ -2744,7 +2943,9 @@ def estoqueTi():
                     con.close()
 
                 except pymysql.Error as erro:
-                    print(str(erro))
+                    texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                    mw.entradalabelDialog.setText(texto)
+                    print(str(erro) + texto)
 
     def tabCod():
         teste = mw.entradaComboBoxTipo.currentText().lower()
@@ -2793,32 +2994,2594 @@ def estoqueTi():
             ret = ('windows', 'idWindows')
             return ret
 
+        else:
+            teste = None
+            return teste
+
+    def motiEntrada():
+
+        if mw.entradaRadioTransferencia.isChecked() == True:
+            ret = mw.entradaRadioTransferencia.text()
+            return ret
+
+        elif mw.entradaRadioDevolucao.isChecked() == True:
+            ret = mw.entradaRadioDevolucao.text()
+            return ret
+
+        elif mw.entradaRadioManutencao.isChecked() == True:
+            ret = mw.entradaRadioManutencao.text()
+            return ret
+
+        elif mw.entradaRadioDeposito.isChecked() == True:
+            ret = mw.entradaRadioDeposito.text()
+            return ret
+
+        elif mw.entradaRadioRecolhimento.isChecked() == True:
+            ret = mw.entradaRadioRecolhimento.text()
+            return ret
+
+        elif mw.entradaRadioOutro.isChecked() == True:
+            ret = mw.entradaRadioOutro.text()
+            return ret
+
+        else:
+            return None
+
+    def addItem():
+        get = getIDTable()
+        pic = getIDCod()[0:2]
+        print(get, pic)
+
+        # Teclado 21000
+        if pic == '21':
+            mw.entradaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 960.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Suporte 20000
+        elif pic == '20':
+            mw.entradaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 961.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Memoria 19000
+        elif pic == '19':
+            mw.entradaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 957.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Disco 18000
+        elif pic == '18':
+            mw.entradaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 958.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Celular 17000
+        elif pic == '17':
+            mw.entradaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 950.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet('background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Monitor 16000
+        elif pic == '16':
+            mw.entradaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 952.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Mouse 15000
+        elif pic == '15':
+            mw.entradaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 956.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # MousePad 14000
+        elif pic == '14':
+            mw.entradaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 959.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Windows 13000
+        elif pic == '13':
+            mw.entradaFrameItemPicture.setStyleSheet('background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 955.png);\n'
+                                                     ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet('background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Office 12000
+        elif pic == '12':
+            mw.entradaFrameItemPicture.setStyleSheet('background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 954.png);\n'
+                                                     ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet('background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Desktop Notebook 11000
+        elif pic == '11':
+            mw.entradaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 951.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Outros 10000
+        elif pic == '10':
+            mw.entradaFrameItemPicture.setStyleSheet('background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n'
+                                                     ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet('background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        else:
+            print('Não entrou na condicional')
+
+            mw.entradaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.entradaTableWidget.item(get, 0).text()
+            tipo = mw.entradaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.entradaTableWidget.item(get, 2).text()
+            modelo = mw.entradaTableWidget.item(get, 3).text()
+            local = mw.entradaTableWidget.item(get, 4).text()
+            preco = mw.entradaTableWidget.item(get, 5).text()
+
+            mw.entradalabelCod.setText(cod)
+            mw.entradalabelMarca.setText(marca)
+            mw.entradalabelModelo.setText(modelo)
+            mw.entradalabelLocal.setText(local)
+            mw.entradalabelPreco.setText(preco)
+
+            mw.entradaFrameItem.setStyleSheet('background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+    def getIDTable():
+        ret = mw.entradaTableWidget.currentRow()
+        return ret
+
+    def getIDCod():
+        ret = mw.entradaTableWidget.item(getIDTable(), 0)
+        return ret.text() if not ret is None else ret
+
+    def limpPageEntrada():
+        try:
+            con = db.conMySQL()
+            con.execute(f"""SELECT idCelular, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                            FROM celular
+                            WHERE LOCAL LIKE '500000'""")
+            result = con.fetchall()
+            print(result)
+
+            mw.entradaTableWidget.clearContents()
+            header = mw.entradaTableWidget.horizontalHeader()
+            header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+            mw.entradaTableWidget.setRowCount(
+                len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+            for row, text in enumerate(result):
+                for column, data in enumerate(text):
+                    mw.entradaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        except:
+            print('Limpeza falhou')
+
+        mw.entradalineEditPes.clear()
+        mw.entradaComboBoxTipo.setCurrentIndex(0)
+        mw.entradaComboBoxCampo.setCurrentIndex(0)
+
+        mw.entradalabelCod.setText('----')
+        mw.entradalabelMarca.setText('----')
+        mw.entradalabelModelo.setText('----')
+        mw.entradalabelLocal.setText('----')
+        mw.entradalabelPreco.setText('----')
+
+        mw.entradaComboBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255);')
+        mw.entradaComboBoxCampo.setStyleSheet('background-color: rgb(255, 255, 255);')
+        mw.entradalineEditPes.setStyleSheet('background-color: rgb(255, 255, 255);')
+        mw.entradalabelDialog.clear()
+        mw.entradaFrameMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255); border-radius: 10px;')
+        mw.entradaFrameItem.setStyleSheet('background-color:rgb(7, 183, 168);border: 1px;border-radius: 10px;')
+        mw.entradaFrameItemPicture.setStyleSheet('background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n'
+            ';background-position:center;background-repeat: no-repeat;')
+
+    def movEstoque():
+        cod = mw.entradalabelCod.text()
+        motivo = motiEntrada()
+
+        print(cod, motivo)
+
+        if cod == '----' or motivo == None:
+            mw.entradaFrameMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 118, 118); border-radius: 10px;')
+            mw.entradaFrameItem.setStyleSheet('background-color:rgb(255, 118, 118);border: 1px;border-radius: 10px;')
+
+            texto = 'Campos obrigatórios não preenchidos'
+            mw.entradalabelDialog.setText(texto)
+
+        else:
+            tipo = mw.entradaComboBoxTipo.currentText()
+            marca = mw.entradalabelMarca.text()
+            modelo = mw.entradalabelModelo.text()
+            local = 'ESTOQUE'
+            data = datAT()
+
+            DialogiEstoqueEntrada.show()
+            texto = f'DESEJA REALMENTE DA ENTRADA NO ITEM\n {tipo} ID {cod} NO ESTOQUE TI'
+            de.LabelDialogMsg.setText(texto)
+
+            def sim():
+                if tabCod() is not None:
+                    tabela = tabCod()[0]
+                    coluna = tabCod()[1]
+                    print(tabela, coluna)
+                    print(marca, modelo, local, data, motivo, tipo)
+
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""UPDATE {tabela} SET `LOCAL` = 'ESTOQUE' WHERE (`{coluna}` = '{cod}');""")
+
+                        con.execute(f"""INSERT INTO historico VALUES ('{Usuario}','ENT. ESTOQUE TI','{tipo}','{cod}',
+                                        '{marca}','{modelo}','{motivo}','{local}','{data}');""")
+
+                        DialogiEstoqueEntrada.close()
+                        Positive.show()
+                        po.LabelDialog.setText('TRANSAÇÃO REALIZADA COM SUCESSO!')
+                        con.close()
+                        limpPageEntrada()
+
+                    except: # pymysql.Error as erro:
+                        # texto = f'Erro SQL:{str(erro)[1:5]}'
+                        # mw.entradalabelDialog.setText(texto)
+                        # print(str(erro) + texto)
+                        print('deu ruim')
+
+                else:
+                    DialogiEstoqueEntrada.close()
+
+            def nao():
+                DialogiEstoqueEntrada.close()
+
+            de.pushButtonSim.clicked.connect(sim)
+            de.pushButtonNao.clicked.connect(nao)
+
+    def cancelEntrad():
+        limpPageEntrada()
+        mw.stackedWidget.setCurrentWidget(mw.PageGestao)
+
     mw.entradaButtonBuscar.clicked.connect(pesEntrada)
+    mw.entradaTableWidget.itemSelectionChanged.connect(addItem)
+    mw.entradabuttonLimpar.clicked.connect(limpPageEntrada)
+    mw.entradabuttonCancel.clicked.connect(cancelEntrad)
+    mw.entradabuttonConfirmar.clicked.connect(movEstoque)
 
 
+#   TRATAMENTO PAGE SAIDA ESTOQUE ----------------------------------------------------------------------------------
+    def pesSaida():
+        boxTipo = mw.saidaComboBoxTipo.currentText()
+        boxCampo = mw.saidaComboBoxCampo.currentText()
+        inputUser = mw.saidalineEditPes.text()
+
+        print(boxTipo, boxCampo, inputUser)
+
+        if boxTipo == '' or boxCampo == '' or inputUser == '':
+            mw.saidaComboBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193);')
+            mw.saidaComboBoxCampo.setStyleSheet('background-color: rgb(255, 192, 193);')
+            mw.saidalineEditPes.setStyleSheet('background-color: rgb(255, 192, 193);')
+
+            texto = 'Campos obrigatórios não preenchidos'
+            mw.saidalabelDialog.setText(texto)
+
+        else:
+            mw.saidaComboBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255);')
+            mw.saidaComboBoxCampo.setStyleSheet('background-color: rgb(255, 255, 255);')
+            mw.saidalineEditPes.setStyleSheet('background-color: rgb(255, 255, 255);')
+            mw.saidalabelDialog.clear()
+
+            tabela = tabCodSaida()[0]
+            coluna = tabCodSaida()[1]
+            print(tabela, coluna)
+
+            if boxCampo == 'CÓDIGO':
+
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM office
+                                        WHERE idOffice LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM windows
+                                        WHERE idWindows LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
 
 
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                        FROM {tabela}
+                                        WHERE {coluna} LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.saidalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+            if boxCampo == 'MARCA':
+
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM office
+                                        WHERE VERSAO LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM windows
+                                        WHERE VERSAO LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
 
 
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                        FROM {boxTipo}
+                                        WHERE MARCA LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.saidalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+            if boxCampo == 'CHAVE':
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT {coluna}, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA
+                                    FROM {boxTipo}
+                                    WHERE CHAVE LIKE '%{inputUser}%'""")
+                    result = con.fetchall()
+                    print(result)
+
+                    mw.saidaTableWidget.clearContents()
+                    header = mw.saidaTableWidget.horizontalHeader()
+                    header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                    mw.saidaTableWidget.setRowCount(
+                        len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                    for row, text in enumerate(result):
+                        for column, data in enumerate(text):
+                            mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                    con.close()
+
+                except pymysql.Error as erro:
+                    texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                    # mw.entradalabelDialog.setText(texto)
+                    print(str(erro) + texto)
+
+            if boxCampo == 'LOCAL':
+
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM office
+                                        WHERE LOCAL LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM windows
+                                        WHERE LOCAL LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
 
 
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                        FROM {boxTipo}
+                                        WHERE LOCAL LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.saidalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+            if boxCampo == 'DATA':
+
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM office
+                                        WHERE DATA LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        #mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                        FROM windows
+                                        WHERE DATA LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
 
 
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        # mw.entradalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                        FROM {boxTipo}
+                                        WHERE DATA LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.saidaTableWidget.clearContents()
+                        header = mw.saidaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.saidaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.saidalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+            else:
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                    FROM {boxTipo}
+                                    WHERE DATA LIKE '%{inputUser}%'""")
+                    result = con.fetchall()
+                    print(result)
+
+                    mw.saidaTableWidget.clearContents()
+                    header = mw.saidaTableWidget.horizontalHeader()
+                    header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                    mw.saidaTableWidget.setRowCount(
+                        len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                    for row, text in enumerate(result):
+                        for column, data in enumerate(text):
+                            mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                    con.close()
+
+                except pymysql.Error as erro:
+                    texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                    mw.saidalabelDialog.setText(texto)
+                    print(str(erro) + texto)
+
+    def tabCodSaida():
+        teste = mw.saidaComboBoxTipo.currentText().lower()
+
+        if teste == 'celular':
+            ret = ('celular', 'idCelular')
+            return ret
+
+        if teste == 'computer':
+            ret = ('computer', 'idComputer')
+            return ret
+
+        if teste == 'disco':
+            ret = ('disco', 'idDisco')
+            return ret
+
+        if teste == 'memoria':
+            ret = ('memoria', 'idMemoria')
+            return ret
+
+        if teste == 'monitor':
+            ret = ('monitor', 'idMonitor')
+            return ret
+
+        if teste == 'mouse':
+            ret = ('mouse', 'idMouse')
+            return ret
+
+        if teste == 'mousepad':
+            ret = ('mousepad', 'idMousePad')
+            return ret
+
+        if teste == 'office':
+            ret = ('office', 'idOffice')
+            return ret
+
+        if teste == 'outros':
+            ret = ('outros', 'idOutros')
+            return ret
+
+        if teste == 'suporte':
+            ret = ('suporte', 'idSuporte')
+            return ret
+
+        if teste == 'windows':
+            ret = ('windows', 'idWindows')
+            return ret
+
+        else:
+            teste = None
+            return teste
+
+    def motiSaida():
+
+        if mw.saidaRadiodefinitivo.isChecked() == True:
+            ret = mw.saidaRadiodefinitivo.text()
+            return ret
+
+        elif mw.saidaRadioProvisorio.isChecked() == True:
+            ret = mw.saidaRadioProvisorio.text()
+            return ret
+
+        elif mw.saidaRadioManutencao.isChecked() == True:
+            ret = mw.saidaRadioManutencao.text()
+            return ret
+
+        elif mw.saidaRadioTreinamento.isChecked() == True:
+            ret = mw.saidaRadioTreinamento.text()
+            return ret
+
+        elif mw.saidaRadioOutro.isChecked() == True:
+            ret = mw.saidaRadioOutro.text()
+            return ret
+
+        else:
+            return None
+
+    def addItemSaida():
+        get = getIDTableSaida()
+        pic = getIDCodSaida()[0:2]
+        print(get, pic)
+
+        # Teclado 21000
+        if pic == '21':
+            mw.saidaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 960.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.saidaButtonDestino.setStyleSheet('background-image: url(:/saida/estoque/entrada e saida/Grupo 491.png);\n'
+            'background-position:center;background-repeat: no-repeat;')
+            mw.saidaUser.setText('USER')
+            mw.label_64.setText('Nome:')
+            mw.label_65.setText('Código:')
+
+        # Suporte 20000
+        elif pic == '20':
+            mw.saidaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 961.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 491.png);\n'
+                'background-position:center;background-repeat: no-repeat;')
+            mw.saidaUser.setText('USER')
+            mw.label_64.setText('Nome:')
+            mw.label_65.setText('Código:')
+
+        # Memoria 19000
+        elif pic == '19':
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 978.png);\n'
+                'background-position:center; background-repeat: no-repeat;')
+            mw.saidaUser.setText('COMPUTER')
+            mw.label_64.setText('Marca:')
+            mw.label_65.setText('Código:')
+
+            mw.saidaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 957.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Disco 18000
+        elif pic == '18':
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 978.png);\n'
+                'background-position:center; background-repeat: no-repeat;')
+            mw.saidaUser.setText('COMPUTER')
+            mw.label_64.setText('Marca:')
+            mw.label_65.setText('Código:')
+
+            mw.saidaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 958.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Celular 17000
+        elif pic == '17':
+            mw.saidaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 950.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 491.png);\n'
+                'background-position:center;background-repeat: no-repeat;')
+            mw.saidaUser.setText('USER')
+            mw.label_64.setText('Nome:')
+            mw.label_65.setText('Código:')
+
+        # Monitor 16000
+        elif pic == '16':
+            mw.saidaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 952.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 491.png);\n'
+                'background-position:center;background-repeat: no-repeat;')
+            mw.saidaUser.setText('USER')
+            mw.label_64.setText('Nome:')
+            mw.label_65.setText('Código:')
+
+        # Mouse 15000
+        elif pic == '15':
+            mw.saidaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 956.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 491.png);\n'
+                'background-position:center;background-repeat: no-repeat;')
+            mw.saidaUser.setText('USER')
+            mw.label_64.setText('Nome:')
+            mw.label_65.setText('Código:')
+
+        # MousePad 14000
+        elif pic == '14':
+            mw.saidaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 959.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 491.png);\n'
+                'background-position:center;background-repeat: no-repeat;')
+            mw.saidaUser.setText('USER')
+            mw.label_64.setText('Nome:')
+            mw.label_65.setText('Código:')
+
+        # Windows 13000
+        elif pic == '13':
+
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 978.png);\n'
+                'background-position:center; background-repeat: no-repeat;')
+            mw.saidaUser.setText('COMPUTER')
+            mw.label_64.setText('Marca:')
+            mw.label_65.setText('Código:')
+
+            mw.saidaFrameItemPicture.setStyleSheet('background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 955.png);\n'
+                                                     ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Office 12000
+        elif pic == '12':
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 978.png);\n'
+                'background-position:center; background-repeat: no-repeat;')
+            mw.saidaUser.setText('COMPUTER')
+            mw.label_64.setText('Marca:')
+            mw.label_65.setText('Código:')
+
+            mw.saidaFrameItemPicture.setStyleSheet('background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 954.png);\n'
+                                                     ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Desktop Notebook 11000
+        elif pic == '11':
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 491.png);\n'
+                'background-position:center;background-repeat: no-repeat;')
+            mw.saidaUser.setText('USER')
+            mw.label_64.setText('Nome:')
+            mw.label_65.setText('Código:')
+
+            mw.saidaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 951.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        # Outros 10000
+        elif pic == '10':
+            mw.saidaButtonDestino.setStyleSheet(
+                'background-image: url(:/saida/estoque/entrada e saida/Grupo 979.png);\n'
+                'background-position:center; background-repeat: no-repeat;')
+            mw.saidaUser.setText('DESTINO')
+            mw.label_64.setText('PA:')
+            mw.label_65.setText('Código:')
+
+            mw.saidaFrameItemPicture.setStyleSheet('background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n'
+                                                     ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.saidaTableWidget.item(get, 0).text()
+            tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.saidaTableWidget.item(get, 2).text()
+            modelo = mw.saidaTableWidget.item(get, 3).text()
+            local = mw.saidaTableWidget.item(get, 4).text()
+            preco = mw.saidaTableWidget.item(get, 5).text()
+
+            mw.saidalabelCod.setText(cod)
+            mw.saidalabelMarca.setText(marca)
+            mw.saidalabelModelo.setText(modelo)
+            mw.saidalabelLocal.setText(local)
+            mw.saidalabelPreco.setText(preco)
+
+            mw.saidaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+        else:
+            # Perifericos e Itens do colaborador
+            if pic == '21' or '20' or '17' or '16' or '15' or '14' or '11':
+                mw.saidaButtonDestino.setStyleSheet(
+                    'background-image: url(:/saida/estoque/entrada e saida/Grupo 491.png);\n'
+                    'background-position:center;background-repeat: no-repeat;')
+                mw.saidaUser.setText('USER')
+                mw.label_64.setText('Nome:')
+                mw.label_65.setText('Código:')
+
+                mw.saidaFrameItemPicture.setStyleSheet(
+                    'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n'
+                    ';background-position:center;background-repeat: no-repeat;')
+                cod = mw.saidaTableWidget.item(get, 0).text()
+                tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+                marca = mw.saidaTableWidget.item(get, 2).text()
+                modelo = mw.saidaTableWidget.item(get, 3).text()
+                local = mw.saidaTableWidget.item(get, 4).text()
+                preco = mw.saidaTableWidget.item(get, 5).text()
+
+                mw.saidalabelCod.setText(cod)
+                mw.saidalabelMarca.setText(marca)
+                mw.saidalabelModelo.setText(modelo)
+                mw.saidalabelLocal.setText(local)
+                mw.saidalabelPreco.setText(preco)
+
+                mw.saidaFrameItem.setStyleSheet(
+                    'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            # Itens do computador
+            if pic == '12' or '13' or '19' or '18':
+                mw.saidaButtonDestino.setStyleSheet(
+                    'background-image: url(:/saida/estoque/entrada e saida/Grupo 978.png);\n'
+                    'background-position:center; background-repeat: no-repeat;')
+                mw.saidaUser.setText('COMPUTER')
+                mw.label_64.setText('Marca:')
+                mw.label_65.setText('Código:')
+
+                mw.saidaFrameItemPicture.setStyleSheet(
+                    'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n'
+                    ';background-position:center;background-repeat: no-repeat;')
+                cod = mw.saidaTableWidget.item(get, 0).text()
+                tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+                marca = mw.saidaTableWidget.item(get, 2).text()
+                modelo = mw.saidaTableWidget.item(get, 3).text()
+                local = mw.saidaTableWidget.item(get, 4).text()
+                preco = mw.saidaTableWidget.item(get, 5).text()
+
+                mw.saidalabelCod.setText(cod)
+                mw.saidalabelMarca.setText(marca)
+                mw.saidalabelModelo.setText(modelo)
+                mw.saidalabelLocal.setText(local)
+                mw.saidalabelPreco.setText(preco)
+
+                mw.saidaFrameItem.setStyleSheet(
+                    'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            # Itens local ou setor
+            if pic == '10':
+                mw.saidaButtonDestino.setStyleSheet(
+                    'background-image: url(:/saida/estoque/entrada e saida/Grupo 979.png);\n'
+                    'background-position:center; background-repeat: no-repeat;')
+                mw.saidaUser.setText('DESTINO')
+                mw.label_64.setText('PA:')
+                mw.label_65.setText('Código:')
+
+                mw.saidaFrameItemPicture.setStyleSheet(
+                    'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n'
+                    ';background-position:center;background-repeat: no-repeat;')
+                cod = mw.saidaTableWidget.item(get, 0).text()
+                tipo = mw.saidaTableWidget.item(get, 1).text().upper()[0:15]
+                marca = mw.saidaTableWidget.item(get, 2).text()
+                modelo = mw.saidaTableWidget.item(get, 3).text()
+                local = mw.saidaTableWidget.item(get, 4).text()
+                preco = mw.saidaTableWidget.item(get, 5).text()
+
+                mw.saidalabelCod.setText(cod)
+                mw.saidalabelMarca.setText(marca)
+                mw.saidalabelModelo.setText(modelo)
+                mw.saidalabelLocal.setText(local)
+                mw.saidalabelPreco.setText(preco)
+
+                mw.saidaFrameItem.setStyleSheet(
+                    'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+    def getIDTableSaida():
+        ret = mw.saidaTableWidget.currentRow()
+        return ret
+
+    def getIDCodSaida():
+        ret = mw.saidaTableWidget.item(getIDTableSaida(), 0)
+        return ret.text() if not ret is None else ret
+
+    def limpPageSaida():
+        try:
+            con = db.conMySQL()
+            con.execute(f"""SELECT idCelular, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                            FROM celular
+                            WHERE LOCAL LIKE '500000'""")
+            result = con.fetchall()
+            print(result)
+
+            mw.saidaTableWidget.clearContents()
+            header = mw.saidaTableWidget.horizontalHeader()
+            header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+            mw.saidaTableWidget.setRowCount(
+                len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+            for row, text in enumerate(result):
+                for column, data in enumerate(text):
+                    mw.saidaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        except:
+            print('Limpeza falhou')
+
+        mw.saidalineEditPes.clear()
+        mw.saidaComboBoxTipo.setCurrentIndex(0)
+        mw.saidaComboBoxCampo.setCurrentIndex(0)
+
+        mw.saidalabelCod.setText('----')
+        mw.saidalabelMarca.setText('----')
+        mw.saidalabelModelo.setText('----')
+        mw.saidalabelLocal.setText('----')
+        mw.saidalabelPreco.setText('----')
+
+        mw.saidaComboBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255);')
+        mw.saidaComboBoxCampo.setStyleSheet('background-color: rgb(255, 255, 255);')
+        mw.saidalineEditPes.setStyleSheet('background-color: rgb(255, 255, 255);')
+        mw.saidalabelDialog.clear()
+        mw.saidaFrameMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255); border-radius: 10px;')
+        mw.saidaFrameItem.setStyleSheet('background-color:rgb(7, 183, 168);border: 1px;border-radius: 10px;')
+        mw.saidaFrameItemPicture.setStyleSheet('background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n'
+            ';background-position:center;background-repeat: no-repeat;')
+        mw.saidaFrameDestino.setStyleSheet('background-color:rgb(7, 183, 168);border: 1px;border-radius: 10px;')
+
+    def saidaDestino():
+        # cod = mw.saidaUser.text()
+        # print(type(cod), cod)
+
+        # Perifericos e Itens do colaborador
+        if mw.saidaUser.text() == 'USER':
+            opSaidaEstoqueTI.close()
+            opSaidaEstoqueTI.show()
+            ops.stackedWidget.setCurrentWidget(ops.pageOpUser)
+
+            def pUser():
+                user = ops.opLineUser.text()
+                print(user + '<--- entrada do usuario')
+
+                if user == '':
+                    texto = 'Campo de pesquisa em branco \nPor favor preencha o campo de pesquisa de usuario'
+                    ops.opLineUser.setStyleSheet('background-color: rgb(255, 192, 193);')
+                    ops.opLabelUser.setText(texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT * FROM colaborador WHERE nome like '%{user}%';""")
+                        dados = con.fetchall()
+                        print(dados)
+
+                        if dados == ():
+                            texto = 'Usuário não encontrado\n certifique se de que o mesmo esta cadastrado'
+                            ops.opLabelUser.setText(texto)
+
+                        else:
+                            nome = dados[0][1]
+                            cargo = dados[0][4]
+                            idu = dados[0][0]
+
+                            texto = 'COLABORADOR ENCONTRADO'
+                            mw.saidaFrameDestino.setStyleSheet(
+                                'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                            mw.saidaCargoUser.setText(nome)
+                            mw.saidaCodUser.setText(str(idu))
+
+                            Positive.show()
+                            ops.opLineUser.clear()
+                            po.LabelDialog.setText(texto)
+                            opSaidaEstoqueTI.close()
+
+                            return nome
+
+                    except:
+                        texto = 'Colaborador Não Encontrado'
+                        dg.LabelDialog.setText(texto)
+                        Dialog.show()
+                        return None
+
+            ops.opButtonUser.clicked.connect(pUser)
+
+        # Itens do computador
+        if mw.saidaUser.text() == 'COMPUTER':
+            print('entrou computer')
+            opSaidaEstoqueTI.close()
+            opSaidaEstoqueTI.show()
+            ops.stackedWidget.setCurrentWidget(ops.pageComputer)
+            ops.opLineCom.setStyleSheet('background-color: rgb(255, 255, 255);border:1px; border-radius: 10px')
+
+            def maq():
+                imputUser = ops.opLineCom.text()
+
+                if imputUser == '':
+                    texto = 'Preencha o campo de pesquisa'
+                    ops.opLineCom.setStyleSheet('background-color: rgb(255, 184, 185);border:1px; border-radius: 10px')
+                    ops.opLabelCom.setText(texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT * FROM computer WHERE idComputer like '%{imputUser}%';""")
+                        result = con.fetchall()
+
+                        if result == ():
+                            texto = 'MAQUINA NÃO ENCONTRADA!\n Certifique-se de que a maquina esta\n Devidamente cadastrada.'
+                            Dialog.show()
+                            dg.LabelDialog.setText(texto)
+                            ops.opLabelCom.setText('Certifique-se de que a maquina esta\n Devidamente cadastrada.')
+
+                        else:
+                            print(result)
+                            cod = result[0][0]
+                            marca = result[0][2]
+                            modelo = result[0][3]
+                            print(cod, marca, modelo)
+
+                            texto = f'MAQUINA {marca} {modelo} LOCALIZADA\n CÓDIGO {cod}.'
+                            mw.saidaFrameDestino.setStyleSheet(
+                                'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                            mw.saidaCargoUser.setText(marca)
+                            mw.saidaCodUser.setText(str(cod))
+
+                            Positive.show()
+                            ops.opLineUser.clear()
+                            po.LabelDialog.setText(texto)
+                            opSaidaEstoqueTI.close()
+
+                    except:
+                        print('Algo deu errado ao localizar computer em saida ')
+
+            ops.opButtonCom.clicked.connect(maq)
+
+        # Itens local ou setor
+        if mw.saidaUser.text() == 'DESTINO':
+            opSaidaEstoqueTI.close()
+            opSaidaEstoqueTI.show()
+            ops.stackedWidget.setCurrentWidget(ops.pageOpLocal)
+
+            def local():
+                local = ops.opBoxLocal.currentText()
+
+                texto = 'Local Selecionado'
+                mw.saidaFrameDestino.setStyleSheet(
+                    'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                mw.saidaCargoUser.setText(local)
+                mw.saidaCodUser.setText('01')
+
+                Positive.show()
+                ops.opLineUser.clear()
+                po.LabelDialog.setText(texto)
+                opSaidaEstoqueTI.close()
+
+            ops.opButtonLocal.clicked.connect(local)
+
+        else:
+            print('?')
+
+    def movEstoqueSaida():
+        codItem = mw.saidalabelCod.text()
+        motivo = motiSaida()
+        codDestino = mw.saidaCodUser.text()
+
+        print(codItem, motivo, codDestino)
+
+        if codItem == '----' or motivo == None or codDestino == '----------':
+            mw.saidaFrameMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 118, 118); border-radius: 10px;')
+            mw.saidaFrameItem.setStyleSheet('background-color:rgb(255, 118, 118);border: 1px;border-radius: 10px;')
+            mw.saidaFrameDestino.setStyleSheet('background-color:rgb(255, 118, 118);border: 1px;border-radius: 10px;')
+
+            texto = 'Campos obrigatórios não preenchidos'
+            mw.saidalabelDialog.setText(texto)
+
+        else:
+            pic = mw.saidaUser.text()
+            print(pic)
+
+            # --------------- Item --------------------
+            tipo = mw.saidaComboBoxTipo.currentText()
+            marca = mw.saidalabelMarca.text()
+            modelo = mw.saidalabelModelo.text()
+            local = mw.saidaCargoUser.text()
+            data = datAT()
+
+            # --------------- Destino ------------------
+            cod = mw.saidaCodUser.text()
+
+            # Itens do colaborador
+            if mw.saidaUser.text() == 'USER':
+
+                DialogiEstoqueSaida.show()
+                texto = f'DESEJA REALMENTE DA SAIDA NO ITEM\n {tipo} ID {codItem} DO ESTOQUE TI'
+                ds.LabelDialogMsg.setText(texto)
+
+                def sim():
+                    if tabCodSaida() is not None:
+                        tabela = tabCodSaida()[0]
+                        coluna = tabCodSaida()[1]
+                        print(tabela, coluna)
+                        print(marca, modelo, local, data, motivo, tipo)
+
+                        try:
+                            con = db.conMySQL()
+                            con.execute(
+                                f"""UPDATE colaborador SET {coluna} = '{codItem}' WHERE (`idColaborador` = '{cod}');""")
+
+                            con.execute(
+                                f"""INSERT INTO historico VALUES ('{Usuario}','SAIDA. ESTOQUE TI','{tipo}','{cod}',
+                                                                '{marca}','{modelo}','{motivo}','{local}','{data}');""")
+
+                            DialogiEstoqueSaida.close()
+                            Positive.show()
+                            po.LabelDialog.setText('TRANSAÇÃO REALIZADA COM SUCESSO!')
+                            con.close()
+                            limpPageSaida()
+
+                        except pymysql.Error as erro:
+                            texto = f'Erro SQL:{str(erro)[1:5]}'
+                            mw.saidalabelDialog.setText(texto)
+                            print(str(erro) + texto)
+                            print('deu ruim')
+
+                    else:
+                        DialogiEstoqueSaida.close()
+                        print('algo errado no salvamento em colaborador')
+
+                def nao():
+                    DialogiEstoqueSaida.close()
+
+                ds.pushButtonSim.clicked.connect(sim)
+                ds.pushButtonNao.clicked.connect(nao)
+
+            # Itens do computador
+            if mw.saidaUser.text() == 'COMPUTER':
+
+                DialogiEstoqueSaida.show()
+                texto = f'DESEJA REALMENTE DA SAIDA NO ITEM\n {tipo} ID {codItem} DO ESTOQUE TI'
+                ds.LabelDialogMsg.setText(texto)
+
+                def sim():
+                    if tabCodSaida() is not None:
+                        tabela = tabCodSaida()[0]
+                        coluna = tabCodSaida()[1]
+                        print(tabela, coluna)
+                        print(marca, modelo, local, data, motivo, tipo)
+
+                        try:
+                            con = db.conMySQL()
+                            con.execute(f"""UPDATE computer SET {coluna} = '{codItem}' WHERE (`idComputer` = '{cod}');""")
+
+                            con.execute(f"""INSERT INTO historico VALUES ('{Usuario}','SAIDA. ESTOQUE TI','{tipo}','{cod}',
+                                                        '{marca}','{modelo}','{motivo}','{local}','{data}');""")
+
+                            DialogiEstoqueSaida.close()
+                            Positive.show()
+                            po.LabelDialog.setText('TRANSAÇÃO REALIZADA COM SUCESSO!')
+                            con.close()
+                            limpPageSaida()
+
+                        except:  # pymysql.Error as erro:
+                            # texto = f'Erro SQL:{str(erro)[1:5]}'
+                            # mw.entradalabelDialog.setText(texto)
+                            # print(str(erro) + texto)
+                            print('deu ruim')
+
+                    else:
+                        DialogiEstoqueSaida.close()
+
+                def nao():
+                    DialogiEstoqueSaida.close()
+
+                ds.pushButtonSim.clicked.connect(sim)
+                ds.pushButtonNao.clicked.connect(nao)
+
+            # Itens local ou setor
+            if mw.saidaUser.text() == 'DESTINO':
+                item = mw.saidalabelMarca.text()
+
+                DialogiEstoqueSaida.show()
+                texto = f'DESEJA REALMENTE DA SAIDA NO ITEM\n {item} ID {codItem} DO ESTOQUE TI'
+                ds.LabelDialogMsg.setText(texto)
+
+                def sim():
+                    if tabCodSaida() is not None:
+                        tabela = tabCodSaida()[0]
+                        coluna = tabCodSaida()[1]
+                        print(tabela, coluna)
+                        print(marca, modelo, local, data, motivo, tipo)
+
+                        try:
+                            con = db.conMySQL()
+                            con.execute(f"""UPDATE {tabela} SET `LOCAL` = '{local}' WHERE (`{coluna}` = '{codItem}');""")
+
+                            con.execute(f"""INSERT INTO historico VALUES ('{Usuario}','SAIDA. ESTOQUE TI','{item}','{cod}',
+                                                        '{marca}','{modelo}','{motivo}','{local}','{data}');""")
+
+                            DialogiEstoqueSaida.close()
+                            Positive.show()
+                            po.LabelDialog.setText('TRANSAÇÃO REALIZADA COM SUCESSO!')
+                            con.close()
+                            limpPageSaida()
+
+                        except pymysql.Error as erro:
+                            texto = f'Erro SQL:{str(erro)[1:5]}'
+                            mw.saidalabelDialog.setText(texto)
+                            print(str(erro) + texto)
+                            print('deu ruim')
+
+                    else:
+                        DialogiEstoqueSaida.close()
+
+                def nao():
+                    DialogiEstoqueSaida.close()
+
+                ds.pushButtonSim.clicked.connect(sim)
+                ds.pushButtonNao.clicked.connect(nao)
+
+    def cancelSaida():
+        limpPageSaida()
+        mw.stackedWidget.setCurrentWidget(mw.PageGestao)
+
+    mw.saidaButtonDestino.clicked.connect(saidaDestino)
+    mw.saidaButtonBuscar.clicked.connect(pesSaida)
+    mw.saidaTableWidget.itemSelectionChanged.connect(addItemSaida)
+    mw.saidabuttonLimpar.clicked.connect(limpPageSaida)
+    mw.saidabuttonCancel.clicked.connect(cancelSaida)
+    mw.saidabuttonConfirmar.clicked.connect(movEstoqueSaida)
+
+    #   TRATAMENTO PAGE SAIDA ESTOQUE ----------------------------------------------------------------------------------
+    def pesBaixa():
+        boxTipo = mw.baixaComboBoxTipo.currentText()
+        boxCampo = mw.baixaComboBoxCampo.currentText()
+        inputUser = mw.baixalineEditPes.text()
+
+        print(boxTipo, boxCampo, inputUser)
+
+        if boxTipo == '' or boxCampo == '' or inputUser == '':
+            mw.baixaComboBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193);')
+            mw.baixaComboBoxCampo.setStyleSheet('background-color: rgb(255, 192, 193);')
+            mw.baixalineEditPes.setStyleSheet('background-color: rgb(255, 192, 193);')
+
+            texto = 'Campos obrigatórios não preenchidos'
+            mw.baixalabelDialog.setText(texto)
+
+        else:
+            mw.baixaComboBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255);')
+            mw.baixaComboBoxCampo.setStyleSheet('background-color: rgb(255, 255, 255);')
+            mw.baixalineEditPes.setStyleSheet('background-color: rgb(255, 255, 255);')
+            mw.baixalabelDialog.clear()
+
+            tabela = tabCodBaixa()[0]
+            coluna = tabCodBaixa()[1]
+            print(tabela, coluna)
+
+            if boxCampo == 'CÓDIGO':
+
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                            FROM office
+                                            WHERE idOffice LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                            FROM windows
+                                            WHERE idWindows LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
 
 
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                            FROM {tabela}
+                                            WHERE {coluna} LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+            if boxCampo == 'MARCA':
+
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                            FROM office
+                                            WHERE VERSAO LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                            FROM windows
+                                            WHERE VERSAO LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                            FROM {boxTipo}
+                                            WHERE MARCA LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+            if boxCampo == 'CHAVE':
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT {coluna}, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA
+                                        FROM {boxTipo}
+                                        WHERE CHAVE LIKE '%{inputUser}%'""")
+                    result = con.fetchall()
+                    print(result)
+
+                    mw.baixaTableWidget.clearContents()
+                    header = mw.baixaTableWidget.horizontalHeader()
+                    header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                    mw.baixaTableWidget.setRowCount(
+                        len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                    for row, text in enumerate(result):
+                        for column, data in enumerate(text):
+                            mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                    con.close()
+
+                except pymysql.Error as erro:
+                    texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                    mw.baixalabelDialog.setText(texto)
+                    print(str(erro) + texto)
+
+            if boxCampo == 'LOCAL':
+
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                            FROM office
+                                            WHERE LOCAL LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                            FROM windows
+                                            WHERE LOCAL LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                            FROM {boxTipo}
+                                            WHERE LOCAL LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+            if boxCampo == 'DATA':
+
+                if tabela == 'office':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idOffice, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                            FROM office
+                                            WHERE DATA LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+
+                if tabela == 'windows':
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT idWindows, CHAVE, VERSAO, VERSAOPRO, LOCAL, VALOR, DATA 
+                                            FROM windows
+                                            WHERE DATA LIKE '%{inputUser}%'""")
+
+                        result = con.fetchall()
+                        print(result)
+
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+                        con.close()
 
 
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
 
+                else:
+                    try:
+                        con = db.conMySQL()
+                        con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                            FROM {boxTipo}
+                                            WHERE DATA LIKE '%{inputUser}%'""")
+                        result = con.fetchall()
+                        print(result)
 
+                        mw.baixaTableWidget.clearContents()
+                        header = mw.baixaTableWidget.horizontalHeader()
+                        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                        mw.baixaTableWidget.setRowCount(
+                            len(result))  # <-- Numeros de linhas conforme quantidade da tabela
 
+                        for row, text in enumerate(result):
+                            for column, data in enumerate(text):
+                                mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
 
+                        con.close()
 
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
 
+            else:
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT {coluna}, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                        FROM {boxTipo}
+                                        WHERE DATA LIKE '%{inputUser}%'""")
+                    result = con.fetchall()
+                    print(result)
 
+                    mw.baixaTableWidget.clearContents()
+                    header = mw.baixaTableWidget.horizontalHeader()
+                    header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+                    mw.baixaTableWidget.setRowCount(
+                        len(result))  # <-- Numeros de linhas conforme quantidade da tabela
 
+                    for row, text in enumerate(result):
+                        for column, data in enumerate(text):
+                            mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
 
+                    con.close()
 
+                except pymysql.Error as erro:
+                    texto = f'Erro SQL:{str(erro)[1:5]} Nada Encontrado'
+                    mw.baixalabelDialog.setText(texto)
+                    print(str(erro) + texto)
 
+    def tabCodBaixa():
+        teste = mw.baixaComboBoxTipo.currentText().lower()
+
+        if teste == 'celular':
+            ret = ('celular', 'idCelular')
+            return ret
+
+        if teste == 'computer':
+            ret = ('computer', 'idComputer')
+            return ret
+
+        if teste == 'disco':
+            ret = ('disco', 'idDisco')
+            return ret
+
+        if teste == 'memoria':
+            ret = ('memoria', 'idMemoria')
+            return ret
+
+        if teste == 'monitor':
+            ret = ('monitor', 'idMonitor')
+            return ret
+
+        if teste == 'mouse':
+            ret = ('mouse', 'idMouse')
+            return ret
+
+        if teste == 'mousepad':
+            ret = ('mousepad', 'idMousePad')
+            return ret
+
+        if teste == 'office':
+            ret = ('office', 'idOffice')
+            return ret
+
+        if teste == 'outros':
+            ret = ('outros', 'idOutros')
+            return ret
+
+        if teste == 'suporte':
+            ret = ('suporte', 'idSuporte')
+            return ret
+
+        if teste == 'windows':
+            ret = ('windows', 'idWindows')
+            return ret
+
+        else:
+            teste = None
+            return teste
+
+    def motiBaixa():
+
+        if mw.baixaRadioObsoleto.isChecked() == True:
+            ret = mw.baixaRadioObsoleto.text()
+            return ret
+
+        elif mw.baixaRadioDefeito.isChecked() == True:
+            ret = mw.baixaRadioDefeito.text()
+            return ret
+
+        elif mw.baixaRadioSucata.isChecked() == True:
+            ret = mw.baixaRadioSucata.text()
+            return ret
+
+        elif mw.baixaRadioVenda.isChecked() == True:
+            ret = mw.baixaRadioVenda.text()
+            return ret
+
+        elif mw.baixaRadioOutro.isChecked() == True:
+            ret = mw.baixaRadioOutro.text()
+            return ret
+
+        else:
+            return None
+
+    def addItemBaixa():
+        get = getIDTableBaixa()
+        pic = getIDCodBaixa()[0:2]
+        print(get, pic)
+
+        # Teclado 21000
+        if pic == '21':
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 960.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+            mw.baixaFrameDestino.setStyleSheet('background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # Suporte 20000
+        elif pic == '20':
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 961.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+            mw.baixaFrameDestino.setStyleSheet(
+                'background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # Memoria 19000
+        elif pic == '19':
+
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 957.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+            mw.baixaFrameDestino.setStyleSheet(
+                'background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # Disco 18000
+        elif pic == '18':
+
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 958.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.baixaFrameDestino.setStyleSheet(
+                'background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # Celular 17000
+        elif pic == '17':
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 950.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.baixaFrameDestino.setStyleSheet(
+                'background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # Monitor 16000
+        elif pic == '16':
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 952.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.baixaFrameDestino.setStyleSheet(
+                'background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # Mouse 15000
+        elif pic == '15':
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 956.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.baixaFrameDestino.setStyleSheet(
+                'background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # MousePad 14000
+        elif pic == '14':
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 959.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.baixaFrameDestino.setStyleSheet('background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # Windows 13000
+        elif pic == '13':
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 955.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.baixaFrameDestino.setStyleSheet('background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # Office 12000
+        elif pic == '12':
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 954.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.baixaFrameDestino.setStyleSheet(
+                'background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # Desktop Notebook 11000
+        elif pic == '11':
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 951.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.baixaFrameDestino.setStyleSheet(
+                'background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        # Outros 10000
+        elif pic == '10':
+            mw.baixaFrameItemPicture.setStyleSheet(
+                'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n'
+                ';background-position:center;background-repeat: no-repeat;')
+            cod = mw.baixaTableWidget.item(get, 0).text()
+            tipo = mw.baixaTableWidget.item(get, 1).text().upper()[0:15]
+            marca = mw.baixaTableWidget.item(get, 2).text()
+            modelo = mw.baixaTableWidget.item(get, 3).text()
+            local = mw.baixaTableWidget.item(get, 4).text()
+            preco = mw.baixaTableWidget.item(get, 5).text()
+
+            mw.baixalabelCod.setText(cod)
+            mw.baixalabelMarca.setText(marca)
+            mw.baixalabelModelo.setText(modelo)
+            mw.baixalabelLocal.setText(local)
+            mw.baixalabelPreco.setText(preco)
+
+            mw.baixaFrameItem.setStyleSheet(
+                'background-color: rgb(199, 211, 0);border: 1px; border-radius: 10px;')
+
+            mw.baixaFrameDestino.setStyleSheet(
+                'background-color: rgb(255, 118, 118); border: 1px; border-radius: 10px;')
+
+        else:
+            texto = 'Família não encontrada'
+            print('Nenhuma familia encontrada')
+            mw.baixalabelDialog.setText(texto)
+
+    def getIDTableBaixa():
+        ret = mw.baixaTableWidget.currentRow()
+        return ret
+
+    def getIDCodBaixa():
+        ret = mw.baixaTableWidget.item(getIDTableBaixa(), 0)
+        return ret.text() if not ret is None else ret
+
+    def limpPageBaixa():
+        try:
+            con = db.conMySQL()
+            con.execute(f"""SELECT idCelular, TIPO, MARCA, MODELO, LOCAL, VALOR, DATA
+                                FROM celular
+                                WHERE LOCAL LIKE '500000'""")
+            result = con.fetchall()
+            print(result)
+
+            mw.baixaTableWidget.clearContents()
+            header = mw.baixaTableWidget.horizontalHeader()
+            header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+            mw.baixaTableWidget.setRowCount(
+                len(result))  # <-- Numeros de linhas conforme quantidade da tabela
+
+            for row, text in enumerate(result):
+                for column, data in enumerate(text):
+                    mw.baixaTableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+        except:
+            print('Limpeza falhou')
+
+        mw.baixalineEditPes.clear()
+        mw.baixaComboBoxTipo.setCurrentIndex(0)
+        mw.baixaComboBoxCampo.setCurrentIndex(0)
+
+        mw.baixalabelCod.setText('----')
+        mw.baixalabelMarca.setText('----')
+        mw.baixalabelModelo.setText('----')
+        mw.baixalabelLocal.setText('----')
+        mw.baixalabelPreco.setText('----')
+
+        mw.baixaComboBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255);')
+        mw.baixaComboBoxCampo.setStyleSheet('background-color: rgb(255, 255, 255);')
+        mw.baixalineEditPes.setStyleSheet('background-color: rgb(255, 255, 255);')
+        mw.baixalabelDialog.clear()
+        mw.baixaFrameMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255); border-radius: 10px;')
+        mw.baixaFrameItem.setStyleSheet('background-color:rgb(7, 183, 168);border: 1px;border-radius: 10px;')
+        mw.baixaFrameItemPicture.setStyleSheet(
+            'background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n'
+            ';background-position:center;background-repeat: no-repeat;')
+
+        mw.baixaFrameDestino.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+
+    def movEstoqueBaixa():
+        codItem = mw.baixalabelCod.text()
+        motivo = motiBaixa()
+        tipo = mw.baixaTableWidget.item(getIDTableBaixa(), 1)
+
+        print(codItem, motivo)
+
+        if codItem == '----' or motivo == None:
+            mw.baixaFrameMotivo.setStyleSheet(
+                'border: 2px solid; border-color: rgb(255, 118, 118); border-radius: 10px;')
+            mw.baixaFrameItem.setStyleSheet('background-color:rgb(255, 118, 118);border: 1px;border-radius: 10px;')
+
+            texto = 'Campos obrigatórios não preenchidos'
+            mw.baixalabelDialog.setText(texto)
+
+        else:
+            # --------------- Item --------------------
+            tipo = mw.baixaComboBoxTipo.currentText()
+            marca = mw.baixalabelMarca.text()
+            modelo = mw.baixalabelModelo.text()
+            local = 'BAIXA'
+            data = datAT()
+
+            DialogiEstoqueBaixa.show()
+            texto = f'DESEJA REALMENTE BAIXAR O ITEM\n {marca} ID {codItem} DO ESTOQUE TI'
+            dx.LabelDialogMsg.setText(texto)
+
+            def sim():
+                if tabCodBaixa() is not None:
+                    tabela = tabCodBaixa()[0]
+                    coluna = tabCodBaixa()[1]
+                    print(tabela, coluna)
+                    print(marca, modelo, local, data, motivo, tipo)
+
+                    try:
+                        con = db.conMySQL()
+                        con.execute(
+                            f"""DELETE FROM {tabela} WHERE (`{coluna}` = '{codItem}');""")
+
+                        con.execute(
+                            f"""INSERT INTO historico VALUES ('{Usuario}','BAIXA ESTOQUE TI','{tipo}','{codItem}',
+                                                        '{marca}','{modelo}','{motivo}','{local}','{data}');""")
+
+                        DialogiEstoqueBaixa.close()
+                        Positive.show()
+                        po.LabelDialog.setText('TRANSAÇÃO REALIZADA COM SUCESSO!')
+                        con.close()
+                        limpPageBaixa()
+
+                    except pymysql.Error as erro:
+                        texto = f'Erro SQL:{str(erro)[1:5]}'
+                        mw.baixalabelDialog.setText(texto)
+                        print(str(erro) + texto)
+                        print('deu ruim')
+
+                else:
+                    DialogiEstoqueBaixa.close()
+
+            def nao():
+                DialogiEstoqueBaixa.close()
+
+            dx.pushButtonSim.clicked.connect(sim)
+            dx.pushButtonNao.clicked.connect(nao)
+
+    def cancelBaixa():
+        limpPageBaixa()
+        mw.stackedWidget.setCurrentWidget(mw.PageGestao)
+
+    mw.baixaButtonBuscar.clicked.connect(pesBaixa)
+    mw.baixaTableWidget.itemSelectionChanged.connect(addItemBaixa)
+    mw.baixabuttonLimpar.clicked.connect(limpPageBaixa)
+    mw.baixabuttonCancel.clicked.connect(cancelBaixa)
+    mw.baixabuttonConfirmar.clicked.connect(movEstoqueBaixa)
 
 
 if __name__ == "__main__":
@@ -2837,9 +5600,25 @@ if __name__ == "__main__":
     opc = Ui_opCell()
     opc.setupUi(opCell)
 
+    opSaidaEstoqueTI = QtWidgets.QMainWindow()
+    ops = Ui_opSaidaEstoqueTI()
+    ops.setupUi(opSaidaEstoqueTI)
+
     MainControle = QtWidgets.QMainWindow()
     mc = Ui_MainControle()
     mc.setupUi(MainControle)
+
+    DialogiEstoqueEntrada = QtWidgets.QMainWindow()
+    de = Ui_DialogiEstoqueEntrada()
+    de.setupUi(DialogiEstoqueEntrada)
+
+    DialogiEstoqueSaida = QtWidgets.QMainWindow()
+    ds = Ui_DialogiEstoqueSaida()
+    ds.setupUi(DialogiEstoqueSaida)
+
+    DialogiEstoqueBaixa = QtWidgets.QMainWindow()
+    dx = Ui_DialogiEstoqueBaixa()
+    dx.setupUi(DialogiEstoqueBaixa)
 
     DialogiConditional = QtWidgets.QMainWindow()
     di = Ui_DialogiConditional()
@@ -2870,4 +5649,5 @@ if __name__ == "__main__":
     estoqueTi()
 
     MainLogin.showMaximized()
+    # MainEstoque.showMaximized()
     sys.exit(app.exec_())

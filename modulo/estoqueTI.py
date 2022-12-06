@@ -1376,9 +1376,10 @@ class Ui_MainEstoque(object):
         self.stackedWidget.addWidget(self.pageHome)
         self.pageHistorico = QtWidgets.QWidget()
         self.pageHistorico.setObjectName("pageHistorico")
-        self.verticalLayout_55 = QtWidgets.QVBoxLayout(self.pageHistorico)
-        self.verticalLayout_55.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_55.setObjectName("verticalLayout_55")
+        self.verticalLayout_48 = QtWidgets.QVBoxLayout(self.pageHistorico)
+        self.verticalLayout_48.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_48.setSpacing(0)
+        self.verticalLayout_48.setObjectName("verticalLayout_48")
         self.frame_38 = QtWidgets.QFrame(self.pageHistorico)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(1)
@@ -1392,26 +1393,72 @@ class Ui_MainEstoque(object):
         self.frame_38.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_38.setObjectName("frame_38")
         self.horizontalLayout_45 = QtWidgets.QHBoxLayout(self.frame_38)
-        self.horizontalLayout_45.setContentsMargins(-1, 0, 11, 0)
-        self.horizontalLayout_45.setSpacing(20)
         self.horizontalLayout_45.setObjectName("horizontalLayout_45")
         self.label_71 = QtWidgets.QLabel(self.frame_38)
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
         self.label_71.setFont(font)
-        self.label_71.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_71.setStyleSheet("color: rgb(38, 161, 168);")
         self.label_71.setObjectName("label_71")
         self.horizontalLayout_45.addWidget(self.label_71)
-        self.verticalLayout_54 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_54.setContentsMargins(-1, -1, -1, 0)
-        self.verticalLayout_54.setSpacing(0)
-        self.verticalLayout_54.setObjectName("verticalLayout_54")
-        self.horizontalLayout_45.addLayout(self.verticalLayout_54)
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_45.addItem(spacerItem2)
+        self.hisButtonAtualizar = QtWidgets.QPushButton(self.frame_38)
+        self.hisButtonAtualizar.setMinimumSize(QtCore.QSize(75, 30))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setBold(True)
+        font.setWeight(75)
+        self.hisButtonAtualizar.setFont(font)
+        self.hisButtonAtualizar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(38, 161, 168);\n"
+"    border: 1px;\n"
+"    border-radius: 12px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(41, 179, 186);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(30, 133, 138);\n"
+"    color: rgb(227, 227, 227);\n"
+"}\n"
+"")
+        self.hisButtonAtualizar.setObjectName("hisButtonAtualizar")
+        self.horizontalLayout_45.addWidget(self.hisButtonAtualizar)
+        self.hisButtonVisualizar = QtWidgets.QPushButton(self.frame_38)
+        self.hisButtonVisualizar.setMinimumSize(QtCore.QSize(80, 30))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setBold(True)
+        font.setWeight(75)
+        self.hisButtonVisualizar.setFont(font)
+        self.hisButtonVisualizar.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(38, 161, 168);\n"
+"    border: 1px;\n"
+"    border-radius: 12px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(41, 179, 186);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color: rgb(30, 133, 138);\n"
+"    color: rgb(227, 227, 227);\n"
+"}\n"
+"")
+        self.hisButtonVisualizar.setObjectName("hisButtonVisualizar")
+        self.horizontalLayout_45.addWidget(self.hisButtonVisualizar)
         self.frame_PesquisarTable_14 = QtWidgets.QFrame(self.frame_38)
-        self.frame_PesquisarTable_14.setMaximumSize(QtCore.QSize(200, 35))
+        self.frame_PesquisarTable_14.setMinimumSize(QtCore.QSize(229, 0))
+        self.frame_PesquisarTable_14.setMaximumSize(QtCore.QSize(238, 35))
         self.frame_PesquisarTable_14.setStyleSheet("background-color:  rgb(238, 238, 238);")
         self.frame_PesquisarTable_14.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_PesquisarTable_14.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -1458,7 +1505,7 @@ class Ui_MainEstoque(object):
 "QPushButton:hover {\n"
 "    \n"
 "    background-image: url(:/home/estoque/Grupo 26.png);\n"
-"    background-color: rgb(243, 243, 243);\n"
+"\n"
 "}\n"
 "QPushButton:pressed {\n"
 "    background-color: rgb(226, 226, 226);\n"
@@ -1466,8 +1513,12 @@ class Ui_MainEstoque(object):
         self.hisPesButton.setObjectName("hisPesButton")
         self.horizontalLayout_46.addWidget(self.hisPesButton)
         self.horizontalLayout_45.addWidget(self.frame_PesquisarTable_14)
-        self.verticalLayout_55.addWidget(self.frame_38)
-        self.tableWidgetHistorico = QtWidgets.QTableWidget(self.pageHistorico)
+        self.verticalLayout_48.addWidget(self.frame_38)
+        self.splitter_46 = QtWidgets.QSplitter(self.pageHistorico)
+        self.splitter_46.setLineWidth(1)
+        self.splitter_46.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_46.setObjectName("splitter_46")
+        self.tableWidgetHistorico = QtWidgets.QTableWidget(self.splitter_46)
         self.tableWidgetHistorico.setStyleSheet("QHeaderView::section{\n"
 "    background-color: rgb(245, 245, 245);\n"
 "    border: 1px solid;\n"
@@ -1496,37 +1547,267 @@ class Ui_MainEstoque(object):
         self.tableWidgetHistorico.setHorizontalHeaderItem(7, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidgetHistorico.setHorizontalHeaderItem(8, item)
-        self.verticalLayout_55.addWidget(self.tableWidgetHistorico)
-        self.splitter_21 = QtWidgets.QSplitter(self.pageHistorico)
-        self.splitter_21.setOrientation(QtCore.Qt.Horizontal)
-        self.splitter_21.setObjectName("splitter_21")
-        self.label_54 = QtWidgets.QLabel(self.splitter_21)
-        self.label_54.setText("")
-        self.label_54.setObjectName("label_54")
-        self.ButtonNoteView_2 = QtWidgets.QPushButton(self.splitter_21)
-        self.ButtonNoteView_2.setMinimumSize(QtCore.QSize(120, 50))
-        self.ButtonNoteView_2.setMaximumSize(QtCore.QSize(120, 50))
+        self.frame_48 = QtWidgets.QFrame(self.splitter_46)
+        self.frame_48.setMinimumSize(QtCore.QSize(250, 0))
+        self.frame_48.setMaximumSize(QtCore.QSize(250, 16777215))
+        self.frame_48.setStyleSheet("background-color: rgb(38, 161, 168);")
+        self.frame_48.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_48.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_48.setObjectName("frame_48")
+        self.verticalLayout_49 = QtWidgets.QVBoxLayout(self.frame_48)
+        self.verticalLayout_49.setObjectName("verticalLayout_49")
+        self.frame_49 = QtWidgets.QFrame(self.frame_48)
+        self.frame_49.setMinimumSize(QtCore.QSize(183, 183))
+        self.frame_49.setStyleSheet("background-image: url(:/Viws/estoque/Viws/Grupo 948.png);\n"
+"background-position: center;\n"
+"background-repeat: no-repeat;")
+        self.frame_49.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_49.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_49.setObjectName("frame_49")
+        self.verticalLayout_49.addWidget(self.frame_49)
+        self.frame_50 = QtWidgets.QFrame(self.frame_48)
+        self.frame_50.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_50.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_50.setObjectName("frame_50")
+        self.verticalLayout_47 = QtWidgets.QVBoxLayout(self.frame_50)
+        self.verticalLayout_47.setObjectName("verticalLayout_47")
+        self.splitter_45 = QtWidgets.QSplitter(self.frame_50)
         font = QtGui.QFont()
         font.setFamily("Asap")
-        font.setPointSize(9)
-        self.ButtonNoteView_2.setFont(font)
-        self.ButtonNoteView_2.setStyleSheet("QPushButton{\n"
-"    background-color: rgb(4, 66, 77);\n"
-"    color: rgb(255, 255, 255);\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(2, 28, 33);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    \n"
-"    background-color: rgb(5, 75, 88);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    \n"
-"    background-color: rgb(2, 38, 45);\n"
-"}")
-        self.ButtonNoteView_2.setObjectName("ButtonNoteView_2")
-        self.verticalLayout_55.addWidget(self.splitter_21)
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.splitter_45.setFont(font)
+        self.splitter_45.setStyleSheet("color: rgb(255, 255, 255);")
+        self.splitter_45.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_45.setObjectName("splitter_45")
+        self.label_54 = QtWidgets.QLabel(self.splitter_45)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_54.setFont(font)
+        self.label_54.setObjectName("label_54")
+        self.hislabel01 = QtWidgets.QLabel(self.splitter_45)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.hislabel01.setFont(font)
+        self.hislabel01.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.hislabel01.setObjectName("hislabel01")
+        self.verticalLayout_47.addWidget(self.splitter_45)
+        self.splitter_41 = QtWidgets.QSplitter(self.frame_50)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.splitter_41.setFont(font)
+        self.splitter_41.setStyleSheet("color: rgb(255, 255, 255);")
+        self.splitter_41.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_41.setObjectName("splitter_41")
+        self.label_57 = QtWidgets.QLabel(self.splitter_41)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_57.setFont(font)
+        self.label_57.setObjectName("label_57")
+        self.hislabel02 = QtWidgets.QLabel(self.splitter_41)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.hislabel02.setFont(font)
+        self.hislabel02.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.hislabel02.setObjectName("hislabel02")
+        self.verticalLayout_47.addWidget(self.splitter_41)
+        self.splitter_28 = QtWidgets.QSplitter(self.frame_50)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.splitter_28.setFont(font)
+        self.splitter_28.setStyleSheet("color: rgb(255, 255, 255);")
+        self.splitter_28.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_28.setObjectName("splitter_28")
+        self.label_58 = QtWidgets.QLabel(self.splitter_28)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_58.setFont(font)
+        self.label_58.setObjectName("label_58")
+        self.hislabel03 = QtWidgets.QLabel(self.splitter_28)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.hislabel03.setFont(font)
+        self.hislabel03.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.hislabel03.setObjectName("hislabel03")
+        self.verticalLayout_47.addWidget(self.splitter_28)
+        self.splitter_27 = QtWidgets.QSplitter(self.frame_50)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.splitter_27.setFont(font)
+        self.splitter_27.setStyleSheet("color: rgb(255, 255, 255);")
+        self.splitter_27.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_27.setObjectName("splitter_27")
+        self.label_61 = QtWidgets.QLabel(self.splitter_27)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_61.setFont(font)
+        self.label_61.setText("")
+        self.label_61.setObjectName("label_61")
+        self.label_82 = QtWidgets.QLabel(self.splitter_27)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_82.setFont(font)
+        self.label_82.setText("")
+        self.label_82.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_82.setObjectName("label_82")
+        self.verticalLayout_47.addWidget(self.splitter_27)
+        self.splitter_26 = QtWidgets.QSplitter(self.frame_50)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.splitter_26.setFont(font)
+        self.splitter_26.setStyleSheet("color: rgb(255, 255, 255);")
+        self.splitter_26.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_26.setObjectName("splitter_26")
+        self.label_69 = QtWidgets.QLabel(self.splitter_26)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_69.setFont(font)
+        self.label_69.setText("")
+        self.label_69.setObjectName("label_69")
+        self.label_105 = QtWidgets.QLabel(self.splitter_26)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_105.setFont(font)
+        self.label_105.setText("")
+        self.label_105.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_105.setObjectName("label_105")
+        self.verticalLayout_47.addWidget(self.splitter_26)
+        self.splitter_25 = QtWidgets.QSplitter(self.frame_50)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.splitter_25.setFont(font)
+        self.splitter_25.setStyleSheet("color: rgb(255, 255, 255);")
+        self.splitter_25.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_25.setObjectName("splitter_25")
+        self.label_74 = QtWidgets.QLabel(self.splitter_25)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_74.setFont(font)
+        self.label_74.setText("")
+        self.label_74.setObjectName("label_74")
+        self.label_103 = QtWidgets.QLabel(self.splitter_25)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_103.setFont(font)
+        self.label_103.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_103.setText("")
+        self.label_103.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_103.setObjectName("label_103")
+        self.verticalLayout_47.addWidget(self.splitter_25)
+        self.splitter_24 = QtWidgets.QSplitter(self.frame_50)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.splitter_24.setFont(font)
+        self.splitter_24.setStyleSheet("color: rgb(255, 255, 255);")
+        self.splitter_24.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_24.setObjectName("splitter_24")
+        self.label_77 = QtWidgets.QLabel(self.splitter_24)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_77.setFont(font)
+        self.label_77.setText("")
+        self.label_77.setObjectName("label_77")
+        self.label_100 = QtWidgets.QLabel(self.splitter_24)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_100.setFont(font)
+        self.label_100.setText("")
+        self.label_100.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_100.setObjectName("label_100")
+        self.verticalLayout_47.addWidget(self.splitter_24)
+        self.splitter_21 = QtWidgets.QSplitter(self.frame_50)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.splitter_21.setFont(font)
+        self.splitter_21.setStyleSheet("color: rgb(255, 255, 255);")
+        self.splitter_21.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_21.setObjectName("splitter_21")
+        self.label_79 = QtWidgets.QLabel(self.splitter_21)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_79.setFont(font)
+        self.label_79.setText("")
+        self.label_79.setObjectName("label_79")
+        self.label_104 = QtWidgets.QLabel(self.splitter_21)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_104.setFont(font)
+        self.label_104.setText("")
+        self.label_104.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_104.setObjectName("label_104")
+        self.verticalLayout_47.addWidget(self.splitter_21)
+        self.verticalLayout_49.addWidget(self.frame_50)
+        self.verticalLayout_48.addWidget(self.splitter_46)
         self.stackedWidget.addWidget(self.pageHistorico)
         self.pageNotebook = QtWidgets.QWidget()
         self.pageNotebook.setObjectName("pageNotebook")
@@ -3580,40 +3861,41 @@ class Ui_MainEstoque(object):
         self.stackedWidget.addWidget(self.pageOutros)
         self.PageGestao = QtWidgets.QWidget()
         self.PageGestao.setObjectName("PageGestao")
-        self.horizontalLayout_48 = QtWidgets.QHBoxLayout(self.PageGestao)
-        self.horizontalLayout_48.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_48.setSpacing(0)
-        self.horizontalLayout_48.setObjectName("horizontalLayout_48")
+        self.horizontalLayout_44 = QtWidgets.QHBoxLayout(self.PageGestao)
+        self.horizontalLayout_44.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_44.setSpacing(0)
+        self.horizontalLayout_44.setObjectName("horizontalLayout_44")
         self.frame_36 = QtWidgets.QFrame(self.PageGestao)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_36.sizePolicy().hasHeightForWidth())
         self.frame_36.setSizePolicy(sizePolicy)
+        self.frame_36.setMinimumSize(QtCore.QSize(0, 450))
         self.frame_36.setStyleSheet("background-color: rgb(0, 161, 148);")
         self.frame_36.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_36.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_36.setObjectName("frame_36")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_36)
-        self.gridLayout_3.setContentsMargins(30, 30, 30, 30)
-        self.gridLayout_3.setHorizontalSpacing(30)
-        self.gridLayout_3.setVerticalSpacing(25)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        self.splitter_71 = QtWidgets.QSplitter(self.frame_36)
-        self.splitter_71.setOrientation(QtCore.Qt.Vertical)
-        self.splitter_71.setObjectName("splitter_71")
-        self.pushButtonVisualizar = QtWidgets.QPushButton(self.splitter_71)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButtonVisualizar.sizePolicy().hasHeightForWidth())
-        self.pushButtonVisualizar.setSizePolicy(sizePolicy)
-        self.pushButtonVisualizar.setMinimumSize(QtCore.QSize(190, 190))
-        self.pushButtonVisualizar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButtonVisualizar.setStyleSheet("QPushButton{\n"
+        self.splitter_66 = QtWidgets.QSplitter(self.frame_36)
+        self.splitter_66.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_66.setObjectName("splitter_66")
+        self.pushButtonSaida = QtWidgets.QPushButton(self.splitter_66)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(2)
+        sizePolicy.setVerticalStretch(2)
+        sizePolicy.setHeightForWidth(self.pushButtonSaida.sizePolicy().hasHeightForWidth())
+        self.pushButtonSaida.setSizePolicy(sizePolicy)
+        self.pushButtonSaida.setMinimumSize(QtCore.QSize(190, 190))
+        self.pushButtonSaida.setMaximumSize(QtCore.QSize(280, 280))
+        self.pushButtonSaida.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButtonSaida.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.pushButtonSaida.setStyleSheet("QPushButton{\n"
+"    \n"
+"    background-image: url(:/gestao/estoque/entrada e saida/Grupo 408.png);\n"
 "    background-position:center;\n"
 "    background-repeat: no-repeat;\n"
-"    background-image: url(:/menu/estoque/icons/06.png);\n"
 "    background-color: rgb(0, 53, 62);\n"
 "    border: 1px solid;\n"
 "    border-color: rgb(0, 53, 62);\n"
@@ -3621,12 +3903,64 @@ class Ui_MainEstoque(object):
 "}\n"
 "\n"
 "QPushButton:hover{\n"
-"background-image: url(:/menu/estoque/hover/06.png);\n"
+"background-image: url(:/gestao/estoque/entrada e saida/hover 383.png);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-image: url(:/gestao/estoque/entrada e saida/press 408.png);\n"
+"background-color: rgb(0, 68, 79);\n"
+"border-radius: 20px;\n"
+"\n"
+"}")
+        self.pushButtonSaida.setText("")
+        self.pushButtonSaida.setObjectName("pushButtonSaida")
+        self.label_96 = QtWidgets.QLabel(self.splitter_66)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_96.sizePolicy().hasHeightForWidth())
+        self.label_96.setSizePolicy(sizePolicy)
+        self.label_96.setMaximumSize(QtCore.QSize(16777215, 15))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_96.setFont(font)
+        self.label_96.setStyleSheet("color: rgb(0, 53, 62);")
+        self.label_96.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_96.setObjectName("label_96")
+        self.gridLayout_3.addWidget(self.splitter_66, 1, 1, 1, 1)
+        self.splitter_71 = QtWidgets.QSplitter(self.frame_36)
+        self.splitter_71.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_71.setObjectName("splitter_71")
+        self.pushButtonVisualizar = QtWidgets.QPushButton(self.splitter_71)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(2)
+        sizePolicy.setVerticalStretch(2)
+        sizePolicy.setHeightForWidth(self.pushButtonVisualizar.sizePolicy().hasHeightForWidth())
+        self.pushButtonVisualizar.setSizePolicy(sizePolicy)
+        self.pushButtonVisualizar.setMinimumSize(QtCore.QSize(190, 190))
+        self.pushButtonVisualizar.setMaximumSize(QtCore.QSize(280, 280))
+        self.pushButtonVisualizar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButtonVisualizar.setStyleSheet("QPushButton{\n"
+"    \n"
+"    background-image: url(:/gestao/estoque/entrada e saida/pes.png);\n"
+"    background-position:center;\n"
+"    background-repeat: no-repeat;\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(0, 53, 62);\n"
+"    border-radius: 15px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-image: url(:/gestao/estoque/entrada e saida/peshover.png);\n"
 "\n"
 "}\n"
 "\n"
 "QPushButton:pressed{\n"
-"background-image: url(:/menu/estoque/preset/06.png);\n"
+"background-image: url(:/gestao/estoque/entrada e saida/pespress.png);\n"
 "background-color: rgb(0, 68, 79);\n"
 "border-radius: 20px;\n"
 "\n"
@@ -3643,27 +3977,30 @@ class Ui_MainEstoque(object):
         self.label_101.setMaximumSize(QtCore.QSize(16777215, 15))
         font = QtGui.QFont()
         font.setFamily("Asap")
-        font.setPointSize(10)
+        font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.label_101.setFont(font)
         self.label_101.setStyleSheet("color: rgb(0, 53, 62);")
         self.label_101.setAlignment(QtCore.Qt.AlignCenter)
         self.label_101.setObjectName("label_101")
-        self.gridLayout_3.addWidget(self.splitter_71, 1, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.splitter_71, 2, 1, 1, 1)
         self.splitter_67 = QtWidgets.QSplitter(self.frame_36)
         self.splitter_67.setOrientation(QtCore.Qt.Vertical)
         self.splitter_67.setObjectName("splitter_67")
         self.pushButtonBaixa = QtWidgets.QPushButton(self.splitter_67)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(2)
+        sizePolicy.setVerticalStretch(2)
         sizePolicy.setHeightForWidth(self.pushButtonBaixa.sizePolicy().hasHeightForWidth())
         self.pushButtonBaixa.setSizePolicy(sizePolicy)
         self.pushButtonBaixa.setMinimumSize(QtCore.QSize(190, 190))
+        self.pushButtonBaixa.setMaximumSize(QtCore.QSize(280, 280))
         self.pushButtonBaixa.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButtonBaixa.setStyleSheet("QPushButton{\n"
-"background-image: url(:/gestao/estoque/icons/06.png);\n"
+"    \n"
+"    \n"
+"    background-image: url(:/gestao/estoque/entrada e saida/Grupo 916.png);\n"
 "    background-position:center;\n"
 "    background-repeat: no-repeat;\n"
 "    background-color: rgb(0, 53, 62);\n"
@@ -3674,12 +4011,12 @@ class Ui_MainEstoque(object):
 "}\n"
 "\n"
 "QPushButton:hover{\n"
-"background-image: url(:/gestao/estoque/hover/06.png);\n"
+"background-image: url(:/gestao/estoque/entrada e saida/hover916.png);\n"
 "\n"
 "}\n"
 "\n"
 "QPushButton:pressed{\n"
-"background-image: url(:/gestao/estoque/preset/06.png);\n"
+"background-image: url(:/gestao/estoque/entrada e saida/baixapress.png);\n"
 "background-color: rgb(0, 68, 79);\n"
 "border-radius: 20px;\n"
 "}")
@@ -3694,14 +4031,14 @@ class Ui_MainEstoque(object):
         self.label_97.setMaximumSize(QtCore.QSize(16777215, 15))
         font = QtGui.QFont()
         font.setFamily("Asap")
-        font.setPointSize(10)
+        font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.label_97.setFont(font)
         self.label_97.setStyleSheet("color: rgb(0, 53, 62);")
         self.label_97.setAlignment(QtCore.Qt.AlignCenter)
         self.label_97.setObjectName("label_97")
-        self.gridLayout_3.addWidget(self.splitter_67, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.splitter_67, 2, 0, 1, 1)
         self.frame_47 = QtWidgets.QFrame(self.frame_36)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
@@ -3724,16 +4061,17 @@ class Ui_MainEstoque(object):
         self.splitter_68.setOrientation(QtCore.Qt.Vertical)
         self.splitter_68.setObjectName("splitter_68")
         self.pushButtonEntrada = QtWidgets.QPushButton(self.splitter_68)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(2)
+        sizePolicy.setVerticalStretch(2)
         sizePolicy.setHeightForWidth(self.pushButtonEntrada.sizePolicy().hasHeightForWidth())
         self.pushButtonEntrada.setSizePolicy(sizePolicy)
         self.pushButtonEntrada.setMinimumSize(QtCore.QSize(190, 190))
+        self.pushButtonEntrada.setMaximumSize(QtCore.QSize(280, 280))
         self.pushButtonEntrada.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButtonEntrada.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.pushButtonEntrada.setStyleSheet("QPushButton{\n"
-"background-image: url(:/gestao/estoque/icons/01.png);\n"
+"    background-image: url(:/gestao/estoque/entrada e saida/Grupo 409.png);\n"
 "    background-position:center;\n"
 "    background-repeat: no-repeat;\n"
 "    background-color: rgb(0, 53, 62);\n"
@@ -3743,12 +4081,12 @@ class Ui_MainEstoque(object):
 "}\n"
 "\n"
 "QPushButton:hover{\n"
-"background-image: url(:/gestao/estoque/hover/01.png);\n"
+"background-image: url(:/gestao/estoque/entrada e saida/hover 409.png);\n"
 "\n"
 "}\n"
 "\n"
 "QPushButton:pressed{\n"
-"background-image: url(:/gestao/estoque/preset/01.png);\n"
+"background-image: url(:/gestao/estoque/entrada e saida/press 409.png);\n"
 "background-color: rgb(0, 68, 79);\n"
 "border-radius: 20px;\n"
 "\n"
@@ -3765,7 +4103,7 @@ class Ui_MainEstoque(object):
         self.label_98.setMaximumSize(QtCore.QSize(16777215, 15))
         font = QtGui.QFont()
         font.setFamily("Asap")
-        font.setPointSize(10)
+        font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.label_98.setFont(font)
@@ -3773,67 +4111,35 @@ class Ui_MainEstoque(object):
         self.label_98.setAlignment(QtCore.Qt.AlignCenter)
         self.label_98.setObjectName("label_98")
         self.gridLayout_2.addWidget(self.splitter_68, 0, 0, 1, 1)
-        self.gridLayout_3.addWidget(self.frame_47, 0, 0, 1, 1)
-        self.splitter_66 = QtWidgets.QSplitter(self.frame_36)
-        self.splitter_66.setOrientation(QtCore.Qt.Vertical)
-        self.splitter_66.setObjectName("splitter_66")
-        self.pushButtonSaida = QtWidgets.QPushButton(self.splitter_66)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButtonSaida.sizePolicy().hasHeightForWidth())
-        self.pushButtonSaida.setSizePolicy(sizePolicy)
-        self.pushButtonSaida.setMinimumSize(QtCore.QSize(190, 190))
-        self.pushButtonSaida.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButtonSaida.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.pushButtonSaida.setStyleSheet("QPushButton{\n"
-"    \n"
-"    background-image: url(:/gestao/estoque/icons/02.png);\n"
-"    background-position:center;\n"
-"    background-repeat: no-repeat;\n"
-"    background-color: rgb(0, 53, 62);\n"
-"    border: 1px solid;\n"
-"    border-color: rgb(0, 53, 62);\n"
-"    border-radius: 15px;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-image: url(:/gestao/estoque/hover/02.png);\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"background-image: url(:/gestao/estoque/preset/02.png);\n"
-"background-color: rgb(0, 68, 79);\n"
-"border-radius: 20px;\n"
-"\n"
-"}")
-        self.pushButtonSaida.setText("")
-        self.pushButtonSaida.setObjectName("pushButtonSaida")
-        self.label_96 = QtWidgets.QLabel(self.splitter_66)
+        self.gridLayout_3.addWidget(self.frame_47, 1, 0, 1, 1)
+        self.frame_35 = QtWidgets.QFrame(self.frame_36)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_96.sizePolicy().hasHeightForWidth())
-        self.label_96.setSizePolicy(sizePolicy)
-        self.label_96.setMaximumSize(QtCore.QSize(16777215, 15))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_96.setFont(font)
-        self.label_96.setStyleSheet("color: rgb(0, 53, 62);")
-        self.label_96.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_96.setObjectName("label_96")
-        self.gridLayout_3.addWidget(self.splitter_66, 0, 1, 1, 1)
-        self.horizontalLayout_48.addWidget(self.frame_36)
+        sizePolicy.setHeightForWidth(self.frame_35.sizePolicy().hasHeightForWidth())
+        self.frame_35.setSizePolicy(sizePolicy)
+        self.frame_35.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_35.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_35.setObjectName("frame_35")
+        self.gridLayout_3.addWidget(self.frame_35, 3, 0, 1, 2)
+        self.frame_45 = QtWidgets.QFrame(self.frame_36)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_45.sizePolicy().hasHeightForWidth())
+        self.frame_45.setSizePolicy(sizePolicy)
+        self.frame_45.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_45.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_45.setObjectName("frame_45")
+        self.gridLayout_3.addWidget(self.frame_45, 0, 0, 1, 2)
+        self.horizontalLayout_44.addWidget(self.frame_36)
         self.frame_37 = QtWidgets.QFrame(self.PageGestao)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(1)
         sizePolicy.setHeightForWidth(self.frame_37.sizePolicy().hasHeightForWidth())
         self.frame_37.setSizePolicy(sizePolicy)
+        self.frame_37.setMinimumSize(QtCore.QSize(600, 0))
         self.frame_37.setMaximumSize(QtCore.QSize(900, 16777215))
         self.frame_37.setStyleSheet("QFrame{\n"
 "    background-image: url(:/menu/estoque/icon.png);\n"
@@ -3851,7 +4157,48 @@ class Ui_MainEstoque(object):
         self.frame_37.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_37.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_37.setObjectName("frame_37")
-        self.horizontalLayout_48.addWidget(self.frame_37)
+        self.verticalLayout_46 = QtWidgets.QVBoxLayout(self.frame_37)
+        self.verticalLayout_46.setSpacing(20)
+        self.verticalLayout_46.setObjectName("verticalLayout_46")
+        self.frame_46 = QtWidgets.QFrame(self.frame_37)
+        self.frame_46.setMinimumSize(QtCore.QSize(0, 300))
+        self.frame_46.setMaximumSize(QtCore.QSize(16777215, 300))
+        self.frame_46.setStyleSheet("background-image: url(:/gestao/estoque/entrada e saida/Grupo 437.png);\n"
+"background-position:center;\n"
+"    background-repeat: no-repeat;\n"
+"    background-color: rgb(0, 53, 62);\n"
+"    border: 1px solid;\n"
+"    border-color: rgb(0, 53, 62);\n"
+"    border-radius: 15px;")
+        self.frame_46.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_46.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_46.setObjectName("frame_46")
+        self.verticalLayout_46.addWidget(self.frame_46)
+        self.label_51 = QtWidgets.QLabel(self.frame_37)
+        self.label_51.setMinimumSize(QtCore.QSize(0, 100))
+        self.label_51.setMaximumSize(QtCore.QSize(16777215, 70))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(48)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_51.setFont(font)
+        self.label_51.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_51.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_51.setObjectName("label_51")
+        self.verticalLayout_46.addWidget(self.label_51)
+        self.label_50 = QtWidgets.QLabel(self.frame_37)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_50.setFont(font)
+        self.label_50.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_50.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_50.setObjectName("label_50")
+        self.verticalLayout_46.addWidget(self.label_50)
+        self.horizontalLayout_44.addWidget(self.frame_37)
         self.stackedWidget.addWidget(self.PageGestao)
         self.pageEntrada = QtWidgets.QWidget()
         self.pageEntrada.setObjectName("pageEntrada")
@@ -3958,7 +4305,7 @@ class Ui_MainEstoque(object):
         self.entradaButtonBuscar.setStyleSheet("QPushButton{\n"
 "    background-color: rgb(0, 53, 62);\n"
 "    border: 1px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 14px;\n"
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
@@ -3972,58 +4319,6 @@ class Ui_MainEstoque(object):
 "}\n"
 "")
         self.entradaButtonBuscar.setObjectName("entradaButtonBuscar")
-        self.entradaButtonVisualizar = QtWidgets.QPushButton(self.splitter_13)
-        self.entradaButtonVisualizar.setMinimumSize(QtCore.QSize(80, 30))
-        self.entradaButtonVisualizar.setMaximumSize(QtCore.QSize(80, 30))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setBold(True)
-        font.setWeight(75)
-        self.entradaButtonVisualizar.setFont(font)
-        self.entradaButtonVisualizar.setStyleSheet("QPushButton{\n"
-"    background-color: rgb(0, 53, 62);\n"
-"    border: 1px;\n"
-"    border-radius: 10px;\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-color: rgb(0, 73, 85);\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"background-color: rgb(0, 64, 74);\n"
-"    color: rgb(98, 98, 98);\n"
-"}\n"
-"")
-        self.entradaButtonVisualizar.setObjectName("entradaButtonVisualizar")
-        self.entradaButtonAdicionar = QtWidgets.QPushButton(self.splitter_13)
-        self.entradaButtonAdicionar.setMinimumSize(QtCore.QSize(80, 30))
-        self.entradaButtonAdicionar.setMaximumSize(QtCore.QSize(80, 30))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setBold(True)
-        font.setWeight(75)
-        self.entradaButtonAdicionar.setFont(font)
-        self.entradaButtonAdicionar.setStyleSheet("QPushButton{\n"
-"background-color: rgb(199, 211, 0);\n"
-"    border: 1px solid rgb(0, 53, 62);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(0, 53, 62);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-color: rgb(226, 234, 67);\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"background-color: rgb(167, 176, 0);\n"
-"\n"
-"}\n"
-"")
-        self.entradaButtonAdicionar.setObjectName("entradaButtonAdicionar")
         self.verticalLayout_40.addWidget(self.splitter_13)
         self.entradaTableWidget = QtWidgets.QTableWidget(self.frame_30)
         self.entradaTableWidget.setStyleSheet("\n"
@@ -4069,54 +4364,54 @@ class Ui_MainEstoque(object):
 "border: no border")
         self.label_70.setObjectName("label_70")
         self.horizontalLayout_60.addWidget(self.label_70)
-        self.entradaRadioCompra = QtWidgets.QRadioButton(self.entradaFrameMotivo)
-        self.entradaRadioCompra.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.entradaRadioTransferencia = QtWidgets.QRadioButton(self.entradaFrameMotivo)
+        self.entradaRadioTransferencia.setMaximumSize(QtCore.QSize(150, 16777215))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.entradaRadioCompra.setFont(font)
-        self.entradaRadioCompra.setStyleSheet("color: rgb(255, 255, 255);\n"
+        self.entradaRadioTransferencia.setFont(font)
+        self.entradaRadioTransferencia.setStyleSheet("color: rgb(255, 255, 255);\n"
 "border: no border")
-        self.entradaRadioCompra.setObjectName("entradaRadioCompra")
-        self.horizontalLayout_60.addWidget(self.entradaRadioCompra)
-        self.entradaRadioCadastro = QtWidgets.QRadioButton(self.entradaFrameMotivo)
-        self.entradaRadioCadastro.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.entradaRadioTransferencia.setObjectName("entradaRadioTransferencia")
+        self.horizontalLayout_60.addWidget(self.entradaRadioTransferencia)
+        self.entradaRadioDevolucao = QtWidgets.QRadioButton(self.entradaFrameMotivo)
+        self.entradaRadioDevolucao.setMaximumSize(QtCore.QSize(150, 16777215))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.entradaRadioCadastro.setFont(font)
-        self.entradaRadioCadastro.setStyleSheet("color: rgb(255, 255, 255);\n"
+        self.entradaRadioDevolucao.setFont(font)
+        self.entradaRadioDevolucao.setStyleSheet("color: rgb(255, 255, 255);\n"
 "border: no border")
-        self.entradaRadioCadastro.setObjectName("entradaRadioCadastro")
-        self.horizontalLayout_60.addWidget(self.entradaRadioCadastro)
-        self.entradaRadioProvisorio = QtWidgets.QRadioButton(self.entradaFrameMotivo)
-        self.entradaRadioProvisorio.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.entradaRadioDevolucao.setObjectName("entradaRadioDevolucao")
+        self.horizontalLayout_60.addWidget(self.entradaRadioDevolucao)
+        self.entradaRadioManutencao = QtWidgets.QRadioButton(self.entradaFrameMotivo)
+        self.entradaRadioManutencao.setMaximumSize(QtCore.QSize(150, 16777215))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.entradaRadioProvisorio.setFont(font)
-        self.entradaRadioProvisorio.setStyleSheet("color: rgb(255, 255, 255);\n"
+        self.entradaRadioManutencao.setFont(font)
+        self.entradaRadioManutencao.setStyleSheet("color: rgb(255, 255, 255);\n"
 "border: no border")
-        self.entradaRadioProvisorio.setObjectName("entradaRadioProvisorio")
-        self.horizontalLayout_60.addWidget(self.entradaRadioProvisorio)
-        self.entradaRadioDevoluo = QtWidgets.QRadioButton(self.entradaFrameMotivo)
-        self.entradaRadioDevoluo.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.entradaRadioManutencao.setObjectName("entradaRadioManutencao")
+        self.horizontalLayout_60.addWidget(self.entradaRadioManutencao)
+        self.entradaRadioDeposito = QtWidgets.QRadioButton(self.entradaFrameMotivo)
+        self.entradaRadioDeposito.setMaximumSize(QtCore.QSize(150, 16777215))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.entradaRadioDevoluo.setFont(font)
-        self.entradaRadioDevoluo.setStyleSheet("color: rgb(255, 255, 255);\n"
+        self.entradaRadioDeposito.setFont(font)
+        self.entradaRadioDeposito.setStyleSheet("color: rgb(255, 255, 255);\n"
 "border: no border")
-        self.entradaRadioDevoluo.setObjectName("entradaRadioDevoluo")
-        self.horizontalLayout_60.addWidget(self.entradaRadioDevoluo)
+        self.entradaRadioDeposito.setObjectName("entradaRadioDeposito")
+        self.horizontalLayout_60.addWidget(self.entradaRadioDeposito)
         self.entradaRadioRecolhimento = QtWidgets.QRadioButton(self.entradaFrameMotivo)
         self.entradaRadioRecolhimento.setMaximumSize(QtCore.QSize(150, 16777215))
         font = QtGui.QFont()
@@ -4212,19 +4507,25 @@ class Ui_MainEstoque(object):
         self.entradaFrameItem.setObjectName("entradaFrameItem")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.entradaFrameItem)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.entradaButtonItem = QtWidgets.QPushButton(self.entradaFrameItem)
-        self.entradaButtonItem.setMinimumSize(QtCore.QSize(100, 110))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setBold(True)
-        font.setWeight(75)
-        self.entradaButtonItem.setFont(font)
-        self.entradaButtonItem.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.entradaButtonItem.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 468.png);\n"
+        self.splitter_47 = QtWidgets.QSplitter(self.entradaFrameItem)
+        self.splitter_47.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_47.setObjectName("splitter_47")
+        self.entradaFrameItemPicture = QtWidgets.QFrame(self.splitter_47)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(1)
+        sizePolicy.setHeightForWidth(self.entradaFrameItemPicture.sizePolicy().hasHeightForWidth())
+        self.entradaFrameItemPicture.setSizePolicy(sizePolicy)
+        self.entradaFrameItemPicture.setMinimumSize(QtCore.QSize(0, 86))
+        self.entradaFrameItemPicture.setStyleSheet("background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 955.png);\n"
+"background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n"
 "background-position:center;\n"
-"background-repeat: no-repeat;")
-        self.entradaButtonItem.setObjectName("entradaButtonItem")
-        self.horizontalLayout_3.addWidget(self.entradaButtonItem)
+"background-repeat: no-repeat;\n"
+"")
+        self.entradaFrameItemPicture.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.entradaFrameItemPicture.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.entradaFrameItemPicture.setObjectName("entradaFrameItemPicture")
+        self.horizontalLayout_3.addWidget(self.splitter_47)
         self.splitter_14 = QtWidgets.QSplitter(self.entradaFrameItem)
         self.splitter_14.setOrientation(QtCore.Qt.Vertical)
         self.splitter_14.setObjectName("splitter_14")
@@ -4329,9 +4630,9 @@ class Ui_MainEstoque(object):
         self.splitter_17.setObjectName("splitter_17")
         self.frame_42 = QtWidgets.QFrame(self.splitter_17)
         self.frame_42.setMinimumSize(QtCore.QSize(85, 55))
-        self.frame_42.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 452.png);\n"
+        self.frame_42.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Caminho 510.png);\n"
 "background-position:center;\n"
-"    background-repeat: no-repeat;")
+"background-repeat: no-repeat;")
         self.frame_42.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_42.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_42.setObjectName("frame_42")
@@ -4398,9 +4699,12 @@ class Ui_MainEstoque(object):
         self.splitter_19.setObjectName("splitter_19")
         self.entradalabelDialog = QtWidgets.QLabel(self.splitter_19)
         font = QtGui.QFont()
+        font.setFamily("Asap")
         font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
         self.entradalabelDialog.setFont(font)
-        self.entradalabelDialog.setStyleSheet("color: rgb(0, 53, 62);")
+        self.entradalabelDialog.setStyleSheet("color: rgb(213, 222, 64);")
         self.entradalabelDialog.setText("")
         self.entradalabelDialog.setObjectName("entradalabelDialog")
         self.splitter_40 = QtWidgets.QSplitter(self.splitter_19)
@@ -4413,7 +4717,7 @@ class Ui_MainEstoque(object):
         sizePolicy.setHeightForWidth(self.entradabuttonLimpar.sizePolicy().hasHeightForWidth())
         self.entradabuttonLimpar.setSizePolicy(sizePolicy)
         self.entradabuttonLimpar.setMinimumSize(QtCore.QSize(0, 37))
-        self.entradabuttonLimpar.setMaximumSize(QtCore.QSize(83, 50))
+        self.entradabuttonLimpar.setMaximumSize(QtCore.QSize(100, 50))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(10)
@@ -4445,7 +4749,7 @@ class Ui_MainEstoque(object):
         sizePolicy.setHeightForWidth(self.entradabuttonCancel.sizePolicy().hasHeightForWidth())
         self.entradabuttonCancel.setSizePolicy(sizePolicy)
         self.entradabuttonCancel.setMinimumSize(QtCore.QSize(0, 37))
-        self.entradabuttonCancel.setMaximumSize(QtCore.QSize(105, 50))
+        self.entradabuttonCancel.setMaximumSize(QtCore.QSize(100, 50))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(10)
@@ -4546,28 +4850,50 @@ class Ui_MainEstoque(object):
         self.label_53 = QtWidgets.QLabel(self.splitter_23)
         font = QtGui.QFont()
         font.setFamily("Asap")
-        font.setPointSize(12)
+        font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.label_53.setFont(font)
         self.label_53.setStyleSheet("color: rgb(255, 255, 255);")
         self.label_53.setObjectName("label_53")
-        self.saidaComboBox = QtWidgets.QComboBox(self.splitter_23)
-        self.saidaComboBox.setMinimumSize(QtCore.QSize(200, 0))
-        self.saidaComboBox.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.saidaComboBoxTipo = QtWidgets.QComboBox(self.splitter_23)
+        self.saidaComboBoxTipo.setMinimumSize(QtCore.QSize(200, 0))
+        self.saidaComboBoxTipo.setMaximumSize(QtCore.QSize(200, 16777215))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(10)
-        self.saidaComboBox.setFont(font)
-        self.saidaComboBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.saidaComboBox.setObjectName("saidaComboBox")
-        self.saidaComboBox.addItem("")
-        self.saidaComboBox.addItem("")
-        self.saidaComboBox.addItem("")
-        self.saidaComboBox.addItem("")
-        self.saidaComboBox.addItem("")
-        self.saidaComboBox.addItem("")
-        self.saidaComboBox.addItem("")
+        self.saidaComboBoxTipo.setFont(font)
+        self.saidaComboBoxTipo.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.saidaComboBoxTipo.setObjectName("saidaComboBoxTipo")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.setItemText(0, "")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxTipo.addItem("")
+        self.saidaComboBoxCampo = QtWidgets.QComboBox(self.splitter_23)
+        self.saidaComboBoxCampo.setMinimumSize(QtCore.QSize(200, 0))
+        self.saidaComboBoxCampo.setMaximumSize(QtCore.QSize(200, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        self.saidaComboBoxCampo.setFont(font)
+        self.saidaComboBoxCampo.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.saidaComboBoxCampo.setObjectName("saidaComboBoxCampo")
+        self.saidaComboBoxCampo.addItem("")
+        self.saidaComboBoxCampo.setItemText(0, "")
+        self.saidaComboBoxCampo.addItem("")
+        self.saidaComboBoxCampo.addItem("")
+        self.saidaComboBoxCampo.addItem("")
+        self.saidaComboBoxCampo.addItem("")
+        self.saidaComboBoxCampo.addItem("")
         self.saidalineEditPes = QtWidgets.QLineEdit(self.splitter_23)
         self.saidalineEditPes.setMinimumSize(QtCore.QSize(200, 30))
         self.saidalineEditPes.setMaximumSize(QtCore.QSize(200, 30))
@@ -4588,7 +4914,7 @@ class Ui_MainEstoque(object):
         self.saidaButtonBuscar.setStyleSheet("QPushButton{\n"
 "    background-color: rgb(0, 53, 62);\n"
 "    border: 1px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 14px;\n"
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
@@ -4602,58 +4928,6 @@ class Ui_MainEstoque(object):
 "}\n"
 "")
         self.saidaButtonBuscar.setObjectName("saidaButtonBuscar")
-        self.saidaButtonVisualizar = QtWidgets.QPushButton(self.splitter_23)
-        self.saidaButtonVisualizar.setMinimumSize(QtCore.QSize(80, 30))
-        self.saidaButtonVisualizar.setMaximumSize(QtCore.QSize(80, 30))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setBold(True)
-        font.setWeight(75)
-        self.saidaButtonVisualizar.setFont(font)
-        self.saidaButtonVisualizar.setStyleSheet("QPushButton{\n"
-"    background-color: rgb(0, 53, 62);\n"
-"    border: 1px;\n"
-"    border-radius: 10px;\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-color: rgb(0, 73, 85);\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"background-color: rgb(0, 64, 74);\n"
-"    color: rgb(98, 98, 98);\n"
-"}\n"
-"")
-        self.saidaButtonVisualizar.setObjectName("saidaButtonVisualizar")
-        self.saidaButtonAdicionar = QtWidgets.QPushButton(self.splitter_23)
-        self.saidaButtonAdicionar.setMinimumSize(QtCore.QSize(80, 30))
-        self.saidaButtonAdicionar.setMaximumSize(QtCore.QSize(80, 30))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setBold(True)
-        font.setWeight(75)
-        self.saidaButtonAdicionar.setFont(font)
-        self.saidaButtonAdicionar.setStyleSheet("QPushButton{\n"
-"background-color: rgb(199, 211, 0);\n"
-"    border: 1px solid rgb(0, 53, 62);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(0, 53, 62);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-color: rgb(226, 234, 67);\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"background-color: rgb(167, 176, 0);\n"
-"\n"
-"}\n"
-"")
-        self.saidaButtonAdicionar.setObjectName("saidaButtonAdicionar")
         self.verticalLayout_42.addWidget(self.splitter_23)
         self.saidaTableWidget = QtWidgets.QTableWidget(self.frame_44)
         self.saidaTableWidget.setStyleSheet("background-color: rgb(255, 255, 255);")
@@ -4778,151 +5052,6 @@ class Ui_MainEstoque(object):
         self.saidaFrameItem.setObjectName("saidaFrameItem")
         self.horizontalLayout_47 = QtWidgets.QHBoxLayout(self.saidaFrameItem)
         self.horizontalLayout_47.setObjectName("horizontalLayout_47")
-        self.saidaButtonItem = QtWidgets.QPushButton(self.saidaFrameItem)
-        self.saidaButtonItem.setMinimumSize(QtCore.QSize(100, 110))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setBold(True)
-        font.setWeight(75)
-        self.saidaButtonItem.setFont(font)
-        self.saidaButtonItem.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.saidaButtonItem.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 468.png);\n"
-"background-position:center;\n"
-"background-repeat: no-repeat;")
-        self.saidaButtonItem.setObjectName("saidaButtonItem")
-        self.horizontalLayout_47.addWidget(self.saidaButtonItem)
-        self.splitter_29 = QtWidgets.QSplitter(self.saidaFrameItem)
-        self.splitter_29.setOrientation(QtCore.Qt.Vertical)
-        self.splitter_29.setObjectName("splitter_29")
-        self.frame_55 = QtWidgets.QFrame(self.splitter_29)
-        self.frame_55.setMinimumSize(QtCore.QSize(85, 55))
-        self.frame_55.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 451.png);\n"
-"background-position:center;\n"
-"background-repeat: no-repeat;")
-        self.frame_55.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_55.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_55.setObjectName("frame_55")
-        self.label_84 = QtWidgets.QLabel(self.splitter_29)
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(8)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_84.setFont(font)
-        self.label_84.setStyleSheet("\n"
-"color: rgb(0, 53, 62);")
-        self.label_84.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_84.setObjectName("label_84")
-        self.saidalabelCod = QtWidgets.QLabel(self.splitter_29)
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.saidalabelCod.setFont(font)
-        self.saidalabelCod.setStyleSheet("color: rgb(255, 255, 255);")
-        self.saidalabelCod.setAlignment(QtCore.Qt.AlignCenter)
-        self.saidalabelCod.setObjectName("saidalabelCod")
-        self.horizontalLayout_47.addWidget(self.splitter_29)
-        self.splitter_30 = QtWidgets.QSplitter(self.saidaFrameItem)
-        self.splitter_30.setOrientation(QtCore.Qt.Vertical)
-        self.splitter_30.setObjectName("splitter_30")
-        self.frame_56 = QtWidgets.QFrame(self.splitter_30)
-        self.frame_56.setMinimumSize(QtCore.QSize(85, 55))
-        self.frame_56.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 501.png);\n"
-"background-position:center;\n"
-"    background-repeat: no-repeat;")
-        self.frame_56.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_56.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_56.setObjectName("frame_56")
-        self.label_85 = QtWidgets.QLabel(self.splitter_30)
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(8)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_85.setFont(font)
-        self.label_85.setStyleSheet("\n"
-"color: rgb(0, 53, 62);")
-        self.label_85.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_85.setObjectName("label_85")
-        self.saidalabelMarca = QtWidgets.QLabel(self.splitter_30)
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.saidalabelMarca.setFont(font)
-        self.saidalabelMarca.setStyleSheet("color: rgb(255, 255, 255);")
-        self.saidalabelMarca.setAlignment(QtCore.Qt.AlignCenter)
-        self.saidalabelMarca.setObjectName("saidalabelMarca")
-        self.horizontalLayout_47.addWidget(self.splitter_30)
-        self.splitter_31 = QtWidgets.QSplitter(self.saidaFrameItem)
-        self.splitter_31.setOrientation(QtCore.Qt.Vertical)
-        self.splitter_31.setObjectName("splitter_31")
-        self.frame_57 = QtWidgets.QFrame(self.splitter_31)
-        self.frame_57.setMinimumSize(QtCore.QSize(85, 55))
-        self.frame_57.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 499.png);\n"
-"background-position:center;\n"
-"    background-repeat: no-repeat;")
-        self.frame_57.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_57.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_57.setObjectName("frame_57")
-        self.label_86 = QtWidgets.QLabel(self.splitter_31)
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(8)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_86.setFont(font)
-        self.label_86.setStyleSheet("\n"
-"color: rgb(0, 53, 62);")
-        self.label_86.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_86.setObjectName("label_86")
-        self.saidalabelModelo = QtWidgets.QLabel(self.splitter_31)
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.saidalabelModelo.setFont(font)
-        self.saidalabelModelo.setStyleSheet("color: rgb(255, 255, 255);")
-        self.saidalabelModelo.setAlignment(QtCore.Qt.AlignCenter)
-        self.saidalabelModelo.setObjectName("saidalabelModelo")
-        self.horizontalLayout_47.addWidget(self.splitter_31)
-        self.splitter_32 = QtWidgets.QSplitter(self.saidaFrameItem)
-        self.splitter_32.setOrientation(QtCore.Qt.Vertical)
-        self.splitter_32.setObjectName("splitter_32")
-        self.frame_58 = QtWidgets.QFrame(self.splitter_32)
-        self.frame_58.setMinimumSize(QtCore.QSize(85, 55))
-        self.frame_58.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 452.png);\n"
-"background-position:center;\n"
-"    background-repeat: no-repeat;")
-        self.frame_58.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_58.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_58.setObjectName("frame_58")
-        self.label_87 = QtWidgets.QLabel(self.splitter_32)
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(8)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_87.setFont(font)
-        self.label_87.setStyleSheet("\n"
-"color: rgb(0, 53, 62);")
-        self.label_87.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_87.setObjectName("label_87")
-        self.saidalabelLocal = QtWidgets.QLabel(self.splitter_32)
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.saidalabelLocal.setFont(font)
-        self.saidalabelLocal.setStyleSheet("color: rgb(255, 255, 255);")
-        self.saidalabelLocal.setAlignment(QtCore.Qt.AlignCenter)
-        self.saidalabelLocal.setObjectName("saidalabelLocal")
-        self.horizontalLayout_47.addWidget(self.splitter_32)
         self.splitter_33 = QtWidgets.QSplitter(self.saidaFrameItem)
         self.splitter_33.setOrientation(QtCore.Qt.Vertical)
         self.splitter_33.setObjectName("splitter_33")
@@ -4957,6 +5086,154 @@ class Ui_MainEstoque(object):
         self.saidalabelPreco.setAlignment(QtCore.Qt.AlignCenter)
         self.saidalabelPreco.setObjectName("saidalabelPreco")
         self.horizontalLayout_47.addWidget(self.splitter_33)
+        self.splitter_32 = QtWidgets.QSplitter(self.saidaFrameItem)
+        self.splitter_32.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_32.setObjectName("splitter_32")
+        self.frame_58 = QtWidgets.QFrame(self.splitter_32)
+        self.frame_58.setMinimumSize(QtCore.QSize(85, 55))
+        self.frame_58.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Caminho 510.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_58.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_58.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_58.setObjectName("frame_58")
+        self.label_87 = QtWidgets.QLabel(self.splitter_32)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_87.setFont(font)
+        self.label_87.setStyleSheet("\n"
+"color: rgb(0, 53, 62);")
+        self.label_87.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_87.setObjectName("label_87")
+        self.saidalabelLocal = QtWidgets.QLabel(self.splitter_32)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.saidalabelLocal.setFont(font)
+        self.saidalabelLocal.setStyleSheet("color: rgb(255, 255, 255);")
+        self.saidalabelLocal.setAlignment(QtCore.Qt.AlignCenter)
+        self.saidalabelLocal.setObjectName("saidalabelLocal")
+        self.horizontalLayout_47.addWidget(self.splitter_32)
+        self.splitter_31 = QtWidgets.QSplitter(self.saidaFrameItem)
+        self.splitter_31.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_31.setObjectName("splitter_31")
+        self.frame_57 = QtWidgets.QFrame(self.splitter_31)
+        self.frame_57.setMinimumSize(QtCore.QSize(85, 55))
+        self.frame_57.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 499.png);\n"
+"background-position:center;\n"
+"    background-repeat: no-repeat;")
+        self.frame_57.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_57.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_57.setObjectName("frame_57")
+        self.label_86 = QtWidgets.QLabel(self.splitter_31)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_86.setFont(font)
+        self.label_86.setStyleSheet("\n"
+"color: rgb(0, 53, 62);")
+        self.label_86.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_86.setObjectName("label_86")
+        self.saidalabelModelo = QtWidgets.QLabel(self.splitter_31)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.saidalabelModelo.setFont(font)
+        self.saidalabelModelo.setStyleSheet("color: rgb(255, 255, 255);")
+        self.saidalabelModelo.setAlignment(QtCore.Qt.AlignCenter)
+        self.saidalabelModelo.setObjectName("saidalabelModelo")
+        self.horizontalLayout_47.addWidget(self.splitter_31)
+        self.splitter_30 = QtWidgets.QSplitter(self.saidaFrameItem)
+        self.splitter_30.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_30.setObjectName("splitter_30")
+        self.frame_56 = QtWidgets.QFrame(self.splitter_30)
+        self.frame_56.setMinimumSize(QtCore.QSize(85, 55))
+        self.frame_56.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 501.png);\n"
+"background-position:center;\n"
+"    background-repeat: no-repeat;")
+        self.frame_56.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_56.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_56.setObjectName("frame_56")
+        self.label_85 = QtWidgets.QLabel(self.splitter_30)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_85.setFont(font)
+        self.label_85.setStyleSheet("\n"
+"color: rgb(0, 53, 62);")
+        self.label_85.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_85.setObjectName("label_85")
+        self.saidalabelMarca = QtWidgets.QLabel(self.splitter_30)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.saidalabelMarca.setFont(font)
+        self.saidalabelMarca.setStyleSheet("color: rgb(255, 255, 255);")
+        self.saidalabelMarca.setAlignment(QtCore.Qt.AlignCenter)
+        self.saidalabelMarca.setObjectName("saidalabelMarca")
+        self.horizontalLayout_47.addWidget(self.splitter_30)
+        self.splitter_29 = QtWidgets.QSplitter(self.saidaFrameItem)
+        self.splitter_29.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_29.setObjectName("splitter_29")
+        self.frame_55 = QtWidgets.QFrame(self.splitter_29)
+        self.frame_55.setMinimumSize(QtCore.QSize(85, 55))
+        self.frame_55.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 451.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;")
+        self.frame_55.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_55.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_55.setObjectName("frame_55")
+        self.label_84 = QtWidgets.QLabel(self.splitter_29)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_84.setFont(font)
+        self.label_84.setStyleSheet("\n"
+"color: rgb(0, 53, 62);")
+        self.label_84.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_84.setObjectName("label_84")
+        self.saidalabelCod = QtWidgets.QLabel(self.splitter_29)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.saidalabelCod.setFont(font)
+        self.saidalabelCod.setStyleSheet("color: rgb(255, 255, 255);")
+        self.saidalabelCod.setAlignment(QtCore.Qt.AlignCenter)
+        self.saidalabelCod.setObjectName("saidalabelCod")
+        self.horizontalLayout_47.addWidget(self.splitter_29)
+        self.saidaFrameItemPicture = QtWidgets.QFrame(self.saidaFrameItem)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.saidaFrameItemPicture.sizePolicy().hasHeightForWidth())
+        self.saidaFrameItemPicture.setSizePolicy(sizePolicy)
+        self.saidaFrameItemPicture.setMinimumSize(QtCore.QSize(0, 86))
+        self.saidaFrameItemPicture.setStyleSheet("background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 955.png);\n"
+"background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n"
+"background-position:center;\n"
+"background-repeat: no-repeat;\n"
+"")
+        self.saidaFrameItemPicture.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.saidaFrameItemPicture.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.saidaFrameItemPicture.setObjectName("saidaFrameItemPicture")
+        self.horizontalLayout_47.addWidget(self.saidaFrameItemPicture)
         self.horizontalLayout_50.addWidget(self.saidaFrameItem)
         self.frame_54 = QtWidgets.QFrame(self.frame_53)
         self.frame_54.setMaximumSize(QtCore.QSize(40, 16777215))
@@ -4980,9 +5257,10 @@ class Ui_MainEstoque(object):
         self.horizontalLayout_51 = QtWidgets.QHBoxLayout(self.saidaFrameDestino)
         self.horizontalLayout_51.setObjectName("horizontalLayout_51")
         self.saidaButtonDestino = QtWidgets.QPushButton(self.saidaFrameDestino)
-        self.saidaButtonDestino.setMaximumSize(QtCore.QSize(120, 135))
+        self.saidaButtonDestino.setMinimumSize(QtCore.QSize(135, 0))
+        self.saidaButtonDestino.setMaximumSize(QtCore.QSize(135, 135))
         self.saidaButtonDestino.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.saidaButtonDestino.setStyleSheet("background-image: url(:/saida/estoque/entrada e saida/Grupo 491.png);\n"
+        self.saidaButtonDestino.setStyleSheet("background-image: url(:/saida/estoque/entrada e saida/Grupo 979.png);\n"
 "background-position:center;\n"
 "background-repeat: no-repeat;")
         self.saidaButtonDestino.setText("")
@@ -4991,16 +5269,17 @@ class Ui_MainEstoque(object):
         self.splitter_52 = QtWidgets.QSplitter(self.saidaFrameDestino)
         self.splitter_52.setOrientation(QtCore.Qt.Vertical)
         self.splitter_52.setObjectName("splitter_52")
-        self.label_62 = QtWidgets.QLabel(self.splitter_52)
+        self.saidaUser = QtWidgets.QLabel(self.splitter_52)
+        self.saidaUser.setMinimumSize(QtCore.QSize(170, 0))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(16)
         font.setBold(True)
         font.setWeight(75)
-        self.label_62.setFont(font)
-        self.label_62.setStyleSheet("color: rgb(0, 53, 62);")
-        self.label_62.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_62.setObjectName("label_62")
+        self.saidaUser.setFont(font)
+        self.saidaUser.setStyleSheet("color: rgb(0, 53, 62);")
+        self.saidaUser.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.saidaUser.setObjectName("saidaUser")
         self.splitter_51 = QtWidgets.QSplitter(self.splitter_52)
         self.splitter_51.setOrientation(QtCore.Qt.Horizontal)
         self.splitter_51.setObjectName("splitter_51")
@@ -5015,17 +5294,17 @@ class Ui_MainEstoque(object):
         self.label_64.setStyleSheet("color: rgb(0, 53, 62);")
         self.label_64.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_64.setObjectName("label_64")
-        self.label_66 = QtWidgets.QLabel(self.splitter_51)
-        self.label_66.setMaximumSize(QtCore.QSize(50, 16777215))
+        self.saidaCargoUser = QtWidgets.QLabel(self.splitter_51)
+        self.saidaCargoUser.setMaximumSize(QtCore.QSize(100, 16777215))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.label_66.setFont(font)
-        self.label_66.setStyleSheet("color: rgb(255, 255, 255);")
-        self.label_66.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_66.setObjectName("label_66")
+        self.saidaCargoUser.setFont(font)
+        self.saidaCargoUser.setStyleSheet("color: rgb(255, 255, 255);")
+        self.saidaCargoUser.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.saidaCargoUser.setObjectName("saidaCargoUser")
         self.splitter_50 = QtWidgets.QSplitter(self.splitter_52)
         self.splitter_50.setOrientation(QtCore.Qt.Horizontal)
         self.splitter_50.setObjectName("splitter_50")
@@ -5041,17 +5320,17 @@ class Ui_MainEstoque(object):
         self.label_65.setStyleSheet("color: rgb(0, 53, 62);")
         self.label_65.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_65.setObjectName("label_65")
-        self.label_67 = QtWidgets.QLabel(self.splitter_50)
-        self.label_67.setMaximumSize(QtCore.QSize(50, 16777215))
+        self.saidaCodUser = QtWidgets.QLabel(self.splitter_50)
+        self.saidaCodUser.setMaximumSize(QtCore.QSize(100, 16777215))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.label_67.setFont(font)
-        self.label_67.setStyleSheet("color: rgb(255, 255, 255);")
-        self.label_67.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_67.setObjectName("label_67")
+        self.saidaCodUser.setFont(font)
+        self.saidaCodUser.setStyleSheet("color: rgb(255, 255, 255);")
+        self.saidaCodUser.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.saidaCodUser.setObjectName("saidaCodUser")
         self.horizontalLayout_51.addWidget(self.splitter_52)
         self.horizontalLayout_50.addWidget(self.saidaFrameDestino)
         self.verticalLayout_42.addWidget(self.frame_53)
@@ -5059,6 +5338,13 @@ class Ui_MainEstoque(object):
         self.splitter_34.setOrientation(QtCore.Qt.Horizontal)
         self.splitter_34.setObjectName("splitter_34")
         self.saidalabelDialog = QtWidgets.QLabel(self.splitter_34)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.saidalabelDialog.setFont(font)
+        self.saidalabelDialog.setStyleSheet("color: rgb(213, 222, 64);")
         self.saidalabelDialog.setText("")
         self.saidalabelDialog.setObjectName("saidalabelDialog")
         self.saidabuttonLimpar = QtWidgets.QPushButton(self.splitter_34)
@@ -5233,28 +5519,50 @@ class Ui_MainEstoque(object):
         self.label_56 = QtWidgets.QLabel(self.splitter_36)
         font = QtGui.QFont()
         font.setFamily("Asap")
-        font.setPointSize(12)
+        font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.label_56.setFont(font)
         self.label_56.setStyleSheet("color: rgb(255, 255, 255);")
         self.label_56.setObjectName("label_56")
-        self.baixaComboBox = QtWidgets.QComboBox(self.splitter_36)
-        self.baixaComboBox.setMinimumSize(QtCore.QSize(200, 0))
-        self.baixaComboBox.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.baixaComboBoxTipo = QtWidgets.QComboBox(self.splitter_36)
+        self.baixaComboBoxTipo.setMinimumSize(QtCore.QSize(200, 0))
+        self.baixaComboBoxTipo.setMaximumSize(QtCore.QSize(200, 16777215))
         font = QtGui.QFont()
         font.setFamily("Asap")
         font.setPointSize(10)
-        self.baixaComboBox.setFont(font)
-        self.baixaComboBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.baixaComboBox.setObjectName("baixaComboBox")
-        self.baixaComboBox.addItem("")
-        self.baixaComboBox.addItem("")
-        self.baixaComboBox.addItem("")
-        self.baixaComboBox.addItem("")
-        self.baixaComboBox.addItem("")
-        self.baixaComboBox.addItem("")
-        self.baixaComboBox.addItem("")
+        self.baixaComboBoxTipo.setFont(font)
+        self.baixaComboBoxTipo.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.baixaComboBoxTipo.setObjectName("baixaComboBoxTipo")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.setItemText(0, "")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxTipo.addItem("")
+        self.baixaComboBoxCampo = QtWidgets.QComboBox(self.splitter_36)
+        self.baixaComboBoxCampo.setMinimumSize(QtCore.QSize(200, 0))
+        self.baixaComboBoxCampo.setMaximumSize(QtCore.QSize(200, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(10)
+        self.baixaComboBoxCampo.setFont(font)
+        self.baixaComboBoxCampo.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.baixaComboBoxCampo.setObjectName("baixaComboBoxCampo")
+        self.baixaComboBoxCampo.addItem("")
+        self.baixaComboBoxCampo.setItemText(0, "")
+        self.baixaComboBoxCampo.addItem("")
+        self.baixaComboBoxCampo.addItem("")
+        self.baixaComboBoxCampo.addItem("")
+        self.baixaComboBoxCampo.addItem("")
+        self.baixaComboBoxCampo.addItem("")
         self.baixalineEditPes = QtWidgets.QLineEdit(self.splitter_36)
         self.baixalineEditPes.setMinimumSize(QtCore.QSize(200, 30))
         self.baixalineEditPes.setMaximumSize(QtCore.QSize(200, 30))
@@ -5275,7 +5583,7 @@ class Ui_MainEstoque(object):
         self.baixaButtonBuscar.setStyleSheet("QPushButton{\n"
 "    background-color: rgb(0, 53, 62);\n"
 "    border: 1px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 14px;\n"
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
@@ -5289,58 +5597,6 @@ class Ui_MainEstoque(object):
 "}\n"
 "")
         self.baixaButtonBuscar.setObjectName("baixaButtonBuscar")
-        self.baixaButtonVisualizar = QtWidgets.QPushButton(self.splitter_36)
-        self.baixaButtonVisualizar.setMinimumSize(QtCore.QSize(80, 30))
-        self.baixaButtonVisualizar.setMaximumSize(QtCore.QSize(80, 30))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setBold(True)
-        font.setWeight(75)
-        self.baixaButtonVisualizar.setFont(font)
-        self.baixaButtonVisualizar.setStyleSheet("QPushButton{\n"
-"    background-color: rgb(0, 53, 62);\n"
-"    border: 1px;\n"
-"    border-radius: 10px;\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-color: rgb(0, 73, 85);\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"background-color: rgb(0, 64, 74);\n"
-"    color: rgb(98, 98, 98);\n"
-"}\n"
-"")
-        self.baixaButtonVisualizar.setObjectName("baixaButtonVisualizar")
-        self.baixaButtonAdicionar = QtWidgets.QPushButton(self.splitter_36)
-        self.baixaButtonAdicionar.setMinimumSize(QtCore.QSize(80, 30))
-        self.baixaButtonAdicionar.setMaximumSize(QtCore.QSize(80, 30))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setBold(True)
-        font.setWeight(75)
-        self.baixaButtonAdicionar.setFont(font)
-        self.baixaButtonAdicionar.setStyleSheet("QPushButton{\n"
-"background-color: rgb(199, 211, 0);\n"
-"    border: 1px solid rgb(0, 53, 62);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(0, 53, 62);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-color: rgb(226, 234, 67);\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"background-color: rgb(167, 176, 0);\n"
-"\n"
-"}\n"
-"")
-        self.baixaButtonAdicionar.setObjectName("baixaButtonAdicionar")
         self.verticalLayout_43.addWidget(self.splitter_36)
         self.baixaTableWidget = QtWidgets.QTableWidget(self.frame_60)
         self.baixaTableWidget.setStyleSheet("background-color: rgb(255, 255, 255);")
@@ -5418,17 +5674,6 @@ class Ui_MainEstoque(object):
 "border: no border")
         self.baixaRadioSucata.setObjectName("baixaRadioSucata")
         self.horizontalLayout_63.addWidget(self.baixaRadioSucata)
-        self.baixaRadioDoacao = QtWidgets.QRadioButton(self.baixaFrameMotivo)
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.baixaRadioDoacao.setFont(font)
-        self.baixaRadioDoacao.setStyleSheet("color: rgb(255, 255, 255);\n"
-"border: no border")
-        self.baixaRadioDoacao.setObjectName("baixaRadioDoacao")
-        self.horizontalLayout_63.addWidget(self.baixaRadioDoacao)
         self.baixaRadioVenda = QtWidgets.QRadioButton(self.baixaFrameMotivo)
         font = QtGui.QFont()
         font.setFamily("Asap")
@@ -5474,21 +5719,24 @@ class Ui_MainEstoque(object):
         self.baixaFrameItem.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.baixaFrameItem.setFrameShadow(QtWidgets.QFrame.Raised)
         self.baixaFrameItem.setObjectName("baixaFrameItem")
-        self.horizontalLayout_49 = QtWidgets.QHBoxLayout(self.baixaFrameItem)
-        self.horizontalLayout_49.setObjectName("horizontalLayout_49")
-        self.baixaButtonItem = QtWidgets.QPushButton(self.baixaFrameItem)
-        self.baixaButtonItem.setMinimumSize(QtCore.QSize(100, 110))
-        font = QtGui.QFont()
-        font.setFamily("Asap")
-        font.setBold(True)
-        font.setWeight(75)
-        self.baixaButtonItem.setFont(font)
-        self.baixaButtonItem.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.baixaButtonItem.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 468.png);\n"
+        self.horizontalLayout_48 = QtWidgets.QHBoxLayout(self.baixaFrameItem)
+        self.horizontalLayout_48.setObjectName("horizontalLayout_48")
+        self.baixaFrameItemPicture = QtWidgets.QFrame(self.baixaFrameItem)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.baixaFrameItemPicture.sizePolicy().hasHeightForWidth())
+        self.baixaFrameItemPicture.setSizePolicy(sizePolicy)
+        self.baixaFrameItemPicture.setMinimumSize(QtCore.QSize(0, 86))
+        self.baixaFrameItemPicture.setStyleSheet("background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 955.png);\n"
+"background-image: url(:/picture/estoque/entrada e saida/pictures/Grupo 974.png);\n"
 "background-position:center;\n"
-"background-repeat: no-repeat;")
-        self.baixaButtonItem.setObjectName("baixaButtonItem")
-        self.horizontalLayout_49.addWidget(self.baixaButtonItem)
+"background-repeat: no-repeat;\n"
+"")
+        self.baixaFrameItemPicture.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.baixaFrameItemPicture.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.baixaFrameItemPicture.setObjectName("baixaFrameItemPicture")
+        self.horizontalLayout_48.addWidget(self.baixaFrameItemPicture)
         self.splitter_37 = QtWidgets.QSplitter(self.baixaFrameItem)
         self.splitter_37.setOrientation(QtCore.Qt.Vertical)
         self.splitter_37.setObjectName("splitter_37")
@@ -5521,7 +5769,7 @@ class Ui_MainEstoque(object):
         self.baixalabelCod.setStyleSheet("color: rgb(255, 255, 255);")
         self.baixalabelCod.setAlignment(QtCore.Qt.AlignCenter)
         self.baixalabelCod.setObjectName("baixalabelCod")
-        self.horizontalLayout_49.addWidget(self.splitter_37)
+        self.horizontalLayout_48.addWidget(self.splitter_37)
         self.splitter_38 = QtWidgets.QSplitter(self.baixaFrameItem)
         self.splitter_38.setOrientation(QtCore.Qt.Vertical)
         self.splitter_38.setObjectName("splitter_38")
@@ -5554,7 +5802,7 @@ class Ui_MainEstoque(object):
         self.baixalabelMarca.setStyleSheet("color: rgb(255, 255, 255);")
         self.baixalabelMarca.setAlignment(QtCore.Qt.AlignCenter)
         self.baixalabelMarca.setObjectName("baixalabelMarca")
-        self.horizontalLayout_49.addWidget(self.splitter_38)
+        self.horizontalLayout_48.addWidget(self.splitter_38)
         self.splitter_39 = QtWidgets.QSplitter(self.baixaFrameItem)
         self.splitter_39.setOrientation(QtCore.Qt.Vertical)
         self.splitter_39.setObjectName("splitter_39")
@@ -5587,13 +5835,13 @@ class Ui_MainEstoque(object):
         self.baixalabelModelo.setStyleSheet("color: rgb(255, 255, 255);")
         self.baixalabelModelo.setAlignment(QtCore.Qt.AlignCenter)
         self.baixalabelModelo.setObjectName("baixalabelModelo")
-        self.horizontalLayout_49.addWidget(self.splitter_39)
+        self.horizontalLayout_48.addWidget(self.splitter_39)
         self.splitter_42 = QtWidgets.QSplitter(self.baixaFrameItem)
         self.splitter_42.setOrientation(QtCore.Qt.Vertical)
         self.splitter_42.setObjectName("splitter_42")
         self.frame_66 = QtWidgets.QFrame(self.splitter_42)
         self.frame_66.setMinimumSize(QtCore.QSize(85, 55))
-        self.frame_66.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Grupo 452.png);\n"
+        self.frame_66.setStyleSheet("background-image: url(:/entrada/estoque/entrada e saida/Caminho 510.png);\n"
 "background-position:center;\n"
 "    background-repeat: no-repeat;")
         self.frame_66.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -5620,7 +5868,7 @@ class Ui_MainEstoque(object):
         self.baixalabelLocal.setStyleSheet("color: rgb(255, 255, 255);")
         self.baixalabelLocal.setAlignment(QtCore.Qt.AlignCenter)
         self.baixalabelLocal.setObjectName("baixalabelLocal")
-        self.horizontalLayout_49.addWidget(self.splitter_42)
+        self.horizontalLayout_48.addWidget(self.splitter_42)
         self.splitter_43 = QtWidgets.QSplitter(self.baixaFrameItem)
         self.splitter_43.setOrientation(QtCore.Qt.Vertical)
         self.splitter_43.setObjectName("splitter_43")
@@ -5654,7 +5902,7 @@ class Ui_MainEstoque(object):
         self.baixalabelPreco.setStyleSheet("color: rgb(255, 255, 255);")
         self.baixalabelPreco.setAlignment(QtCore.Qt.AlignCenter)
         self.baixalabelPreco.setObjectName("baixalabelPreco")
-        self.horizontalLayout_49.addWidget(self.splitter_43)
+        self.horizontalLayout_48.addWidget(self.splitter_43)
         self.horizontalLayout_52.addWidget(self.baixaFrameItem)
         self.frame_68 = QtWidgets.QFrame(self.frame_62)
         self.frame_68.setMaximumSize(QtCore.QSize(40, 16777215))
@@ -5669,7 +5917,7 @@ class Ui_MainEstoque(object):
         self.baixaFrameDestino = QtWidgets.QFrame(self.frame_62)
         self.baixaFrameDestino.setMinimumSize(QtCore.QSize(332, 133))
         self.baixaFrameDestino.setMaximumSize(QtCore.QSize(332, 133))
-        self.baixaFrameDestino.setStyleSheet("background-color: rgb(255, 118, 118);\n"
+        self.baixaFrameDestino.setStyleSheet("background-color: rgb(7, 183, 168);\n"
 "border: 1px;\n"
 "border-radius: 10px;")
         self.baixaFrameDestino.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -5706,6 +5954,13 @@ class Ui_MainEstoque(object):
         self.splitter_44.setOrientation(QtCore.Qt.Horizontal)
         self.splitter_44.setObjectName("splitter_44")
         self.baixalabelDialog = QtWidgets.QLabel(self.splitter_44)
+        font = QtGui.QFont()
+        font.setFamily("Asap")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.baixalabelDialog.setFont(font)
+        self.baixalabelDialog.setStyleSheet("color: rgb(199, 211, 0);")
         self.baixalabelDialog.setText("")
         self.baixalabelDialog.setObjectName("baixalabelDialog")
         self.baixabuttonLimpar = QtWidgets.QPushButton(self.splitter_44)
@@ -5824,7 +6079,7 @@ class Ui_MainEstoque(object):
         MainEstoque.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainEstoque)
-        self.stackedWidget.setCurrentIndex(15)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainEstoque)
 
     def retranslateUi(self, MainEstoque):
@@ -5877,7 +6132,9 @@ class Ui_MainEstoque(object):
         self.label_28.setText(_translate("MainEstoque", "WINDOWS"))
         self.label_29.setText(_translate("MainEstoque", "TOTAL"))
         self.labelWindows.setText(_translate("MainEstoque", "10"))
-        self.label_71.setText(_translate("MainEstoque", "HISTORICO:"))
+        self.label_71.setText(_translate("MainEstoque", "HISTORICO"))
+        self.hisButtonAtualizar.setText(_translate("MainEstoque", "ATUALIZAR"))
+        self.hisButtonVisualizar.setText(_translate("MainEstoque", "VISUALIZAR"))
         self.LineEditPesHistorico.setPlaceholderText(_translate("MainEstoque", "Pesquisar"))
         item = self.tableWidgetHistorico.horizontalHeaderItem(0)
         item.setText(_translate("MainEstoque", "USER"))
@@ -5897,7 +6154,12 @@ class Ui_MainEstoque(object):
         item.setText(_translate("MainEstoque", "LOCAL"))
         item = self.tableWidgetHistorico.horizontalHeaderItem(8)
         item.setText(_translate("MainEstoque", "DATA"))
-        self.ButtonNoteView_2.setText(_translate("MainEstoque", "VISUALIZAR"))
+        self.label_54.setText(_translate("MainEstoque", "Entradas Mensais:"))
+        self.hislabel01.setText(_translate("MainEstoque", "12"))
+        self.label_57.setText(_translate("MainEstoque", "Saidas Mensais:"))
+        self.hislabel02.setText(_translate("MainEstoque", "01"))
+        self.label_58.setText(_translate("MainEstoque", "Baixas Mensais:"))
+        self.hislabel03.setText(_translate("MainEstoque", "01"))
         self.label_4.setText(_translate("MainEstoque", "NOTEBOOK"))
         self.notPes.setPlaceholderText(_translate("MainEstoque", "Pesquisar"))
         self.labelTotalnotebook.setText(_translate("MainEstoque", "8"))
@@ -6244,10 +6506,17 @@ class Ui_MainEstoque(object):
         item = self.tableWidgetOutros.horizontalHeaderItem(7)
         item.setText(_translate("MainEstoque", "DATA"))
         self.ButtonWinView_2.setText(_translate("MainEstoque", "VISUALIZAR"))
-        self.label_101.setText(_translate("MainEstoque", "-------------"))
+        self.label_96.setText(_translate("MainEstoque", "SAIDA"))
+        self.label_101.setText(_translate("MainEstoque", "VISUALIZAR"))
         self.label_97.setText(_translate("MainEstoque", "BAIXA"))
         self.label_98.setText(_translate("MainEstoque", "ENTRADA"))
-        self.label_96.setText(_translate("MainEstoque", "SAIDA"))
+        self.label_51.setText(_translate("MainEstoque", "ESTOQUE TI"))
+        self.label_50.setText(_translate("MainEstoque", "Bem vindo ao modulo de gestão de estoque\n"
+" do setor de tecnologia.\n"
+"\n"
+"Aqui você tem acesso a todas as ferramentas\n"
+" de  controle e visualização para uma melhor gestão\n"
+" do seu estoque."))
         self.label_48.setText(_translate("MainEstoque", "ENTRADA ESTOQUE"))
         self.label_49.setText(_translate("MainEstoque", "PESQUISAR:"))
         self.entradaComboBoxTipo.setItemText(1, _translate("MainEstoque", "CELULAR"))
@@ -6267,8 +6536,6 @@ class Ui_MainEstoque(object):
         self.entradaComboBoxCampo.setItemText(4, _translate("MainEstoque", "LOCAL"))
         self.entradaComboBoxCampo.setItemText(5, _translate("MainEstoque", "DATA"))
         self.entradaButtonBuscar.setText(_translate("MainEstoque", "BUSCAR"))
-        self.entradaButtonVisualizar.setText(_translate("MainEstoque", "VISUALIZAR"))
-        self.entradaButtonAdicionar.setText(_translate("MainEstoque", "ADICIONAR"))
         item = self.entradaTableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainEstoque", "CÓDIGO"))
         item = self.entradaTableWidget.horizontalHeaderItem(1)
@@ -6284,14 +6551,13 @@ class Ui_MainEstoque(object):
         item = self.entradaTableWidget.horizontalHeaderItem(6)
         item.setText(_translate("MainEstoque", "DATA"))
         self.label_70.setText(_translate("MainEstoque", " MOTIVO"))
-        self.entradaRadioCompra.setText(_translate("MainEstoque", "Transferência"))
-        self.entradaRadioCadastro.setText(_translate("MainEstoque", "Devolução"))
-        self.entradaRadioProvisorio.setText(_translate("MainEstoque", "Manutenção"))
-        self.entradaRadioDevoluo.setText(_translate("MainEstoque", "Deposito"))
+        self.entradaRadioTransferencia.setText(_translate("MainEstoque", "Transferência"))
+        self.entradaRadioDevolucao.setText(_translate("MainEstoque", "Devolução"))
+        self.entradaRadioManutencao.setText(_translate("MainEstoque", "Manutenção"))
+        self.entradaRadioDeposito.setText(_translate("MainEstoque", "Deposito"))
         self.entradaRadioRecolhimento.setText(_translate("MainEstoque", "Recolhimento"))
         self.entradaRadioOutro.setText(_translate("MainEstoque", "outros"))
         self.label_60.setText(_translate("MainEstoque", "ESTOQUE TI"))
-        self.entradaButtonItem.setText(_translate("MainEstoque", "----------"))
         self.label_68.setText(_translate("MainEstoque", "CÓDIGO"))
         self.entradalabelCod.setText(_translate("MainEstoque", "----"))
         self.label_73.setText(_translate("MainEstoque", "MARCA"))
@@ -6307,16 +6573,23 @@ class Ui_MainEstoque(object):
         self.entradabuttonConfirmar.setText(_translate("MainEstoque", "CONFIRMAR"))
         self.label_52.setText(_translate("MainEstoque", "SAIDA ESTOQUE"))
         self.label_53.setText(_translate("MainEstoque", "PESQUISAR:"))
-        self.saidaComboBox.setItemText(0, _translate("MainEstoque", "CÓDIGO"))
-        self.saidaComboBox.setItemText(1, _translate("MainEstoque", "MARCA"))
-        self.saidaComboBox.setItemText(2, _translate("MainEstoque", "TIPO"))
-        self.saidaComboBox.setItemText(3, _translate("MainEstoque", "LOCAL"))
-        self.saidaComboBox.setItemText(4, _translate("MainEstoque", "DATA"))
-        self.saidaComboBox.setItemText(5, _translate("MainEstoque", "COLABORADOR"))
-        self.saidaComboBox.setItemText(6, _translate("MainEstoque", "VALOR"))
+        self.saidaComboBoxTipo.setItemText(1, _translate("MainEstoque", "CELULAR"))
+        self.saidaComboBoxTipo.setItemText(2, _translate("MainEstoque", "COMPUTER"))
+        self.saidaComboBoxTipo.setItemText(3, _translate("MainEstoque", "DISCO"))
+        self.saidaComboBoxTipo.setItemText(4, _translate("MainEstoque", "MEMORIA"))
+        self.saidaComboBoxTipo.setItemText(5, _translate("MainEstoque", "MONITOR"))
+        self.saidaComboBoxTipo.setItemText(6, _translate("MainEstoque", "MOUSE"))
+        self.saidaComboBoxTipo.setItemText(7, _translate("MainEstoque", "MOUSEPAD"))
+        self.saidaComboBoxTipo.setItemText(8, _translate("MainEstoque", "OFFICE"))
+        self.saidaComboBoxTipo.setItemText(9, _translate("MainEstoque", "OUTROS"))
+        self.saidaComboBoxTipo.setItemText(10, _translate("MainEstoque", "SUPORTE"))
+        self.saidaComboBoxTipo.setItemText(11, _translate("MainEstoque", "WINDOWS"))
+        self.saidaComboBoxCampo.setItemText(1, _translate("MainEstoque", "CÓDIGO"))
+        self.saidaComboBoxCampo.setItemText(2, _translate("MainEstoque", "MARCA"))
+        self.saidaComboBoxCampo.setItemText(3, _translate("MainEstoque", "CHAVE"))
+        self.saidaComboBoxCampo.setItemText(4, _translate("MainEstoque", "LOCAL"))
+        self.saidaComboBoxCampo.setItemText(5, _translate("MainEstoque", "DATA"))
         self.saidaButtonBuscar.setText(_translate("MainEstoque", "BUSCAR"))
-        self.saidaButtonVisualizar.setText(_translate("MainEstoque", "VISUALIZAR"))
-        self.saidaButtonAdicionar.setText(_translate("MainEstoque", "ADICIONAR"))
         item = self.saidaTableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainEstoque", "CÓDIGO"))
         item = self.saidaTableWidget.horizontalHeaderItem(1)
@@ -6337,38 +6610,44 @@ class Ui_MainEstoque(object):
         self.saidaRadioTreinamento.setText(_translate("MainEstoque", "Treinamento"))
         self.saidaRadioManutencao.setText(_translate("MainEstoque", "Manutenção"))
         self.saidaRadioOutro.setText(_translate("MainEstoque", "outros"))
-        self.saidaButtonItem.setText(_translate("MainEstoque", "----------"))
-        self.label_84.setText(_translate("MainEstoque", "CÓDIGO"))
-        self.saidalabelCod.setText(_translate("MainEstoque", "----"))
-        self.label_85.setText(_translate("MainEstoque", "MARCA"))
-        self.saidalabelMarca.setText(_translate("MainEstoque", "----"))
-        self.label_86.setText(_translate("MainEstoque", "MODELO"))
-        self.saidalabelModelo.setText(_translate("MainEstoque", "----"))
-        self.label_87.setText(_translate("MainEstoque", "LOCAL"))
-        self.saidalabelLocal.setText(_translate("MainEstoque", "----"))
         self.label_88.setText(_translate("MainEstoque", "PREÇO"))
         self.saidalabelPreco.setText(_translate("MainEstoque", "----"))
-        self.label_62.setText(_translate("MainEstoque", "USER"))
+        self.label_87.setText(_translate("MainEstoque", "LOCAL"))
+        self.saidalabelLocal.setText(_translate("MainEstoque", "----"))
+        self.label_86.setText(_translate("MainEstoque", "MODELO"))
+        self.saidalabelModelo.setText(_translate("MainEstoque", "----"))
+        self.label_85.setText(_translate("MainEstoque", "MARCA"))
+        self.saidalabelMarca.setText(_translate("MainEstoque", "----"))
+        self.label_84.setText(_translate("MainEstoque", "CÓDIGO"))
+        self.saidalabelCod.setText(_translate("MainEstoque", "----"))
+        self.saidaUser.setText(_translate("MainEstoque", "DESTINO"))
         self.label_64.setText(_translate("MainEstoque", "Cargo:"))
-        self.label_66.setText(_translate("MainEstoque", "----------"))
+        self.saidaCargoUser.setText(_translate("MainEstoque", "----------"))
         self.label_65.setText(_translate("MainEstoque", "Código:"))
-        self.label_67.setText(_translate("MainEstoque", "----------"))
+        self.saidaCodUser.setText(_translate("MainEstoque", "----------"))
         self.saidabuttonLimpar.setText(_translate("MainEstoque", "LIMPAR"))
         self.celButtonTermo.setText(_translate("MainEstoque", "IMPRIMIR TERMO"))
         self.saidabuttonCancel.setText(_translate("MainEstoque", "CANCELAR"))
         self.saidabuttonConfirmar.setText(_translate("MainEstoque", "CONFIRMAR"))
         self.label_55.setText(_translate("MainEstoque", "BAIXA ESTOQUE"))
         self.label_56.setText(_translate("MainEstoque", "PESQUISAR:"))
-        self.baixaComboBox.setItemText(0, _translate("MainEstoque", "CÓDIGO"))
-        self.baixaComboBox.setItemText(1, _translate("MainEstoque", "MARCA"))
-        self.baixaComboBox.setItemText(2, _translate("MainEstoque", "TIPO"))
-        self.baixaComboBox.setItemText(3, _translate("MainEstoque", "LOCAL"))
-        self.baixaComboBox.setItemText(4, _translate("MainEstoque", "DATA"))
-        self.baixaComboBox.setItemText(5, _translate("MainEstoque", "COLABORADOR"))
-        self.baixaComboBox.setItemText(6, _translate("MainEstoque", "VALOR"))
+        self.baixaComboBoxTipo.setItemText(1, _translate("MainEstoque", "CELULAR"))
+        self.baixaComboBoxTipo.setItemText(2, _translate("MainEstoque", "COMPUTER"))
+        self.baixaComboBoxTipo.setItemText(3, _translate("MainEstoque", "DISCO"))
+        self.baixaComboBoxTipo.setItemText(4, _translate("MainEstoque", "MEMORIA"))
+        self.baixaComboBoxTipo.setItemText(5, _translate("MainEstoque", "MONITOR"))
+        self.baixaComboBoxTipo.setItemText(6, _translate("MainEstoque", "MOUSE"))
+        self.baixaComboBoxTipo.setItemText(7, _translate("MainEstoque", "MOUSEPAD"))
+        self.baixaComboBoxTipo.setItemText(8, _translate("MainEstoque", "OFFICE"))
+        self.baixaComboBoxTipo.setItemText(9, _translate("MainEstoque", "OUTROS"))
+        self.baixaComboBoxTipo.setItemText(10, _translate("MainEstoque", "SUPORTE"))
+        self.baixaComboBoxTipo.setItemText(11, _translate("MainEstoque", "WINDOWS"))
+        self.baixaComboBoxCampo.setItemText(1, _translate("MainEstoque", "CÓDIGO"))
+        self.baixaComboBoxCampo.setItemText(2, _translate("MainEstoque", "MARCA"))
+        self.baixaComboBoxCampo.setItemText(3, _translate("MainEstoque", "CHAVE"))
+        self.baixaComboBoxCampo.setItemText(4, _translate("MainEstoque", "LOCAL"))
+        self.baixaComboBoxCampo.setItemText(5, _translate("MainEstoque", "DATA"))
         self.baixaButtonBuscar.setText(_translate("MainEstoque", "BUSCAR"))
-        self.baixaButtonVisualizar.setText(_translate("MainEstoque", "VISUALIZAR"))
-        self.baixaButtonAdicionar.setText(_translate("MainEstoque", "ADICIONAR"))
         item = self.baixaTableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainEstoque", "CÓDIGO"))
         item = self.baixaTableWidget.horizontalHeaderItem(1)
@@ -6387,10 +6666,8 @@ class Ui_MainEstoque(object):
         self.baixaRadioObsoleto.setText(_translate("MainEstoque", "obsoleto"))
         self.baixaRadioDefeito.setText(_translate("MainEstoque", "defeito"))
         self.baixaRadioSucata.setText(_translate("MainEstoque", "sucata"))
-        self.baixaRadioDoacao.setText(_translate("MainEstoque", "doação"))
         self.baixaRadioVenda.setText(_translate("MainEstoque", "venda"))
         self.baixaRadioOutro.setText(_translate("MainEstoque", "outros"))
-        self.baixaButtonItem.setText(_translate("MainEstoque", "----------"))
         self.label_90.setText(_translate("MainEstoque", "CÓDIGO"))
         self.baixalabelCod.setText(_translate("MainEstoque", "----"))
         self.label_91.setText(_translate("MainEstoque", "MARCA"))
