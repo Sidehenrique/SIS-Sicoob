@@ -2683,38 +2683,6 @@ background-repeat: no-repeat;
                 <property name="spacing">
                  <number>9</number>
                 </property>
-                <item>
-                 <widget class="QGraphicsView" name="graphicsView">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                    <horstretch>3</horstretch>
-                    <verstretch>2</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="interactive">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGraphicsView" name="graphicsView_2">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                    <horstretch>1</horstretch>
-                    <verstretch>1</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>428</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="interactive">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
                </layout>
               </item>
              </layout>

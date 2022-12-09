@@ -1,3 +1,7 @@
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+from numpy import random
 from login import *
 from ControleTI import *
 from EstoqueTI import *
@@ -2262,6 +2266,7 @@ def estoqueTi():
         mw.stackedWidget.setCurrentWidget(mw.pageHome)
         quantiTable()
         carregarDados()
+        # plotbar()
     mw.pushButtonEstoque.clicked.connect(ButtonEstoque)
 
     #  Acionamento Botões Submenu --------------------------------------------------------------------------------------
@@ -5582,6 +5587,69 @@ def estoqueTi():
     mw.baixabuttonLimpar.clicked.connect(limpPageBaixa)
     mw.baixabuttonCancel.clicked.connect(cancelBaixa)
     mw.baixabuttonConfirmar.clicked.connect(movEstoqueBaixa)
+
+
+#   GRAFICO HOME -------------------------------------------------------------------------------------------------------
+#     figure = plt.figure()
+#     #canvas = FigureCanvas(figure)
+#
+#     figg = FigureCanvas(figure)
+# #     figx = FigureCanvas(figure)
+# #     figz = FigureCanvas(figure)
+#
+#
+#     # mw.horizontalLayout_5.addWidget(canvas)
+#     mw.horizontalLayout_5.addWidget(figg)
+#     # mw.horizontalLayout_5.addWidget(figx)
+#     # mw.horizontalLayout_5.addWidget(figz)
+#     #mw.verticalLayout.addWidget(mw.frameGraphic1)
+
+
+    def plotbarr():
+        fruits = ['aplles', 'oranges', 'coconuts', 'pawpaw']
+        values = random.randint(50, size=4)
+        print(values)
+
+        plt.bar(fruits, values, color='#00A194', width=0.4)
+
+        plt.xlabel('Type of Fruits')
+        plt.ylabel('No. Of Fruits')
+        plt.title('Random Fruits in my Basket')
+
+        figure = plt.figure()
+        canvas = FigureCanvas(figure)
+        canvas.draw()
+
+        mw.horizontalLayout_5.addWidget(canvas)
+
+    # def plotbar2():
+    #     estoque = 150
+    #     saida = 93
+    #
+    #     labels = "Estoque", "Saidas"
+    #     sizes = [estoque, saida]
+    #     fig1, axl = plt.subplots()
+    #     axl.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
+    #     axl.axis("equal")
+    #
+    #     figure = plt.figure()
+    #     figg = FigureCanvas(figure)
+    #
+    #     figg.draw()
+    #     mw.horizontalLayout_5.addWidget(figg)
+
+
+    plotbarr()
+    # plotbar2()
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
