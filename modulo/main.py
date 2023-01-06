@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-from numpy import random
 from login import *
 from ControleTI import *
 from EstoqueTI import *
@@ -23,11 +23,12 @@ import pymysql
 
 ########################################################################################################################
         ################################################ LOGIN ################################################
+########################################################################################################################
 
 def login(ui):
     MainLogin.setWindowTitle('LOGIN')
 
-    # Tratamento do POPUP -----------------------------------------------------------------
+    # TRATAMENTO DE POPUP -----------------------------------------------------------------
     ui.frame_erro.hide()
     ui.Button_quit.clicked.connect(lambda: ui.frame_erro.hide())
 
@@ -55,7 +56,9 @@ def login(ui):
                 cursor.close()
 
                 if password == senha_bd[0][0]:
-                    texto = 'BEM VINDO ' + Usuario.upper()
+                    texto = 'BEM-VINDO ' + Usuario.upper()
+                    mw.labelGeralUsuario.setText(texto)
+
                     print(texto)
                     mensage(texto)
                     ui.lineEdit.clear()
@@ -75,9 +78,16 @@ def login(ui):
 
     ui.ENTER.clicked.connect(checkPassword)
 
+    # VERSÃO DE SOFTWARE -----------------------------------------------------------------
+
+    # NOTIFICAÇÕES -----------------------------------------------------------------------
+
+
+
+
 ########################################################################################################################
       ################################################ CONTROLE TI ################################################
-
+########################################################################################################################
 
 def controle():
 
@@ -101,10 +111,10 @@ def controle():
     mc.pushButtonVoltar.clicked.connect(buttonVoltar)
 
     # BUTÕES DE NAVEGAÇÃO DO SUB MENU ##################################################################################
-    def buttonCad():
-        mc.stackedWidget.setCurrentWidget(mc.pageCad)
-
-    mc.pushButtonCadastro.clicked.connect(buttonCad)
+    # def buttonCad():
+    #     mc.stackedWidget.setCurrentWidget(mc.pageCad)
+    #
+    # mc.pushButtonCadastro.clicked.connect(buttonCad)
 
     def buttonUser():
         mc.stackedWidget.setCurrentWidget(mc.pageUser)
@@ -127,62 +137,7 @@ def controle():
         mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
     mc.pushButtonNovo.clicked.connect(cadNovo)
 
-    # TRATAMENTO PAGE NOVO # <<< ------------------------------------------
-    def note():
-        mc.stackedWidget.setCurrentWidget(mc.pageNotebook)
-    mc.buttonNote.clicked.connect(note)
 
-    def desk():
-        mc.stackedWidget.setCurrentWidget(mc.pageDesktop)
-    mc.buttonDesk.clicked.connect(desk)
-
-    def cell():
-        mc.stackedWidget.setCurrentWidget(mc.pageCelular)
-    mc.buttonCel.clicked.connect(cell)
-
-    def Monitor():
-        mc.stackedWidget.setCurrentWidget(mc.pageMonitor)
-    mc.buttonMon.clicked.connect(Monitor)
-
-    def perifericos():
-        mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-    mc.buttonPeri.clicked.connect(perifericos)
-
-    def Windows():
-        mc.stackedWidget.setCurrentWidget(mc.pageWindows)
-    mc.buttonWin.clicked.connect(Windows)
-
-    def Office():
-        mc.stackedWidget.setCurrentWidget(mc.pageOffice)
-    mc.buttonOff.clicked.connect(Office)
-
-    def Memoria():
-        mc.stackedWidget.setCurrentWidget(mc.pageMemoria)
-    mc.buttonMemo.clicked.connect(Memoria)
-
-    def disco():
-        mc.stackedWidget.setCurrentWidget(mc.pageDisco)
-    mc.buttonDisco.clicked.connect(disco)
-
-    def mouse():
-        mc.stackedWidget.setCurrentWidget(mc.pageMouse)
-    mc.buttonMouse.clicked.connect(mouse)
-
-    def pad():
-        mc.stackedWidget.setCurrentWidget(mc.pagePad)
-    mc.buttonPad.clicked.connect(pad)
-
-    def teclado():
-        mc.stackedWidget.setCurrentWidget(mc.pageTeclado)
-    mc.buttonTeclado.clicked.connect(teclado)
-
-    def suport():
-        mc.stackedWidget.setCurrentWidget(mc.pageSuporte)
-    mc.buttonUporte.clicked.connect(suport)
-
-    def outros():
-        mc.stackedWidget.setCurrentWidget(mc.pageOutros)
-    mc.buttonOutros.clicked.connect(outros)
 
     # PAGE HISTORICO ###################################################################################################
     def historico():
@@ -204,2033 +159,9 @@ def controle():
     historico()
     mc.ButtonHistoricoAtualizar.clicked.connect(historico)
 
-    # CADASTRO DE ITENS NO BANCO #######################################################################################
-
-    # TRATAMENTO NOTEBOOK # <<< ------------------------------------------
-    def cadNote():
-        imb = mc.notIMB.text()
-        marca = mc.notMarca.text()
-        modelo = mc.notModelo.text()
-        condicao = mc.notCondicao.text()
-        ano = mc.notAno.text()
-        preco = mc.notPreco.text()
-        service = mc.notService.text()
-        rede = mc.notRede.text()
-        team = mc.notTeam.text()
-        ant = mc.notBoxAntevirus.currentText()
-        tela = mc.notBoxTela.currentText()
-        car = mc.notBoxCarregador.currentText()
-        pro = mc.notPro.text()
-        marPro = mc.notMarcaPro.text()
-        frePro = mc.notFrePro.text()
-        gePro = mc.notBoxGeracao.currentText()
-        disco = mc.notBoxSSD.currentText()
-        exp = mc.notBoxExp.currentText()
-        ram = mc.notRam.text()
-        verRam = mc.notVerRam.text()
-        freRam = mc.notFreRam.text()
-        expRam = mc.notBoxExpRam.currentText()
-
-        motivo = motiNote()
-        tipo = 'Notebook'
-        local = mc.notSetorLocal.text()
-        data = datAT()
-        user = mc.notCodUser.text()
-        win = mc.notCodWin.text()
-        off = mc.notCodOff.text()
-
-        def trataWin():
-            if mc.notCodWin.text() == '------------':
-                return 'null'
-            else:
-                return mc.notCodWin.text()
-
-        def trataOff():
-            if mc.notCodOff.text() == '------------':
-                return 'null'
-            else:
-                return mc.notCodOff.text()
-
-        idWindows = trataWin()
-        idOffice = trataOff()
-
-        # print(imb, marca, modelo, condicao, ano, preco, service, rede, team, ant, tela, car, pro, marPro, frePro,
-        #       gePro, disco, exp, ram, verRam, freRam, expRam, user, win, off, motivo, tipo, local, data)
-
-        if motivo == '' or marca == '' or modelo == '' or service == '' or rede == '' or \
-                car == '' or pro == '' or gePro == '' or ram == '' or verRam == '':
-            mc.frameMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.notMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.notModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.notService.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.notRede.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.notBoxCarregador.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.notPro.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.notBoxGeracao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.notRam.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.notVerRam.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mensage = 'Favor verifique se todos os campos obrigatórios foram preenchidos'
-            mc.notLabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, VALOR,
-                        SERVICETAG, TEAMVIEWER, REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
-                        FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, ANTEVIRUS,
-                        TIPO, LOCAL, DATA, idWindows, idOffice)
-
-                        VALUES ('{imb}','{marca}','{modelo}','{condicao}','{ano}','{tela}','{preco}',
-                        '{service}','{team}','{rede}','{disco}','{exp}','{car}','{pro}','{marPro}',
-                        '{frePro}','{gePro}','{ram}','{verRam}','{freRam}','{expRam}','{ant}',
-                        '{tipo}','{local}','{data}',{idWindows},{idOffice});""")
-
-                cur.execute(f"""SELECT MAX(idComputer) FROM computer;""")
-                banc = cur.fetchall()
-                idCon = banc[0][0]
-
-                if user != '------------':
-                    cur.execute(f"""SELECT * FROM colaborador WHERE idComputer = {idCon};""")
-                    result = cur.fetchall()
-
-                    if result == ():
-                        cur.execute(f"""UPDATE colaborador SET idComputer = '{idCon}' WHERE idColaborador = '{user}';""")
-
-
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{idCon}','{marca}',
-                '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {idCon} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                cleanNote()
-                mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def motiNote():
-
-        if mc.notRadioCompra.isChecked() == True:
-            compra = mc.notRadioCompra.text()
-            return compra
-
-        elif mc.notRadioCadastro.isChecked() == True:
-            cadastro = mc.notRadioCadastro.text()
-            return cadastro
-
-        elif mc.notRadioProvisorio.isChecked() == True:
-            provisorio = mc.notRadioProvisorio.text()
-            return provisorio
-
-        elif mc.notRadioOutro.isChecked() == True:
-            outros = mc.notRadioOutro.text()
-            return outros
-
-        else:
-            return 'Motivo Não Selecionado'
-
-    def winNote():
-        opNote.close()
-        opNote.show()
-        op.stackedWidget.setCurrentWidget(op.pageOpWin)
-
-        def checkWin():
-
-                windows = op.notLineWin.text()
-
-                if len(windows) < 25:
-                    texto = 'Chave Windows Invalida'
-                    op.notlabelWin.setText(texto)
-
-                else:
-                    try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
-                        cur = db.conMySQL()
-                        cur.execute(f"""SELECT * FROM windows WHERE CHAVE = '{windows}';""")  # ------ Que Contenha
-                        idw = cur.fetchall()
-                        print(windows + '<--- Isto é oque o usuario digitou')
-
-                        if idw == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
-                            texto = 'Chave Windows Não Cadastrada'
-                            op.notlabelWin.setText(texto)
-
-                        if idw != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
-                            chave = idw[0][1]  # <-------------------- pega o campo da chave
-                            id = idw[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID WINDOWS) int
-                            versao = idw[0][2]  # <-------------------- pega o campo da versão do windows
-
-                            try:  # <---------- vai pesquisar na tabela computer se essa (ID WINDOWS) esta vinculada com alguma maquina
-                                cur.execute(f"""SELECT * FROM computer WHERE idWindows = {id};""")
-                                idN = cur.fetchall()
-                                cur.close()
-
-                                if idN == ():  # <--------- se retornar tupla vazia não achou (ID WINDOWS) vinculado a alguma maquina
-                                    texto = 'Esta chave Windows \nEstá disponivel!'
-                                    mc.notFrameWindows.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-                                    mc.notVerWin.setText(versao)
-                                    mc.notCodWin.setText(str(id))
-
-                                    Positive.show()
-                                    op.notLineWin.clear()
-                                    po.LabelDialog.setText(texto)
-                                    opNote.close()
-
-                                else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
-                                    texto = 'Esta chave Windows \nNão está disponivel!'
-                                    op.notlabelWin.setText(texto)
-
-                            except pymysql.Error as erro:
-                                texto = str(erro)
-                                dg.LabelDialog.setText(texto)
-                                Dialog.show()
-
-                    except:
-                        texto = 'ALGO DEU ERRADO!'
-                        dg.LabelDialog.setText(texto)
-                        Dialog.show()
-
-        op.notButtonWin.clicked.connect(checkWin)
-
-    def offNote():
-        opNote.close()
-        opNote.show()
-        op.stackedWidget.setCurrentWidget(op.pageOpOff)
-
-        def checkOff():
-
-                office = op.notLineOff.text()
-
-                if len(office) < 25:
-                    texto = 'Chave Office Invalida'
-                    op.notlabelOff.setText(texto)
-
-                else:
-                    try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
-                        cur = db.conMySQL()
-                        cur.execute(f"""SELECT * FROM office WHERE CHAVE = '{office}';""")  # ------ Que Contenha
-                        ido = cur.fetchall()
-                        print(office + '<--- Isto é oque o usuario digitou')
-
-                        if ido == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
-                            texto = 'Chave Office Não Cadastrada'
-                            op.notlabelOff.setText(texto)
-
-                        if ido != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
-                            chave = ido[0][1]  # <-------------------- pega o campo da chave
-                            id = ido[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID OFFICE) int
-                            versao = ido[0][2]  # <-------------------- pega o campo da versão do windows
-
-                            try:  # <---------- vai pesquisar na tabela computer se essa (ID OFFICE) esta vinculada com alguma maquina
-                                cur.execute(f"""SELECT * FROM computer WHERE idOffice = {id};""")
-                                idN = cur.fetchall()
-                                cur.close()
-
-                                if idN == ():  # <--------- se retornar tupla vazia não achou (ID OFFICE) vinculado a alguma maquina
-                                    texto = 'Esta chave Office \nEstá disponivel!'
-                                    mc.notFrameOffice.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-                                    mc.notVerOff.setText(versao)
-                                    mc.notCodOff.setText(str(id))
-
-                                    Positive.show()
-                                    op.notLineOff.clear()
-                                    po.LabelDialog.setText(texto)
-                                    opNote.close()
-
-                                else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
-                                    texto = 'Esta chave Office \nNão está disponivel!'
-                                    op.notlabelOff.setText(texto)
-
-                            except pymysql.Error as erro:
-                                texto = str(erro)
-                                dg.LabelDialog.setText(texto)
-                                Dialog.show()
-
-                    except:
-                        texto = 'ALGO DEU ERRADO!'
-                        dg.LabelDialog.setText(texto)
-                        Dialog.show()
-
-        op.notButtonOff.clicked.connect(checkOff)
-
-    def cleanNote():
-        mc.notIMB.clear()
-        mc.notMarca.clear()
-        mc.notModelo.clear()
-        mc.notCondicao.clear()
-        mc.notAno.clear()
-        mc.notPreco.clear()
-        mc.notService.clear()
-        mc.notRede.clear()
-        mc.notTeam.clear()
-        mc.notBoxAntevirus.setCurrentIndex(0)
-        mc.notBoxTela.setCurrentIndex(0)
-        mc.notBoxCarregador.setCurrentIndex(0)
-        mc.notPro.clear()
-        mc.notMarcaPro.clear()
-        mc.notFrePro.clear()
-        mc.notBoxGeracao.setCurrentIndex(0)
-        mc.notBoxSSD.setCurrentIndex(0)
-        mc.notBoxExp.setCurrentIndex(0)
-        mc.notRam.clear()
-        mc.notVerRam.clear()
-        mc.notFreRam.clear()
-        mc.notBoxExpRam.setCurrentIndex(0)
-        mc.frameMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.notMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.notModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.notService.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.notRede.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.notBoxCarregador.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.notPro.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.notBoxGeracao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.notRam.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.notVerRam.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-        mc.notFrameWindows.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.notCodWin.setText('------------')
-        mc.notVerWin.setText('------------')
-
-        mc.notFrameOffice.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.notCodOff.setText('------------')
-        mc.notVerOff.setText('------------')
-
-        mc.notFrameLocal.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.notCodLocal.setText('------------')
-        mc.notSetorLocal.setText('------------')
-
-        mc.notFrameUser.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.notCodUser.setText('------------')
-        mc.notCarUser.setText('------------')
-        mc.notLabelUser.setText('USER')
-
-        mc.notLabelDialog.clear()
-
-    def userNote():
-        opNote.close()
-        opNote.show()
-        op.stackedWidget.setCurrentWidget(op.pageOpUser)
-
-        def pUser():
-            user = op.notLineUser.text()
-            print(user + '<--- entrada do usuario')
-
-            if user == '':
-                texto = 'Campo de pesquisa em branco \nPor favor preencha o campo de pesquisa de usuario'
-                op.notLineUser.setStyleSheet('background-color: rgb(255, 192, 193);')
-                op.notlabelUser.setText(texto)
-
-            else:
-                try:
-                    con = db.conMySQL()
-                    con.execute(f"""SELECT * FROM colaborador WHERE nome like '%{user}%';""")
-                    dados = con.fetchall()
-
-                    if dados == ():
-                        texto = 'Usuário não encontrado\n certifique se de que o mesmo esta cadastrado'
-                        op.notlabelUser.setText(texto)
-
-                    else:
-                        nome = dados[0][1]
-                        cargo = dados[0][4]
-                        idu = dados[0][0]
-
-                        con.execute(f"""SELECT idComputer FROM colaborador WHERE idColaborador = {idu};""")
-                        result = con.fetchall()
-                        print(result)
-
-                        if result == ((None,),):
-                            texto = 'Colaborador Encontrado'
-                            mc.notFrameUser.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-                            mc.notLabelUser.setText(nome)
-                            mc.notCarUser.setText(cargo)
-                            mc.notCodUser.setText(str(idu))
-
-                            Positive.show()
-                            op.notLineUser.clear()
-                            po.LabelDialog.setText(texto)
-                            opNote.close()
-
-                        else:
-                            texto = 'Colaborador Já Possue Notebook\nDeseja Subistituir?'
-                            DialogiConditional.show()
-                            di.LabelDialogMsg.setText(texto)
-
-                            def sim():
-                                mc.notFrameUser.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-                                mc.notLabelUser.setText(nome)
-                                mc.notCarUser.setText(cargo)
-                                mc.notCodUser.setText(str(idu))
-                                DialogiConditional.close()
-                                op.notLineUser.clear()
-                                opNote.close()
-
-                            def nao():
-                                DialogiConditional.close()
-                                op.notLineUser.clear()
-                                opNote.close()
-
-                            di.pushButtonSim.clicked.connect(sim)
-                            di.pushButtonNao.clicked.connect(nao)
-
-
-
-                except:
-                    texto = 'Colaborador Não Encontrado'
-                    dg.LabelDialog.setText(texto)
-                    Dialog.show()
-
-        op.notButtonUser.clicked.connect(pUser)
-
-    def placeNote():
-        opNote.close()
-        opNote.show()
-        op.stackedWidget.setCurrentWidget(op.pageOpLocal)
-
-        def local():
-            local = op.notBoxLocal.currentText()
-
-            texto = 'Local Selecionado'
-            mc.notFrameLocal.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-            mc.notSetorLocal.setText(local)
-            mc.notCodLocal.setText('01')
-
-            Positive.show()
-            op.notLineUser.clear()
-            po.LabelDialog.setText(texto)
-            opNote.close()
-
-        op.notButtonLocal.clicked.connect(local)
-
-    def cancelNote():
-        mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-        cleanNote()
-
-    mc.notButtonCancelar.clicked.connect(cancelNote)
-    mc.notButtonLocal.clicked.connect(placeNote)
-    mc.notButtonUser.clicked.connect(userNote)
-    mc.notButtonWin.clicked.connect(winNote)
-    mc.notButtonOff.clicked.connect(offNote)
-    mc.notButtonLimpar.clicked.connect(cleanNote)
-    mc.notButtonConfirmar.clicked.connect(cadNote)
-
-    # TRATAMENTO DESKTOP # <<< ------------------------------------------
-    def cadDesk():
-        imb = mc.topIMB.text()
-        marca = mc.topMarca.text()
-        modelo = mc.topModelo.text()
-        condicao = mc.topCondicao.text()
-        ano = mc.topAno.text()
-        preco = mc.topPreco.text()
-        service = mc.topService.text()
-        rede = mc.topRede.text()
-        team = mc.topTeam.text()
-        ant = mc.topBoxAntevirus.currentText()
-        monitor = mc.topBoxMonitor.currentText()
-        pro = mc.topPro.text()
-        marPro = mc.topMarcaPro.text()
-        frePro = mc.topFrePro.text()
-        gePro = mc.topBoxGeracao.currentText()
-        disco = mc.topBoxSSD.currentText()
-        exp = mc.topBoxExp.currentText()
-        ram = mc.topRam.text()
-        verRam = mc.topVerRam.text()
-        freRam = mc.topFreRam.text()
-        expRam = mc.topBoxExpRam.currentText()
-
-        motivo = motiDesk()
-        tipo = 'Desktop'
-        local = mc.topSetorLocal.text()
-        data = datAT()
-        user = mc.topCodUser.text()
-        win = mc.topCodWin.text()
-        off = mc.topCodOff.text()
-
-        def trataWinTop():
-            if mc.topCodWin.text() == '------------':
-                return 'null'
-            else:
-                return mc.notCodWin.text()
-
-        def trataOffTop():
-            if mc.topCodOff.text() == '------------':
-                return 'null'
-            else:
-                return mc.notCodOff.text()
-
-        idWindows = trataWinTop()
-        idOffice = trataOffTop()
-
-        print(imb, marca, modelo, condicao, ano, preco, service, rede, team, ant, monitor, pro, marPro, frePro,
-              gePro, disco, exp, ram, verRam, freRam, expRam, user, win, off, motivo, tipo, local, data)
-
-        if motivo == '' or marca == '' or modelo == '' or service == '' or rede == '' or \
-                pro == '' or gePro == '' or ram == '' or verRam == '':
-
-            mc.frameMotivo_2.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.topMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.topModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.topService.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.topRede.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.topPro.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.topBoxGeracao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.topRam.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.topVerRam.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mensage = 'Favor verifique se todos os campos obrigatórios foram preenchidos'
-            mc.topLabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, VALOR,
-                        SERVICETAG, TEAMVIEWER, REDE, SSD, EXPANCIVEL, PROCESSADOR, MARCAPRO,
-                        FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, ANTEVIRUS,
-                        TIPO, LOCAL, DATA, idWindows, idOffice)
-
-                        VALUES ('{imb}','{marca}','{modelo}','{condicao}','{ano}','{monitor}','{preco}',
-                        '{service}','{team}','{rede}','{disco}','{exp}','{pro}','{marPro}',
-                        '{frePro}','{gePro}','{ram}','{verRam}','{freRam}','{expRam}','{ant}',
-                        '{tipo}','{local}','{data}',{idWindows},{idOffice});""")
-
-                cur.execute(f"""SELECT MAX(idComputer) FROM computer;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                if user != '------------':
-                    cur.execute(f"""UPDATE colaborador SET idComputer = '{result}' WHERE idColaborador = '{user}';""")
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
-                '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                cleanDesk()
-                mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def motiDesk():
-
-        if mc.topRadioCompra.isChecked() == True:
-            compra = mc.topRadioCompra.text()
-            return compra
-
-        elif mc.topRadioCadastro.isChecked() == True:
-            cadastro = mc.topRadioCadastro.text()
-            return cadastro
-
-        elif mc.topRadioProvisorio.isChecked() == True:
-            provisorio = mc.topRadioProvisorio.text()
-            return provisorio
-
-        elif mc.topRadioOutro.isChecked() == True:
-            outros = mc.topRadioOutro.text()
-            return outros
-
-        else:
-            return 'Motivo Não Selecionado'
-
-    def winDesk():
-        opDesk.close()
-        opDesk.show()
-        opd.stackedWidget.setCurrentWidget(opd.pageOpWin)
-
-        def checkWin():
-
-                windows = opd.topLineWin.text()
-
-                if len(windows) < 25:
-                    texto = 'Chave Windows Invalida'
-                    opd.toplabelWin.setText(texto)
-
-                else:
-                    try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
-                        cur = db.conMySQL()
-                        cur.execute(f"""SELECT * FROM windows WHERE CHAVE = '{windows}';""")  # ------ Que Contenha
-                        idw = cur.fetchall()
-                        print(windows + '<--- Isto é oque o usuario digitou')
-
-                        if idw == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
-                            texto = 'Chave Windows Não Cadastrada'
-                            opd.toplabelWin.setText(texto)
-
-                        if idw != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
-                            chave = idw[0][1]  # <-------------------- pega o campo da chave
-                            id = idw[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID WINDOWS) int
-                            versao = idw[0][2]  # <-------------------- pega o campo da versão do windows
-
-                            try:  # <---------- vai pesquisar na tabela computer se essa (ID WINDOWS) esta vinculada com alguma maquina
-                                cur.execute(f"""SELECT * FROM computer WHERE idWindows = {id};""")
-                                idN = cur.fetchall()
-                                cur.close()
-
-                                if idN == ():  # <--------- se retornar tupla vazia não achou (ID WINDOWS) vinculado a alguma maquina
-                                    texto = 'Esta chave Windows \nEstá disponivel!'
-                                    mc.topFrameWindows.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-                                    mc.topVerWin.setText(versao)
-                                    mc.topCodWin.setText(str(id))
-
-                                    Positive.show()
-                                    opd.topLineWin.clear()
-                                    po.LabelDialog.setText(texto)
-                                    opDesk.close()
-
-                                else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
-                                    texto = 'Esta chave Windows não está \nDisponivel!'
-                                    opd.toplabelWin.setText(texto)
-
-                            except pymysql.Error as erro:
-                                texto = str(erro)
-                                dg.LabelDialog.setText(texto)
-                                Dialog.show()
-
-                    except:
-                        texto = 'ALGO DEU ERRADO!'
-                        dg.LabelDialog.setText(texto)
-                        Dialog.show()
-
-        opd.topButtonWin.clicked.connect(checkWin)
-
-    def offDesk():
-        opDesk.close()
-        opDesk.show()
-        opd.stackedWidget.setCurrentWidget(opd.pageOpOff)
-
-        def checkOff():
-
-                office = opd.topLineOff.text()
-
-                if len(office) < 25:
-                    texto = 'Chave Office Invalida'
-                    opd.toplabelOff.setText(texto)
-
-                else:
-                    try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
-                        cur = db.conMySQL()
-                        cur.execute(f"""SELECT * FROM office WHERE CHAVE = '{office}';""")  # ------ Que Contenha
-                        ido = cur.fetchall()
-                        print(office + '<--- Isto é oque o usuario digitou')
-
-                        if ido == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
-                            texto = 'Chave Office Não Cadastrada'
-                            opd.toplabelOff.setText(texto)
-
-                        if ido != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
-                            chave = ido[0][1]  # <-------------------- pega o campo da chave
-                            id = ido[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID OFFICE) int
-                            versao = ido[0][2]  # <-------------------- pega o campo da versão do windows
-
-                            try:  # <---------- vai pesquisar na tabela computer se essa (ID OFFICE) esta vinculada com alguma maquina
-                                cur.execute(f"""SELECT * FROM computer WHERE idOffice = {id};""")
-                                idN = cur.fetchall()
-                                cur.close()
-
-                                if idN == ():  # <--------- se retornar tupla vazia não achou (ID OFFICE) vinculado a alguma maquina
-                                    texto = 'Esta chave Office \nEstá disponivel!'
-                                    mc.topFrameOffice.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-                                    mc.topVerOff.setText(versao)
-                                    mc.topCodOff.setText(str(id))
-
-                                    Positive.show()
-                                    opd.topLineOff.clear()
-                                    po.LabelDialog.setText(texto)
-                                    opDesk.close()
-
-                                else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
-                                    texto = 'Esta chave Office não está \nDisponivel!'
-                                    opd.toplabelOff.setText(texto)
-
-                            except pymysql.Error as erro:
-                                texto = str(erro)
-                                dg.LabelDialog.setText(texto)
-                                Dialog.show()
-
-                    except:
-                        texto = 'ALGO DEU ERRADO!'
-                        dg.LabelDialog.setText(texto)
-                        Dialog.show()
-
-        opd.topButtonOff.clicked.connect(checkOff)
-
-    def cleanDesk():
-        mc.topIMB.clear()
-        mc.topMarca.clear()
-        mc.topModelo.clear()
-        mc.topCondicao.clear()
-        mc.topAno.clear()
-        mc.topPreco.clear()
-        mc.topService.clear()
-        mc.topRede.clear()
-        mc.topTeam.clear()
-        mc.topBoxAntevirus.setCurrentIndex(0)
-        mc.topBoxMonitor.setCurrentIndex(0)
-        mc.topPro.clear()
-        mc.topMarcaPro.clear()
-        mc.topFrePro.clear()
-        mc.topBoxGeracao.setCurrentIndex(0)
-        mc.topBoxSSD.setCurrentIndex(0)
-        mc.topBoxExp.setCurrentIndex(0)
-        mc.topRam.clear()
-        mc.topVerRam.clear()
-        mc.topFreRam.clear()
-        mc.topBoxExpRam.setCurrentIndex(0)
-        mc.frameMotivo_2.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.topMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.topModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.topService.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.topRede.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.topPro.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.topBoxGeracao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.topRam.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.topVerRam.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-        mc.topFrameWindows.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.topCodWin.setText('------------')
-        mc.topVerWin.setText('------------')
-
-        mc.topFrameOffice.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.topCodOff.setText('------------')
-        mc.topVerOff.setText('------------')
-
-        mc.topFrameLocal.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.topCodLocal.setText('------------')
-        mc.topSetorLocal.setText('------------')
-
-        mc.topFrameUser.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.topCodUser.setText('------------')
-        mc.topCarUser.setText('------------')
-        mc.topLabelUser.setText('USER')
-
-        mc.topLabelDialog.clear()
-
-    def userDesk():
-        opDesk.close()
-        opDesk.show()
-        opd.stackedWidget.setCurrentWidget(opd.pageOpUser)
-
-        def pUser():
-            user = opd.topLineUser.text()
-            print(user + '<--- entrada do usuario')
-
-            if user == '':
-                texto = 'Campo de pesquisa em branco \nPor favor preencha o campo de pesquisa de usuario'
-                opd.topLineUser.setStyleSheet('background-color: rgb(255, 192, 193);')
-                opd.toplabelUser.setText(texto)
-
-            else:
-                try:
-                    con = db.conMySQL()
-                    con.execute(f"""SELECT * FROM colaborador WHERE nome like '%{user}%';""")
-                    dados = con.fetchall()
-
-                    if dados == ():
-                        texto = 'Usuário não encontrado\n certifique se de que o mesmo esta cadastrado'
-                        opd.toplabelUser.setText(texto)
-
-                    else:
-                        nome = dados[0][1]
-                        cargo = dados[0][4]
-                        idu = dados[0][0]
-
-                        con.execute(f"""SELECT idComputer FROM colaborador WHERE idColaborador = {idu};""")
-                        result = con.fetchall()
-                        print(result)
-
-                        if result == ((None,),):
-                            texto = 'Colaborador Encontrado'
-                            mc.topFrameUser.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-                            mc.topLabelUser.setText(nome)
-                            mc.topCarUser.setText(cargo)
-                            mc.topCodUser.setText(str(idu))
-
-                            Positive.show()
-                            opd.topLineUser.clear()
-                            po.LabelDialog.setText(texto)
-                            opDesk.close()
-
-                        else:
-                            texto = 'Colaborador Já Possue Notebook\nDeseja Subistituir?'
-                            DialogiConditional.show()
-                            di.LabelDialogMsg.setText(texto)
-
-                            def simDesk():
-                                mc.topFrameUser.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-                                mc.topLabelUser.setText(nome)
-                                mc.topCarUser.setText(cargo)
-                                mc.topCodUser.setText(str(idu))
-                                DialogiConditional.close()
-                                opd.topLineUser.clear()
-                                opDesk.close()
-
-                            def naoDesk():
-                                DialogiConditional.close()
-                                opd.topLineUser.clear()
-                                opDesk.close()
-
-                            di.pushButtonSim.clicked.connect(simDesk)
-                            di.pushButtonNao.clicked.connect(naoDesk)
-
-
-
-                except:
-                    texto = 'Colaborador Não Encontrado'
-                    dg.LabelDialog.setText(texto)
-                    Dialog.show()
-
-        opd.topButtonUser.clicked.connect(pUser)
-
-    def placeDesk():
-        opDesk.close()
-        opDesk.show()
-        opd.stackedWidget.setCurrentWidget(opd.pageOpLocal)
-
-        def local():
-            local = opd.topBoxLocal.currentText()
-
-            texto = 'Local Selecionado'
-            mc.topFrameLocal.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-            mc.topSetorLocal.setText(local)
-            mc.topCodLocal.setText('01')
-
-            Positive.show()
-            opd.topLineUser.clear()
-            po.LabelDialog.setText(texto)
-            opDesk.close()
-
-        opd.topButtonLocal.clicked.connect(local)
-
-    def cancelDesk():
-        mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-        cleanNote()
-
-    mc.topButtonCancelar.clicked.connect(cancelDesk)
-    mc.topButtonLocal.clicked.connect(placeDesk)
-    mc.topButtonUser.clicked.connect(userDesk)
-    mc.topButtonWin.clicked.connect(winDesk)
-    mc.topButtonOff.clicked.connect(offDesk)
-    mc.topButtonLimpar.clicked.connect(cleanDesk)
-    mc.topButtonConfirmar.clicked.connect(cadDesk)
-
-    # TRATAMENTO CELULAR # <<< ------------------------------------------
-    def cadCell():
-        marca = mc.celMarca.text()
-        modelo = mc.celModelo.text()
-        condicao = mc.celEstado.text()
-        ano = mc.celAnoFab.text()
-        cor = mc.celCor.text()
-        preco = mc.celPreco.text()
-        pro = mc.celPro.text()
-        modPro = mc.celModPro.text()
-        frePro = mc.celFrePro.text()
-        ram = mc.celRam.text()
-        bateria = mc.celbat.text()
-        sistema = mc.celBoxSistema.currentText()
-        micro = mc.celBoxMicro.currentText()
-        memo = mc.celMemo.text()
-        dual = mc.celBoxDual.currentText()
-        chipOne = mc.celBoxChipOne.currentText()
-        numOne = mc.celNumeroOne.text()
-        chipTwe = mc.celBoxChipTwo.currentText()
-        numTwe = mc.celNumeroTwo.text()
-
-        motivo = motiCell()
-        email = mc.celEndEmail.text()
-        tipo = 'Celular'
-        local = mc.celSetorLocal.text()
-
-        data = datAT()
-
-        user = mc.celCodUser.text()
-        imeiOne = mc.celImeiOne.text()
-        imeiTwo = mc.celImeiTwe.text()
-
-        # print(marca, modelo, condicao, ano, preco, ano, cor, pro, modPro, frePro, ram, bateria, sistema, micro, memo,
-        #         dual, chipOne, numOne, chipTwe, numTwe,  user, imeiOne, imeiTwo, motivo, tipo, local, data)
-
-        if marca == '' or modelo == '' or cor == '' or pro == '' or frePro == '' or ram == '' or memo == '':
-
-            mc.frameMotivo_3.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.celMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.celModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.celCor.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.celPro.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.celFrePro.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.celRam.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.celMemo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mensage = 'Favor verifique se todos os campos obrigatórios foram preenchidos'
-            mc.celLabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO celular (IMEI, IMEI2, MARCA, MODELO, CONDICAO, ANOFAB, COR, VALOR,
-                            PROCESSADOR, MODPRO, FREPRO, RAM, BATERIA, SISTEMA, MICRO, MEMOINT, DUO,
-                            CHIP, CHIP2, NUMERO, NUMERO2, EMAIL, TIPO, LOCAL, DATA)
-
-                            VALUES ('{imeiOne}','{imeiTwo}','{marca}','{modelo}','{condicao}','{ano}','{cor}','{preco}',
-                            '{pro}','{modPro}','{frePro}','{ram}','{bateria}','{sistema}','{micro}','{memo}','{dual}',
-                            '{chipOne}','{chipTwe}','{numOne}','{numTwe}','{email}','{tipo}','{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idCelular) FROM celular;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                if user != '------------':
-                    cur.execute(f"""UPDATE colaborador SET idCelular = '{result}' WHERE idColaborador = '{user}';""")
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
-                    '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                cleanCell()
-                mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def motiCell():
-
-        if mc.celRadioCompra.isChecked() == True:
-            compra = mc.celRadioCompra.text()
-            return compra
-
-        elif mc.celRadioCadastro.isChecked() == True:
-            cadastro = mc.celRadioCadastro.text()
-            return cadastro
-
-        elif mc.celRadioProvisorio.isChecked() == True:
-            provisorio = mc.celRadioProvisorio.text()
-            return provisorio
-
-        elif mc.celRadioOutro.isChecked() == True:
-            outros = mc.celRadioOutro.text()
-            return outros
-
-        else:
-            return 'Motivo Não Selecionado'
-
-    def cleanCell():
-        mc.celMarca.clear()
-        mc.celModelo.clear()
-        mc.celEstado.clear()
-        mc.celAnoFab.clear()
-        mc.celCor.clear()
-        mc.celPreco.clear()
-        mc.celPro.clear()
-        mc.celModPro.clear()
-        mc.celFrePro.clear()
-        mc.celRam.clear()
-        mc.celbat.clear()
-        mc.celBoxSistema.setCurrentIndex(0)
-        mc.celBoxMicro.setCurrentIndex(0)
-        mc.celMemo.clear()
-        mc.celBoxDual.setCurrentIndex(0)
-        mc.celNumeroOne.clear()
-        mc.celNumeroTwo.clear()
-        mc.celBoxChipOne.setCurrentIndex(0)
-        mc.celBoxChipTwo.setCurrentIndex(0)
-
-        mc.frameMotivo_3.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-
-        mc.celMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.celModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.celCor.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.celPro.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.celFrePro.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.celRam.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.celMemo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-        mc.celFrameImei.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.celImeiOne.setText('------------')
-        mc.celImeiTwe.setText('------------')
-
-        mc.celFrameEmail.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.celEndEmail.setText('------------')
-        mc.celCodEmail.setText('------------')
-
-        mc.celFrameLocal.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.celCodLocal.setText('------------')
-        mc.celSetorLocal.setText('------------')
-
-        mc.celFrameUser.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
-        mc.celCodUser.setText('------------')
-        mc.celCarUser.setText('------------')
-        mc.celLabelUser.setText('USER')
-
-        mc.celLabelDialog.clear()
-
-    def userCell():
-        opCell.close()
-        opCell.show()
-        opc.stackedWidget.setCurrentWidget(opc.pageOpUser)
-
-        def pUser():
-            user = opc.opLineUser.text()
-            print(user + '<--- entrada do usuario')
-
-            if user == '':
-                texto = 'Campo de pesquisa em branco \nPor favor preencha o campo de pesquisa de usuario'
-                opc.opLineUser.setStyleSheet('background-color: rgb(255, 192, 193);')
-                opc.opLabelUser.setText(texto)
-
-            else:
-                try:
-                    con = db.conMySQL()
-                    con.execute(f"""SELECT * FROM colaborador WHERE nome like '%{user}%';""")
-                    dados = con.fetchall()
-
-                    if dados == ():
-                        texto = 'Usuário não encontrado\n certifique se de que o mesmo esta cadastrado'
-                        opc.opLabelUser.setText(texto)
-
-                    else:
-                        nome = dados[0][1]
-                        cargo = dados[0][4]
-                        idu = dados[0][0]
-
-                        con.execute(f"""SELECT idCelular FROM colaborador WHERE idColaborador = {idu};""")
-                        result = con.fetchall()
-                        print(result)
-
-                        if result == ((None,),):
-                            texto = 'Colaborador Encontrado'
-                            mc.celFrameUser.setStyleSheet(
-                                'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-                            mc.celLabelUser.setText(nome)
-                            mc.celCarUser.setText(cargo)
-                            mc.celCodUser.setText(str(idu))
-
-                            Positive.show()
-                            opc.opLineUser.clear()
-                            po.LabelDialog.setText(texto)
-                            opCell.close()
-
-                        else:
-                            texto = 'Colaborador Já Possue Notebook\nDeseja Subistituir?'
-                            DialogiConditional.show()
-                            di.LabelDialogMsg.setText(texto)
-
-                            def simCell():
-                                mc.celFrameUser.setStyleSheet(
-                                    'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-                                mc.celLabelUser.setText(nome)
-                                mc.celCarUser.setText(cargo)
-                                mc.celCodUser.setText(str(idu))
-                                DialogiConditional.close()
-                                opc.opLineUser.clear()
-                                opCell.close()
-
-                            def naoCell():
-                                DialogiConditional.close()
-                                opc.opLineUser.clear()
-                                opCell.close()
-
-                            di.pushButtonSim.clicked.connect(simCell)
-                            di.pushButtonNao.clicked.connect(naoCell)
-
-                except:
-                    texto = 'Algo deu Errado'
-                    dg.LabelDialog.setText(texto)
-                    Dialog.show()
-
-        opc.opButtonUser.clicked.connect(pUser)
-
-    def placeCell():
-        opCell.close()
-        opCell.show()
-        opc.stackedWidget.setCurrentWidget(opc.pageOpLocal)
-
-        def local():
-            local = opc.opBoxLocal.currentText()
-
-            texto = 'Local Selecionado'
-            mc.celFrameLocal.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-            mc.celSetorLocal.setText(local)
-            mc.celCodLocal.setText('01')
-
-            Positive.show()
-            opc.opLineUser.clear()
-            po.LabelDialog.setText(texto)
-            opCell.close()
-
-        opc.opButtonLocal.clicked.connect(local)
-
-    def imei():
-        opCell.close()
-        opCell.show()
-        opc.stackedWidget.setCurrentWidget(opc.pageOpImei)
-
-        def pesImei():
-            imeiOne = opc.opLineImei_2.text()
-            imeiTwe = opc.opLineImei.text()
-            print(imeiOne, imeiTwe)
-
-            con = db.conMySQL()
-            con.execute(f"""SELECT * FROM celular WHERE IMEI = '{imeiOne}';""")
-            result = con.fetchall()
-
-            if result == ():
-                texto = 'Codigo Imei Valido'
-                mc.celFrameImei.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-                mc.celImeiOne.setText(imeiOne)
-                mc.celImeiTwe.setText(imeiTwe)
-
-                Positive.show()
-                po.LabelDialog.setText(texto)
-                opCell.close()
-
-            else:
-                texto = 'Código IMEI já cadastrado'
-                opc.opLabelImei.setText(texto)
-
-        opc.opButtonImei.clicked.connect(pesImei)
-
-    def email():
-        opCell.close()
-        opCell.show()
-        opc.stackedWidget.setCurrentWidget(opc.pageOpEmail)
-
-        def regEmail():
-            email = opc.opLineEmail.text()
-
-            texto = 'Email vinculado com Sucesso'
-            mc.celFrameEmail.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
-
-            mc.celEndEmail.setText(email)
-            mc.celCodEmail.setText('01')
-
-            Positive.show()
-            po.LabelDialog.setText(texto)
-            opCell.close()
-
-        opc.opButtonEmail.clicked.connect(regEmail)
-
-    def cancelCell():
-        mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-        cleanCell()
-
-    mc.celButtonCancelar.clicked.connect(cancelCell)
-    mc.celButtonLocal.clicked.connect(placeCell)
-    mc.celButtonUser.clicked.connect(userCell)
-    mc.celButtonImei.clicked.connect(imei)
-    mc.celButtonEmail.clicked.connect(email)
-    mc.celButtonLimpar.clicked.connect(cleanCell)
-    mc.celButtonConfirmar.clicked.connect(cadCell)
-
-    # TRATAMENTO MONITOR # <<< ------------------------------------------
-
-    def cadMonitor():
-        modelo = mc.moModelo.text()
-        marca = mc.moMarca.text()
-        condicao = mc.moCondicao.text()
-        valor = mc.moValor.text()
-        tamanho = mc.moBoxTamanho.currentText()
-
-        motivo = motivoMonitor()
-        tipo = 'Monitor'
-        local = 'ESTOQUE'
-        data = datAT()
-
-        if marca == '' or modelo == '' or tamanho == '' or motivo == None:
-
-            mc.moFrameMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.moModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.moMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.moBoxTamanho.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-
-            mensage = 'Campos Obrigatórios\nNão preenchidos'
-            Dialog.show()
-            dg.LabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO monitor (marca, modelo, condicao, tamanho, valor, local, data)
-                        VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{valor}','{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idMonitor) FROM monitor;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
-                    '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                clearMonitor()
-                mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def clearMonitor():
-        mc.moMarca.clear()
-        mc.moModelo.clear()
-        mc.moCondicao.clear()
-        mc.moValor.clear()
-        mc.moBoxTamanho.setCurrentIndex(0)
-
-        mc.moFrameMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.moModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.moMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.moBoxTamanho.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-    def motivoMonitor():
-        if mc.moRadioCompra.isChecked() == True:
-            compra = mc.moRadioCompra.text()
-            return compra
-
-        elif mc.moRadioCadastro.isChecked() == True:
-            cadastro = mc.moRadioCadastro.text()
-            return cadastro
-
-        elif mc.moRadioProvisorio.isChecked() == True:
-            provisorio = mc.moRadioProvisorio.text()
-            return provisorio
-
-        elif mc.moRadioOutros.isChecked() == True:
-            outros = mc.moRadioOutros.text()
-            return outros
-
-    def cancelMonitor():
-        mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-        clearMonitor()
-
-    mc.moButtonConfirmar.clicked.connect(cadMonitor)
-    mc.moButtonCancelar.clicked.connect(cancelMonitor)
-    mc.moButtonLimpar.clicked.connect(clearMonitor)
-
-    # TRATAMENTO WINDOWS # <<< ------------------------------------------
-
-    def cadWindows():
-        chave = mc.winCod.text().upper()
-        verPro = mc.winVersao.text()
-        valor = mc.winValor.text()
-        versao = mc.winBoxVersao.currentText()
-
-        motivo = motivoWin()
-        tipo = 'windows'
-        local = 'ESTOQUE'
-        data = datAT()
-
-        if chave == '' or verPro == '' or versao == '' or motivo == None:
-
-            mc.winMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.winVersao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.winBoxVersao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.winCod.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-
-            mensage = 'Campos Obrigatórios\nNão preenchidos'
-            Dialog.show()
-            dg.LabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO windows (CHAVE, VERSAOPRO, VERSAO, VALOR, local, data)
-                            VALUES ('{chave}','{verPro}','{versao}','{valor}','{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idWindows) FROM windows;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{verPro}',
-                        '{versao}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                clearWin()
-                mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-
-            except pymysql.Error as erro:
-                trat = str(erro)
-                print(trat)
-                codigo = trat[1:5]
-
-                if trat.count('1062'):
-                    texto = f'CHAVE INFORMADA JÁ CADASTRADA\n CODIGO MYSQL{codigo}'
-                    Dialog.show()
-                    dg.LabelDialog.setText(texto)
-
-    def clearWin():
-        mc.winCod.clear()
-        mc.winVersao.clear()
-        mc.winValor.clear()
-        mc.winBoxVersao.setCurrentIndex(0)
-
-        mc.winMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.winVersao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.winBoxVersao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.winCod.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-    def motivoWin():
-        if mc.winRadioCompra.isChecked() == True:
-            compra = mc.winRadioCompra.text()
-            return compra
-
-        elif mc.winRadioCadastro.isChecked() == True:
-            cadastro = mc.winRadioCadastro.text()
-            return cadastro
-
-        elif mc.winRadioProvisorio.isChecked() == True:
-            provisorio = mc.winRadioProvisorio.text()
-            return provisorio
-
-        elif mc.winRadioOutro.isChecked() == True:
-            outros = mc.winRadioOutro.text()
-            return outros
-
-    def cancelWin():
-        mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-        clearWin()
-
-    mc.winButtonConfirmar.clicked.connect(cadWindows)
-    mc.winButtonCancelar.clicked.connect(cancelWin)
-    mc.winButtonLimpar.clicked.connect(clearWin)
-
-    # TRATAMENTO OFFICE # <<< ------------------------------------------
-
-    def cadOffice():
-        chave = mc.offCod.text().upper()
-        verPro = mc.offVersao.text()
-        valor = mc.offValor.text()
-        versao = mc.offBoxVersao.currentText()
-
-        motivo = motivoOff()
-        tipo = 'Office'
-        local = 'ESTOQUE'
-        data = datAT()
-
-        if chave == '' or verPro == '' or versao == '' or motivo == None:
-
-            mc.offMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.offVersao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.offBoxVersao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.offCod.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-
-            mensage = 'Campos Obrigatórios\nNão preenchidos'
-            Dialog.show()
-            dg.LabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO office (CHAVE, VERSAOPRO, VERSAO, VALOR, local, data)
-                                VALUES ('{chave}','{verPro}','{versao}','{valor}','{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idOffice) FROM office;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{verPro}',
-                            '{versao}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                clearOff()
-                mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-
-            except pymysql.Error as erro:
-                trat = str(erro)
-                print(trat)
-                codigo = trat[1:5]
-
-                if trat.count('1062'):
-                    texto = f'CHAVE INFORMADA JÁ CADASTRADA\n CODIGO MYSQL{codigo}'
-                    Dialog.show()
-                    dg.LabelDialog.setText(texto)
-
-    def clearOff():
-        mc.offCod.clear()
-        mc.offVersao.clear()
-        mc.offValor.clear()
-        mc.offBoxVersao.setCurrentIndex(0)
-
-        mc.offMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.offVersao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.offBoxVersao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.offCod.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-    def motivoOff():
-        if mc.offRadioCompra.isChecked() == True:
-            compra = mc.offRadioCompra.text()
-            return compra
-
-        elif mc.offRadioCadastro.isChecked() == True:
-            cadastro = mc.offRadioCadastro.text()
-            return cadastro
-
-        elif mc.offRadioProvisorio.isChecked() == True:
-            provisorio = mc.offRadioProvisorio.text()
-            return provisorio
-
-        elif mc.offRadioOutro.isChecked() == True:
-            outros = mc.offRadioOutro.text()
-            return outros
-
-    def cancelOff():
-        mc.stackedWidget.setCurrentWidget(mc.pageNovoCad)
-        clearOff()
-
-    mc.offButtonConfirmar.clicked.connect(cadOffice)
-    mc.offButtonCancelar.clicked.connect(cancelOff)
-    mc.offButtonLimpar.clicked.connect(clearOff)
-
-    # TRATAMENTO MEMORIA # <<< ------------------------------------------
-
-    def cadMemoria():
-        modelo = mc.meBarramento.text()
-        marca = mc.meMarca.text()
-        condicao = mc.meCondicao.text()
-        valor = mc.meValor.text()
-        tamanho = mc.meBoxTamanho.currentText()
-        plataforma = mc.meBoxPlataforma.currentText()
-
-        motivo = motivoMemo()
-        tipo = 'Memoria'
-        local = 'ESTOQUE'
-        data = datAT()
-
-        if marca == '' or modelo == '' or tamanho == '' or motivo == None or plataforma == '':
-
-            mc.meMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.meBarramento.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.meMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.meBoxTamanho.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.meBoxPlataforma.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-
-            mensage = 'Campos Obrigatórios\nNão preenchidos'
-            Dialog.show()
-            dg.LabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO memoria (MARCA, MODELO, CONDICAO, TAMANHO, PLATAFORMA, VALOR, TIPO, LOCAL, DATA)
-                            VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}','{tipo}','{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idMemoria) FROM memoria;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
-                '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                clearMonitor()
-                mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def clearMemo():
-        mc.meMarca.clear()
-        mc.meBarramento.clear()
-        mc.meCondicao.clear()
-        mc.meBoxTamanho.setCurrentIndex(0)
-        mc.meBoxPlataforma.setCurrentIndex(0)
-        mc.meValor.clear()
-
-        mc.meMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.meBarramento.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.meMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.meBoxTamanho.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.meBoxPlataforma.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-    def motivoMemo():
-        if mc.meRadioCompra.isChecked() == True:
-            compra = mc.meRadioCompra.text()
-            return compra
-
-        elif mc.meRadioCadastro.isChecked() == True:
-            cadastro = mc.meRadioCadastro.text()
-            return cadastro
-
-        elif mc.meRadioProvisorio.isChecked() == True:
-            provisorio = mc.meRadioProvisorio.text()
-            return provisorio
-
-        elif mc.meRadioOutro.isChecked() == True:
-            outros = mc.meRadioOutro.text()
-            return outros
-
-    def cancelMemo():
-        mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-        clearMemo()
-
-    mc.meButtonConfirmar.clicked.connect(cadMemoria)
-    mc.meButtonCancelar.clicked.connect(cancelMemo)
-    mc.meButtonLimpar.clicked.connect(clearMemo)
-
-    # TRATAMENTO DISCO # <<< ------------------------------------------
-
-    def cadDisco():
-        modelo = mc.disModelo.text()
-        marca = mc.disMarca.text()
-        condicao = mc.disCondicao.text()
-        valor = mc.disValor.text()
-        tamanho = mc.disBoxTamanho.currentText()
-        tipo = mc.disBoxTipo.currentText()
-
-        motivo = motivoDis()
-
-        local = 'ESTOQUE'
-        data = datAT()
-
-        if marca == '' or modelo == '' or tamanho == '' or motivo == None or tipo == '':
-
-            mc.disMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.disModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.disMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.disBoxTamanho.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.disBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-
-            mensage = 'Campos Obrigatórios\nNão preenchidos'
-            Dialog.show()
-            dg.LabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO disco (MARCA, MODELO, CONDICAO, TAMANHO, TIPO, VALOR, LOCAL, DATA)
-                            VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{tipo}','{valor}','{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idDisco) FROM disco;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
-                '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                clearDis()
-                mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def clearDis():
-        mc.disMarca.clear()
-        mc.disModelo.clear()
-        mc.disCondicao.clear()
-        mc.disBoxTamanho.setCurrentIndex(0)
-        mc.disBoxTipo.setCurrentIndex(0)
-        mc.disValor.clear()
-
-        mc.disMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.disModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.disMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.disBoxTamanho.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.disBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-    def motivoDis():
-        if mc.disRadioCompra.isChecked() == True:
-            compra = mc.disRadioCompra.text()
-            return compra
-
-        elif mc.disRadioCadastro.isChecked() == True:
-            cadastro = mc.disRadioCadastro.text()
-            return cadastro
-
-        elif mc.disRadioProvisorio.isChecked() == True:
-            provisorio = mc.disRadioProvisorio.text()
-            return provisorio
-
-        elif mc.disRadioOutro.isChecked() == True:
-            outros = mc.disRadioOutro.text()
-            return outros
-
-    def cancelDis():
-        mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-        clearDis()
-
-    mc.disButtonConfirmar.clicked.connect(cadDisco)
-    mc.disButtonCancelar.clicked.connect(cancelDis)
-    mc.disButtonLimpar.clicked.connect(clearDis)
-
-    # TRATAMENTO MOUSE # <<< ------------------------------------------
-
-    def cadMouse():
-        modelo = mc.mouModelo.text()
-        marca = mc.mouMarca.text()
-        condicao = mc.mouCondicao.text()
-        valor = mc.mouValor.text()
-        tipo = mc.mouBoxTipo.currentText()
-
-        motivo = motivoMou()
-        tipo = 'MOUSE: ' + tipo
-        local = 'ESTOQUE'
-        data = datAT()
-
-        if marca == '' or modelo == '' or motivo == None or tipo == '':
-
-            mc.mouMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.mouModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.mouMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.mouBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-
-            mensage = 'Campos Obrigatórios\nNão preenchidos'
-            Dialog.show()
-            dg.LabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO mouse (MARCA, MODELO, CONDICAO, TIPO, VALOR, LOCAL, DATA)
-                                VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}','{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idMouse) FROM mouse;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
-                    '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                clearMou()
-                mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def clearMou():
-        mc.mouMarca.clear()
-        mc.mouModelo.clear()
-        mc.mouCondicao.clear()
-        mc.mouBoxTipo.setCurrentIndex(0)
-        mc.mouValor.clear()
-
-        mc.mouMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.mouModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.mouMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.mouBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-    def motivoMou():
-        if mc.mouRadioCompra.isChecked() == True:
-            compra = mc.mouRadioCompra.text()
-            return compra
-
-        elif mc.mouRadioCadastro.isChecked() == True:
-            cadastro = mc.mouRadioCadastro.text()
-            return cadastro
-
-        elif mc.mouRadioProvisorio.isChecked() == True:
-            provisorio = mc.mouRadioProvisorio.text()
-            return provisorio
-
-        elif mc.mouRadioOutro.isChecked() == True:
-            outros = mc.mouRadioOutro.text()
-            return outros
-
-    def cancelMou():
-        mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-        clearMou()
-
-    mc.mouButtonConfirmar.clicked.connect(cadMouse)
-    mc.mouButtonCancelar.clicked.connect(cancelMou)
-    mc.mouButtonLimpar.clicked.connect(clearMou)
-
-    # TRATAMENTO OUTROS # <<< ------------------------------------------
-
-    def cadOutros():
-        nome = mc.ouNome.text()
-        modelo = mc.ouModelo.text()
-        marca = mc.ouMarca.text()
-        condicao = mc.ouCondicao.text()
-        valor = mc.ouValor.text()
-
-        motivo = motivoOutros()
-        tipo = 'Outros'
-        local = 'ESTOQUE'
-        data = datAT()
-
-        if nome == '' or motivo == None:
-
-            mc.ouMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.ouNome.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-
-            mensage = 'Campos Obrigatórios\nNão preenchidos'
-            Dialog.show()
-            dg.LabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO outros (NOME, MARCA, MODELO, CONDICAO, VALOR, LOCAL, DATA)
-                                VALUES ('{nome}','{marca}','{modelo}','{condicao}','{valor}','{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idOutros) FROM outros;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{nome}',
-                    '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                clearMou()
-                mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def clearOutros():
-        mc.ouNome.clear()
-        mc.ouMarca.clear()
-        mc.ouModelo.clear()
-        mc.ouCondicao.clear()
-        mc.ouValor.clear()
-
-        mc.ouMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.ouNome.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-    def motivoOutros():
-        if mc.ouRadioCompra.isChecked() == True:
-            compra = mc.ouRadioCompra.text()
-            return compra
-
-        elif mc.ouRadioCadastro.isChecked() == True:
-            cadastro = mc.ouRadioCadastro.text()
-            return cadastro
-
-        elif mc.ouRadioProvisorio.isChecked() == True:
-            provisorio = mc.ouRadioProvisorio.text()
-            return provisorio
-
-        elif mc.ouRadioOutro.isChecked() == True:
-            outros = mc.ouRadioOutro.text()
-            return outros
-
-    def cancelOutros():
-        mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-        clearOutros()
-
-    mc.ouButtonConfirmar.clicked.connect(cadOutros)
-    mc.ouButtonCancelar.clicked.connect(cancelOutros)
-    mc.ouButtonLimpar.clicked.connect(clearOutros)
-
-    # TRATAMENTO PAD # <<< ------------------------------------------
-
-    def cadPad():
-        modelo = mc.padModelo.text()
-        marca = mc.padMarca.text()
-        condicao = mc.padCondicao.text()
-        valor = mc.padPreco.text()
-
-        motivo = motivoPad()
-        tipo = 'Mouse Pad'
-        local = 'ESTOQUE'
-        data = datAT()
-
-        if marca == '' or modelo == '' or motivo == None:
-
-            mc.padMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.padMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.padModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-
-            mensage = 'Campos Obrigatórios\nNão preenchidos'
-            Dialog.show()
-            dg.LabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO mousepad (MARCA, MODELO, CONDICAO, VALOR, LOCAL, DATA)
-                                VALUES ('{marca}','{modelo}','{condicao}','{valor}','{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idMousePad) FROM mousepad;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
-                    '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                clearMou()
-                mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def clearPad():
-        mc.padMarca.clear()
-        mc.padModelo.clear()
-        mc.padCondicao.clear()
-        mc.padPreco.clear()
-
-        mc.padMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.padMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.padModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-    def motivoPad():
-        if mc.padRadioCompra.isChecked() == True:
-            compra = mc.padRadioCompra.text()
-            return compra
-
-        elif mc.padRadioCadastro.isChecked() == True:
-            cadastro = mc.padRadioCadastro.text()
-            return cadastro
-
-        elif mc.padRadioProvisorio.isChecked() == True:
-            provisorio = mc.padRadioProvisorio.text()
-            return provisorio
-
-        elif mc.padRadioOutro.isChecked() == True:
-            outros = mc.padRadioOutro.text()
-            return outros
-
-    def cancelPad():
-        mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-        clearPad()
-
-    mc.padButtonConfirmar.clicked.connect(cadPad)
-    mc.padButtonCancelar.clicked.connect(cancelPad)
-    mc.padButtonLimpar.clicked.connect(clearPad)
-
-    # TRATAMENTO PAD # <<< ------------------------------------------
-
-    def cadTeclado():
-        modelo = mc.telModelo.text()
-        marca = mc.telMarca.text()
-        condicao = mc.telCondicao.text()
-        valor = mc.telValor.text()
-        tipo = mc.telBoxTipo.currentText()
-
-        motivo = motivoTec()
-        tipo = 'Teclado: ' + tipo
-        local = 'ESTOQUE'
-        data = datAT()
-
-        if marca == '' or modelo == '' or tipo == '' or motivo == None:
-
-            mc.telMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.telMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.telModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.telBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-
-            mensage = 'Campos Obrigatórios\nNão preenchidos'
-            Dialog.show()
-            dg.LabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO teclado (MARCA, MODELO, CONDICAO, TIPO, VALOR, LOCAL, DATA)
-                                    VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}','{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idTeclado) FROM teclado;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
-                        '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                clearMou()
-                mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def clearTec():
-        mc.telMarca.clear()
-        mc.telModelo.clear()
-        mc.telCondicao.clear()
-        mc.telValor.clear()
-
-        mc.telMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.telMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.telModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.telBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-    def motivoTec():
-        if mc.telRadioCompra.isChecked() == True:
-            compra = mc.telRadioCompra.text()
-            return compra
-
-        elif mc.telRadioCadastro.isChecked() == True:
-            cadastro = mc.telRadioCadastro.text()
-            return cadastro
-
-        elif mc.telRadioProvisorio.isChecked() == True:
-            provisorio = mc.telRadioProvisorio.text()
-            return provisorio
-
-        elif mc.telRadioOutro.isChecked() == True:
-            outros = mc.telRadioOutro.text()
-            return outros
-
-    def cancelTec():
-        mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-        clearTec()
-
-    mc.telButtonConfirmar.clicked.connect(cadTeclado)
-    mc.telButtonCancelar.clicked.connect(cancelTec)
-    mc.telButtonLimpar.clicked.connect(clearTec)
-
-    # TRATAMENTO SUPORTE # <<< ------------------------------------------
-
-    def cadSuport():
-        modelo = mc.supModelo.text()
-        marca = mc.supMarca.text()
-        condicao = mc.supCondicao.text()
-        valor = mc.supValor.text()
-
-        motivo = motivoSup()
-        tipo = 'Suporte'
-        local = 'ESTOQUE'
-        data = datAT()
-
-        if marca == '' or modelo == '' or motivo == None:
-
-            mc.supMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
-            mc.supMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-            mc.supModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
-
-
-            mensage = 'Campos Obrigatórios\nNão preenchidos'
-            Dialog.show()
-            dg.LabelDialog.setText(mensage)
-
-        else:
-            try:
-                cur = db.conMySQL()
-                cur.execute(
-                    f"""INSERT INTO suporte (MARCA, MODELO, CONDICAO, VALOR, TIPO, LOCAL, DATA)
-                                       VALUES ('{marca}','{modelo}','{condicao}','{valor}', '{tipo}', '{local}','{data}');""")
-
-                cur.execute(f"""SELECT MAX(idSuporte) FROM suporte;""")
-                result = cur.fetchall()
-                result = result[0][0]
-                print(result)
-
-                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
-                           '{modelo}','{motivo}','{local}','{data}');""")
-                cur.close()
-
-                Positive.show()
-                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
-                po.LabelDialog.setText(texto)
-
-                clearMou()
-                mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-
-            except pymysql.Error as erro:
-                print(str(erro))
-
-    def clearSup():
-        mc.supMarca.clear()
-        mc.supModelo.clear()
-        mc.supCondicao.clear()
-        mc.supValor.clear()
-
-        mc.supMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
-        mc.supMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-        mc.supModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
-
-    def motivoSup():
-        if mc.supRadioCompra.isChecked() == True:
-            compra = mc.supRadioCompra.text()
-            return compra
-
-        elif mc.supRadioCadastro.isChecked() == True:
-            cadastro = mc.supRadioCadastro.text()
-            return cadastro
-
-        elif mc.supRadioProvisorio.isChecked() == True:
-            provisorio = mc.supRadioProvisorio.text()
-            return provisorio
-
-        elif mc.supRadioOutro.isChecked() == True:
-            outros = mc.supRadioOutro.text()
-            return outros
-
-    def cancelSup():
-        mc.stackedWidget.setCurrentWidget(mc.pagePerifericos)
-        clearSup()
-
-    mc.supButtonConfirmar.clicked.connect(cadSuport)
-    mc.supButtonCancelar.clicked.connect(cancelSup)
-    mc.supButtonLimpar.clicked.connect(clearSup)
-
 ########################################################################################################################
       ################################################ ESTOQUE TI ###############################################
+########################################################################################################################
 
 def estoqueTi():
 
@@ -2265,14 +196,13 @@ def estoqueTi():
         MainControle.close()
         mw.stackedWidget.setCurrentWidget(mw.pageHome)
         quantiTable()
-        carregarDados()
-        # plotbar()
+        # carregarDados()
+
     mw.pushButtonEstoque.clicked.connect(ButtonEstoque)
 
     #  Acionamento Botões Submenu --------------------------------------------------------------------------------------
     def ButtonInicio():
         quantiTable()
-        carregarDados()
         mw.stackedWidget.setCurrentWidget(mw.pageHome)
 
     mw.pushButton_Inicio.clicked.connect(ButtonInicio)
@@ -2284,10 +214,14 @@ def estoqueTi():
 
     def ButtonHistorico():
         mw.stackedWidget.setCurrentWidget(mw.pageHistorico)
-        carregarDados()
+        infoHistorico()
     mw.pushButtonHistorico.clicked.connect(ButtonHistorico)
 
     #  Acionamento Botões PAGE GESTÃO-----------------------------------------------------------------------------------
+    def cadNovo():
+        mw.stackedWidget.setCurrentWidget(mw.pageCad)
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+    mw.pushButtonNovo.clicked.connect(cadNovo)
 
     def ButtonEntrada():
         mw.stackedWidget.setCurrentWidget(mw.pageEntrada)
@@ -2305,73 +239,753 @@ def estoqueTi():
         pass
     mw.pushButtonVisualizar.clicked.connect(ButtonVisualizar)
 
-    #  pré visualização de quantidade ----------------------------------------------------------------------------------
 
+    # TRATAMENTO PAGE NOVO # <<< ------------------------------------------
+    def note():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageNotebookCad)
+    mw.buttonNote.clicked.connect(note)
+
+    def desk():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageDesktopCad)
+    mw.buttonDesk.clicked.connect(desk)
+
+    def cell():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageCelularCad)
+    mw.buttonCel.clicked.connect(cell)
+
+    def Monitor():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageMonitorCad)
+    mw.buttonMon.clicked.connect(Monitor)
+
+    def perifericos():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+    mw.buttonPeri.clicked.connect(perifericos)
+
+    def Windows():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageWindowsCad)
+    mw.buttonWin.clicked.connect(Windows)
+
+    def Office():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageOfficeCad)
+    mw.buttonOff.clicked.connect(Office)
+
+    def Memoria():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageMemoriaCad)
+    mw.buttonMemo.clicked.connect(Memoria)
+
+    def disco():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageDiscoCad)
+    mw.buttonDisco.clicked.connect(disco)
+
+    def mouse():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageMouseCad)
+    mw.buttonMouse.clicked.connect(mouse)
+
+    def pad():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pagePadCad)
+    mw.buttonPad.clicked.connect(pad)
+
+    def teclado():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageTecladoCad)
+    mw.buttonTeclado.clicked.connect(teclado)
+
+    def suport():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageSuporteCad)
+    mw.buttonUporte.clicked.connect(suport)
+
+    def outros():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageOutrosCad)
+    mw.buttonOutros.clicked.connect(outros)
+
+
+#####  TRATAMENTO PAGES VISUALIZAÇÕES ##################################################################################
     def quantiTable():
         cursor = db.conMySQL()
         cursor.execute(f"""SELECT * FROM computer;""")
         notebook = len(cursor.fetchall())
         mw.labelNotebook.setText(str(notebook))
-        mw.labelTotalnotebook.setText(str(notebook))
+        #mw.labelTotalnotebook.setText(str(notebook))
 
         cursor.execute(f"""SELECT * FROM celular;""")
         celular = len(cursor.fetchall())
         mw.labelCelular.setText(str(celular))
-        mw.labelTotalcelular.setText(str(celular))
+        #mw.labelTotalcelular.setText(str(celular))
 
         cursor.execute(f"""SELECT * FROM memoria;""")
         memoria = len(cursor.fetchall())
         mw.labelMemoria.setText(str(memoria))
-        mw.labelTotalmemoria.setText(str(memoria))
+        #mw.labelTotalmemoria.setText(str(memoria))
 
         cursor.execute(f"""SELECT * FROM disco;""")
         disco = len(cursor.fetchall())
         mw.labelSSD.setText(str(disco))
-        mw.labelTotaldisco.setText(str(disco))
+        #mw.labelTotaldisco.setText(str(disco))
 
         cursor.execute(f"""SELECT * FROM mouse;""")
         mouse = len(cursor.fetchall())
         mw.labelMouse.setText(str(mouse))
-        mw.labelTotalMouse.setText(str(mouse))
+        #mw.labelTotalMouse.setText(str(mouse))
 
         cursor.execute(f"""SELECT * FROM mousePad;""")
         pad = len(cursor.fetchall())
         mw.labelMousepad.setText(str(pad))
-        mw.labelTotalPad.setText(str(pad))
+        #mw.labelTotalPad.setText(str(pad))
 
         cursor.execute(f"""SELECT * FROM teclado;""")
         teclado = len(cursor.fetchall())
         mw.labelTeclado.setText(str(teclado))
-        mw.labelTotalTeclado.setText(str(teclado))
+        #mw.labelTotalTeclado.setText(str(teclado))
 
         cursor.execute(f"""SELECT * FROM suporte;""")
         suporte = len(cursor.fetchall())
         mw.labelSuporte.setText(str(suporte))
-        mw.labelTotalSuporte.setText(str(suporte))
+        #mw.labelTotalSuporte.setText(str(suporte))
 
         cursor.execute(f"""SELECT * FROM monitor;""")
         monitor = len(cursor.fetchall())
         mw.labelEmail.setText(str(monitor))
-        mw.labelTotalEmail.setText(str(monitor))
+        #mw.labelTotalEmail.setText(str(monitor))
 
         cursor.execute(f"""SELECT * FROM office;""")
         office = len(cursor.fetchall())
         mw.labelOffice.setText(str(office))
-        mw.labelTotalOffice.setText(str(office))
+        #mw.labelTotalOffice.setText(str(office))
 
         cursor.execute(f"""SELECT * FROM windows;""")
         windows = len(cursor.fetchall())
         mw.labelWindows.setText(str(windows))
-        mw.labelTotalWindows.setText(str(windows))
+        #mw.labelTotalWindows.setText(str(windows))
 
         cursor.execute(f"""SELECT * FROM outros;""")
         outros = len(cursor.fetchall())
         mw.labelOutros.setText(str(outros))
-        mw.labelTotalOutros.setText(str(outros))
+        #mw.labelTotalOutros.setText(str(outros))
 
         cursor.close()
-
     quantiTable()
+
+    # HISTORICO  -------------------------------------------------------------------------------------------------------
+
+    def pesHistorico():
+        pesquisa = mw.LineEditPesHistorico.text()
+
+        con = db.conMySQL()
+        con.execute(f"""SELECT * FROM historico WHERE id like '%{pesquisa}%';""")
+        result = con.fetchall()
+        print(result)
+
+        mw.tableWidgetHistorico.clearContents()
+        header = mw.tableWidgetHistorico.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetHistorico.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetHistorico.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+    mw.hisPesButton.clicked.connect(pesHistorico)
+
+    def infoHistorico():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM historico', con)
+        con.close()
+
+        total = len(result)
+        novo = result[(result['status'] == 'NOVO') & (result['local'] == 'ESTOQUE')].shape[0]
+        saidas = result[(result['status'] == 'SAIDA. ESTOQUE TI')].shape[0]
+        entradas = result[(result['status'] == 'ENT. ESTOQUE TI') & (result['local'] == 'ESTOQUE')].shape[0]
+        baixas = result[(result['status'] == 'BAIXA ESTOQUE TI') & (result['local'] == 'ESTOQUE')].shape[0]
+        trans = result[(result['status'] == 'TRANS. ESTOQUE TI')].shape[0]
+
+        print(total, novo, saidas, entradas, baixas, trans)
+
+        mw.hislabel01.setText(str(total))
+        mw.hislabel02.setText(str(entradas))
+        mw.hislabel03.setText(str(saidas))
+        mw.label_82.setText(str(trans))
+        mw.label_105.setText(str(baixas))
+        mw.label_103.setText(str(novo))
+
+        con = db.conMySQL()
+        con.execute("""select * from historico order by data desc LIMIT 20;""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetHistorico.clearContents()
+        header = mw.tableWidgetHistorico.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        # -------------------------------------------------------
+        mw.tableWidgetHistorico.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetHistorico.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+        con.close()
+
+    # NOTEBOOK  --------------------------------------------------------------------------------------------------------
+
+    def pesquisa_Note():
+        pesquisa = mw.notPes.text()
+
+        con = db.conMySQL()
+        con.execute(f"""SELECT * FROM computer WHERE idComputer like '%{pesquisa}%';""")
+        result = con.fetchall()
+        print(result)
+
+        mw.tableWidgetNotebook.clearContents()
+        mw.tableWidgetNotebook.horizontalHeader()
+        # header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetNotebook.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetNotebook.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    def informacao_Note():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM computer', con)
+        con.close()
+
+        total = len(result)
+        notebook = result[(result['TIPO'] == 'Notebook')].shape[0]
+        desktop = result[(result['TIPO'] == 'Desktop')].shape[0]
+        ssd = result[(result['SSD'] == 'SIM')].shape[0]
+
+        print(total, notebook, desktop)
+
+        mw.hislabel01_2.setText(str(total))
+        mw.hislabel02_2.setText(str(notebook))
+        mw.hislabel03_3.setText(str(desktop))
+
+        con = db.conMySQL()
+        con.execute("""select * from computer;""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetNotebook.clearContents()
+        mw.tableWidgetNotebook.horizontalHeader()
+        # header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        # -------------------------------------------------------
+        mw.tableWidgetNotebook.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetNotebook.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+        con.close()
+
+    def get_info_table():
+        ret = mw.tableWidgetNotebook.currentRow()
+        cod = mw.tableWidgetNotebook.item(ret, 0).text()
+
+        ssd = mw.tableWidgetNotebook.item(ret, 11).text()
+        processador = mw.tableWidgetNotebook.item(ret, 14).text()
+        frequencia_pro = mw.tableWidgetNotebook.item(ret, 16).text()
+        geracao = mw.tableWidgetNotebook.item(ret, 17).text()
+        ram = mw.tableWidgetNotebook.item(ret, 18).text()
+        tela = mw.tableWidgetNotebook.item(ret, 6).text()
+        estado = mw.tableWidgetNotebook.item(ret, 4).text()
+
+        print(ssd, processador[0:2], frequencia_pro, geracao[0:2], ram[0:1], tela, estado)
+
+        def avaliacao_ssd():
+            if ssd != '':
+                if ssd == 'SIM': return 1
+                if ssd == 'NÃO': return 0
+
+        def avaliacao_pro_gera():
+            if processador[0:2] == 'I3':
+                if processador[0:2] == 'I3' and geracao[0:2] == '3ª': return 0
+                if processador[0:2] == 'I3' and geracao[0:2] == '4ª': return 0
+                if processador[0:2] == 'I3' and geracao[0:2] == '5ª': return 0
+                if processador[0:2] == 'I3' and geracao[0:2] == '6ª': return 0
+                if processador[0:2] == 'I3' and geracao[0:2] == '7ª': return 1
+                if processador[0:2] == 'I3' and geracao[0:2] == '8ª': return 1
+                if processador[0:2] == 'I3' and geracao[0:2] == '9ª': return 1
+                if processador[0:2] == 'I3' and geracao[0:3] == '10ª': return 1
+                if processador[0:2] == 'I3' and geracao[0:3] == '11ª': return 1
+                if processador[0:2] == 'I3' and geracao[0:3] == '12ª': return 1
+                if processador[0:2] == 'I3' and geracao[0:3] == '13ª': return 1
+
+            if processador[0:2] == 'I5':
+                if processador[0:2] == 'I5' and geracao[0:2] == '3ª': return 0
+                if processador[0:2] == 'I5' and geracao[0:2] == '4ª': return 0
+                if processador[0:2] == 'I5' and geracao[0:2] == '5ª': return 0
+                if processador[0:2] == 'I5' and geracao[0:2] == '6ª': return 1
+                if processador[0:2] == 'I5' and geracao[0:2] == '7ª': return 1
+                if processador[0:2] == 'I5' and geracao[0:2] == '8ª': return 1
+                if processador[0:2] == 'I5' and geracao[0:2] == '9ª': return 1
+                if processador[0:2] == 'I5' and geracao[0:3] == '10ª': return 1
+                if processador[0:2] == 'I5' and geracao[0:3] == '11ª': return 1
+                if processador[0:2] == 'I5' and geracao[0:3] == '12ª': return 1
+                if processador[0:2] == 'I5' and geracao[0:3] == '13ª': return 1
+
+            if processador[0:2] == 'I7':
+                if processador[0:2] == 'I7' and geracao[0:2] == '3ª': return 0
+                if processador[0:2] == 'I7' and geracao[0:2] == '4ª': return 0
+                if processador[0:2] == 'I7' and geracao[0:2] == '5ª': return 1
+                if processador[0:2] == 'I7' and geracao[0:2] == '6ª': return 1
+                if processador[0:2] == 'I7' and geracao[0:2] == '7ª': return 1
+                if processador[0:2] == 'I7' and geracao[0:2] == '8ª': return 1
+                if processador[0:2] == 'I7' and geracao[0:2] == '9ª': return 1
+                if processador[0:2] == 'I7' and geracao[0:3] == '10ª': return 1
+                if processador[0:2] == 'I7' and geracao[0:3] == '11ª': return 1
+                if processador[0:2] == 'I7' and geracao[0:3] == '12ª': return 1
+                if processador[0:2] == 'I7' and geracao[0:3] == '13ª': return 1
+
+            if processador[0:2] == 'I9':
+                if processador[0:2] == 'I9' and geracao[0:2] == '3ª': return 0
+                if processador[0:2] == 'I9' and geracao[0:2] == '4ª': return 0
+                if processador[0:2] == 'I9' and geracao[0:2] == '5ª': return 1
+                if processador[0:2] == 'I9' and geracao[0:2] == '6ª': return 1
+                if processador[0:2] == 'I9' and geracao[0:2] == '7ª': return 1
+                if processador[0:2] == 'I9' and geracao[0:2] == '8ª': return 1
+                if processador[0:2] == 'I9' and geracao[0:2] == '9ª': return 1
+                if processador[0:2] == 'I9' and geracao[0:3] == '10ª': return 1
+                if processador[0:2] == 'I9' and geracao[0:3] == '11ª': return 1
+                if processador[0:2] == 'I9' and geracao[0:3] == '12ª': return 1
+                if processador[0:2] == 'I9' and geracao[0:3] == '13ª': return 1
+
+        def avaliacao_ram():
+            if ram[0:1] == '2': return 0
+            if ram[0:1] == '4': return 0
+            if ram[0:1] == '6': return 1
+            if ram[0:1] == '8': return 1
+            if ram[0:1] == '10': return 1
+            if ram[0:1] == '12': return 1
+            if ram[0:1] == '16': return 1
+            if ram[0:1] == '32': return 1
+
+        def avaliacao_tela():
+            if tela != '':
+                if tela == '14': return 0
+                else: return 1
+
+        def avaliacao_Estado():
+            if estado == 'PÉSSIMO': return 0
+            if estado == 'RUIM': return 0
+            if estado == 'MÉDIO': return 0
+            if estado == 'BOM': return 1
+            if estado == 'ÓTIMO': return 1
+
+        result = avaliacao_ssd(), avaliacao_pro_gera(), avaliacao_ram(), avaliacao_tela(), avaliacao_Estado()
+        print(sum(result))
+
+        if sum(result) == 5:
+            mw.labelAvaliacao.setText('NÍVEL ÓTIMO')
+            mw.frameNotAvaliacao.setStyleSheet('background-image: url'
+        '(:/Viws/estoque/Viws/avaliacao_5.png);background-position: center; background-repeat: no-repeat;')
+
+
+        if sum(result) == 4:
+            mw.labelAvaliacao.setText('NÍVEL BOM')
+            mw.frameNotAvaliacao.setStyleSheet('background-image: url'
+        '(:/Viws/estoque/Viws/avaliacao_4.png);background-position: center; background-repeat: no-repeat;')
+
+
+        if sum(result) == 3:
+            mw.labelAvaliacao.setText('MEDIANO')
+            mw.frameNotAvaliacao.setStyleSheet('background-image: url'
+        '(:/Viws/estoque/Viws/avaliacao_3.png);background-position: center; background-repeat: no-repeat;')
+
+
+        if sum(result) == 2:
+            mw.labelAvaliacao.setText('NÍVEL BAIXO')
+            mw.frameNotAvaliacao.setStyleSheet('background-image: url'
+        '(:/Viws/estoque/Viws/avaliacao_2.png);background-position: center; background-repeat: no-repeat;')
+
+
+        if sum(result) == 1:
+            mw.labelAvaliacao.setText('PÉSSIMO')
+            mw.frameNotAvaliacao.setStyleSheet('background-image: url'
+        '(:/Viws/estoque/Viws/avaliacao_1.png);background-position: center; background-repeat: no-repeat;')
+
+    mw.tableWidgetNotebook.itemSelectionChanged.connect(get_info_table)
+    mw.ButtonNotebook.clicked.connect(informacao_Note)
+    mw.notPesButton.clicked.connect(pesquisa_Note)
+
+    # OFFICE  ----------------------------------------------------------------------------------------------------------
+
+    def pesOffice():
+        pesquisa = mw.officePes.text()
+
+        if len(pesquisa) <= 5:
+
+            con = db.conMySQL()
+            con.execute(f"""SELECT * FROM office WHERE idOffice like '%{pesquisa}%' and LOCAL like '%estoque%';""")
+            result = con.fetchall()
+            print(result)
+
+            mw.tableWidgetOffice.clearContents()
+            header = mw.tableWidgetOffice.horizontalHeader()
+            header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+            mw.tableWidgetOffice.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+            for row, text in enumerate(result):
+                for column, data in enumerate(text):
+                    mw.tableWidgetOffice.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+        else:
+            con = db.conMySQL()
+            con.execute(f"""SELECT * FROM office WHERE chave like '%{pesquisa}%' and LOCAL like '%estoque%';""")
+            result = con.fetchall()
+            print(result)
+
+            mw.tableWidgetOffice.clearContents()
+            header = mw.tableWidgetOffice.horizontalHeader()
+            header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+            mw.tableWidgetOffice.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+            for row, text in enumerate(result):
+                for column, data in enumerate(text):
+                    mw.tableWidgetOffice.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    def informacao_Off():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM office', con)
+        con.close()
+
+        total = len(result)
+        office_treze = result[(result['VERSAO'] == 'Office 2013')].shape[0]
+        office_dezeseis = result[(result['VERSAO'] == 'Office 2016')].shape[0]
+        office_dezenove = result[(result['VERSAO'] == 'Office 2019')].shape[0]
+        office_365 = result[(result['VERSAO'] == 'Office 365')].shape[0]
+
+        print(total, office_treze, office_dezeseis, office_dezenove, office_365)
+
+        mw.hislabel01_11.setText(str(total))
+        mw.hislabel02_11.setText(str(office_treze))
+        mw.hislabel03_11.setText(str(office_dezeseis))
+        mw.label_382.setText(str(office_dezenove))
+        mw.label_384.setText(str(office_365))
+
+        con = db.conMySQL()
+        con.execute("""select * from office;""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetOffice.clearContents()
+        header = mw.tableWidgetOffice.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetOffice.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetOffice.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonOffice.clicked.connect(informacao_Off)
+    mw.officePesButton.clicked.connect(pesOffice)
+
+    # CELULAR  ---------------------------------------------------------------------------------------------------------
+
+    def informacao_Cell():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM celular', con)
+        con.close()
+
+        total = len(result)
+        mw.hislabel01_3.setText(str(total))
+
+        con = db.conMySQL()
+        con.execute("""SELECT * FROM celular""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetCelular.clearContents()
+        mw.tableWidgetCelular.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetCelular.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonCelular.clicked.connect(informacao_Cell)
+
+    # MEMORIA  ---------------------------------------------------------------------------------------------------------
+
+    def informacao_Memo():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM memoria', con)
+        con.close()
+
+        total = len(result)
+
+        memoria_not = result[(result['PLATAFORMA'] == 'NOTEBOOK')].shape[0]
+        memoria_desk = result[(result['PLATAFORMA'] == 'DESKTOP')].shape[0]
+
+
+        mw.hislabel01_4.setText(str(total))
+        mw.hislabel02_4.setText(str(memoria_not))
+        mw.hislabel03_4.setText(str(memoria_desk))
+
+        con = db.conMySQL()
+        con.execute("""SELECT * FROM memoria""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetMemo.clearContents()
+        header = mw.tableWidgetMemo.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+
+        mw.tableWidgetMemo.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetMemo.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonMemoria.clicked.connect(informacao_Memo)
+
+    # DISCO  -----------------------------------------------------------------------------------------------------------
+
+    def informacao_Disc():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM disco', con)
+        con.close()
+
+        total = len(result)
+        ssd = result[(result['TIPO'] == 'SSD')].shape[0]
+        hd = result[(result['TIPO'] == 'HD')].shape[0]
+
+        mw.hislabel01_5.setText(str(total))
+        mw.hislabel02_5.setText(str(ssd))
+        mw.hislabel03_5.setText(str(hd))
+
+        con = db.conMySQL()
+        con.execute("""SELECT * FROM disco""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetDis.clearContents()
+        header = mw.tableWidgetDis.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetDis.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetDis.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonSSD.clicked.connect(informacao_Disc)
+
+    # MOUSE  ---------------------------------------------------------------------------------------------------------
+
+    def informacao_Mouse():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM mouse', con)
+        con.close()
+
+        total = len(result)
+        wireless = result[(result['TIPO'] == 'WIRELESS')].shape[0]
+        no_wireless = result[(result['TIPO'] == 'NO-WIRELESS')].shape[0]
+
+        mw.hislabel01_6.setText(str(total))
+        mw.hislabel02_6.setText(str(wireless))
+        mw.hislabel03_6.setText(str(no_wireless))
+
+        con = db.conMySQL()
+        con.execute("""SELECT * FROM mouse""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetMouse.clearContents()
+        header = mw.tableWidgetMouse.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetMouse.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetMouse.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonMouse.clicked.connect(informacao_Mouse)
+
+    # PAD  -------------------------------------------------------------------------------------------------------------
+
+    def informacao_Pad():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM mousepad', con)
+        con.close()
+
+        total = len(result)
+
+        mw.hislabel01_7.setText(str(total))
+
+        con = db.conMySQL()
+        con.execute("""SELECT * FROM mousepad""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetPad.clearContents()
+        header = mw.tableWidgetPad.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetPad.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetPad.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonMousePad.clicked.connect(informacao_Pad)
+
+    # TECLADO  ---------------------------------------------------------------------------------------------------------
+
+    def informacao_Tec():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM teclado', con)
+        con.close()
+
+        total = len(result)
+        wireless = result[(result['TIPO'] == 'WIRELESS')].shape[0]
+        no_wireless = result[(result['TIPO'] == 'NO-WIRELESS')].shape[0]
+
+        mw.hislabel01_8.setText(str(total))
+        mw.hislabel02_8.setText(str(wireless))
+        mw.hislabel03_8.setText(str(no_wireless))
+
+        con = db.conMySQL()
+        con.execute("""SELECT * FROM teclado""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetTec.clearContents()
+        header = mw.tableWidgetTec.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetTec.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetTec.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonTeclado.clicked.connect(informacao_Tec)
+
+    # SUPORTE  ---------------------------------------------------------------------------------------------------------
+
+    def informacao_Sup():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM suporte', con)
+        con.close()
+
+        total = len(result)
+
+        mw.hislabel01_9.setText(str(total))
+
+        con = db.conMySQL()
+        con.execute("""SELECT * FROM suporte""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetSuporte.clearContents()
+        header = mw.tableWidgetSuporte.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetSuporte.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetSuporte.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonSuporte.clicked.connect(informacao_Sup)
+
+    # MONITOR  ---------------------------------------------------------------------------------------------------------
+
+    def informacao_Mo():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM monitor', con)
+        con.close()
+
+        total = len(result)
+
+        mw.hislabel01_10.setText(str(total))
+
+        con = db.conMySQL()
+        con.execute("""SELECT * FROM monitor""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetEmail.clearContents()
+        header = mw.tableWidgetEmail.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetEmail.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetEmail.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonEmail.clicked.connect(informacao_Mo)
+
+    # WINDOWS  ---------------------------------------------------------------------------------------------------------
+
+    def pesWindows():
+        pesquisa = mw.windowsPes.text()
+
+        con = db.conMySQL()
+        con.execute(f"""SELECT * FROM windows WHERE chave like '%{pesquisa}%' and LOCAL like '%estoque%';""")
+        result = con.fetchall()
+        print(result)
+
+        mw.tableWidgetWindows.clearContents()
+        header = mw.tableWidgetWindows.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetWindows.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetWindows.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    def informacao_Win():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM windows', con)
+        con.close()
+
+        total = len(result)
+        pro = result[(result['VERSAO'] == 'Windows 10')].shape[0]
+        seven = result[(result['VERSAO'] == 'Windows 7')].shape[0]
+        xp = result[(result['VERSAO'] == 'Windows XP')].shape[0]
+        server = result[(result['VERSAO'] == 'Windows Server')].shape[0]
+
+        mw.hislabel01_12.setText(str(total))
+        mw.hislabel02_12.setText(str(pro))
+        mw.hislabel03_12.setText(str(seven))
+        mw.label_395.setText(str(xp))
+        mw.label_397.setText(str(server))
+
+        con = db.conMySQL()
+        con.execute("""select * from windows;""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetWindows.clearContents()
+        header = mw.tableWidgetWindows.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetWindows.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetWindows.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonWindows.clicked.connect(informacao_Win)
+    mw.windowsPesButton.clicked.connect(pesWindows)
+
+    # OUTROS  ----------------------------------------------------------------------------------------------------------
+
+    def informacao_Outros():
+        con = db.conPandasSQL()
+        result = pd.read_sql('SELECT * FROM outros', con)
+        con.close()
+
+        total = len(result)
+
+        mw.hislabel01_13.setText(str(total))
+
+        con = db.conMySQL()
+        con.execute("""SELECT * FROM outros""")
+        result = con.fetchall()
+        con.close()
+
+        mw.tableWidgetOutros.clearContents()
+        header = mw.tableWidgetOutros.horizontalHeader()
+        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        mw.tableWidgetOutros.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
+
+        for row, text in enumerate(result):
+            for column, data in enumerate(text):
+                mw.tableWidgetOutros.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
+
+    mw.ButtonOutros.clicked.connect(informacao_Outros)
+
+
 
     #  Acionamento Botões de icones de TABELA --------------------------------------------------------------------------
 
@@ -2388,186 +1002,17 @@ def estoqueTi():
     mw.ButtonWindows.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageWindows))
     mw.ButtonOutros.clicked.connect(lambda: mw.stackedWidget.setCurrentWidget(mw.pageOutros))
 
-    ''' Visualização de items da tabela ============================================================================='''
 
-    def carregarDados():
-        con = db.conMySQL()
-        con.execute("""SELECT * FROM computer""")
-        result = con.fetchall()
 
-        mw.tableWidgetNotebook.clearContents()
-        mw.tableWidgetNotebook.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetNotebook.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
 
-        con.execute("""SELECT * FROM celular""")
-        result = con.fetchall()
 
-        mw.tableWidgetCelular.clearContents()
-        mw.tableWidgetCelular.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetCelular.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
 
-        con.execute("""SELECT * FROM memoria""")
-        result = con.fetchall()
 
-        mw.tableWidgetMemo.clearContents()
-        header = mw.tableWidgetMemo.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
 
-        mw.tableWidgetMemo.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
 
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetMemo.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
 
-        con.execute("""SELECT * FROM disco""")
-        result = con.fetchall()
-
-        mw.tableWidgetDis.clearContents()
-        header = mw.tableWidgetDis.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        mw.tableWidgetDis.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetDis.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-
-        con.execute("""SELECT * FROM mouse""")
-        result = con.fetchall()
-
-        mw.tableWidgetMouse.clearContents()
-        header = mw.tableWidgetMouse.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        mw.tableWidgetMouse.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetMouse.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-
-        con.execute("""SELECT * FROM mousepad""")
-        result = con.fetchall()
-
-        mw.tableWidgetPad.clearContents()
-        header = mw.tableWidgetPad.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        mw.tableWidgetPad.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetPad.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-
-        con.execute("""SELECT * FROM teclado""")
-        result = con.fetchall()
-
-        mw.tableWidgetTec.clearContents()
-        header = mw.tableWidgetTec.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        mw.tableWidgetTec.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetTec.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-
-        con.execute("""SELECT * FROM suporte""")
-        result = con.fetchall()
-
-        mw.tableWidgetSuporte.clearContents()
-        header = mw.tableWidgetSuporte.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        mw.tableWidgetSuporte.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetSuporte.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-
-        con.execute("""SELECT * FROM monitor""")
-        result = con.fetchall()
-
-        mw.tableWidgetEmail.clearContents()
-        header = mw.tableWidgetEmail.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        mw.tableWidgetEmail.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetEmail.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-
-        con.execute("""SELECT * FROM office""")
-        result = con.fetchall()
-
-        mw.tableWidgetOffice.clearContents()
-        header = mw.tableWidgetOffice.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        mw.tableWidgetOffice.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetOffice.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-
-        con.execute("""SELECT * FROM windows""")
-        result = con.fetchall()
-
-        mw.tableWidgetWindows.clearContents()
-        header = mw.tableWidgetWindows.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        mw.tableWidgetWindows.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetWindows.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-
-        con.execute("""SELECT * FROM outros""")
-        result = con.fetchall()
-
-        mw.tableWidgetOutros.clearContents()
-        header = mw.tableWidgetOutros.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        mw.tableWidgetOutros.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetOutros.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-
-        con.execute("""select * from historico order by data desc LIMIT 20;""")
-        result = con.fetchall()
-
-        mw.tableWidgetHistorico.clearContents()
-        header = mw.tableWidgetHistorico.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        # -------------------------------------------------------
-        mw.tableWidgetHistorico.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetHistorico.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-        con.close()
-
-    carregarDados()
-    mw.ButtonNoteView.clicked.connect(carregarDados)
-
-    # BOTÕES DE PESQUISA -----------------------------------------------------------------------------------------------
-    def pesOffice():
-        pesquisa = mw.officePes.text()
-
-        con = db.conMySQL()
-        con.execute(f"""SELECT * FROM office WHERE chave like '%{pesquisa}%';""")
-        result = con.fetchall()
-
-        mw.tableWidgetOffice.clearContents()
-        header = mw.tableWidgetOffice.horizontalHeader()
-        header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        mw.tableWidgetOffice.setRowCount(len(result))  # <---------- Numeros de linhas conforme quantidade da tabela
-
-        for row, text in enumerate(result):
-            for column, data in enumerate(text):
-                mw.tableWidgetOffice.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
-
-    mw.officePesButton.clicked.connect(pesOffice)
 
     # TRATAMENTO PAGE ENTRADA ESTOQUE ----------------------------------------------------------------------------------
     def pesEntrada():
@@ -5589,58 +4034,2314 @@ def estoqueTi():
     mw.baixabuttonConfirmar.clicked.connect(movEstoqueBaixa)
 
 
-#   GRAFICO HOME -------------------------------------------------------------------------------------------------------
-#     figure = plt.figure()
-#     #canvas = FigureCanvas(figure)
-#
-#     figg = FigureCanvas(figure)
-# #     figx = FigureCanvas(figure)
-# #     figz = FigureCanvas(figure)
-#
-#
-#     # mw.horizontalLayout_5.addWidget(canvas)
-#     mw.horizontalLayout_5.addWidget(figg)
-#     # mw.horizontalLayout_5.addWidget(figx)
-#     # mw.horizontalLayout_5.addWidget(figz)
-#     #mw.verticalLayout.addWidget(mw.frameGraphic1)
+#   GRAFICO HOME #######################################################################################################
 
+    def graphicPizza():
+        # Entrada e tratamento de dados -------------------------------------
+        con = db.conMySQL()
+        con.execute(""" SELECT * FROM disco 
+                        WHERE LOCAL = 'ESTOQUE'
+                        AND TIPO like '%SSD%';""")
 
-    def plotbarr():
-        fruits = ['aplles', 'oranges', 'coconuts', 'pawpaw']
-        values = random.randint(50, size=4)
-        print(values)
+        ssd = len(con.fetchall())
 
-        plt.bar(fruits, values, color='#00A194', width=0.4)
+        con.execute(""" SELECT * FROM memoria 
+                        WHERE LOCAL = 'ESTOQUE';""")
+        memoria = len(con.fetchall())
 
-        plt.xlabel('Type of Fruits')
-        plt.ylabel('No. Of Fruits')
-        plt.title('Random Fruits in my Basket')
+        con.execute(""" SELECT * FROM mouse 
+                        WHERE LOCAL = 'ESTOQUE';""")
+        mouse = len(con.fetchall())
 
-        figure = plt.figure()
+        con.execute(""" SELECT * FROM mousepad 
+                        WHERE LOCAL = 'ESTOQUE';""")
+        mousePad = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM office 
+                        WHERE LOCAL = 'ESTOQUE';""")
+        office = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM windows 
+                        WHERE LOCAL = 'ESTOQUE';""")
+        windows = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM suporte 
+                        WHERE LOCAL = 'ESTOQUE';""")
+        suporte = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM teclado 
+                        WHERE LOCAL = 'ESTOQUE';""")
+        teclado = len(con.fetchall())
+
+        print(ssd, memoria, suporte, teclado, mousePad, mouse, office, windows)
+        con.close()
+
+        valores = [ssd, memoria, suporte, teclado, mouse, mousePad, office, windows]
+
+        figure, ax = plt.subplots(figsize=(8, 3), subplot_kw=dict(aspect="equal"))
+
+        recipe = [f"SSD {valores[0]}", f"MEMORIA {valores[1]}", f"SUPORTE {valores[2]}", f"TECLADO {valores[3]}",
+                  f"MOUSE {valores[4]}", f"MOUSE PAD {valores[5]}", f"OFFICE {valores[6]}", f"WINDOWS {valores[6]}"]
+
+        wedges, texts = ax.pie(valores, wedgeprops=dict(width=0.5), startangle=-40)
+        bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
+        kw = dict(arrowprops=dict(arrowstyle="-"), bbox=bbox_props, zorder=0, va="center")
+
+        for i, p in enumerate(wedges):
+            ang = (p.theta2 - p.theta1) / 2. + p.theta1
+            y = np.sin(np.deg2rad(ang))
+            x = np.cos(np.deg2rad(ang))
+            horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
+            connectionstyle = "angle,angleA=0,angleB={}".format(ang)
+            kw["arrowprops"].update({"connectionstyle": connectionstyle})
+            ax.annotate(recipe[i], xy=(x, y), xytext=(1.35 * np.sign(x), 1.4 * y),
+                        horizontalalignment=horizontalalignment, **kw)
+
+        ax.set_title("RATEIO DE PERIFÉRICOS")
+
         canvas = FigureCanvas(figure)
         canvas.draw()
 
-        mw.horizontalLayout_5.addWidget(canvas)
+        mw.horizontalLayoutGPC.addWidget(canvas)
 
-    # def plotbar2():
-    #     estoque = 150
-    #     saida = 93
-    #
-    #     labels = "Estoque", "Saidas"
-    #     sizes = [estoque, saida]
-    #     fig1, axl = plt.subplots()
-    #     axl.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
-    #     axl.axis("equal")
-    #
-    #     figure = plt.figure()
-    #     figg = FigureCanvas(figure)
-    #
-    #     figg.draw()
-    #     mw.horizontalLayout_5.addWidget(figg)
+    def graphicBar():
+        # Entrada e tratamento de dados -------------------------------------
+        con = db.conMySQL()
+        con.execute(""" SELECT tipo FROM historico 
+                            WHERE status = 'SAIDA. ESTOQUE TI'
+                            AND tipo like '%DISCO%';""")
+        ssd = len(con.fetchall())
+
+        con.execute(""" SELECT tipo FROM historico 
+                                WHERE status = 'SAIDA. ESTOQUE TI'
+                                AND tipo like '%MEMORIA%';""")
+        memoria = len(con.fetchall())
+
+        con.execute(""" SELECT tipo FROM historico 
+                                    WHERE status = 'SAIDA. ESTOQUE TI'
+                                    AND tipo like '%MOUSE%';""")
+        mouse = len(con.fetchall())
+
+        con.execute(""" SELECT tipo FROM historico 
+                                    WHERE status = 'SAIDA. ESTOQUE TI'
+                                    AND tipo like '%MOUSE PAD%';""")
+        mousePad = len(con.fetchall())
+
+        con.execute(""" SELECT tipo FROM historico 
+                                    WHERE status = 'SAIDA. ESTOQUE TI'
+                                    AND tipo like '%OFFICE%';""")
+        office = len(con.fetchall())
+
+        con.execute(""" SELECT tipo FROM historico 
+                                    WHERE status = 'SAIDA. ESTOQUE TI'
+                                    AND tipo like '%WINDOWS%';""")
+        windows = len(con.fetchall())
+
+        con.execute(""" SELECT tipo FROM historico 
+                                    WHERE status = 'SAIDA. ESTOQUE TI'
+                                    AND tipo like '%SUPORTE%';""")
+        suporte = len(con.fetchall())
+
+        con.execute(""" SELECT tipo FROM historico 
+                                    WHERE status = 'SAIDA. ESTOQUE TI'
+                                    AND tipo like '%TECLADO%';""")
+        teclado = len(con.fetchall())
+
+        print(ssd, memoria, suporte, teclado, mousePad, mouse, office, windows)
+        con.close()
+
+        nomes = ['SSD', 'MEM', 'SUP', 'TEC', 'MOU', 'PAD', 'OFF', 'WIN']
+        valores = [ssd, memoria, suporte, teclado, mouse, mousePad, office, windows]
+
+        print(nomes, valores)
+
+        # Stylo do grafico --------------------------------------------------
+        plt.style.use('seaborn')
+
+        # Ajustando o layout na janela --------------------------------------
+        plt.rcParams.update({'figure.autolayout': True})
+
+        # Construção do gráfico ---------------------------------------------
+        fig, ax = plt.subplots(figsize=(5, 5))
+        ax.bar(nomes, valores, color='#00A194')
+
+        # Rotacionando a label ----------------------------------------------
+        labels = ax.get_xticklabels()
+        plt.setp(labels, rotation=45, horizontalalignment='right')
+
+        # Rotulando o gráfico -----------------------------------------------
+        ax.set(xlabel='', ylabel='', title='SAIDAS DO ESTOQUE')
+
+        canvas = FigureCanvas(fig)
+        canvas.draw()
+        mw.horizontalLayoutGPC1.addWidget(canvas)
+
+    def graphicBarUser():
+        # Entrada e tratamento de dados -------------------------------------
+        con = db.conMySQL()
+        con.execute(""" SELECT * FROM historico
+                        WHERE user = 'gabrieln4155_00';""")
+        gabriel = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM historico
+                        WHERE user = 'sideh4155_00';""")
+        side = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM historico
+                            WHERE user = 'emanuels4155_00';""")
+        emanuel = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM historico
+                                WHERE user = 'alexandres4155_00';""")
+        alexandre = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM historico
+                                    WHERE user = 'admin';""")
+        admin = len(con.fetchall())
+
+        print(gabriel, side, emanuel, alexandre, admin)
+        con.close()
+
+        nomes = ['GABRIEL', 'HENRIQUE', 'EMANUEL', 'ADMIN']
+        valores = [gabriel, side, emanuel,  admin]
+
+        print(nomes, valores)
+
+        # Stylo do grafico --------------------------------------------------
+        plt.style.use('seaborn')
+
+        # Ajustando o layout na janela --------------------------------------
+        plt.rcParams.update({'figure.autolayout': True})
+
+        # Construção do gráfico ---------------------------------------------
+        fig, ax = plt.subplots(figsize=(5, 5))
+        ax.bar(nomes, valores, color='#00353E')
+
+        # Rotacionando a label ----------------------------------------------
+        labels = ax.get_xticklabels()
+        plt.setp(labels, rotation=0, horizontalalignment='right')
+
+        # Rotulando o gráfico -----------------------------------------------
+        ax.set(xlabel='', ylabel='', title='ATIVIDADE DE USUÁRIOS')
+
+        canvas = FigureCanvas(fig)
+        canvas.draw()
+        mw.verticalLayoutGPC.addWidget(canvas)
+
+    def graphicBarUser1():
+        # Entrada e tratamento de dados -------------------------------------
+        con = db.conMySQL()
+        con.execute(""" SELECT * FROM historico
+                        WHERE user = 'gabrieln4155_00';""")
+        gabriel = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM historico
+                        WHERE user = 'sideh4155_00';""")
+        side = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM historico
+                            WHERE user = 'emanuels4155_00';""")
+        emanuel = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM historico
+                                WHERE user = 'alexandres4155_00';""")
+        alexandre = len(con.fetchall())
+
+        con.execute(""" SELECT * FROM historico
+                                    WHERE user = 'admin';""")
+        admin = len(con.fetchall())
+
+        print(gabriel, side, emanuel, alexandre, admin)
+        con.close()
+
+        nomes = ['GABRIEL', 'HENRIQUE', 'EMANUEL', 'ALEXANDRE', 'ADMIN']
+        valores = [gabriel, side, emanuel, alexandre, admin]
+
+        print(nomes, valores)
+
+        # Stylo do grafico --------------------------------------------------
+        plt.style.use('seaborn')
+
+        # Ajustando o layout na janela --------------------------------------
+        plt.rcParams.update({'figure.autolayout': True})
+
+        # Construção do gráfico ---------------------------------------------
+        fig, ax = plt.subplots(figsize=(5, 5))
+        ax.bar(nomes, valores, color='#00353E')
+
+        # Rotacionando a label ----------------------------------------------
+        labels = ax.get_xticklabels()
+        plt.setp(labels, rotation=0, horizontalalignment='right')
+
+        # Rotulando o gráfico -----------------------------------------------
+        ax.set(xlabel='', ylabel='', title='FLUXO DE SAIDAS DO ESTOQUE')
+
+        canvas = FigureCanvas(fig)
+        canvas.draw()
+        mw.verticalLayoutGPC.addWidget(canvas)
+
+    graphicBarUser1()
+    graphicBarUser()
+    graphicPizza()
+    graphicBar()
+
+    # CADASTRO DE ITENS NO BANCO #######################################################################################
+    ####################################################################################################################
+    ####################################################################################################################
+    ####################################################################################################################
+
+    # TRATAMENTO NOTEBOOK # <<< ------------------------------------------
+    def cadNote():
+        imb = mw.notIMB.text()
+        marca = mw.notMarca.text()
+        modelo = mw.notModelo.text()
+        condicao = mw.notCondicao.currentText()
+        ano = mw.notAno.text()
+        preco = mw.notPreco.text()
+        service = mw.notService.text()
+        rede = mw.notRede.text()
+        team = mw.notTeam.text()
+        ant = mw.notBoxAntevirus.currentText()
+        tela = mw.notBoxTela.currentText()
+        car = mw.notBoxCarregador.currentText()
+        pro = mw.notPro.text()
+        marPro = mw.notMarcaPro.text()
+        frePro = mw.notFrePro.text()
+        gePro = mw.notBoxGeracao.currentText()
+        disco = mw.notBoxSSD.currentText()
+        exp = mw.notBoxExp.currentText()
+        ram = mw.notRam.text()
+        verRam = mw.notVerRam.text()
+        freRam = mw.notFreRam.text()
+        expRam = mw.notBoxExpRam.currentText()
+
+        motivo = motiNote()
+        tipo = 'Notebook'
+        local = mw.notSetorLocal.text()
+        data = datAT()
+        user = mw.notCodUser.text()
+        win = mw.notCodWin.text()
+        off = mw.notCodOff.text()
+
+        def trataWin():
+            if mw.notCodWin.text() == '------------':
+                return 'null'
+            else:
+                return mw.notCodWin.text()
+
+        def trataOff():
+            if mw.notCodOff.text() == '------------':
+                return 'null'
+            else:
+                return mw.notCodOff.text()
+
+        idWindows = trataWin()
+        idOffice = trataOff()
+
+        # print(imb, marca, modelo, condicao, ano, preco, service, rede, team, ant, tela, car, pro, marPro, frePro,
+        #       gePro, disco, exp, ram, verRam, freRam, expRam, user, win, off, motivo, tipo, local, data)
+
+        if motivo == '' or marca == '' or modelo == '' or service == '' or rede == '' or \
+                car == '' or pro == '' or gePro == '' or ram == '' or verRam == '':
+            mw.frameMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.notMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.notModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.notService.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.notRede.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.notBoxCarregador.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.notPro.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.notBoxGeracao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.notRam.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.notVerRam.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mensage = 'Favor verifique se todos os campos obrigatórios foram preenchidos'
+            mw.notLabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, VALOR,
+                            SERVICETAG, TEAMVIEWER, REDE, SSD, EXPANCIVEL, CARREGADOR, PROCESSADOR, MARCAPRO,
+                            FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, ANTEVIRUS,
+                            TIPO, LOCAL, DATA, idWindows, idOffice)
+
+                            VALUES ('{imb}','{marca}','{modelo}','{condicao}','{ano}','{tela}','{preco}',
+                            '{service}','{team}','{rede}','{disco}','{exp}','{car}','{pro}','{marPro}',
+                            '{frePro}','{gePro}','{ram}','{verRam}','{freRam}','{expRam}','{ant}',
+                            '{tipo}','{local}','{data}',{idWindows},{idOffice});""")
+
+                cur.execute(f"""SELECT MAX(idComputer) FROM computer;""")
+                banc = cur.fetchall()
+                idCon = banc[0][0]
+
+                if user != '------------':
+                    cur.execute(f"""SELECT * FROM colaborador WHERE idComputer = {idCon};""")
+                    result = cur.fetchall()
+
+                    if result == ():
+                        cur.execute(
+                            f"""UPDATE colaborador SET idComputer = '{idCon}' WHERE idColaborador = '{user}';""")
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{idCon}','{marca}',
+                    '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {idCon} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                cleanNote()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def motiNote():
+
+        if mw.notRadioCompra.isChecked() == True:
+            compra = mw.notRadioCompra.text()
+            return compra
+
+        elif mw.notRadioCadastro.isChecked() == True:
+            cadastro = mw.notRadioCadastro.text()
+            return cadastro
+
+        elif mw.notRadioProvisorio.isChecked() == True:
+            provisorio = mw.notRadioProvisorio.text()
+            return provisorio
+
+        elif mw.notRadioOutro.isChecked() == True:
+            outros = mw.notRadioOutro.text()
+            return outros
+
+        else:
+            return 'Motivo Não Selecionado'
+
+    def winNote():
+        opNote.close()
+        opNote.show()
+        op.stackedWidget.setCurrentWidget(op.pageOpWin)
+
+        def checkWin():
+
+            windows = op.notLineWin.text()
+
+            if len(windows) < 25:
+                texto = 'Chave Windows Invalida'
+                op.notlabelWin.setText(texto)
+
+            else:
+                try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
+                    cur = db.conMySQL()
+                    cur.execute(f"""SELECT * FROM windows WHERE CHAVE = '{windows}';""")  # ------ Que Contenha
+                    idw = cur.fetchall()
+                    print(windows + '<--- Isto é oque o usuario digitou')
+
+                    if idw == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
+                        texto = 'Chave Windows Não Cadastrada'
+                        op.notlabelWin.setText(texto)
+
+                    if idw != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
+                        chave = idw[0][1]  # <-------------------- pega o campo da chave
+                        id = idw[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID WINDOWS) int
+                        versao = idw[0][2]  # <-------------------- pega o campo da versão do windows
+
+                        try:  # <---------- vai pesquisar na tabela computer se essa (ID WINDOWS) esta vinculada com alguma maquina
+                            cur.execute(f"""SELECT * FROM computer WHERE idWindows = {id};""")
+                            idN = cur.fetchall()
+                            cur.close()
+
+                            if idN == ():  # <--------- se retornar tupla vazia não achou (ID WINDOWS) vinculado a alguma maquina
+                                texto = 'Esta chave Windows \nEstá disponivel!'
+                                mw.notFrameWindows.setStyleSheet(
+                                    'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                                mw.notVerWin.setText(versao)
+                                mw.notCodWin.setText(str(id))
+
+                                Positive.show()
+                                op.notLineWin.clear()
+                                po.LabelDialog.setText(texto)
+                                opNote.close()
+
+                            else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
+                                texto = 'Esta chave Windows \nNão está disponivel!'
+                                op.notlabelWin.setText(texto)
+
+                        except pymysql.Error as erro:
+                            texto = str(erro)
+                            dg.LabelDialog.setText(texto)
+                            Dialog.show()
+
+                except:
+                    texto = 'ALGO DEU ERRADO!'
+                    dg.LabelDialog.setText(texto)
+                    Dialog.show()
+
+        op.notButtonWin.clicked.connect(checkWin)
+
+    def offNote():
+        opNote.close()
+        opNote.show()
+        op.stackedWidget.setCurrentWidget(op.pageOpOff)
+
+        def checkOff():
+
+            office = op.notLineOff.text()
+
+            if len(office) < 25:
+                texto = 'Chave Office Invalida'
+                op.notlabelOff.setText(texto)
+
+            else:
+                try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
+                    cur = db.conMySQL()
+                    cur.execute(f"""SELECT * FROM office WHERE CHAVE = '{office}';""")  # ------ Que Contenha
+                    ido = cur.fetchall()
+                    print(office + '<--- Isto é oque o usuario digitou')
+
+                    if ido == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
+                        texto = 'Chave Office Não Cadastrada'
+                        op.notlabelOff.setText(texto)
+
+                    if ido != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
+                        chave = ido[0][1]  # <-------------------- pega o campo da chave
+                        id = ido[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID OFFICE) int
+                        versao = ido[0][2]  # <-------------------- pega o campo da versão do windows
+
+                        try:  # <---------- vai pesquisar na tabela computer se essa (ID OFFICE) esta vinculada com alguma maquina
+                            cur.execute(f"""SELECT * FROM computer WHERE idOffice = {id};""")
+                            idN = cur.fetchall()
+                            cur.close()
+
+                            if idN == ():  # <--------- se retornar tupla vazia não achou (ID OFFICE) vinculado a alguma maquina
+                                texto = 'Esta chave Office \nEstá disponivel!'
+                                mw.notFrameOffice.setStyleSheet(
+                                    'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                                mw.notVerOff.setText(versao)
+                                mw.notCodOff.setText(str(id))
+
+                                Positive.show()
+                                op.notLineOff.clear()
+                                po.LabelDialog.setText(texto)
+                                opNote.close()
+
+                            else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
+                                texto = 'Esta chave Office \nNão está disponivel!'
+                                op.notlabelOff.setText(texto)
+
+                        except pymysql.Error as erro:
+                            texto = str(erro)
+                            dg.LabelDialog.setText(texto)
+                            Dialog.show()
+
+                except:
+                    texto = 'ALGO DEU ERRADO!'
+                    dg.LabelDialog.setText(texto)
+                    Dialog.show()
+
+        op.notButtonOff.clicked.connect(checkOff)
+
+    def cleanNote():
+        mw.notIMB.clear()
+        mw.notMarca.clear()
+        mw.notModelo.clear()
+        mw.notCondicao.clear()
+        mw.notAno.clear()
+        mw.notPreco.clear()
+        mw.notService.clear()
+        mw.notRede.clear()
+        mw.notTeam.clear()
+        mw.notBoxAntevirus.setCurrentIndex(0)
+        mw.notBoxTela.setCurrentIndex(0)
+        mw.notBoxCarregador.setCurrentIndex(0)
+        mw.notPro.clear()
+        mw.notMarcaPro.clear()
+        mw.notFrePro.clear()
+        mw.notBoxGeracao.setCurrentIndex(0)
+        mw.notBoxSSD.setCurrentIndex(0)
+        mw.notBoxExp.setCurrentIndex(0)
+        mw.notRam.clear()
+        mw.notVerRam.clear()
+        mw.notFreRam.clear()
+        mw.notBoxExpRam.setCurrentIndex(0)
+        mw.frameMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.notMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.notModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.notService.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.notRede.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.notBoxCarregador.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.notPro.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.notBoxGeracao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.notRam.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.notVerRam.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+        mw.notFrameWindows.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.notCodWin.setText('------------')
+        mw.notVerWin.setText('------------')
+
+        mw.notFrameOffice.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.notCodOff.setText('------------')
+        mw.notVerOff.setText('------------')
+
+        mw.notFrameLocal.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.notCodLocal.setText('------------')
+        mw.notSetorLocal.setText('------------')
+
+        mw.notFrameUser.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.notCodUser.setText('------------')
+        mw.notCarUser.setText('------------')
+        mw.notLabelUser.setText('USER')
+
+        mw.notLabelDialog.clear()
+
+    def userNote():
+        opNote.close()
+        opNote.show()
+        op.stackedWidget.setCurrentWidget(op.pageOpUser)
+
+        def pUser():
+            user = op.notLineUser.text()
+            print(user + '<--- entrada do usuario')
+
+            if user == '':
+                texto = 'Campo de pesquisa em branco \nPor favor preencha o campo de pesquisa de usuario'
+                op.notLineUser.setStyleSheet('background-color: rgb(255, 192, 193);')
+                op.notlabelUser.setText(texto)
+
+            else:
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT * FROM colaborador WHERE nome like '%{user}%';""")
+                    dados = con.fetchall()
+
+                    if dados == ():
+                        texto = 'Usuário não encontrado\n certifique se de que o mesmo esta cadastrado'
+                        op.notlabelUser.setText(texto)
+
+                    else:
+                        nome = dados[0][1]
+                        cargo = dados[0][4]
+                        idu = dados[0][0]
+
+                        con.execute(f"""SELECT idComputer FROM colaborador WHERE idColaborador = {idu};""")
+                        result = con.fetchall()
+                        print(result)
+
+                        if result == ((None,),):
+                            texto = 'Colaborador Encontrado'
+                            mw.notFrameUser.setStyleSheet(
+                                'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                            mw.notLabelUser.setText(nome)
+                            mw.notCarUser.setText(cargo)
+                            mw.notCodUser.setText(str(idu))
+
+                            Positive.show()
+                            op.notLineUser.clear()
+                            po.LabelDialog.setText(texto)
+                            opNote.close()
+
+                        else:
+                            texto = 'Colaborador Já Possue Notebook\nDeseja Subistituir?'
+                            DialogiConditional.show()
+                            di.LabelDialogMsg.setText(texto)
+
+                            def sim():
+                                mw.notFrameUser.setStyleSheet(
+                                    'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+                                mw.notLabelUser.setText(nome)
+                                mw.notCarUser.setText(cargo)
+                                mw.notCodUser.setText(str(idu))
+                                DialogiConditional.close()
+                                op.notLineUser.clear()
+                                opNote.close()
+
+                            def nao():
+                                DialogiConditional.close()
+                                op.notLineUser.clear()
+                                opNote.close()
+
+                            di.pushButtonSim.clicked.connect(sim)
+                            di.pushButtonNao.clicked.connect(nao)
 
 
-    plotbarr()
-    # plotbar2()
+
+                except:
+                    texto = 'Colaborador Não Encontrado'
+                    dg.LabelDialog.setText(texto)
+                    Dialog.show()
+
+        op.notButtonUser.clicked.connect(pUser)
+
+    def placeNote():
+        opNote.close()
+        opNote.show()
+        op.stackedWidget.setCurrentWidget(op.pageOpLocal)
+
+        def local():
+            local = op.notBoxLocal.currentText()
+
+            texto = 'Local Selecionado'
+            mw.notFrameLocal.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+            mw.notSetorLocal.setText(local)
+            mw.notCodLocal.setText('01')
+
+            Positive.show()
+            op.notLineUser.clear()
+            po.LabelDialog.setText(texto)
+            opNote.close()
+
+        op.notButtonLocal.clicked.connect(local)
+
+    def cancelNote():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+        cleanNote()
+
+    mw.notButtonCancelar.clicked.connect(cancelNote)
+    mw.notButtonLocal.clicked.connect(placeNote)
+    mw.notButtonUser.clicked.connect(userNote)
+    mw.notButtonWin.clicked.connect(winNote)
+    mw.notButtonOff.clicked.connect(offNote)
+    mw.notButtonLimpar.clicked.connect(cleanNote)
+    mw.notButtonConfirmar.clicked.connect(cadNote)
+
+    # TRATAMENTO DESKTOP # <<< ------------------------------------------
+    def cadDesk():
+        imb = mw.topIMB.text()
+        marca = mw.topMarca.text()
+        modelo = mw.topModelo.text()
+        condicao = mw.topCondicao.currentText()
+        ano = mw.topAno.text()
+        preco = mw.topPreco.text()
+        service = mw.topService.text()
+        rede = mw.topRede.text()
+        team = mw.topTeam.text()
+        ant = mw.topBoxAntevirus.currentText()
+        monitor = mw.topBoxMonitor.currentText()
+        pro = mw.topPro.text()
+        marPro = mw.topMarcaPro.text()
+        frePro = mw.topFrePro.text()
+        gePro = mw.topBoxGeracao.currentText()
+        disco = mw.topBoxSSD.currentText()
+        exp = mw.topBoxExp.currentText()
+        ram = mw.topRam.text()
+        verRam = mw.topVerRam.text()
+        freRam = mw.topFreRam.text()
+        expRam = mw.topBoxExpRam.currentText()
+
+        motivo = motiDesk()
+        tipo = 'Desktop'
+        local = mw.topSetorLocal.text()
+        data = datAT()
+        user = mw.topCodUser.text()
+        win = mw.topCodWin.text()
+        off = mw.topCodOff.text()
+
+        def trataWinTop():
+            if mw.topCodWin.text() == '------------':
+                return 'null'
+            else:
+                return mw.notCodWin.text()
+
+        def trataOffTop():
+            if mw.topCodOff.text() == '------------':
+                return 'null'
+            else:
+                return mw.notCodOff.text()
+
+        idWindows = trataWinTop()
+        idOffice = trataOffTop()
+
+        print(imb, marca, modelo, condicao, ano, preco, service, rede, team, ant, monitor, pro, marPro, frePro,
+              gePro, disco, exp, ram, verRam, freRam, expRam, user, win, off, motivo, tipo, local, data)
+
+        if motivo == '' or marca == '' or modelo == '' or service == '' or rede == '' or \
+                pro == '' or gePro == '' or ram == '' or verRam == '':
+
+            mw.frameMotivo_2.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.topMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.topModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.topService.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.topRede.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.topPro.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.topBoxGeracao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.topRam.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.topVerRam.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mensage = 'Favor verifique se todos os campos obrigatórios foram preenchidos'
+            mw.topLabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO computer (IMB, MARCA, MODELO, CONDICAO, ANOFAB, TELA, VALOR,
+                            SERVICETAG, TEAMVIEWER, REDE, SSD, EXPANCIVEL, PROCESSADOR, MARCAPRO,
+                            FREPRO, GERACAO, RAM, MODELORAM, FRERAM, EXPRAM, ANTEVIRUS,
+                            TIPO, LOCAL, DATA, idWindows, idOffice)
+
+                            VALUES ('{imb}','{marca}','{modelo}','{condicao}','{ano}','{monitor}','{preco}',
+                            '{service}','{team}','{rede}','{disco}','{exp}','{pro}','{marPro}',
+                            '{frePro}','{gePro}','{ram}','{verRam}','{freRam}','{expRam}','{ant}',
+                            '{tipo}','{local}','{data}',{idWindows},{idOffice});""")
+
+                cur.execute(f"""SELECT MAX(idComputer) FROM computer;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                if user != '------------':
+                    cur.execute(f"""UPDATE colaborador SET idComputer = '{result}' WHERE idColaborador = '{user}';""")
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
+                    '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                cleanDesk()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def motiDesk():
+
+        if mw.topRadioCompra.isChecked() == True:
+            compra = mw.topRadioCompra.text()
+            return compra
+
+        elif mw.topRadioCadastro.isChecked() == True:
+            cadastro = mw.topRadioCadastro.text()
+            return cadastro
+
+        elif mw.topRadioProvisorio.isChecked() == True:
+            provisorio = mw.topRadioProvisorio.text()
+            return provisorio
+
+        elif mw.topRadioOutro.isChecked() == True:
+            outros = mw.topRadioOutro.text()
+            return outros
+
+        else:
+            return 'Motivo Não Selecionado'
+
+    def winDesk():
+        opDesk.close()
+        opDesk.show()
+        opd.stackedWidget.setCurrentWidget(opd.pageOpWin)
+
+        def checkWin():
+
+            windows = opd.topLineWin.text()
+
+            if len(windows) < 25:
+                texto = 'Chave Windows Invalida'
+                opd.toplabelWin.setText(texto)
+
+            else:
+                try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
+                    cur = db.conMySQL()
+                    cur.execute(f"""SELECT * FROM windows WHERE CHAVE = '{windows}';""")  # ------ Que Contenha
+                    idw = cur.fetchall()
+                    print(windows + '<--- Isto é oque o usuario digitou')
+
+                    if idw == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
+                        texto = 'Chave Windows Não Cadastrada'
+                        opd.toplabelWin.setText(texto)
+
+                    if idw != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
+                        chave = idw[0][1]  # <-------------------- pega o campo da chave
+                        id = idw[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID WINDOWS) int
+                        versao = idw[0][2]  # <-------------------- pega o campo da versão do windows
+
+                        try:  # <---------- vai pesquisar na tabela computer se essa (ID WINDOWS) esta vinculada com alguma maquina
+                            cur.execute(f"""SELECT * FROM computer WHERE idWindows = {id};""")
+                            idN = cur.fetchall()
+                            cur.close()
+
+                            if idN == ():  # <--------- se retornar tupla vazia não achou (ID WINDOWS) vinculado a alguma maquina
+                                texto = 'Esta chave Windows \nEstá disponivel!'
+                                mw.topFrameWindows.setStyleSheet(
+                                    'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                                mw.topVerWin.setText(versao)
+                                mw.topCodWin.setText(str(id))
+
+                                Positive.show()
+                                opd.topLineWin.clear()
+                                po.LabelDialog.setText(texto)
+                                opDesk.close()
+
+                            else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
+                                texto = 'Esta chave Windows não está \nDisponivel!'
+                                opd.toplabelWin.setText(texto)
+
+                        except pymysql.Error as erro:
+                            texto = str(erro)
+                            dg.LabelDialog.setText(texto)
+                            Dialog.show()
+
+                except:
+                    texto = 'ALGO DEU ERRADO!'
+                    dg.LabelDialog.setText(texto)
+                    Dialog.show()
+
+        opd.topButtonWin.clicked.connect(checkWin)
+
+    def offDesk():
+        opDesk.close()
+        opDesk.show()
+        opd.stackedWidget.setCurrentWidget(opd.pageOpOff)
+
+        def checkOff():
+
+            office = opd.topLineOff.text()
+
+            if len(office) < 25:
+                texto = 'Chave Office Invalida'
+                opd.toplabelOff.setText(texto)
+
+            else:
+                try:  # <------------------------------------------------ verifica na tabela windows se existe ou não a id informada
+                    cur = db.conMySQL()
+                    cur.execute(f"""SELECT * FROM office WHERE CHAVE = '{office}';""")  # ------ Que Contenha
+                    ido = cur.fetchall()
+                    print(office + '<--- Isto é oque o usuario digitou')
+
+                    if ido == ():  # <-------------------------------------------- verifica se a pesquisa voltou vazia em tupla
+                        texto = 'Chave Office Não Cadastrada'
+                        opd.toplabelOff.setText(texto)
+
+                    if ido != ():  # <--------------------------- verifica se o a pesquisa voltou diferente de vazia em tupla
+                        chave = ido[0][1]  # <-------------------- pega o campo da chave
+                        id = ido[0][0]  # <-------------------------- pega só o primeiro campo da tupla (ID OFFICE) int
+                        versao = ido[0][2]  # <-------------------- pega o campo da versão do windows
+
+                        try:  # <---------- vai pesquisar na tabela computer se essa (ID OFFICE) esta vinculada com alguma maquina
+                            cur.execute(f"""SELECT * FROM computer WHERE idOffice = {id};""")
+                            idN = cur.fetchall()
+                            cur.close()
+
+                            if idN == ():  # <--------- se retornar tupla vazia não achou (ID OFFICE) vinculado a alguma maquina
+                                texto = 'Esta chave Office \nEstá disponivel!'
+                                mw.topFrameOffice.setStyleSheet(
+                                    'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                                mw.topVerOff.setText(versao)
+                                mw.topCodOff.setText(str(id))
+
+                                Positive.show()
+                                opd.topLineOff.clear()
+                                po.LabelDialog.setText(texto)
+                                opDesk.close()
+
+                            else:  # <------------ se retornar diferente de tupla vazia tem (ID WINDOWS) vinculado a alguma maquina
+                                texto = 'Esta chave Office não está \nDisponivel!'
+                                opd.toplabelOff.setText(texto)
+
+                        except pymysql.Error as erro:
+                            texto = str(erro)
+                            dg.LabelDialog.setText(texto)
+                            Dialog.show()
+
+                except:
+                    texto = 'ALGO DEU ERRADO!'
+                    dg.LabelDialog.setText(texto)
+                    Dialog.show()
+
+        opd.topButtonOff.clicked.connect(checkOff)
+
+    def cleanDesk():
+        mw.topIMB.clear()
+        mw.topMarca.clear()
+        mw.topModelo.clear()
+        mw.topCondicao.clear()
+        mw.topAno.clear()
+        mw.topPreco.clear()
+        mw.topService.clear()
+        mw.topRede.clear()
+        mw.topTeam.clear()
+        mw.topBoxAntevirus.setCurrentIndex(0)
+        mw.topBoxMonitor.setCurrentIndex(0)
+        mw.topPro.clear()
+        mw.topMarcaPro.clear()
+        mw.topFrePro.clear()
+        mw.topBoxGeracao.setCurrentIndex(0)
+        mw.topBoxSSD.setCurrentIndex(0)
+        mw.topBoxExp.setCurrentIndex(0)
+        mw.topRam.clear()
+        mw.topVerRam.clear()
+        mw.topFreRam.clear()
+        mw.topBoxExpRam.setCurrentIndex(0)
+        mw.frameMotivo_2.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.topMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.topModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.topService.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.topRede.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.topPro.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.topBoxGeracao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.topRam.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.topVerRam.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+        mw.topFrameWindows.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.topCodWin.setText('------------')
+        mw.topVerWin.setText('------------')
+
+        mw.topFrameOffice.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.topCodOff.setText('------------')
+        mw.topVerOff.setText('------------')
+
+        mw.topFrameLocal.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.topCodLocal.setText('------------')
+        mw.topSetorLocal.setText('------------')
+
+        mw.topFrameUser.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.topCodUser.setText('------------')
+        mw.topCarUser.setText('------------')
+        mw.topLabelUser.setText('USER')
+
+        mw.topLabelDialog.clear()
+
+    def userDesk():
+        opDesk.close()
+        opDesk.show()
+        opd.stackedWidget.setCurrentWidget(opd.pageOpUser)
+
+        def pUser():
+            user = opd.topLineUser.text()
+            print(user + '<--- entrada do usuario')
+
+            if user == '':
+                texto = 'Campo de pesquisa em branco \nPor favor preencha o campo de pesquisa de usuario'
+                opd.topLineUser.setStyleSheet('background-color: rgb(255, 192, 193);')
+                opd.toplabelUser.setText(texto)
+
+            else:
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT * FROM colaborador WHERE nome like '%{user}%';""")
+                    dados = con.fetchall()
+
+                    if dados == ():
+                        texto = 'Usuário não encontrado\n certifique se de que o mesmo esta cadastrado'
+                        opd.toplabelUser.setText(texto)
+
+                    else:
+                        nome = dados[0][1]
+                        cargo = dados[0][4]
+                        idu = dados[0][0]
+
+                        con.execute(f"""SELECT idComputer FROM colaborador WHERE idColaborador = {idu};""")
+                        result = con.fetchall()
+                        print(result)
+
+                        if result == ((None,),):
+                            texto = 'Colaborador Encontrado'
+                            mw.topFrameUser.setStyleSheet(
+                                'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                            mw.topLabelUser.setText(nome)
+                            mw.topCarUser.setText(cargo)
+                            mw.topCodUser.setText(str(idu))
+
+                            Positive.show()
+                            opd.topLineUser.clear()
+                            po.LabelDialog.setText(texto)
+                            opDesk.close()
+
+                        else:
+                            texto = 'Colaborador Já Possue Notebook\nDeseja Subistituir?'
+                            DialogiConditional.show()
+                            di.LabelDialogMsg.setText(texto)
+
+                            def simDesk():
+                                mw.topFrameUser.setStyleSheet(
+                                    'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+                                mw.topLabelUser.setText(nome)
+                                mw.topCarUser.setText(cargo)
+                                mw.topCodUser.setText(str(idu))
+                                DialogiConditional.close()
+                                opd.topLineUser.clear()
+                                opDesk.close()
+
+                            def naoDesk():
+                                DialogiConditional.close()
+                                opd.topLineUser.clear()
+                                opDesk.close()
+
+                            di.pushButtonSim.clicked.connect(simDesk)
+                            di.pushButtonNao.clicked.connect(naoDesk)
+
+
+
+                except:
+                    texto = 'Colaborador Não Encontrado'
+                    dg.LabelDialog.setText(texto)
+                    Dialog.show()
+
+        opd.topButtonUser.clicked.connect(pUser)
+
+    def placeDesk():
+        opDesk.close()
+        opDesk.show()
+        opd.stackedWidget.setCurrentWidget(opd.pageOpLocal)
+
+        def local():
+            local = opd.topBoxLocal.currentText()
+
+            texto = 'Local Selecionado'
+            mw.topFrameLocal.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+            mw.topSetorLocal.setText(local)
+            mw.topCodLocal.setText('01')
+
+            Positive.show()
+            opd.topLineUser.clear()
+            po.LabelDialog.setText(texto)
+            opDesk.close()
+
+        opd.topButtonLocal.clicked.connect(local)
+
+    def cancelDesk():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+        cleanNote()
+
+    mw.topButtonCancelar.clicked.connect(cancelDesk)
+    mw.topButtonLocal.clicked.connect(placeDesk)
+    mw.topButtonUser.clicked.connect(userDesk)
+    mw.topButtonWin.clicked.connect(winDesk)
+    mw.topButtonOff.clicked.connect(offDesk)
+    mw.topButtonLimpar.clicked.connect(cleanDesk)
+    mw.topButtonConfirmar.clicked.connect(cadDesk)
+
+    # TRATAMENTO CELULAR # <<< ------------------------------------------
+    def cadCell():
+        marca = mw.celMarca.text()
+        modelo = mw.celModelo.text()
+        condicao = mw.celEstado.text()
+        ano = mw.celAnoFab.text()
+        cor = mw.celCor.text()
+        preco = mw.celPreco.text()
+        pro = mw.celPro.text()
+        modPro = mw.celModPro.text()
+        frePro = mw.celFrePro.text()
+        ram = mw.celRam.text()
+        bateria = mw.celbat.text()
+        sistema = mw.celBoxSistema.currentText()
+        micro = mw.celBoxMicro.currentText()
+        memo = mw.celMemo.text()
+        dual = mw.celBoxDual.currentText()
+        chipOne = mw.celBoxChipOne.currentText()
+        numOne = mw.celNumeroOne.text()
+        chipTwe = mw.celBoxChipTwo.currentText()
+        numTwe = mw.celNumeroTwo.text()
+
+        motivo = motiCell()
+        email = mw.celEndEmail.text()
+        tipo = 'Celular'
+        local = mw.celSetorLocal.text()
+
+        data = datAT()
+
+        user = mw.celCodUser.text()
+        imeiOne = mw.celImeiOne.text()
+        imeiTwo = mw.celImeiTwe.text()
+
+        # print(marca, modelo, condicao, ano, preco, ano, cor, pro, modPro, frePro, ram, bateria, sistema, micro, memo,
+        #         dual, chipOne, numOne, chipTwe, numTwe,  user, imeiOne, imeiTwo, motivo, tipo, local, data)
+
+        if marca == '' or modelo == '' or cor == '' or pro == '' or frePro == '' or ram == '' or memo == '':
+
+            mw.frameMotivo_3.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.celMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.celModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.celCor.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.celPro.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.celFrePro.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.celRam.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.celMemo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mensage = 'Favor verifique se todos os campos obrigatórios foram preenchidos'
+            mw.celLabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO celular (IMEI, IMEI2, MARCA, MODELO, CONDICAO, ANOFAB, COR, VALOR,
+                                PROCESSADOR, MODPRO, FREPRO, RAM, BATERIA, SISTEMA, MICRO, MEMOINT, DUO,
+                                CHIP, CHIP2, NUMERO, NUMERO2, EMAIL, TIPO, LOCAL, DATA)
+
+                                VALUES ('{imeiOne}','{imeiTwo}','{marca}','{modelo}','{condicao}','{ano}','{cor}','{preco}',
+                                '{pro}','{modPro}','{frePro}','{ram}','{bateria}','{sistema}','{micro}','{memo}','{dual}',
+                                '{chipOne}','{chipTwe}','{numOne}','{numTwe}','{email}','{tipo}','{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idCelular) FROM celular;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                if user != '------------':
+                    cur.execute(f"""UPDATE colaborador SET idCelular = '{result}' WHERE idColaborador = '{user}';""")
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
+                        '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                cleanCell()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def motiCell():
+
+        if mw.celRadioCompra.isChecked() == True:
+            compra = mw.celRadioCompra.text()
+            return compra
+
+        elif mw.celRadioCadastro.isChecked() == True:
+            cadastro = mw.celRadioCadastro.text()
+            return cadastro
+
+        elif mw.celRadioProvisorio.isChecked() == True:
+            provisorio = mw.celRadioProvisorio.text()
+            return provisorio
+
+        elif mw.celRadioOutro.isChecked() == True:
+            outros = mw.celRadioOutro.text()
+            return outros
+
+        else:
+            return 'Motivo Não Selecionado'
+
+    def cleanCell():
+        mw.celMarca.clear()
+        mw.celModelo.clear()
+        mw.celEstado.clear()
+        mw.celAnoFab.clear()
+        mw.celCor.clear()
+        mw.celPreco.clear()
+        mw.celPro.clear()
+        mw.celModPro.clear()
+        mw.celFrePro.clear()
+        mw.celRam.clear()
+        mw.celbat.clear()
+        mw.celBoxSistema.setCurrentIndex(0)
+        mw.celBoxMicro.setCurrentIndex(0)
+        mw.celMemo.clear()
+        mw.celBoxDual.setCurrentIndex(0)
+        mw.celNumeroOne.clear()
+        mw.celNumeroTwo.clear()
+        mw.celBoxChipOne.setCurrentIndex(0)
+        mw.celBoxChipTwo.setCurrentIndex(0)
+
+        mw.frameMotivo_3.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+
+        mw.celMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.celModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.celCor.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.celPro.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.celFrePro.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.celRam.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.celMemo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+        mw.celFrameImei.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.celImeiOne.setText('------------')
+        mw.celImeiTwe.setText('------------')
+
+        mw.celFrameEmail.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.celEndEmail.setText('------------')
+        mw.celCodEmail.setText('------------')
+
+        mw.celFrameLocal.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.celCodLocal.setText('------------')
+        mw.celSetorLocal.setText('------------')
+
+        mw.celFrameUser.setStyleSheet('background-color: rgb(7, 183, 168); border: 1px; border-radius: 10px;')
+        mw.celCodUser.setText('------------')
+        mw.celCarUser.setText('------------')
+        mw.celLabelUser.setText('USER')
+
+        mw.celLabelDialog.clear()
+
+    def userCell():
+        opCell.close()
+        opCell.show()
+        opc.stackedWidget.setCurrentWidget(opc.pageOpUser)
+
+        def pUser():
+            user = opc.opLineUser.text()
+            print(user + '<--- entrada do usuario')
+
+            if user == '':
+                texto = 'Campo de pesquisa em branco \nPor favor preencha o campo de pesquisa de usuario'
+                opc.opLineUser.setStyleSheet('background-color: rgb(255, 192, 193);')
+                opc.opLabelUser.setText(texto)
+
+            else:
+                try:
+                    con = db.conMySQL()
+                    con.execute(f"""SELECT * FROM colaborador WHERE nome like '%{user}%';""")
+                    dados = con.fetchall()
+
+                    if dados == ():
+                        texto = 'Usuário não encontrado\n certifique se de que o mesmo esta cadastrado'
+                        opc.opLabelUser.setText(texto)
+
+                    else:
+                        nome = dados[0][1]
+                        cargo = dados[0][4]
+                        idu = dados[0][0]
+
+                        con.execute(f"""SELECT idCelular FROM colaborador WHERE idColaborador = {idu};""")
+                        result = con.fetchall()
+                        print(result)
+
+                        if result == ((None,),):
+                            texto = 'Colaborador Encontrado'
+                            mw.celFrameUser.setStyleSheet(
+                                'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                            mw.celLabelUser.setText(nome)
+                            mw.celCarUser.setText(cargo)
+                            mw.celCodUser.setText(str(idu))
+
+                            Positive.show()
+                            opc.opLineUser.clear()
+                            po.LabelDialog.setText(texto)
+                            opCell.close()
+
+                        else:
+                            texto = 'Colaborador Já Possue Notebook\nDeseja Subistituir?'
+                            DialogiConditional.show()
+                            di.LabelDialogMsg.setText(texto)
+
+                            def simCell():
+                                mw.celFrameUser.setStyleSheet(
+                                    'background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+                                mw.celLabelUser.setText(nome)
+                                mw.celCarUser.setText(cargo)
+                                mw.celCodUser.setText(str(idu))
+                                DialogiConditional.close()
+                                opc.opLineUser.clear()
+                                opCell.close()
+
+                            def naoCell():
+                                DialogiConditional.close()
+                                opc.opLineUser.clear()
+                                opCell.close()
+
+                            di.pushButtonSim.clicked.connect(simCell)
+                            di.pushButtonNao.clicked.connect(naoCell)
+
+                except:
+                    texto = 'Algo deu Errado'
+                    dg.LabelDialog.setText(texto)
+                    Dialog.show()
+
+        opc.opButtonUser.clicked.connect(pUser)
+
+    def placeCell():
+        opCell.close()
+        opCell.show()
+        opc.stackedWidget.setCurrentWidget(opc.pageOpLocal)
+
+        def local():
+            local = opc.opBoxLocal.currentText()
+
+            texto = 'Local Selecionado'
+            mw.celFrameLocal.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+            mw.celSetorLocal.setText(local)
+            mw.celCodLocal.setText('01')
+
+            Positive.show()
+            opc.opLineUser.clear()
+            po.LabelDialog.setText(texto)
+            opCell.close()
+
+        opc.opButtonLocal.clicked.connect(local)
+
+    def imei():
+        opCell.close()
+        opCell.show()
+        opc.stackedWidget.setCurrentWidget(opc.pageOpImei)
+
+        def pesImei():
+            imeiOne = opc.opLineImei_2.text()
+            imeiTwe = opc.opLineImei.text()
+            print(imeiOne, imeiTwe)
+
+            con = db.conMySQL()
+            con.execute(f"""SELECT * FROM celular WHERE IMEI = '{imeiOne}';""")
+            result = con.fetchall()
+
+            if result == ():
+                texto = 'Codigo Imei Valido'
+                mw.celFrameImei.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+                mw.celImeiOne.setText(imeiOne)
+                mw.celImeiTwe.setText(imeiTwe)
+
+                Positive.show()
+                po.LabelDialog.setText(texto)
+                opCell.close()
+
+            else:
+                texto = 'Código IMEI já cadastrado'
+                opc.opLabelImei.setText(texto)
+
+        opc.opButtonImei.clicked.connect(pesImei)
+
+    def email():
+        opCell.close()
+        opCell.show()
+        opc.stackedWidget.setCurrentWidget(opc.pageOpEmail)
+
+        def regEmail():
+            email = opc.opLineEmail.text()
+
+            texto = 'Email vinculado com Sucesso'
+            mw.celFrameEmail.setStyleSheet('background-color: rgb(199, 211, 0); border: 1px; border-radius: 10px;')
+
+            mw.celEndEmail.setText(email)
+            mw.celCodEmail.setText('01')
+
+            Positive.show()
+            po.LabelDialog.setText(texto)
+            opCell.close()
+
+        opc.opButtonEmail.clicked.connect(regEmail)
+
+    def cancelCell():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+        cleanCell()
+
+    mw.celButtonCancelar.clicked.connect(cancelCell)
+    mw.celButtonLocal.clicked.connect(placeCell)
+    mw.celButtonUser.clicked.connect(userCell)
+    mw.celButtonImei.clicked.connect(imei)
+    mw.celButtonEmail.clicked.connect(email)
+    mw.celButtonLimpar.clicked.connect(cleanCell)
+    mw.celButtonConfirmar.clicked.connect(cadCell)
+
+    # TRATAMENTO MONITOR # <<< ------------------------------------------
+
+    def cadMonitor():
+        modelo = mw.moModelo.text()
+        marca = mw.moMarca.text()
+        condicao = mw.moCondicao.text()
+        valor = mw.moValor.text()
+        tamanho = mw.moBoxTamanho.currentText()
+
+        motivo = motivoMonitor()
+        tipo = 'Monitor'
+        local = 'ESTOQUE'
+        data = datAT()
+
+        if marca == '' or modelo == '' or tamanho == '' or motivo == None:
+
+            mw.moFrameMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.moModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.moMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.moBoxTamanho.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            mensage = 'Campos Obrigatórios\nNão preenchidos'
+            Dialog.show()
+            dg.LabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO monitor (marca, modelo, condicao, tamanho, valor, local, data)
+                            VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{valor}','{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idMonitor) FROM monitor;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
+                        '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                clearMonitor()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def clearMonitor():
+        mw.moMarca.clear()
+        mw.moModelo.clear()
+        mw.moCondicao.clear()
+        mw.moValor.clear()
+        mw.moBoxTamanho.setCurrentIndex(0)
+
+        mw.moFrameMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.moModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.moMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.moBoxTamanho.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+    def motivoMonitor():
+        if mw.moRadioCompra.isChecked() == True:
+            compra = mw.moRadioCompra.text()
+            return compra
+
+        elif mw.moRadioCadastro.isChecked() == True:
+            cadastro = mw.moRadioCadastro.text()
+            return cadastro
+
+        elif mw.moRadioProvisorio.isChecked() == True:
+            provisorio = mw.moRadioProvisorio.text()
+            return provisorio
+
+        elif mw.moRadioOutros.isChecked() == True:
+            outros = mw.moRadioOutros.text()
+            return outros
+
+    def cancelMonitor():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+        clearMonitor()
+
+    mw.moButtonConfirmar.clicked.connect(cadMonitor)
+    mw.moButtonCancelar.clicked.connect(cancelMonitor)
+    mw.moButtonLimpar.clicked.connect(clearMonitor)
+
+    # TRATAMENTO WINDOWS # <<< ------------------------------------------
+
+    def cadWindows():
+        chave = mw.winCod.text().upper()
+        verPro = mw.winVersao.text()
+        valor = mw.winValor.text()
+        versao = mw.winBoxVersao.currentText()
+
+        motivo = motivoWin()
+        tipo = 'windows'
+        local = 'ESTOQUE'
+        data = datAT()
+
+        if chave == '' or verPro == '' or versao == '' or motivo == None:
+
+            mw.winMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.winVersao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.winBoxVersao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.winCod.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            mensage = 'Campos Obrigatórios\nNão preenchidos'
+            Dialog.show()
+            dg.LabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO windows (CHAVE, VERSAOPRO, VERSAO, VALOR, local, data)
+                                VALUES ('{chave}','{verPro}','{versao}','{valor}','{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idWindows) FROM windows;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{verPro}',
+                            '{versao}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                clearWin()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+
+            except pymysql.Error as erro:
+                trat = str(erro)
+                print(trat)
+                codigo = trat[1:5]
+
+                if trat.count('1062'):
+                    texto = f'CHAVE INFORMADA JÁ CADASTRADA\n CODIGO MYSQL{codigo}'
+                    Dialog.show()
+                    dg.LabelDialog.setText(texto)
+
+    def clearWin():
+        mw.winCod.clear()
+        mw.winVersao.clear()
+        mw.winValor.clear()
+        mw.winBoxVersao.setCurrentIndex(0)
+
+        mw.winMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.winVersao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.winBoxVersao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.winCod.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+    def motivoWin():
+        if mw.winRadioCompra.isChecked() == True:
+            compra = mw.winRadioCompra.text()
+            return compra
+
+        elif mw.winRadioCadastro.isChecked() == True:
+            cadastro = mw.winRadioCadastro.text()
+            return cadastro
+
+        elif mw.winRadioProvisorio.isChecked() == True:
+            provisorio = mw.winRadioProvisorio.text()
+            return provisorio
+
+        elif mw.winRadioOutro.isChecked() == True:
+            outros = mw.winRadioOutro.text()
+            return outros
+
+    def cancelWin():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+        clearWin()
+
+    mw.winButtonConfirmar.clicked.connect(cadWindows)
+    mw.winButtonCancelar.clicked.connect(cancelWin)
+    mw.winButtonLimpar.clicked.connect(clearWin)
+
+    # TRATAMENTO OFFICE # <<< ------------------------------------------
+
+    def cadOffice():
+        chave = mw.offCod.text().upper()
+        verPro = mw.offVersao.text()
+        valor = mw.offValor.text()
+        versao = mw.offBoxVersao.currentText()
+
+        motivo = motivoOff()
+        tipo = 'Office'
+        local = 'ESTOQUE'
+        data = datAT()
+
+        if chave == '' or verPro == '' or versao == '' or motivo == None:
+
+            mw.offMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.offVersao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.offBoxVersao.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.offCod.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            mensage = 'Campos Obrigatórios\nNão preenchidos'
+            Dialog.show()
+            dg.LabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO office (CHAVE, VERSAOPRO, VERSAO, VALOR, local, data)
+                                    VALUES ('{chave}','{verPro}','{versao}','{valor}','{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idOffice) FROM office;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{verPro}',
+                                '{versao}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                clearOff()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+
+            except pymysql.Error as erro:
+                trat = str(erro)
+                print(trat)
+                codigo = trat[1:5]
+
+                if trat.count('1062'):
+                    texto = f'CHAVE INFORMADA JÁ CADASTRADA\n CODIGO MYSQL{codigo}'
+                    Dialog.show()
+                    dg.LabelDialog.setText(texto)
+
+    def clearOff():
+        mw.offCod.clear()
+        mw.offVersao.clear()
+        mw.offValor.clear()
+        mw.offBoxVersao.setCurrentIndex(0)
+
+        mw.offMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.offVersao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.offBoxVersao.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.offCod.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+    def motivoOff():
+        if mw.offRadioCompra.isChecked() == True:
+            compra = mw.offRadioCompra.text()
+            return compra
+
+        elif mw.offRadioCadastro.isChecked() == True:
+            cadastro = mw.offRadioCadastro.text()
+            return cadastro
+
+        elif mw.offRadioProvisorio.isChecked() == True:
+            provisorio = mw.offRadioProvisorio.text()
+            return provisorio
+
+        elif mw.offRadioOutro.isChecked() == True:
+            outros = mw.offRadioOutro.text()
+            return outros
+
+    def cancelOff():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pageNovoCad)
+        clearOff()
+
+    mw.offButtonConfirmar.clicked.connect(cadOffice)
+    mw.offButtonCancelar.clicked.connect(cancelOff)
+    mw.offButtonLimpar.clicked.connect(clearOff)
+
+    # TRATAMENTO MEMORIA # <<< ------------------------------------------
+
+    def cadMemoria():
+        modelo = mw.meBarramento.text()
+        marca = mw.meMarca.text()
+        condicao = mw.meCondicao.text()
+        valor = mw.meValor.text()
+        tamanho = mw.meBoxTamanho.currentText()
+        plataforma = mw.meBoxPlataforma.currentText()
+
+        motivo = motivoMemo()
+        tipo = 'Memoria'
+        local = 'ESTOQUE'
+        data = datAT()
+
+        if marca == '' or modelo == '' or tamanho == '' or motivo == None or plataforma == '':
+
+            mw.meMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.meBarramento.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.meMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.meBoxTamanho.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.meBoxPlataforma.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            mensage = 'Campos Obrigatórios\nNão preenchidos'
+            Dialog.show()
+            dg.LabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO memoria (MARCA, MODELO, CONDICAO, TAMANHO, PLATAFORMA, VALOR, TIPO, LOCAL, DATA)
+                                VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{plataforma}','{valor}','{tipo}','{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idMemoria) FROM memoria;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
+                    '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                clearMonitor()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def clearMemo():
+        mw.meMarca.clear()
+        mw.meBarramento.clear()
+        mw.meCondicao.clear()
+        mw.meBoxTamanho.setCurrentIndex(0)
+        mw.meBoxPlataforma.setCurrentIndex(0)
+        mw.meValor.clear()
+
+        mw.meMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.meBarramento.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.meMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.meBoxTamanho.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.meBoxPlataforma.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+    def motivoMemo():
+        if mw.meRadioCompra.isChecked() == True:
+            compra = mw.meRadioCompra.text()
+            return compra
+
+        elif mw.meRadioCadastro.isChecked() == True:
+            cadastro = mw.meRadioCadastro.text()
+            return cadastro
+
+        elif mw.meRadioProvisorio.isChecked() == True:
+            provisorio = mw.meRadioProvisorio.text()
+            return provisorio
+
+        elif mw.meRadioOutro.isChecked() == True:
+            outros = mw.meRadioOutro.text()
+            return outros
+
+    def cancelMemo():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+        clearMemo()
+
+    mw.meButtonConfirmar.clicked.connect(cadMemoria)
+    mw.meButtonCancelar.clicked.connect(cancelMemo)
+    mw.meButtonLimpar.clicked.connect(clearMemo)
+
+    # TRATAMENTO DISCO # <<< ------------------------------------------
+
+    def cadDisco():
+        modelo = mw.disModelo.text()
+        marca = mw.disMarca.text()
+        condicao = mw.disCondicao.text()
+        valor = mw.disValor.text()
+        tamanho = mw.disBoxTamanho.currentText()
+        tipo = mw.disBoxTipo.currentText()
+
+        motivo = motivoDis()
+
+        local = 'ESTOQUE'
+        data = datAT()
+
+        if marca == '' or modelo == '' or tamanho == '' or motivo == None or tipo == '':
+
+            mw.disMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.disModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.disMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.disBoxTamanho.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.disBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            mensage = 'Campos Obrigatórios\nNão preenchidos'
+            Dialog.show()
+            dg.LabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO disco (MARCA, MODELO, CONDICAO, TAMANHO, TIPO, VALOR, LOCAL, DATA)
+                                VALUES ('{marca}','{modelo}','{condicao}','{tamanho}','{tipo}','{valor}','{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idDisco) FROM disco;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
+                    '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                clearDis()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def clearDis():
+        mw.disMarca.clear()
+        mw.disModelo.clear()
+        mw.disCondicao.clear()
+        mw.disBoxTamanho.setCurrentIndex(0)
+        mw.disBoxTipo.setCurrentIndex(0)
+        mw.disValor.clear()
+
+        mw.disMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.disModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.disMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.disBoxTamanho.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.disBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+    def motivoDis():
+        if mw.disRadioCompra.isChecked() == True:
+            compra = mw.disRadioCompra.text()
+            return compra
+
+        elif mw.disRadioCadastro.isChecked() == True:
+            cadastro = mw.disRadioCadastro.text()
+            return cadastro
+
+        elif mw.disRadioProvisorio.isChecked() == True:
+            provisorio = mw.disRadioProvisorio.text()
+            return provisorio
+
+        elif mw.disRadioOutro.isChecked() == True:
+            outros = mw.disRadioOutro.text()
+            return outros
+
+    def cancelDis():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+        clearDis()
+
+    mw.disButtonConfirmar.clicked.connect(cadDisco)
+    mw.disButtonCancelar.clicked.connect(cancelDis)
+    mw.disButtonLimpar.clicked.connect(clearDis)
+
+    # TRATAMENTO MOUSE # <<< ------------------------------------------
+
+    def cadMouse():
+        modelo = mw.mouModelo.text()
+        marca = mw.mouMarca.text()
+        condicao = mw.mouCondicao.text()
+        valor = mw.mouValor.text()
+        tipo = mw.mouBoxTipo.currentText()
+
+        motivo = motivoMou()
+        tipo = 'MOUSE: ' + tipo
+        local = 'ESTOQUE'
+        data = datAT()
+
+        if marca == '' or modelo == '' or motivo == None or tipo == '':
+
+            mw.mouMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.mouModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.mouMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.mouBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            mensage = 'Campos Obrigatórios\nNão preenchidos'
+            Dialog.show()
+            dg.LabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO mouse (MARCA, MODELO, CONDICAO, TIPO, VALOR, LOCAL, DATA)
+                                    VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}','{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idMouse) FROM mouse;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
+                        '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                clearMou()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def clearMou():
+        mw.mouMarca.clear()
+        mw.mouModelo.clear()
+        mw.mouCondicao.clear()
+        mw.mouBoxTipo.setCurrentIndex(0)
+        mw.mouValor.clear()
+
+        mw.mouMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.mouModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.mouMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.mouBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+    def motivoMou():
+        if mw.mouRadioCompra.isChecked() == True:
+            compra = mw.mouRadioCompra.text()
+            return compra
+
+        elif mw.mouRadioCadastro.isChecked() == True:
+            cadastro = mw.mouRadioCadastro.text()
+            return cadastro
+
+        elif mw.mouRadioProvisorio.isChecked() == True:
+            provisorio = mw.mouRadioProvisorio.text()
+            return provisorio
+
+        elif mw.mouRadioOutro.isChecked() == True:
+            outros = mw.mouRadioOutro.text()
+            return outros
+
+    def cancelMou():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+        clearMou()
+
+    mw.mouButtonConfirmar.clicked.connect(cadMouse)
+    mw.mouButtonCancelar.clicked.connect(cancelMou)
+    mw.mouButtonLimpar.clicked.connect(clearMou)
+
+    # TRATAMENTO OUTROS # <<< ------------------------------------------
+
+    def cadOutros():
+        nome = mw.ouNome.text()
+        modelo = mw.ouModelo.text()
+        marca = mw.ouMarca.text()
+        condicao = mw.ouCondicao.text()
+        valor = mw.ouValor.text()
+
+        motivo = motivoOutros()
+        tipo = 'Outros'
+        local = 'ESTOQUE'
+        data = datAT()
+
+        if nome == '' or motivo == None:
+
+            mw.ouMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.ouNome.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            mensage = 'Campos Obrigatórios\nNão preenchidos'
+            Dialog.show()
+            dg.LabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO outros (NOME, MARCA, MODELO, CONDICAO, VALOR, LOCAL, DATA)
+                                    VALUES ('{nome}','{marca}','{modelo}','{condicao}','{valor}','{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idOutros) FROM outros;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{nome}',
+                        '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                clearMou()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def clearOutros():
+        mw.ouNome.clear()
+        mw.ouMarca.clear()
+        mw.ouModelo.clear()
+        mw.ouCondicao.clear()
+        mw.ouValor.clear()
+
+        mw.ouMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.ouNome.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+    def motivoOutros():
+        if mw.ouRadioCompra.isChecked() == True:
+            compra = mw.ouRadioCompra.text()
+            return compra
+
+        elif mw.ouRadioCadastro.isChecked() == True:
+            cadastro = mw.ouRadioCadastro.text()
+            return cadastro
+
+        elif mw.ouRadioProvisorio.isChecked() == True:
+            provisorio = mw.ouRadioProvisorio.text()
+            return provisorio
+
+        elif mw.ouRadioOutro.isChecked() == True:
+            outros = mw.ouRadioOutro.text()
+            return outros
+
+    def cancelOutros():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+        clearOutros()
+
+    mw.ouButtonConfirmar.clicked.connect(cadOutros)
+    mw.ouButtonCancelar.clicked.connect(cancelOutros)
+    mw.ouButtonLimpar.clicked.connect(clearOutros)
+
+    # TRATAMENTO PAD # <<< ------------------------------------------
+
+    def cadPad():
+        modelo = mw.padModelo.text()
+        marca = mw.padMarca.text()
+        condicao = mw.padCondicao.text()
+        valor = mw.padPreco.text()
+
+        motivo = motivoPad()
+        tipo = 'Mouse Pad'
+        local = 'ESTOQUE'
+        data = datAT()
+
+        if marca == '' or modelo == '' or motivo == None:
+
+            mw.padMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.padMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.padModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            mensage = 'Campos Obrigatórios\nNão preenchidos'
+            Dialog.show()
+            dg.LabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO mousepad (MARCA, MODELO, CONDICAO, VALOR, LOCAL, DATA)
+                                    VALUES ('{marca}','{modelo}','{condicao}','{valor}','{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idMousePad) FROM mousepad;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
+                        '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                clearMou()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def clearPad():
+        mw.padMarca.clear()
+        mw.padModelo.clear()
+        mw.padCondicao.clear()
+        mw.padPreco.clear()
+
+        mw.padMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.padMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.padModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+    def motivoPad():
+        if mw.padRadioCompra.isChecked() == True:
+            compra = mw.padRadioCompra.text()
+            return compra
+
+        elif mw.padRadioCadastro.isChecked() == True:
+            cadastro = mw.padRadioCadastro.text()
+            return cadastro
+
+        elif mw.padRadioProvisorio.isChecked() == True:
+            provisorio = mw.padRadioProvisorio.text()
+            return provisorio
+
+        elif mw.padRadioOutro.isChecked() == True:
+            outros = mw.padRadioOutro.text()
+            return outros
+
+    def cancelPad():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+        clearPad()
+
+    mw.padButtonConfirmar.clicked.connect(cadPad)
+    mw.padButtonCancelar.clicked.connect(cancelPad)
+    mw.padButtonLimpar.clicked.connect(clearPad)
+
+    # TRATAMENTO PAD # <<< ------------------------------------------
+
+    def cadTeclado():
+        modelo = mw.telModelo.text()
+        marca = mw.telMarca.text()
+        condicao = mw.telCondicao.text()
+        valor = mw.telValor.text()
+        tipo = mw.telBoxTipo.currentText()
+
+        motivo = motivoTec()
+        tipo = 'Teclado: ' + tipo
+        local = 'ESTOQUE'
+        data = datAT()
+
+        if marca == '' or modelo == '' or tipo == '' or motivo == None:
+
+            mw.telMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.telMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.telModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.telBoxTipo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            mensage = 'Campos Obrigatórios\nNão preenchidos'
+            Dialog.show()
+            dg.LabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO teclado (MARCA, MODELO, CONDICAO, TIPO, VALOR, LOCAL, DATA)
+                                        VALUES ('{marca}','{modelo}','{condicao}','{tipo}','{valor}','{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idTeclado) FROM teclado;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
+                            '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                clearMou()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def clearTec():
+        mw.telMarca.clear()
+        mw.telModelo.clear()
+        mw.telCondicao.clear()
+        mw.telValor.clear()
+
+        mw.telMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.telMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.telModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.telBoxTipo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+    def motivoTec():
+        if mw.telRadioCompra.isChecked() == True:
+            compra = mw.telRadioCompra.text()
+            return compra
+
+        elif mw.telRadioCadastro.isChecked() == True:
+            cadastro = mw.telRadioCadastro.text()
+            return cadastro
+
+        elif mw.telRadioProvisorio.isChecked() == True:
+            provisorio = mw.telRadioProvisorio.text()
+            return provisorio
+
+        elif mw.telRadioOutro.isChecked() == True:
+            outros = mw.telRadioOutro.text()
+            return outros
+
+    def cancelTec():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+        clearTec()
+
+    mw.telButtonConfirmar.clicked.connect(cadTeclado)
+    mw.telButtonCancelar.clicked.connect(cancelTec)
+    mw.telButtonLimpar.clicked.connect(clearTec)
+
+    # TRATAMENTO SUPORTE # <<< ------------------------------------------
+
+    def cadSuport():
+        modelo = mw.supModelo.text()
+        marca = mw.supMarca.text()
+        condicao = mw.supCondicao.text()
+        valor = mw.supValor.text()
+
+        motivo = motivoSup()
+        tipo = 'Suporte'
+        local = 'ESTOQUE'
+        data = datAT()
+
+        if marca == '' or modelo == '' or motivo == None:
+
+            mw.supMotivo.setStyleSheet('border: 2px solid;border-color: rgb(243, 76, 79);border-radius: 10px;')
+            mw.supMarca.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+            mw.supModelo.setStyleSheet('background-color: rgb(255, 192, 193); border: 1px; border-radius: 5px')
+
+            mensage = 'Campos Obrigatórios\nNão preenchidos'
+            Dialog.show()
+            dg.LabelDialog.setText(mensage)
+
+        else:
+            try:
+                cur = db.conMySQL()
+                cur.execute(
+                    f"""INSERT INTO suporte (MARCA, MODELO, CONDICAO, VALOR, TIPO, LOCAL, DATA)
+                                           VALUES ('{marca}','{modelo}','{condicao}','{valor}', '{tipo}', '{local}','{data}');""")
+
+                cur.execute(f"""SELECT MAX(idSuporte) FROM suporte;""")
+                result = cur.fetchall()
+                result = result[0][0]
+                print(result)
+
+                cur.execute(f"""INSERT INTO historico VALUES ('{Usuario}','NOVO','{tipo}','{result}','{marca}',
+                               '{modelo}','{motivo}','{local}','{data}');""")
+                cur.close()
+
+                Positive.show()
+                texto = f'{tipo} {result} \nCadastrado com Sucesso!'
+                po.LabelDialog.setText(texto)
+
+                clearMou()
+                mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+
+            except pymysql.Error as erro:
+                print(str(erro))
+
+    def clearSup():
+        mw.supMarca.clear()
+        mw.supModelo.clear()
+        mw.supCondicao.clear()
+        mw.supValor.clear()
+
+        mw.supMotivo.setStyleSheet('border: 2px solid; border-color: rgb(255, 255, 255);border-radius: 5px;')
+        mw.supMarca.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+        mw.supModelo.setStyleSheet('background-color: rgb(255, 255, 255); border: 1px; border-radius: 5px')
+
+    def motivoSup():
+        if mw.supRadioCompra.isChecked() == True:
+            compra = mw.supRadioCompra.text()
+            return compra
+
+        elif mw.supRadioCadastro.isChecked() == True:
+            cadastro = mw.supRadioCadastro.text()
+            return cadastro
+
+        elif mw.supRadioProvisorio.isChecked() == True:
+            provisorio = mw.supRadioProvisorio.text()
+            return provisorio
+
+        elif mw.supRadioOutro.isChecked() == True:
+            outros = mw.supRadioOutro.text()
+            return outros
+
+    def cancelSup():
+        mw.stackedWidgetCad.setCurrentWidget(mw.pagePerifericosCad)
+        clearSup()
+
+    mw.supButtonConfirmar.clicked.connect(cadSuport)
+    mw.supButtonCancelar.clicked.connect(cancelSup)
+    mw.supButtonLimpar.clicked.connect(clearSup)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

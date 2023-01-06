@@ -465,6 +465,16 @@ background-repeat: no-repeat;</string>
            </item>
            <item>
             <property name="text">
+             <string>ESTOQUE TI</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ESTOQUE UAD</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
              <string>U. G. Pessoas</string>
             </property>
            </item>
@@ -601,11 +611,6 @@ background-repeat: no-repeat;</string>
            <item>
             <property name="text">
              <string>PA- Digital</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>ESTOQUE TI</string>
             </property>
            </item>
           </widget>

@@ -3,6 +3,25 @@
     <file>login/LOGOQ.png</file>
   </qresource>
   <qresource prefix="Viws">
+    <file>estoque/Viws/avaliacao_0.png</file>
+    <file>estoque/Viws/Grupo 950.png</file>
+    <file>estoque/Viws/avaliacao_1.png</file>
+    <file>estoque/Viws/avaliacao_2.png</file>
+    <file>estoque/Viws/avaliacao_3.png</file>
+    <file>estoque/Viws/avaliacao_4.png</file>
+    <file>estoque/Viws/avaliacao_5.png</file>
+    <file>estoque/Viws/Grupo 951.png</file>
+    <file>estoque/Viws/Grupo 952.png</file>
+    <file>estoque/Viws/Grupo 953.png</file>
+    <file>estoque/Viws/Grupo 954.png</file>
+    <file>estoque/Viws/Grupo 955.png</file>
+    <file>estoque/Viws/Grupo 956.png</file>
+    <file>estoque/Viws/Grupo 957.png</file>
+    <file>estoque/Viws/Grupo 958.png</file>
+    <file>estoque/Viws/Grupo 959.png</file>
+    <file>estoque/Viws/Grupo 960.png</file>
+    <file>estoque/Viws/Grupo 961.png</file>
+    <file>estoque/Viws/Grupo 974.png</file>
     <file>estoque/Viws/Grupo 948.png</file>
   </qresource>
   <qresource prefix="picture">
@@ -21,6 +40,12 @@
     <file>estoque/entrada e saida/pictures/Grupo 974.png</file>
   </qresource>
   <qresource prefix="gestao">
+    <file>Controle/cadastro/baixa.png</file>
+    <file>Controle/cadastro/baixahover.png</file>
+    <file>Controle/cadastro/baixapress.png</file>
+    <file>Controle/cadastro/pes.png</file>
+    <file>Controle/cadastro/peshover.png</file>
+    <file>Controle/cadastro/pespress.png</file>
     <file>estoque/entrada e saida/Grupo 437.png</file>
     <file>estoque/entrada e saida/Grupo 408.png</file>
     <file>estoque/entrada e saida/Grupo 409.png</file>

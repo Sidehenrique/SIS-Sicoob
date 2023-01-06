@@ -48,7 +48,7 @@
        <string notr="true">background-color: rgb(0, 161, 148);</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="pageOpImei">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -732,6 +732,16 @@ background-repeat: no-repeat;</string>
            </item>
            <item>
             <property name="text">
+             <string>ESTOQUE TI</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ESTOQUE UAD</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
              <string>U. G. Pessoas</string>
             </property>
            </item>
@@ -868,11 +878,6 @@ background-repeat: no-repeat;</string>
            <item>
             <property name="text">
              <string>PA- Digital</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>ESTOQUE TI</string>
             </property>
            </item>
           </widget>

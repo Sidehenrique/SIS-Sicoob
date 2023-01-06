@@ -48,7 +48,7 @@
        <string notr="true">background-color: rgb(0, 161, 148);</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="pageOpWin">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -633,6 +633,16 @@ background-repeat: no-repeat;</string>
            <item>
             <property name="text">
              <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ESTOQUE TI</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ESTOQUE UAD</string>
             </property>
            </item>
            <item>

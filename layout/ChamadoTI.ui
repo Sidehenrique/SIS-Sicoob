@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainEstoque</class>
- <widget class="QMainWindow" name="MainEstoque">
+ <class>MainChamado</class>
+ <widget class="QMainWindow" name="MainChamado">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1641</width>
-    <height>852</height>
+    <width>1100</width>
+    <height>680</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>1100</width>
-    <height>800</height>
+    <height>680</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_6">
+   <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -33,433 +33,7 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item>
-     <widget class="QFrame" name="frameBackMenu">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>79</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(4, 52, 61);</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <property name="spacing">
-        <number>7</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QFrame" name="frameBottons">
-         <property name="minimumSize">
-          <size>
-           <width>500</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>220</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="spacing">
-           <number>2</number>
-          </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="pushButtonChamados">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>108</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-              <pointsize>9</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-	
-	
-	background-color: rgb(4, 66, 77);
-	color: rgb(255, 255, 255);
-	border: 1px solid;
-	border-color: rgb(2, 28, 33);
-}
-
-QPushButton:hover {
-	
-	background-color: rgb(5, 75, 88);
-}
-QPushButton:pressed {
-	
-	background-color: rgb(2, 38, 45);
-}</string>
-            </property>
-            <property name="text">
-             <string>CHAMADOS</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButtonControle">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-              <pointsize>9</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-	
-	
-	background-color: rgb(4, 66, 77);
-	color: rgb(255, 255, 255);
-	border: 1px solid;
-	border-color: rgb(2, 28, 33);
-}
-
-QPushButton:hover {
-	
-	background-color: rgb(5, 75, 88);
-}
-QPushButton:pressed {
-	
-	background-color: rgb(2, 38, 45);
-}</string>
-            </property>
-            <property name="text">
-             <string>CONTROLE</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButtonEstoque">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-              <pointsize>9</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-	
-	
-	background-color: rgb(4, 66, 77);
-	color: rgb(255, 255, 255);
-	border: 1px solid;
-	border-color: rgb(2, 28, 33);
-}
-
-QPushButton:hover {
-	
-	background-color: rgb(5, 75, 88);
-}
-QPushButton:pressed {
-	
-	background-color: rgb(2, 38, 45);
-}</string>
-            </property>
-            <property name="text">
-             <string>ESTOQUE</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButtonVoltar">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-              <pointsize>9</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-	
-	
-	background-color: rgb(4, 66, 77);
-	color: rgb(255, 255, 255);
-	border: 1px solid;
-	border-color: rgb(2, 28, 33);
-}
-
-QPushButton:hover {
-	
-	background-color: rgb(5, 75, 88);
-}
-QPushButton:pressed {
-	
-	background-color: rgb(2, 38, 45);
-}</string>
-            </property>
-            <property name="text">
-             <string>VOLTAR</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_Pesquisar">
-         <property name="maximumSize">
-          <size>
-           <width>347</width>
-           <height>41</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:  rgb(238, 238, 238);</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <property name="leftMargin">
-           <number>4</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_pesquisar">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-              <pointsize>14</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(238, 238, 238);
-border: 0px</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="cursorPosition">
-             <number>0</number>
-            </property>
-            <property name="placeholderText">
-             <string>Pesquisar</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_Pesquisar">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>43</width>
-              <height>36</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton {
-	background-image: url(:/barr/IconPesquisar.png);
-	background-position:center;
-	background-repeat: no-repeat;
-	background-color: rgb(238, 238, 238);
-	border: 1px solid;
-	
-	border-color:  rgb(238, 238, 238);
-}
-QPushButton:hover {
-	background-image: url(:/barr/IconPesquisar1.png);
-	background-color: rgb(243, 243, 243);
-}
-QPushButton:pressed {
-	background-color: rgb(226, 226, 226);
-}</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_perfil">
-         <property name="maximumSize">
-          <size>
-           <width>80</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="0">
-           <widget class="QFrame" name="frame">
-            <property name="minimumSize">
-             <size>
-              <width>52</width>
-              <height>52</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>52</width>
-              <height>52</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(239, 239, 239);
-border-radius: 25px</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
+    <item row="1" column="0">
      <widget class="QFrame" name="frameBody">
       <property name="styleSheet">
        <string notr="true"/>
@@ -489,15 +63,15 @@ border-radius: 25px</string>
        <item>
         <widget class="QFrame" name="frame_4">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>20</horstretch>
-           <verstretch>20</verstretch>
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="maximumSize">
+         <property name="minimumSize">
           <size>
-           <width>87</width>
-           <height>16777215</height>
+           <width>10</width>
+           <height>0</height>
           </size>
          </property>
          <property name="frameShape">
@@ -510,6 +84,24 @@ border-radius: 25px</string>
        </item>
        <item>
         <widget class="QFrame" name="frameContainerBody">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>5</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>1000</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1300</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true"/>
          </property>
@@ -538,20 +130,20 @@ border-radius: 25px</string>
           <item>
            <widget class="QFrame" name="frameSubmenu">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
               <horstretch>20</horstretch>
               <verstretch>20</verstretch>
              </sizepolicy>
             </property>
             <property name="minimumSize">
              <size>
-              <width>0</width>
+              <width>1000</width>
               <height>60</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>1300</width>
               <height>55</height>
              </size>
             </property>
@@ -588,12 +180,12 @@ border-radius: 25px</string>
                 <string notr="true">color: rgb(0, 53, 62);</string>
                </property>
                <property name="text">
-                <string>GESTÃO DE ESTOQUE</string>
+                <string>PAINEL DE CAMADOS</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_Inicio">
+              <widget class="QPushButton" name="pushButtonInicio">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                  <horstretch>0</horstretch>
@@ -647,7 +239,7 @@ QPushButton:pressed {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButtonGestao">
+              <widget class="QPushButton" name="pushButtonChamado">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                  <horstretch>0</horstretch>
@@ -696,7 +288,61 @@ QPushButton:pressed {
 }</string>
                </property>
                <property name="text">
-                <string>GESTÃO</string>
+                <string>CHAMADOS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonChat">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>93</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(89, 89, 89);
+	border: 1px solid;
+	border-color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+	color: rgb(0, 53, 62);
+	
+	background-color: rgb(240, 240, 240);
+	border: 1px solid;
+	
+	
+	border-color: rgb(223, 223, 223);
+}
+QPushButton:pressed {
+	
+	
+	background-color: rgb(188, 188, 188);
+}</string>
+               </property>
+               <property name="text">
+                <string>CHAT</string>
                </property>
               </widget>
              </item>
@@ -772,8 +418,1315 @@ QPushButton:pressed {
           </item>
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
-            <widget class="QWidget" name="page"/>
-            <widget class="QWidget" name="page_2"/>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>20</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>1000</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>1300</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <widget class="QWidget" name="pageHome"/>
+            <widget class="QWidget" name="pageChamados">
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="frame_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>216</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>216</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <item>
+                  <widget class="QFrame" name="frame_7">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>100</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QSplitter" name="splitter_2">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <widget class="QSplitter" name="splitter">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <widget class="QLabel" name="label_11">
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                       <widget class="QFrame" name="frame_8">
+                        <property name="minimumSize">
+                         <size>
+                          <width>56</width>
+                          <height>56</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>60</width>
+                          <height>60</height>
+                         </size>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QGridLayout" name="gridLayout_2">
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item row="0" column="0">
+                          <widget class="QLabel" name="ChamadoLabelIniciais">
+                           <property name="font">
+                            <font>
+                             <family>Asap</family>
+                             <pointsize>20</pointsize>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background-color: rgb(43, 46, 113);
+color: rgb(255, 255, 255);</string>
+                           </property>
+                           <property name="text">
+                            <string>AM</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                       <widget class="QLabel" name="label_12">
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </widget>
+                      <widget class="QLabel" name="ChamadoLabelNome">
+                       <property name="font">
+                        <font>
+                         <family>Asap</family>
+                         <pointsize>11</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(43, 46, 113);</string>
+                       </property>
+                       <property name="text">
+                        <string>ALESSANDRA MOTA</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_3">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_2">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Setor:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelSetor">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_4">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_4">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Login:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelLogin">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_5">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_5">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>E-mail:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelEmail">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_6">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_13">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Instituição:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelInstituicao">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_15">
+                   <property name="font">
+                    <font>
+                     <family>Asap</family>
+                     <pointsize>10</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(43, 46, 113);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_7">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_16">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>N° Chamado:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelNChamado">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_8">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_18">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Tipo de Chamado:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelTipo">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_9">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_20">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Categoria:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelCategoria">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_10">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_22">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Impacto:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelImpacto">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_26">
+                   <property name="font">
+                    <font>
+                     <family>Asap</family>
+                     <pointsize>10</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(43, 46, 113);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_11">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_24">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Data de abertura:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelData">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_12">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_27">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Hora de abertura:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelHora">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_13">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_29">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Ultima Alteração:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelUltimaAlteracao">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_31">
+                   <property name="font">
+                    <font>
+                     <family>Asap</family>
+                     <pointsize>10</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(43, 46, 113);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_14">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_32">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Grupo de operadores:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="ChamadoLabelOperador">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(136, 136, 136);</string>
+                    </property>
+                    <property name="text">
+                     <string>-</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_15">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_34">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Operador:</string>
+                    </property>
+                   </widget>
+                   <widget class="QComboBox" name="ChamadoBoxOperador">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>23</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>26</height>
+                     </size>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>HENRIQUE SILVA</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSplitter" name="splitter_16">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QLabel" name="label_35">
+                    <property name="font">
+                     <font>
+                      <family>Asap</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(43, 46, 113);</string>
+                    </property>
+                    <property name="text">
+                     <string>Status:</string>
+                    </property>
+                   </widget>
+                   <widget class="QComboBox" name="ChamadoBoxStatus">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>23</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>26</height>
+                     </size>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>TRIAGEM</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>ATENDIMENTO</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>ATENDIMENTO EXTERNO</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CONCLUIDO</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>ARQUIVADO</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_4">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QFrame" name="ChamadoFrameStatus">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>63</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 212, 0);</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <item>
+                    <widget class="QLabel" name="ChamadoLabelStatus">
+                     <property name="font">
+                      <font>
+                       <family>Asap</family>
+                       <pointsize>11</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(43, 46, 113);</string>
+                     </property>
+                     <property name="text">
+                      <string>TRIAGEM</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="frame_3">
+                  <property name="minimumSize">
+                   <size>
+                    <width>530</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 255, 255);</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_6">
+                   <item>
+                    <widget class="QFrame" name="frame_10">
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(236, 236, 236);
+border:1px solid rgb(236, 236, 236);
+border-radius: 10px;</string>
+                     </property>
+                     <property name="frameShape">
+                      <enum>QFrame::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_9">
+                      <item>
+                       <widget class="QLabel" name="ChamadoLabelTexto">
+                        <property name="font">
+                         <font>
+                          <family>Asap</family>
+                          <pointsize>10</pointsize>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QFrame" name="frame_12">
+                     <property name="frameShape">
+                      <enum>QFrame::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_10">
+                      <item>
+                       <widget class="QLabel" name="ChamadoMsg">
+                        <property name="font">
+                         <font>
+                          <family>Asap</family>
+                          <pointsize>10</pointsize>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSplitter" name="splitter_17">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <widget class="QLineEdit" name="ChamadoLineResposta">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>26</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border:1px solid rgb(236, 236, 236);
+border-radius: 10px;</string>
+                      </property>
+                      <property name="placeholderText">
+                       <string> Responder</string>
+                      </property>
+                     </widget>
+                     <widget class="QPushButton" name="ChamadoButtonEnviar">
+                      <property name="minimumSize">
+                       <size>
+                        <width>60</width>
+                        <height>25</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>70</width>
+                        <height>26</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Asap</family>
+                        <pointsize>7</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: rgb(255, 255, 255);
+border:1px solid rgb(236, 236, 236);
+border-radius: 10px;
+background-color: rgb(43, 46, 113);</string>
+                      </property>
+                      <property name="text">
+                       <string>ENVIAR</string>
+                      </property>
+                     </widget>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QFrame" name="frame_19">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>63</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(43, 46, 113);</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_7">
+                   <item>
+                    <widget class="QLabel" name="label_38">
+                     <property name="font">
+                      <font>
+                       <family>Asap</family>
+                       <pointsize>11</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">
+color: rgb(255, 255, 255);</string>
+                     </property>
+                     <property name="text">
+                      <string>CHAMADOS</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="ChamadoBoxPesquisa">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>26</height>
+                      </size>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>TODOS</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>PROPRIOS</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>TRIAGEM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>ATENDIMENTO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>EXTERNO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>CONCLUIDO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>ARQUIVADO</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QScrollArea" name="ChamadoscrollArea">
+                  <property name="styleSheet">
+                   <string notr="true">border:none
+</string>
+                  </property>
+                  <property name="widgetResizable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                  </property>
+                  <widget class="QWidget" name="scrollAreaWidgetContents">
+                   <property name="geometry">
+                    <rect>
+                     <x>0</x>
+                     <y>0</y>
+                     <width>316</width>
+                     <height>416</height>
+                    </rect>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_8">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>7</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QFrame" name="ChamadoFrame01">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>54</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>60</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(255, 255, 255);</string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_6">
+                       <property name="leftMargin">
+                        <number>9</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>9</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>9</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>9</number>
+                       </property>
+                       <item>
+                        <widget class="QSplitter" name="splitter_19">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <widget class="QLabel" name="ChaLabelNome01">
+                          <property name="font">
+                           <font>
+                            <family>Asap</family>
+                            <pointsize>10</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">color: rgb(43, 46, 113);</string>
+                          </property>
+                          <property name="text">
+                           <string>ALESSANDRA MOTA | SIA</string>
+                          </property>
+                         </widget>
+                         <widget class="QSplitter" name="splitter_18">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <widget class="QLabel" name="ChaLabelCod1">
+                           <property name="font">
+                            <font>
+                             <family>Asap</family>
+                             <pointsize>9</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">color: rgb(136, 136, 136);</string>
+                           </property>
+                           <property name="text">
+                            <string>00001</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                           </property>
+                          </widget>
+                          <widget class="QLabel" name="ChaLabelServico1">
+                           <property name="font">
+                            <font>
+                             <family>Asap</family>
+                             <pointsize>9</pointsize>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">color: rgb(136, 136, 136);</string>
+                           </property>
+                           <property name="text">
+                            <string>Manutenção de acessos</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                          </widget>
+                         </widget>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="ChaFrame1">
+                         <property name="minimumSize">
+                          <size>
+                           <width>33</width>
+                           <height>33</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>33</width>
+                           <height>33</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-image: url(:/chamados/Chamados/status/triagem.png);</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_36">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton">
+                  <property name="text">
+                   <string>PushButton</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="pageChat"/>
            </widget>
           </item>
          </layout>
@@ -782,15 +1735,499 @@ QPushButton:pressed {
        <item>
         <widget class="QFrame" name="frame_6">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>20</horstretch>
-           <verstretch>20</verstretch>
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>10</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QFrame" name="frameBackMenu">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>79</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>79</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(4, 52, 61);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_14">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame_11">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_14">
+         <property name="minimumSize">
+          <size>
+           <width>1000</width>
+           <height>0</height>
+          </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>80</width>
+           <width>1300</width>
            <height>16777215</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frameBottons">
+            <property name="minimumSize">
+             <size>
+              <width>580</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>220</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <property name="spacing">
+              <number>2</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QFrame" name="frame_logo">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-image: url(:/menu/login/LOGOQ.png);
+background-position:center;
+background-repeat: no-repeat;
+</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonChamados">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>108</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
+}
+
+QPushButton:hover {
+	
+	background-color: rgb(5, 75, 88);
+}
+QPushButton:pressed {
+	
+	background-color: rgb(2, 38, 45);
+}</string>
+               </property>
+               <property name="text">
+                <string>CHAMADOS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonControle">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>108</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
+}
+
+QPushButton:hover {
+	
+	background-color: rgb(5, 75, 88);
+}
+QPushButton:pressed {
+	
+	background-color: rgb(2, 38, 45);
+}</string>
+               </property>
+               <property name="text">
+                <string>CONTROLE</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonEstoque">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>108</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
+}
+
+QPushButton:hover {
+	
+	background-color: rgb(5, 75, 88);
+}
+QPushButton:pressed {
+	
+	background-color: rgb(2, 38, 45);
+}</string>
+               </property>
+               <property name="text">
+                <string>ESTOQUE</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonVoltar">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>108</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
+}
+
+QPushButton:hover {
+	
+	background-color: rgb(5, 75, 88);
+}
+QPushButton:pressed {
+	
+	background-color: rgb(2, 38, 45);
+}</string>
+               </property>
+               <property name="text">
+                <string>VOLTAR</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>78</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_69">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_45">
+             <item>
+              <widget class="QLabel" name="label_68">
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 161, 148);</string>
+               </property>
+               <property name="text">
+                <string>Versão - BETA08112022</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_69">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 161, 148);</string>
+               </property>
+               <property name="text">
+                <string>BEM-VINDO</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_95">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 161, 148);</string>
+               </property>
+               <property name="text">
+                <string>-------------</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame">
+            <property name="minimumSize">
+             <size>
+              <width>65</width>
+              <height>65</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>66</width>
+              <height>66</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(239, 239, 239);
+border-radius: 32px</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_13">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>10</width>
+           <height>0</height>
           </size>
          </property>
          <property name="frameShape">
@@ -808,7 +2245,7 @@ QPushButton:pressed {
   </widget>
  </widget>
  <resources>
-  <include location="iconesHome.qrc"/>
+  <include location="ControleTI.qrc"/>
  </resources>
  <connections/>
 </ui>

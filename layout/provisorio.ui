@@ -6,37 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>323</width>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frame_48">
+   <widget class="QFrame" name="ChamadoFrameCham">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>30</y>
-      <width>250</width>
-      <height>551</height>
+      <x>10</x>
+      <y>20</y>
+      <width>300</width>
+      <height>444</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>250</width>
+      <width>300</width>
       <height>0</height>
      </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>250</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(38, 161, 168);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -44,430 +35,869 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QFrame" name="frame_49">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>201</width>
-       <height>183</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>183</width>
-       <height>183</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-image: url(:/Viws/estoque/Viws/Grupo 948.png);
-background-position: center;
-background-repeat: no-repeat;</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-    </widget>
-    <widget class="QFrame" name="frame_50">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>210</y>
-       <width>201</width>
-       <height>291</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_47">
-      <item>
-       <widget class="QSplitter" name="splitter_45">
-        <property name="font">
-         <font>
-          <family>Asap</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
+    <layout class="QVBoxLayout" name="verticalLayout_8">
+     <item>
+      <widget class="QFrame" name="frame_22">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>54</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <property name="leftMargin">
+         <number>9</number>
         </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+        <property name="topMargin">
+         <number>9</number>
         </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+        <property name="rightMargin">
+         <number>9</number>
         </property>
-        <widget class="QLabel" name="label_54">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_81">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>10</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSplitter" name="splitter_41">
-        <property name="font">
-         <font>
-          <family>Asap</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
+        <property name="bottomMargin">
+         <number>9</number>
         </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+        <item>
+         <widget class="QSplitter" name="splitter_20">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QLabel" name="ChaLabelNome02">
+           <property name="font">
+            <font>
+             <family>Asap</family>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(43, 46, 113);</string>
+           </property>
+           <property name="text">
+            <string>ALESSANDRA MOTA | SIA</string>
+           </property>
+          </widget>
+          <widget class="QSplitter" name="splitter_21">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QLabel" name="ChaLabelCod2">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>00001</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ChaLabelServico2">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>Manutenção de acessos</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="ChaFrame2">
+          <property name="minimumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_24">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>54</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <property name="leftMargin">
+         <number>9</number>
         </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+        <property name="topMargin">
+         <number>9</number>
         </property>
-        <widget class="QLabel" name="label_57">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_99">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>01</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSplitter" name="splitter_28">
-        <property name="font">
-         <font>
-          <family>Asap</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
+        <property name="rightMargin">
+         <number>9</number>
         </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+        <property name="bottomMargin">
+         <number>9</number>
         </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+        <item>
+         <widget class="QSplitter" name="splitter_22">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QLabel" name="ChaLabelNome03">
+           <property name="font">
+            <font>
+             <family>Asap</family>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(43, 46, 113);</string>
+           </property>
+           <property name="text">
+            <string>ALESSANDRA MOTA | SIA</string>
+           </property>
+          </widget>
+          <widget class="QSplitter" name="splitter_23">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QLabel" name="ChaLabelCod3">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>00001</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ChaLabelServico3">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>Manutenção de acessos</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="ChaFrame3">
+          <property name="minimumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_26">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>54</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <property name="leftMargin">
+         <number>9</number>
         </property>
-        <widget class="QLabel" name="label_58">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_102">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>01</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSplitter" name="splitter_27">
-        <property name="font">
-         <font>
-          <family>Asap</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
+        <property name="topMargin">
+         <number>9</number>
         </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+        <property name="rightMargin">
+         <number>9</number>
         </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+        <property name="bottomMargin">
+         <number>9</number>
         </property>
-        <widget class="QLabel" name="label_61">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_82">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>10</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSplitter" name="splitter_26">
-        <property name="font">
-         <font>
-          <family>Asap</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
+        <item>
+         <widget class="QSplitter" name="splitter_24">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QLabel" name="ChaLabelNome04">
+           <property name="font">
+            <font>
+             <family>Asap</family>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(43, 46, 113);</string>
+           </property>
+           <property name="text">
+            <string>ALESSANDRA MOTA | SIA</string>
+           </property>
+          </widget>
+          <widget class="QSplitter" name="splitter_25">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QLabel" name="ChaLabelCod4">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>00001</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ChaLabelServico4">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>Manutenção de acessos</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="ChaFrame4">
+          <property name="minimumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_28">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>54</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_11">
+        <property name="leftMargin">
+         <number>9</number>
         </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+        <property name="topMargin">
+         <number>9</number>
         </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+        <property name="rightMargin">
+         <number>9</number>
         </property>
-        <widget class="QLabel" name="label_69">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_105">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>10</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSplitter" name="splitter_25">
-        <property name="font">
-         <font>
-          <family>Asap</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
+        <property name="bottomMargin">
+         <number>9</number>
         </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+        <item>
+         <widget class="QSplitter" name="splitter_26">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QLabel" name="ChaLabelNome05">
+           <property name="font">
+            <font>
+             <family>Asap</family>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(43, 46, 113);</string>
+           </property>
+           <property name="text">
+            <string>ALESSANDRA MOTA | SIA</string>
+           </property>
+          </widget>
+          <widget class="QSplitter" name="splitter_27">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QLabel" name="ChaLabelCod5">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>00001</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ChaLabelServico5">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>Manutenção de acessos</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="ChaFrame5">
+          <property name="minimumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_30">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>54</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_12">
+        <property name="leftMargin">
+         <number>9</number>
         </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+        <property name="topMargin">
+         <number>9</number>
         </property>
-        <widget class="QLabel" name="label_74">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_103">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(255, 255, 255);</string>
-         </property>
-         <property name="text">
-          <string>10</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSplitter" name="splitter_24">
-        <property name="font">
-         <font>
-          <family>Asap</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
+        <property name="rightMargin">
+         <number>9</number>
         </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+        <property name="bottomMargin">
+         <number>9</number>
         </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+        <item>
+         <widget class="QSplitter" name="splitter_28">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QLabel" name="ChaLabelNome06">
+           <property name="font">
+            <font>
+             <family>Asap</family>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(43, 46, 113);</string>
+           </property>
+           <property name="text">
+            <string>ALESSANDRA MOTA | SIA</string>
+           </property>
+          </widget>
+          <widget class="QSplitter" name="splitter_29">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QLabel" name="ChaLabelCod6">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>00001</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ChaLabelServico6">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>Manutenção de acessos</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="ChaFrame6">
+          <property name="minimumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_32">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>54</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_13">
+        <property name="leftMargin">
+         <number>9</number>
         </property>
-        <widget class="QLabel" name="label_77">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_100">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>10</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSplitter" name="splitter_21">
-        <property name="font">
-         <font>
-          <family>Asap</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
+        <property name="topMargin">
+         <number>9</number>
         </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+        <property name="rightMargin">
+         <number>9</number>
         </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+        <property name="bottomMargin">
+         <number>9</number>
         </property>
-        <widget class="QLabel" name="label_79">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_104">
-         <property name="font">
-          <font>
-           <family>Asap</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>10</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </widget>
-      </item>
-     </layout>
-    </widget>
+        <item>
+         <widget class="QSplitter" name="splitter_30">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QLabel" name="ChaLabelNome07">
+           <property name="font">
+            <font>
+             <family>Asap</family>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(43, 46, 113);</string>
+           </property>
+           <property name="text">
+            <string>ALESSANDRA MOTA | SIA</string>
+           </property>
+          </widget>
+          <widget class="QSplitter" name="splitter_31">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QLabel" name="ChaLabelCod7">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>00001</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ChaLabelServico7">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>Manutenção de acessos</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="ChaFrame7">
+          <property name="minimumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_34">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>54</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_15">
+        <property name="leftMargin">
+         <number>9</number>
+        </property>
+        <property name="topMargin">
+         <number>9</number>
+        </property>
+        <property name="rightMargin">
+         <number>9</number>
+        </property>
+        <property name="bottomMargin">
+         <number>9</number>
+        </property>
+        <item>
+         <widget class="QSplitter" name="splitter_32">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QLabel" name="ChaLabelNome08">
+           <property name="font">
+            <font>
+             <family>Asap</family>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(43, 46, 113);</string>
+           </property>
+           <property name="text">
+            <string>ALESSANDRA MOTA | SIA</string>
+           </property>
+          </widget>
+          <widget class="QSplitter" name="splitter_33">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QLabel" name="ChaLabelCod8">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>00001</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="ChaLabelServico8">
+            <property name="font">
+             <font>
+              <family>Asap</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>Manutenção de acessos</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="ChaFrame8">
+          <property name="minimumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>33</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -475,7 +905,7 @@ background-repeat: no-repeat;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>323</width>
      <height>26</height>
     </rect>
    </property>

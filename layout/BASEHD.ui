@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>MainChamado</class>
+ <widget class="QMainWindow" name="MainChamado">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1446</width>
-    <height>839</height>
+    <width>1100</width>
+    <height>680</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1100</width>
+    <height>680</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout_6">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -27,15 +33,12 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <item row="0" column="0">
+    <item>
      <widget class="QFrame" name="frameBackMenu">
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>0</height>
+        <height>79</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -53,10 +56,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <property name="spacing">
-        <number>7</number>
-       </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_14">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -70,87 +70,151 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QFrame" name="frame_logo">
+        <widget class="QFrame" name="frame_11">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
-           <width>80</width>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_14">
+         <property name="minimumSize">
+          <size>
+           <width>1000</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>80</width>
+           <width>1300</width>
            <height>16777215</height>
           </size>
          </property>
-         <property name="styleSheet">
-          <string notr="true">background-image: url(:/barr/IconLogo.png);
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frameBottons">
+            <property name="minimumSize">
+             <size>
+              <width>580</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>220</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <property name="spacing">
+              <number>2</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QFrame" name="frame_logo">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-image: url(:/cad/login/LOGOQ.png);
 background-position:center;
 background-repeat: no-repeat;
 </string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frameBottons">
-         <property name="minimumSize">
-          <size>
-           <width>220</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>220</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="spacing">
-           <number>2</number>
-          </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="pushButton">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>79</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-              <pointsize>9</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonChamados">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>108</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
 	
 	
 	background-color: rgb(4, 66, 77);
@@ -167,30 +231,39 @@ QPushButton:pressed {
 	
 	background-color: rgb(2, 38, 45);
 }</string>
-            </property>
-            <property name="text">
-             <string>PERFIL</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_2">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>79</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-              <pointsize>9</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
+               </property>
+               <property name="text">
+                <string>CHAMADOS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonControle">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>108</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
 	
 	
 	background-color: rgb(4, 66, 77);
@@ -207,164 +280,206 @@ QPushButton:pressed {
 	
 	background-color: rgb(2, 38, 45);
 }</string>
-            </property>
-            <property name="text">
-             <string>SAIR</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_Pesquisar">
-         <property name="maximumSize">
-          <size>
-           <width>347</width>
-           <height>41</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:  rgb(238, 238, 238);</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <property name="leftMargin">
-           <number>4</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_pesquisar">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-              <pointsize>14</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(238, 238, 238);
-border: 0px</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="cursorPosition">
-             <number>0</number>
-            </property>
-            <property name="placeholderText">
-             <string>Pesquisar</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_Pesquisar">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>43</width>
-              <height>36</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Asap</family>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton {
-	background-image: url(:/barr/IconPesquisar1.png);
-	background-position:center;
-	background-repeat: no-repeat;
-	background-color: rgb(238, 238, 238);
-	border: 1px solid;
+               </property>
+               <property name="text">
+                <string>CONTROLE</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonEstoque">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>108</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
 	
-	border-color:  rgb(238, 238, 238);
+	
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
 }
+
 QPushButton:hover {
-	background-image: url(:/barr/IconPesquisar.png);
-	background-color: rgb(243, 243, 243);
+	
+	background-color: rgb(5, 75, 88);
 }
 QPushButton:pressed {
-	background-color: rgb(226, 226, 226);
+	
+	background-color: rgb(2, 38, 45);
 }</string>
-            </property>
+               </property>
+               <property name="text">
+                <string>ESTOQUE</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonVoltar">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>108</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	
+	background-color: rgb(4, 66, 77);
+	color: rgb(255, 255, 255);
+	border: 1px solid;
+	border-color: rgb(2, 28, 33);
+}
+
+QPushButton:hover {
+	
+	background-color: rgb(5, 75, 88);
+}
+QPushButton:pressed {
+	
+	background-color: rgb(2, 38, 45);
+}</string>
+               </property>
+               <property name="text">
+                <string>VOLTAR</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_perfil">
-         <property name="maximumSize">
-          <size>
-           <width>80</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="0">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>78</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_69">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_45">
+             <item>
+              <widget class="QLabel" name="label_68">
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 161, 148);</string>
+               </property>
+               <property name="text">
+                <string>Versão - BETA08112022</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_69">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 161, 148);</string>
+               </property>
+               <property name="text">
+                <string>BEM-VINDO</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_95">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 161, 148);</string>
+               </property>
+               <property name="text">
+                <string>-------------</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
            <widget class="QFrame" name="frame">
             <property name="minimumSize">
              <size>
-              <width>52</width>
-              <height>52</height>
+              <width>65</width>
+              <height>65</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>52</width>
-              <height>52</height>
+              <width>66</width>
+              <height>66</height>
              </size>
             </property>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(239, 239, 239);
-border-radius: 25px</string>
+border-radius: 32px</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -377,13 +492,35 @@ border-radius: 25px</string>
          </layout>
         </widget>
        </item>
+       <item>
+        <widget class="QFrame" name="frame_13">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>10</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item>
      <widget class="QFrame" name="frameBody">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(238, 238, 238);</string>
+       <string notr="true"/>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -410,15 +547,15 @@ border-radius: 25px</string>
        <item>
         <widget class="QFrame" name="frame_4">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>20</horstretch>
-           <verstretch>20</verstretch>
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="maximumSize">
+         <property name="minimumSize">
           <size>
-           <width>87</width>
-           <height>16777215</height>
+           <width>10</width>
+           <height>0</height>
           </size>
          </property>
          <property name="frameShape">
@@ -431,8 +568,26 @@ border-radius: 25px</string>
        </item>
        <item>
         <widget class="QFrame" name="frameContainerBody">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>5</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>1000</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1300</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(238, 238, 238);</string>
+          <string notr="true"/>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -459,25 +614,25 @@ border-radius: 25px</string>
           <item>
            <widget class="QFrame" name="frameSubmenu">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
               <horstretch>20</horstretch>
               <verstretch>20</verstretch>
              </sizepolicy>
             </property>
             <property name="minimumSize">
              <size>
-              <width>0</width>
+              <width>1000</width>
               <height>60</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>1300</width>
               <height>55</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(227, 227, 227);</string>
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
@@ -485,324 +640,358 @@ border-radius: 25px</string>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <property name="spacing">
+              <number>11</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="labelNomemodulo">
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>11</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 53, 62);</string>
+               </property>
+               <property name="text">
+                <string>PAINEL DE CAMADOS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonInicio">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>93</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(89, 89, 89);
+	border: 1px solid;
+	border-color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+	color: rgb(0, 53, 62);
+	
+	background-color: rgb(240, 240, 240);
+	border: 1px solid;
+	
+	
+	border-color: rgb(223, 223, 223);
+}
+QPushButton:pressed {
+	
+	
+	background-color: rgb(188, 188, 188);
+}</string>
+               </property>
+               <property name="text">
+                <string>INICIO</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonUser">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>93</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(89, 89, 89);
+	border: 1px solid;
+	border-color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+	color: rgb(0, 53, 62);
+	
+	background-color: rgb(240, 240, 240);
+	border: 1px solid;
+	
+	
+	border-color: rgb(223, 223, 223);
+}
+QPushButton:pressed {
+	
+	
+	background-color: rgb(188, 188, 188);
+}</string>
+               </property>
+               <property name="text">
+                <string>CHAMADOS</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonCadastro">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>93</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(89, 89, 89);
+	border: 1px solid;
+	border-color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+	color: rgb(0, 53, 62);
+	
+	background-color: rgb(240, 240, 240);
+	border: 1px solid;
+	
+	
+	border-color: rgb(223, 223, 223);
+}
+QPushButton:pressed {
+	
+	
+	background-color: rgb(188, 188, 188);
+}</string>
+               </property>
+               <property name="text">
+                <string>CHAT</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonHistorico">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>93</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Asap</family>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(89, 89, 89);
+	border: 1px solid;
+	border-color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+	color: rgb(0, 53, 62);
+	
+	background-color: rgb(240, 240, 240);
+	border: 1px solid;
+	
+	
+	border-color: rgb(223, 223, 223);
+}
+QPushButton:pressed {
+	
+	
+	background-color: rgb(188, 188, 188);
+}</string>
+               </property>
+               <property name="text">
+                <string>HISTORICO</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>20</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(231, 231, 231);</string>
+            <property name="minimumSize">
+             <size>
+              <width>1000</width>
+              <height>0</height>
+             </size>
             </property>
-            <property name="frameShape">
-             <enum>QFrame::NoFrame</enum>
+            <property name="maximumSize">
+             <size>
+              <width>1300</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
-            <widget class="QWidget" name="pageHome">
-             <layout class="QVBoxLayout" name="verticalLayout_3">
+            <widget class="QWidget" name="pageHome"/>
+            <widget class="QWidget" name="pageChamados">
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout">
-                <property name="spacing">
-                 <number>9</number>
+               <widget class="QFrame" name="frame_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>216</width>
+                  <height>0</height>
+                 </size>
                 </property>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_6">
-                  <property name="spacing">
-                   <number>9</number>
-                  </property>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_14">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_13">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_12">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_11">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_10">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_8">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_7">
-                  <property name="spacing">
-                   <number>9</number>
-                  </property>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_3">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_7">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_9">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_5">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_6">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_4">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                      <horstretch>20</horstretch>
-                      <verstretch>20</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>178</width>
-                      <height>139</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>PushButton</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
-                <property name="spacing">
-                 <number>9</number>
+               <widget class="QFrame" name="frame_3">
+                <property name="minimumSize">
+                 <size>
+                  <width>530</width>
+                  <height>0</height>
+                 </size>
                 </property>
-                <item>
-                 <widget class="QGraphicsView" name="graphicsView">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>693</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="interactive">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGraphicsView" name="graphicsView_2">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>428</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="interactive">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_5">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="page_2"/>
+            <widget class="QWidget" name="pageChat"/>
            </widget>
           </item>
          </layout>
@@ -811,15 +1000,15 @@ border-radius: 25px</string>
        <item>
         <widget class="QFrame" name="frame_6">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>20</horstretch>
-           <verstretch>20</verstretch>
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="maximumSize">
+         <property name="minimumSize">
           <size>
-           <width>80</width>
-           <height>16777215</height>
+           <width>10</width>
+           <height>0</height>
           </size>
          </property>
          <property name="frameShape">
@@ -837,7 +1026,7 @@ border-radius: 25px</string>
   </widget>
  </widget>
  <resources>
-  <include location="iconesHome.qrc"/>
+  <include location="cadastro.qrc"/>
  </resources>
  <connections/>
 </ui>

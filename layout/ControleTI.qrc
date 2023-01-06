@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="menu">
+    <file>login/LOGOQ.png</file>
+  </qresource>
+  <qresource prefix="chamados">
+    <file>Chamados/status/atendimento.png</file>
+    <file>Chamados/status/concluido.png</file>
+    <file>Chamados/status/externo.png</file>
+    <file>Chamados/status/triagem.png</file>
+  </qresource>
+</RCC>
