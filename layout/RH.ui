@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainChamado</class>
- <widget class="QMainWindow" name="MainChamado">
+ <class>MainRH</class>
+ <widget class="QMainWindow" name="MainRH">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1543</width>
-    <height>816</height>
+    <width>1272</width>
+    <height>780</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1100</width>
-    <height>680</height>
+    <width>1272</width>
+    <height>780</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -233,7 +233,7 @@ QPushButton:pressed {
 }</string>
                </property>
                <property name="text">
-                <string>CHAMADOS</string>
+                <string>HOME</string>
                </property>
               </widget>
              </item>
@@ -282,7 +282,7 @@ QPushButton:pressed {
 }</string>
                </property>
                <property name="text">
-                <string>CONTROLE</string>
+                <string>-----</string>
                </property>
               </widget>
              </item>
@@ -331,7 +331,7 @@ QPushButton:pressed {
 }</string>
                </property>
                <property name="text">
-                <string>ESTOQUE</string>
+                <string>-----</string>
                </property>
               </widget>
              </item>
@@ -380,7 +380,7 @@ QPushButton:pressed {
 }</string>
                </property>
                <property name="text">
-                <string>VOLTAR</string>
+                <string>SAIR</string>
                </property>
               </widget>
              </item>
@@ -664,7 +664,7 @@ border-radius: 32px</string>
                 <string notr="true">color: rgb(0, 53, 62);</string>
                </property>
                <property name="text">
-                <string>PAINEL DE CAMADOS</string>
+                <string>GESTÃO DE PESSOAS</string>
                </property>
               </widget>
              </item>
@@ -772,7 +772,7 @@ QPushButton:pressed {
 }</string>
                </property>
                <property name="text">
-                <string>CHAMADOS</string>
+                <string>GESTÃO</string>
                </property>
               </widget>
              </item>
@@ -826,7 +826,7 @@ QPushButton:pressed {
 }</string>
                </property>
                <property name="text">
-                <string>CHAT</string>
+                <string>---</string>
                </property>
               </widget>
              </item>
@@ -880,7 +880,7 @@ QPushButton:pressed {
 }</string>
                </property>
                <property name="text">
-                <string>HISTORICO</string>
+                <string>---</string>
                </property>
               </widget>
              </item>
@@ -926,7 +926,694 @@ QPushButton:pressed {
             <property name="currentIndex">
              <number>0</number>
             </property>
-            <widget class="QWidget" name="pageHome"/>
+            <widget class="QWidget" name="pageHome">
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="frame_36">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                  <horstretch>1</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(0, 161, 148);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QFrame" name="frame_2">
+                   <property name="minimumSize">
+                    <size>
+                     <width>800</width>
+                     <height>600</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>800</width>
+                     <height>600</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <widget class="QWidget" name="">
+                    <property name="geometry">
+                     <rect>
+                      <x>31</x>
+                      <y>404</y>
+                      <width>731</width>
+                      <height>191</height>
+                     </rect>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_5">
+                     <property name="spacing">
+                      <number>15</number>
+                     </property>
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout">
+                       <item>
+                        <widget class="QPushButton" name="pushButtonNovo">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                           <horstretch>2</horstretch>
+                           <verstretch>2</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>128</width>
+                           <height>128</height>
+                          </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
+                         </property>
+                         <property name="layoutDirection">
+                          <enum>Qt::LeftToRight</enum>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton{
+	background-position:center;
+	background-repeat: no-repeat;
+	background-color: rgb(0, 53, 62);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+
+
+}
+
+QPushButton:pressed{
+
+background-color: rgb(0, 68, 79);
+border-radius: 20px;
+
+}
+</string>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="label_99">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>Asap</family>
+                           <pointsize>14</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(0, 53, 62);</string>
+                         </property>
+                         <property name="text">
+                          <string>EXCLUIR</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_3">
+                       <item>
+                        <widget class="QPushButton" name="pushButtonNovo_2">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                           <horstretch>2</horstretch>
+                           <verstretch>2</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>128</width>
+                           <height>128</height>
+                          </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
+                         </property>
+                         <property name="layoutDirection">
+                          <enum>Qt::LeftToRight</enum>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton{
+	background-position:center;
+	background-repeat: no-repeat;
+	background-color: rgb(0, 53, 62);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+
+
+}
+
+QPushButton:pressed{
+
+background-color: rgb(0, 68, 79);
+border-radius: 20px;
+
+}
+</string>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="label_100">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>Asap</family>
+                           <pointsize>14</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(0, 53, 62);</string>
+                         </property>
+                         <property name="text">
+                          <string>IMPRIMIR</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_4">
+                       <item>
+                        <widget class="QPushButton" name="pushButtonNovo_3">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                           <horstretch>2</horstretch>
+                           <verstretch>2</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>128</width>
+                           <height>128</height>
+                          </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
+                         </property>
+                         <property name="layoutDirection">
+                          <enum>Qt::LeftToRight</enum>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton{
+	background-position:center;
+	background-repeat: no-repeat;
+	background-color: rgb(0, 53, 62);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+
+
+}
+
+QPushButton:pressed{
+
+background-color: rgb(0, 68, 79);
+border-radius: 20px;
+
+}
+</string>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="label_101">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>Asap</family>
+                           <pointsize>14</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(0, 53, 62);</string>
+                         </property>
+                         <property name="text">
+                          <string>----</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_5">
+                       <item>
+                        <widget class="QPushButton" name="pushButtonNovo_4">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                           <horstretch>2</horstretch>
+                           <verstretch>2</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>128</width>
+                           <height>128</height>
+                          </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
+                         </property>
+                         <property name="layoutDirection">
+                          <enum>Qt::LeftToRight</enum>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton{
+	background-position:center;
+	background-repeat: no-repeat;
+	background-color: rgb(0, 53, 62);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+
+
+}
+
+QPushButton:pressed{
+
+background-color: rgb(0, 68, 79);
+border-radius: 20px;
+
+}
+</string>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="label_102">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>Asap</family>
+                           <pointsize>14</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(0, 53, 62);</string>
+                         </property>
+                         <property name="text">
+                          <string>----</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="">
+                    <property name="geometry">
+                     <rect>
+                      <x>31</x>
+                      <y>1</y>
+                      <width>731</width>
+                      <height>401</height>
+                     </rect>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_6">
+                     <property name="spacing">
+                      <number>15</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QPushButton" name="pushButtonEntrada">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                         <horstretch>2</horstretch>
+                         <verstretch>2</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>200</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>360</width>
+                         <height>350</height>
+                        </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="layoutDirection">
+                        <enum>Qt::LeftToRight</enum>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+	background-image: url(:/gestao/estoque/entrada e saida/Grupo 409.png);
+	background-position:center;
+	background-repeat: no-repeat;
+	background-color: rgb(0, 53, 62);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+background-image: url(:/gestao/estoque/entrada e saida/hover 409.png);
+
+}
+
+QPushButton:pressed{
+background-image: url(:/gestao/estoque/entrada e saida/press 409.png);
+background-color: rgb(0, 68, 79);
+border-radius: 20px;
+
+}
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButtonSaida">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                         <horstretch>2</horstretch>
+                         <verstretch>2</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>200</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>360</width>
+                         <height>350</height>
+                        </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="layoutDirection">
+                        <enum>Qt::LeftToRight</enum>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+	
+	background-image: url(:/gestao/estoque/entrada e saida/Grupo 408.png);
+	background-position:center;
+	background-repeat: no-repeat;
+	background-color: rgb(0, 53, 62);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;
+}
+
+QPushButton:hover{
+background-image: url(:/gestao/estoque/entrada e saida/hover 383.png);
+}
+
+QPushButton:pressed{
+background-image: url(:/gestao/estoque/entrada e saida/press 408.png);
+background-color: rgb(0, 68, 79);
+border-radius: 20px;
+
+}</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_37">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>450</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>450</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QFrame{
+	background-image: url(:/menu/estoque/icon.png);
+	background-position:center;
+	background-repeat: no-repeat;
+	background-color: rgb(0, 53, 62);
+}
+
+QFrame:hover{
+	background-image: url(:/menu/estoque/iconn.png);
+	background-position:center;
+	background-repeat: no-repeat;
+	background-color: rgb(0, 53, 62);
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_46">
+                 <property name="spacing">
+                  <number>20</number>
+                 </property>
+                 <item>
+                  <widget class="QFrame" name="frame_46">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>200</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>300</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-image: url(:/gestao/estoque/entrada e saida/Grupo 437.png);
+background-position:center;
+	background-repeat: no-repeat;
+	background-color: rgb(0, 53, 62);
+	border: 1px solid;
+	border-color: rgb(0, 53, 62);
+	border-radius: 15px;</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_51">
+                   <property name="font">
+                    <font>
+                     <family>Asap</family>
+                     <pointsize>48</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>GESTÃO RH</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_50">
+                   <property name="font">
+                    <font>
+                     <family>Asap</family>
+                     <pointsize>14</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>Bem vindo ao modulo de gestão
+ de estoque do setor de tecnologia.
+
+Aqui você tem acesso a todas as
+ ferramentas de controle e
+ visualização para uma melhor
+ gestão do seu estoque.</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page"/>
+            <widget class="QWidget" name="page_2"/>
            </widget>
           </item>
          </layout>

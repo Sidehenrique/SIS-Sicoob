@@ -876,7 +876,7 @@ QPushButton:pressed {
              <number>1</number>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>14</number>
             </property>
             <widget class="QWidget" name="pageHome">
              <layout class="QVBoxLayout" name="verticalLayout_3">
